@@ -21,21 +21,41 @@ def fetch_matches(date: str) -> list:
 
 
 def fetch_odds(match_ids: list) -> dict:
-    key = os.environ["ODDS_API_KEY"]
+    key = os.environ.get("ODDS_API_KEY", "")
+    if not key:
+        print("[fetch_odds] ODDS_API_KEY not set, skipping")
+        return {}
     url = f"{ODDS_API_BASE}/sports/soccer_fifa_world_cup/odds/"
-    params = {"apiKey": key, "markets": "asian_handicap,totals", "oddsFormat": "decimal"}
-    r = requests.get(url, params=params, timeout=10)
-    r.raise_for_status()
-    games = r.json()
-    return {g["id"]: g for g in games}
+    # try asian_handicap first; free tier may only support h2h+totals
+    for markets in ("asian_handicap,totals", "h2h,totals"):
+        params = {
+            "apiKey": key,
+            "markets": markets,
+            "oddsFormat": "decimal",
+            "regions": "us,uk,eu,au",
+        }
+        r = requests.get(url, params=params, timeout=10)
+        if r.status_code == 422:
+            print(f"[fetch_odds] 422 with markets={markets}, trying fallback")
+            continue
+        r.raise_for_status()
+        games = r.json()
+        print(f"[fetch_odds] Got {len(games)} games with markets={markets}")
+        return {g["id"]: g for g in games}
+    print("[fetch_odds] All market options failed, returning empty")
+    return {}
 
 
 def fetch_polymarket() -> dict:
     url = f"{POLYMARKET_BASE}/markets"
     params = {"tag": "world-cup-2026", "limit": 100}
-    r = requests.get(url, params=params, timeout=10)
-    r.raise_for_status()
-    markets = r.json().get("markets", [])
+    try:
+        r = requests.get(url, params=params, timeout=10)
+        r.raise_for_status()
+        markets = r.json().get("markets", [])
+    except Exception as e:
+        print(f"[fetch_polymarket] failed: {e}")
+        return {}
     result = {}
     for m in markets:
         q = m.get("question", "")
