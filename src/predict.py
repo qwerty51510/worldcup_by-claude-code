@@ -59,14 +59,17 @@ def predict_match(feature: dict, calibration: dict) -> dict:
     ou_confidence = _prob_to_confidence(ou_prob_over)
 
     key_factors = []
+    data_source = feature.get("data_source", "")
+    if data_source:
+        key_factors.append(f"強度來源：{data_source}")
     if feature.get("must_win_home"):
-        key_factors.append("must-win for home team")
+        key_factors.append("主隊必贏場")
     if feature.get("must_win_away"):
-        key_factors.append("must-win for away team")
+        key_factors.append("客隊必贏場")
     if abs(sharp) > 0.25:
-        key_factors.append(f"sharp line move: {sharp:+.2f}")
+        key_factors.append(f"盤口明顯移動 {sharp:+.2f}")
     if not key_factors:
-        key_factors.append("standard Poisson projection")
+        key_factors.append("Poisson 標準預測")
 
     return {
         "match_id": feature["match_id"],
