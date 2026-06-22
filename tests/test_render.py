@@ -29,8 +29,8 @@ def test_render_index_produces_html(tmp_path):
     render_index(SAMPLE_PREDICTIONS, "2026-06-22", str(out))
     assert out.exists()
     content = out.read_text()
-    assert "Brazil" in content
-    assert "Morocco" in content
+    assert "巴西" in content   # Brazil → 巴西 after Chinese translation
+    assert "摩洛哥" in content  # Morocco → 摩洛哥
     assert "65" in content
 
 

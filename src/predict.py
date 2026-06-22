@@ -91,14 +91,15 @@ def _generate_reasoning(home: str, away: str, lh: float, la: float,
                          p_home: float, p_draw: float, p_away: float,
                          ou_pred: str, ou_conf: int) -> str:
     from src.features import _load_elo, _load_wc_team_stats, _WC_LEAGUE_AVG
+    from src.config import team_zh
     elo = _load_elo()
     stats = _load_wc_team_stats()
 
+    h_zh, a_zh = team_zh(home), team_zh(away)
     h_elo = elo.get(home, 1500)
     a_elo = elo.get(away, 1500)
     diff = h_elo - a_elo
 
-    # Strength description
     if abs(diff) >= 400:
         str_text = f"實力差距懸殊（ELO {diff:+d}）"
     elif abs(diff) >= 200:
@@ -108,30 +109,28 @@ def _generate_reasoning(home: str, away: str, lh: float, la: float,
     else:
         str_text = f"實力相當（ELO {diff:+d}）"
 
-    lines = [f"【強度】{home}（{h_elo}）vs {away}（{a_elo}），{str_text}"]
+    lines = [f"【強度】{h_zh}（ELO {h_elo}）vs {a_zh}（ELO {a_elo}），{str_text}"]
 
-    # WC 2026 form
     form_parts = []
-    for team in [home, away]:
+    for team, zh in [(home, h_zh), (away, a_zh)]:
         s = stats.get(team)
         if s and s["played"] > 0:
-            form_parts.append(f"{team} {s['played']}場 進{s['scored']} 失{s['conceded']}")
+            form_parts.append(f"{zh} {s['played']}場 進{s['scored']} 失{s['conceded']}")
     if form_parts:
         lines.append("【近況】" + "；".join(form_parts))
 
-    # Goal expectation
     total = lh + la
-    lines.append(f"【進球預期】主{lh:.1f} + 客{la:.1f} = {total:.1f}，{ou_pred.upper()} {ou_conf}% 信心")
+    ou_label = "大球" if ou_pred == "over" else "小球"
+    lines.append(f"【進球預期】主 {lh:.1f} + 客 {la:.1f} = {total:.1f}，傾向{ou_label}（信心 {ou_conf}%）")
 
-    # Win probability narrative
-    fav = home if p_home > p_away else away
+    fav_zh = h_zh if p_home > p_away else a_zh
     fav_p = max(p_home, p_away)
     if fav_p >= 0.65:
-        lines.append(f"【勝負】{fav} 明顯佔優（勝率 {int(fav_p*100)}%），平局機率 {int(p_draw*100)}%")
+        lines.append(f"【勝負】{fav_zh} 明顯佔優（勝率 {int(fav_p*100)}%），平局機率 {int(p_draw*100)}%")
     elif fav_p >= 0.50:
-        lines.append(f"【勝負】{fav} 略佔優（勝率 {int(fav_p*100)}%），本場存在平局可能（{int(p_draw*100)}%）")
+        lines.append(f"【勝負】{fav_zh} 略佔優（勝率 {int(fav_p*100)}%），平局機率 {int(p_draw*100)}%")
     else:
-        lines.append(f"【勝負】雙方難分高下，平局機率 {int(p_draw*100)}% 不低")
+        lines.append(f"【勝負】雙方勢均力敵，平局機率 {int(p_draw*100)}% 不低")
 
     return "\n".join(lines)
 

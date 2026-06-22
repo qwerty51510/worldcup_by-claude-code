@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 import plotly.graph_objects as go
+from src.config import team_zh
 
 DOCS_DIR = Path(__file__).parent.parent / "docs"
 
@@ -342,13 +343,16 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
             else:
                 injury_html = '<div class="injury-box injury-none">傷兵狀況：暫無已知缺陣</div>'
 
+            home_zh = team_zh(p['home_team'])
+            away_zh = team_zh(p['away_team'])
+
             cards += f"""
 <div class="card">
   <div class="card-header">
     {'<div class="kickoff-time">🕐 開賽時間（UTC+8）：' + kickoff + '</div>' if kickoff else ''}
     <div class="teams">
       <div class="team home">
-        <div class="team-name">{p['home_team']}</div>
+        <div class="team-name">{home_zh}</div>
         <div class="team-strength">λ={p.get('lambda_home','?')}</div>
       </div>
       <div class="vs-block">
@@ -356,7 +360,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
         <div class="predicted-score">{score}</div>
       </div>
       <div class="team away">
-        <div class="team-name">{p['away_team']}</div>
+        <div class="team-name">{away_zh}</div>
         <div class="team-strength">λ={p.get('lambda_away','?')}</div>
       </div>
     </div>

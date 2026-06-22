@@ -8,77 +8,61 @@ For each match, we predict using ONLY data available BEFORE that match:
 import json
 from pathlib import Path
 from src.predict import _poisson_ah_prob, _poisson_ou_prob
-from src.config import FIFA_RANKINGS, BASE_LAMBDA, RANK_DECAY, AH_LINE_MULTIPLIER, DEFAULT_CALIBRATION
+from src.config import FIFA_RANKINGS, RANK_DECAY, AH_LINE_MULTIPLIER, DEFAULT_CALIBRATION
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 RESULTS_FILE = DATA_DIR / "wc2026_results.json"
 
 
-def _rank_to_strength(rank: int) -> float:
-    return 2.0 * (1.0 / (1.0 + (rank - 1) * RANK_DECAY))
-
-
-def _compute_team_form(team: str, completed_matches: list) -> dict:
-    """Compute rolling stats from completed WC matches."""
-    scored, conceded, played = 0, 0, 0
-    for m in completed_matches:
-        if m["home"] == team:
-            scored += m["home_goals"]
-            conceded += m["away_goals"]
-            played += 1
-        elif m["away"] == team:
-            scored += m["away_goals"]
-            conceded += m["home_goals"]
-            played += 1
-    if played == 0:
-        return {"avg_scored": None, "avg_conceded": None, "played": 0}
-    return {
-        "avg_scored": scored / played,
-        "avg_conceded": conceded / played,
-        "played": played,
-    }
-
-
 def _lambda_for_match(home: str, away: str, completed_before: list) -> tuple:
     """
-    Estimate expected goals using FIFA rankings + WC form (if available).
+    Walk-forward lambda using the same ELO-informed Bayesian model as features.py.
+    Only uses data available before this match (no future leakage).
     Returns (lambda_home, lambda_away, ah_line, ou_line, method).
     """
-    home_rank = FIFA_RANKINGS.get(home, 40)
-    away_rank = FIFA_RANKINGS.get(away, 40)
-    h_str = _rank_to_strength(home_rank)
-    a_str = _rank_to_strength(away_rank)
-    total_str = h_str + a_str
+    from src.features import _load_elo, _elo_to_strength, _WC_LEAGUE_AVG, _round_ah
 
-    # base expected goals from FIFA rankings
-    lh_base = BASE_LAMBDA * (h_str / total_str) * 2.0 + 0.1
-    la_base = BASE_LAMBDA * (a_str / total_str) * 2.0
+    elo = _load_elo()
+    PRIOR = 2.0  # same as features.py
 
-    h_form = _compute_team_form(home, completed_before)
-    a_form = _compute_team_form(away, completed_before)
+    # Build per-team stats from only matches completed before this one
+    stats: dict = {}
+    for m in completed_before:
+        for team, sc, cn in [
+            (m["home"], m["home_goals"], m["away_goals"]),
+            (m["away"], m["away_goals"], m["home_goals"]),
+        ]:
+            s = stats.setdefault(team, {"scored": 0, "conceded": 0, "played": 0})
+            s["scored"] += sc
+            s["conceded"] += cn
+            s["played"] += 1
 
-    # blend FIFA baseline with WC form:
-    # - 1 match: 10% form weight (too little data to trust)
-    # - 2+ matches: 30% form weight
-    def _blend(base, form_stats):
-        if form_stats["played"] == 0:
-            return base
-        w = 0.10 if form_stats["played"] == 1 else 0.30
-        return base * (1 - w) + form_stats["avg_scored"] * w
+    def team_strength(team: str) -> float:
+        if team in elo:
+            return _elo_to_strength(elo[team])
+        rank = FIFA_RANKINGS.get(team, 40)
+        return 2.0 * (1.0 / (1.0 + (rank - 1) * RANK_DECAY))
 
-    lh = _blend(lh_base, h_form)
-    la = _blend(la_base, a_form)
+    def smooth_rate(team: str, stat: str) -> float:
+        s = stats.get(team, {"scored": 0, "conceded": 0, "played": 0})
+        strength = team_strength(team)
+        prior_rate = (strength if stat == "scored" else 1.0 / strength) * _WC_LEAGUE_AVG
+        return (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / _WC_LEAGUE_AVG
 
-    lh = round(max(0.4, lh), 3)
-    la = round(max(0.3, la), 3)
+    h_atk = smooth_rate(home, "scored")
+    h_def = smooth_rate(home, "conceded")
+    a_atk = smooth_rate(away, "scored")
+    a_def = smooth_rate(away, "conceded")
 
-    # AH line: same multiplier as features.py (grid-search optimised 0.3)
-    ah_line = round(round(-(lh - la) * AH_LINE_MULTIPLIER * 4) / 4, 2)
-    # O/U: BASE_LAMBDA calibrated to 1.4 → totals already ≈ 2.8-3.2 naturally
-    ou_line = round((lh + la) * 2) / 2
-    method = "FIFA排名+WC實績" if (h_form["played"] > 0 or a_form["played"] > 0) else "FIFA排名"
+    lh = round(max(0.3, _WC_LEAGUE_AVG * h_atk * a_def + 0.05), 3)
+    la = round(max(0.3, _WC_LEAGUE_AVG * a_atk * h_def), 3)
+    ah_line = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
 
-    return lh, la, ah_line, ou_line, method
+    played_home = stats.get(home, {}).get("played", 0)
+    played_away = stats.get(away, {}).get("played", 0)
+    method = "ELO+WC實績" if (played_home + played_away) > 0 else "ELO基準"
+
+    return lh, la, ah_line, 2.5, method
 
 
 def _predict_single(home: str, away: str, lh: float, la: float,

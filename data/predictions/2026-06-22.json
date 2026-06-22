@@ -1,9 +1,9 @@
 [
   {
-    "match_id": "537399",
+    "match_id": "20001",
     "home_team": "Argentina",
     "away_team": "Austria",
-    "kickoff": "06/23 01:00",
+    "kickoff": "06/22 23:30",
     "ah_prediction": "home",
     "ah_confidence": 37,
     "ou_prediction": "over",
@@ -17,14 +17,14 @@
     ],
     "lambda_home": 2.246,
     "lambda_away": 0.857,
-    "reasoning": "【強度】Argentina（2031）vs Austria（1597），實力差距懸殊（ELO +434）\n【近況】Argentina 1場 進3 失0；Austria 1場 進3 失1\n【進球預期】主2.2 + 客0.9 = 3.1，OVER 19% 信心\n【勝負】Argentina 明顯佔優（勝率 68%），平局機率 18%",
+    "reasoning": "【強度】阿根廷（ELO 2031）vs 奧地利（ELO 1597），實力差距懸殊（ELO +434）\n【近況】阿根廷 1場 進3 失0；奧地利 1場 進3 失1\n【進球預期】主 2.2 + 客 0.9 = 3.1，傾向大球（信心 19%）\n【勝負】阿根廷 明顯佔優（勝率 68%），平局機率 18%",
     "injury_notes": []
   },
   {
-    "match_id": "537393",
+    "match_id": "20002",
     "home_team": "France",
     "away_team": "Iraq",
-    "kickoff": "06/23 05:00",
+    "kickoff": "06/23 03:30",
     "ah_prediction": "home",
     "ah_confidence": 63,
     "ou_prediction": "over",
@@ -38,14 +38,14 @@
     ],
     "lambda_home": 4.34,
     "lambda_away": 0.774,
-    "reasoning": "【強度】France（2005）vs Iraq（1353），實力差距懸殊（ELO +652）\n【近況】France 1場 進3 失1；Iraq 1場 進1 失4\n【進球預期】主4.3 + 客0.8 = 5.1，OVER 75% 信心\n【勝負】France 明顯佔優（勝率 89%），平局機率 5%",
+    "reasoning": "【強度】法國（ELO 2005）vs 伊拉克（ELO 1353），實力差距懸殊（ELO +652）\n【近況】法國 1場 進3 失1；伊拉克 1場 進1 失4\n【進球預期】主 4.3 + 客 0.8 = 5.1，傾向大球（信心 75%）\n【勝負】法國 明顯佔優（勝率 89%），平局機率 5%",
     "injury_notes": []
   },
   {
-    "match_id": "537394",
+    "match_id": "20003",
     "home_team": "Norway",
     "away_team": "Senegal",
-    "kickoff": "06/23 08:00",
+    "kickoff": "06/23 06:30",
     "ah_prediction": "home",
     "ah_confidence": 56,
     "ou_prediction": "over",
@@ -59,7 +59,49 @@
     ],
     "lambda_home": 3.26,
     "lambda_away": 1.129,
-    "reasoning": "【強度】Norway（1731）vs Senegal（1647），實力略佔優勢（ELO +84）\n【近況】Norway 1場 進4 失1；Senegal 1場 進1 失3\n【進球預期】主3.3 + 客1.1 = 4.4，OVER 62% 信心\n【勝負】Norway 明顯佔優（勝率 77%），平局機率 12%",
+    "reasoning": "【強度】挪威（ELO 1731）vs 塞內加爾（ELO 1647），實力略佔優勢（ELO +84）\n【近況】挪威 1場 進4 失1；塞內加爾 1場 進1 失3\n【進球預期】主 3.3 + 客 1.1 = 4.4，傾向大球（信心 62%）\n【勝負】挪威 明顯佔優（勝率 77%），平局機率 12%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "20004",
+    "home_team": "Jordan",
+    "away_team": "Algeria",
+    "kickoff": "06/23 09:30",
+    "ah_prediction": "away",
+    "ah_confidence": 14,
+    "ou_prediction": "over",
+    "ou_confidence": 19,
+    "predicted_score": "1-1",
+    "p_home_win": 0.428,
+    "p_draw": 0.237,
+    "p_away_win": 0.334,
+    "key_factors": [
+      "強度來源：WC 2026 實戰數據"
+    ],
+    "lambda_home": 1.655,
+    "lambda_away": 1.438,
+    "reasoning": "【強度】約旦（ELO 1346）vs 阿爾及利亞（ELO 1498），實力略佔優勢（ELO -152）\n【近況】約旦 1場 進1 失3；阿爾及利亞 1場 進0 失3\n【進球預期】主 1.7 + 客 1.4 = 3.1，傾向大球（信心 19%）\n【勝負】雙方勢均力敵，平局機率 23% 不低",
+    "injury_notes": []
+  },
+  {
+    "match_id": "20005",
+    "home_team": "Portugal",
+    "away_team": "Uzbekistan",
+    "kickoff": "06/23 23:30",
+    "ah_prediction": "home",
+    "ah_confidence": 52,
+    "ou_prediction": "over",
+    "ou_confidence": 33,
+    "predicted_score": "2-0",
+    "p_home_win": 0.76,
+    "p_draw": 0.147,
+    "p_away_win": 0.091,
+    "key_factors": [
+      "強度來源：WC 2026 實戰數據"
+    ],
+    "lambda_home": 2.63,
+    "lambda_away": 0.81,
+    "reasoning": "【強度】葡萄牙（ELO 1887）vs 烏茲別克（ELO 1312），實力差距懸殊（ELO +575）\n【近況】葡萄牙 1場 進1 失1；烏茲別克 1場 進1 失3\n【進球預期】主 2.6 + 客 0.8 = 3.4，傾向大球（信心 33%）\n【勝負】葡萄牙 明顯佔優（勝率 76%），平局機率 14%",
     "injury_notes": []
   },
   {
