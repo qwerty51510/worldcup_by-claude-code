@@ -123,19 +123,26 @@ def _lambda_from_rankings(home: str, away: str) -> tuple:
 
 def _lambda_from_wc_form(home: str, away: str):
     """
-    Bayesian-smoothed Dixon-Coles lambda from WC 2026 form data.
-    Prior = 2 matches at league average (1.51 goals/team/match).
-    Returns None if neither team has WC data.
+    Bayesian-smoothed Dixon-Coles lambda.
+    Prior is ELO-informed (not flat league average) so teams with only 1 WC match
+    still reflect their historical strength rather than regressing to the mean.
     """
     stats = _load_wc_team_stats()
-    if home not in stats and away not in stats:
-        return None
+    elo = _load_elo()
 
-    PRIOR = 2.0  # smoothing weight; reduces small-sample extremes
+    PRIOR = 2.0  # equivalent prior matches weighted by ELO-based expectation
+
+    def team_strength(team: str) -> float:
+        if team in elo:
+            return _elo_to_strength(elo[team])
+        return _rank_to_strength(FIFA_RANKINGS.get(team, 40))
 
     def smooth_rate(team: str, stat: str) -> float:
         s = stats.get(team, {"scored": 0, "conceded": 0, "played": 0})
-        return (s[stat] + PRIOR * _WC_LEAGUE_AVG) / (s["played"] + PRIOR) / _WC_LEAGUE_AVG
+        strength = team_strength(team)
+        # ELO-informed prior: strong teams expected to score more and concede less
+        prior_rate = (strength if stat == "scored" else 1.0 / strength) * _WC_LEAGUE_AVG
+        return (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / _WC_LEAGUE_AVG
 
     h_atk = smooth_rate(home, "scored")
     h_def = smooth_rate(home, "conceded")
