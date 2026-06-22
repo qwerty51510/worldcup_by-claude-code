@@ -193,6 +193,7 @@ def predict_match(feature: dict, calibration: dict) -> dict:
         "home_team": home,
         "away_team": away,
         "kickoff": _format_kickoff(feature.get("kickoff_utc", "")),
+        "kickoff_utc": feature.get("kickoff_utc", ""),
         "ah_prediction": ah_prediction,
         "ah_confidence": ah_confidence,
         "ou_prediction": ou_prediction,

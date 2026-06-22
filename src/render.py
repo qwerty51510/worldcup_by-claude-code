@@ -278,6 +278,18 @@ def _base_html(title: str, body: str, active_nav: str = "") -> str:
 <main>
 {body}
 </main>
+<script>
+document.querySelectorAll('time.local-time').forEach(function(el) {{
+  var dt = new Date(el.getAttribute('datetime'));
+  if (!isNaN(dt)) {{
+    var mm = String(dt.getMonth() + 1).padStart(2, '0');
+    var dd = String(dt.getDate()).padStart(2, '0');
+    var hh = String(dt.getHours()).padStart(2, '0');
+    var mi = String(dt.getMinutes()).padStart(2, '0');
+    el.textContent = mm + '/' + dd + ' ' + hh + ':' + mi;
+  }}
+}});
+</script>
 </body>
 </html>"""
 
@@ -329,6 +341,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
             ah_line_val = p.get("lambda_home", 0) - p.get("lambda_away", 0)
 
             kickoff = p.get("kickoff", "")
+            kickoff_utc = p.get("kickoff_utc", "")
             reasoning_lines = p.get("reasoning", "").split("\n")
             injury_notes = p.get("injury_notes", [])
 
@@ -349,7 +362,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
             cards += f"""
 <div class="card">
   <div class="card-header">
-    {'<div class="kickoff-time">🕐 開賽時間（UTC+8）：' + kickoff + '</div>' if kickoff else ''}
+    {'<div class="kickoff-time">🕐 開賽時間：<time class="local-time" datetime="' + kickoff_utc + '">' + kickoff + '</time></div>' if kickoff_utc else ''}
     <div class="teams">
       <div class="team home">
         <div class="team-name">{home_zh}</div>
