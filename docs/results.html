@@ -255,5 +255,17 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 </div>
 <div class='empty'><div class='empty-icon'>🏆</div><p>賽事結果將在每場比賽後自動更新</p></div>
 </main>
+<script>
+document.querySelectorAll('time.local-time').forEach(function(el) {
+  var dt = new Date(el.getAttribute('datetime'));
+  if (!isNaN(dt)) {
+    var mm = String(dt.getMonth() + 1).padStart(2, '0');
+    var dd = String(dt.getDate()).padStart(2, '0');
+    var hh = String(dt.getHours()).padStart(2, '0');
+    var mi = String(dt.getMinutes()).padStart(2, '0');
+    el.textContent = mm + '/' + dd + ' ' + hh + ':' + mi;
+  }
+});
+</script>
 </body>
 </html>

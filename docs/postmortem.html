@@ -256,5 +256,17 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 <p>列出模型信心高但預測錯誤的比賽，用於識別模型盲點並調整參數。</p>
 <div class='empty'><div class='empty-icon'>✅</div><p>目前尚無高誤差預測紀錄</p></div>
 </main>
+<script>
+document.querySelectorAll('time.local-time').forEach(function(el) {
+  var dt = new Date(el.getAttribute('datetime'));
+  if (!isNaN(dt)) {
+    var mm = String(dt.getMonth() + 1).padStart(2, '0');
+    var dd = String(dt.getDate()).padStart(2, '0');
+    var hh = String(dt.getHours()).padStart(2, '0');
+    var mi = String(dt.getMinutes()).padStart(2, '0');
+    el.textContent = mm + '/' + dd + ' ' + hh + ':' + mi;
+  }
+});
+</script>
 </body>
 </html>

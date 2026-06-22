@@ -257,7 +257,7 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 <div class="cards">
 <div class="card">
   <div class="card-header">
-    <div class="kickoff-time">🕐 開賽時間（UTC+8）：06/23 01:00</div>
+    <div class="kickoff-time">🕐 開賽時間：<time class="local-time" datetime="2026-06-22T17:00:00Z">06/23 01:00</time></div>
     <div class="teams">
       <div class="team home">
         <div class="team-name">阿根廷</div>
@@ -317,7 +317,7 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 </div>
 <div class="card">
   <div class="card-header">
-    <div class="kickoff-time">🕐 開賽時間（UTC+8）：06/23 05:00</div>
+    <div class="kickoff-time">🕐 開賽時間：<time class="local-time" datetime="2026-06-22T21:00:00Z">06/23 05:00</time></div>
     <div class="teams">
       <div class="team home">
         <div class="team-name">法國</div>
@@ -377,7 +377,7 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 </div>
 <div class="card">
   <div class="card-header">
-    <div class="kickoff-time">🕐 開賽時間（UTC+8）：06/23 08:00</div>
+    <div class="kickoff-time">🕐 開賽時間：<time class="local-time" datetime="2026-06-23T00:00:00Z">06/23 08:00</time></div>
     <div class="teams">
       <div class="team home">
         <div class="team-name">挪威</div>
@@ -437,7 +437,7 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 </div>
 <div class="card">
   <div class="card-header">
-    <div class="kickoff-time">🕐 開賽時間（UTC+8）：06/23 11:00</div>
+    <div class="kickoff-time">🕐 開賽時間：<time class="local-time" datetime="2026-06-23T03:00:00Z">06/23 11:00</time></div>
     <div class="teams">
       <div class="team home">
         <div class="team-name">約旦</div>
@@ -497,7 +497,7 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 </div>
 <div class="card">
   <div class="card-header">
-    <div class="kickoff-time">🕐 開賽時間（UTC+8）：06/24 01:00</div>
+    <div class="kickoff-time">🕐 開賽時間：<time class="local-time" datetime="2026-06-23T17:00:00Z">06/24 01:00</time></div>
     <div class="teams">
       <div class="team home">
         <div class="team-name">葡萄牙</div>
@@ -557,7 +557,7 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 </div>
 <div class="card">
   <div class="card-header">
-    <div class="kickoff-time">🕐 開賽時間（UTC+8）：06/24 04:00</div>
+    <div class="kickoff-time">🕐 開賽時間：<time class="local-time" datetime="2026-06-23T20:00:00Z">06/24 04:00</time></div>
     <div class="teams">
       <div class="team home">
         <div class="team-name">英格蘭</div>
@@ -617,7 +617,7 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 </div>
 <div class="card">
   <div class="card-header">
-    <div class="kickoff-time">🕐 開賽時間（UTC+8）：06/24 07:00</div>
+    <div class="kickoff-time">🕐 開賽時間：<time class="local-time" datetime="2026-06-23T23:00:00Z">06/24 07:00</time></div>
     <div class="teams">
       <div class="team home">
         <div class="team-name">巴拿馬</div>
@@ -676,5 +676,17 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
   </div>
 </div></div>
 </main>
+<script>
+document.querySelectorAll('time.local-time').forEach(function(el) {
+  var dt = new Date(el.getAttribute('datetime'));
+  if (!isNaN(dt)) {
+    var mm = String(dt.getMonth() + 1).padStart(2, '0');
+    var dd = String(dt.getDate()).padStart(2, '0');
+    var hh = String(dt.getHours()).padStart(2, '0');
+    var mi = String(dt.getMinutes()).padStart(2, '0');
+    el.textContent = mm + '/' + dd + ' ' + hh + ':' + mi;
+  }
+});
+</script>
 </body>
 </html>
