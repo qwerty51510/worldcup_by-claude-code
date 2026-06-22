@@ -116,3 +116,89 @@ def save_match_day(date: str, data: dict) -> None:
     out_dir = Path(DATA_DIR) / "matches"
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / f"{date}.json").write_text(json.dumps(data, ensure_ascii=False, indent=2))
+
+
+# football-data.org sometimes uses different team names than our config
+_TEAM_NAME_MAP = {
+    "Korea Republic": "South Korea",
+    "Côte d'Ivoire": "Ivory Coast",
+    "IR Iran": "Iran",
+    "Bosnia-Herzegovina": "Bosnia and Herzegovina",
+    "USA": "United States",
+    "Cape Verde Islands": "Cabo Verde",
+}
+
+
+def _normalize_team(name: str) -> str:
+    return _TEAM_NAME_MAP.get(name, name)
+
+
+def fetch_completed_results() -> list:
+    """Fetch all FINISHED WC 2026 matches from football-data.org."""
+    key = os.environ.get("FOOTBALL_DATA_API_KEY", "")
+    if not key:
+        print("[fetch_completed_results] FOOTBALL_DATA_API_KEY not set, skipping")
+        return []
+    headers = {"X-Auth-Token": key}
+    url = f"{FOOTBALL_DATA_BASE}/competitions/{WORLD_CUP_COMPETITION_ID}/matches"
+    try:
+        r = requests.get(url, headers=headers, params={"status": "FINISHED"}, timeout=15)
+        r.raise_for_status()
+        time.sleep(6)
+        matches = r.json().get("matches", [])
+        print(f"[fetch_completed_results] Got {len(matches)} finished matches")
+        return matches
+    except Exception as e:
+        print(f"[fetch_completed_results] failed: {e}")
+        return []
+
+
+def update_wc_results() -> int:
+    """
+    Pull all finished WC 2026 matches, merge into wc2026_results.json.
+    Returns number of new matches added.
+    """
+    raw = fetch_completed_results()
+    if not raw:
+        return 0
+
+    results_path = DATA_DIR / "wc2026_results.json"
+    existing = json.loads(results_path.read_text()) if results_path.exists() else []
+    existing_keys = {(r["home"], r["away"], r["date"]) for r in existing}
+
+    new_records = []
+    for m in raw:
+        home = _normalize_team(m.get("homeTeam", {}).get("name", ""))
+        away = _normalize_team(m.get("awayTeam", {}).get("name", ""))
+        date_str = (m.get("utcDate", "") or "")[:10]
+        score = m.get("score", {}).get("fullTime", {})
+        home_goals = score.get("home")
+        away_goals = score.get("away")
+        group_raw = m.get("group", "") or ""
+        group = group_raw.replace("GROUP_", "") if group_raw.startswith("GROUP_") else ""
+        matchday = m.get("matchday") or 0
+
+        if not home or not away or home_goals is None or away_goals is None:
+            continue
+        if (home, away, date_str) in existing_keys:
+            continue
+
+        new_records.append({
+            "date": date_str,
+            "group": group,
+            "home": home,
+            "away": away,
+            "home_goals": int(home_goals),
+            "away_goals": int(away_goals),
+            "round": int(matchday),
+        })
+        existing_keys.add((home, away, date_str))
+
+    if new_records:
+        merged = sorted(existing + new_records, key=lambda r: r["date"])
+        results_path.write_text(json.dumps(merged, ensure_ascii=False, indent=2))
+        print(f"[update_wc_results] Added {len(new_records)} new result(s)")
+    else:
+        print("[update_wc_results] No new results")
+
+    return len(new_records)

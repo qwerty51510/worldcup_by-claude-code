@@ -208,11 +208,21 @@ def print_report(report: dict) -> None:
     print(f"{'='*60}\n")
 
 
-if __name__ == "__main__":
-    report = run_validation()
-    print_report(report)
-
+def save_validation(report: dict) -> None:
     out = DATA_DIR / "backtest" / "wc2026_validation.json"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(report, ensure_ascii=False, indent=2, default=str))
-    print(f"詳細結果已存至 {out}")
+    print(f"[validate] 詳細結果已存至 {out}")
+
+
+def refresh_validation() -> dict:
+    """Run walk-forward validation, save results, return report."""
+    report = run_validation()
+    save_validation(report)
+    return report
+
+
+if __name__ == "__main__":
+    report = run_validation()
+    print_report(report)
+    save_validation(report)
