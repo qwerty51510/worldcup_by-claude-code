@@ -251,92 +251,95 @@ def save_validation(report: dict) -> None:
 
 
 def refresh_validation() -> dict:
-    """Run walk-forward validation, save results, return report."""
+    """Run walk-forward validation, save results, re-run model comparison."""
     report = run_validation()
     save_validation(report)
+    compare_models(save=True)  # auto A/B test on every data update
     return report
 
 
-def compare_models(rho_values: list = None) -> None:
+def compare_models(rho_values: list = None, save: bool = True) -> dict:
     """
-    A/B test: run walk-forward validation for plain Poisson (ρ=0) and one or more
-    Dixon-Coles ρ values. Print a side-by-side comparison table.
+    A/B test: run walk-forward validation for plain Poisson (ρ=0) and DC variants.
+    Saves results to data/backtest/model_comparison.json when save=True.
+    Returns the comparison dict.
     """
+    from datetime import datetime as _dt
     if rho_values is None:
         rho_values = [-0.05, -0.10, -0.13, -0.18]
 
-    configs = [("Plain Poisson (ρ=0.00)", 0.0)] + [
-        ("Dixon-Coles  ρ=%.2f" % r, r) for r in rho_values
-    ]
-
-    print("\n%s" % ("=" * 72))
-    print("  模型對比：Plain Poisson vs Dixon-Coles (ρ 修正)")
-    print("=" * 72)
-    header = "  %-28s  %6s  %6s  %7s  %7s"
-    print(header % ("版本", "AH準確", "OU準確", "AH Brier", "OU Brier"))
-    print("  " + "-" * 68)
-
-    best_ah = ("", 0.0)
-    best_ou = ("", 0.0)
+    configs = [("plain_poisson", 0.0)] + [("dc_rho_%.2f" % r, r) for r in rho_values]
     rows = []
-
     for label, rho in configs:
         r = run_validation(rho=rho)
-        ah = r["ah_accuracy"]
-        ou = r["ou_accuracy"]
-        ab = r["ah_brier"]
-        ob = r["ou_brier"]
-        rows.append((label, rho, ah, ou, ab, ob))
-        if ah > best_ah[1]:
-            best_ah = (label, ah)
-        if ou > best_ou[1]:
-            best_ou = (label, ou)
+        rows.append({
+            "label": label, "rho": rho,
+            "ah_accuracy": round(r["ah_accuracy"], 4),
+            "ou_accuracy": round(r["ou_accuracy"], 4),
+            "ah_brier": round(r["ah_brier"], 4),
+            "ou_brier": round(r["ou_brier"], 4),
+            "total_matches": r["total_matches"],
+        })
 
-    for label, rho, ah, ou, ab, ob in rows:
-        ah_mark = " ◀" if label == best_ah[0] else ""
-        ou_mark = " ◀" if label == best_ou[0] else ""
-        print("  %-28s  %5.1f%%  %5.1f%%  %7.3f  %7.3f%s%s" % (
-            label, ah * 100, ou * 100, ab, ob, ah_mark, ou_mark))
-
-    print("=" * 72)
-    print("\n  ◀ = 最佳")
-    print("\n【差異分析】")
     base = rows[0]
-    for label, rho, ah, ou, ab, ob in rows[1:]:
-        d_ah = (ah - base[2]) * 100
-        d_ou = (ou - base[3]) * 100
-        print("  ρ=%.2f  AH %+.1f%%  OU %+.1f%%" % (rho, d_ah, d_ou))
-    print()
+    best_ah = max(rows, key=lambda x: x["ah_accuracy"])
+    best_ou = max(rows, key=lambda x: x["ou_accuracy"])
 
-    # Per-match detail: where did DC change the prediction vs plain Poisson?
-    base_results = run_validation(rho=0.0)["all_results"]
-    best_rho = min(rho_values, key=lambda r: abs(r - (-0.13)))
-    dc_results  = run_validation(rho=best_rho)["all_results"]
-    changed = []
-    for b, d in zip(base_results, dc_results):
-        if b["ah_pred"] != d["ah_pred"] or b["ou_pred"] != d["ou_pred"]:
-            changed.append((b, d))
-    print("  ρ=%.2f 相較 ρ=0 改變預測的場次：%d 場" % (best_rho, len(changed)))
-    for b, d in changed[:10]:
-        print("  [%s] %s vs %s" % (b["date"], b["home"], b["away"]))
-        if b["ah_pred"] != d["ah_pred"]:
-            ah_ok_b = "✓" if b["ah_correct"] else "✗"
-            ah_ok_d = "✓" if d["ah_correct"] else "✗"
-            print("    AH: ρ=0→%s%s  DC→%s%s  實際=%s" % (
-                b["ah_pred"], ah_ok_b, d["ah_pred"], ah_ok_d, b["actual_ah"]))
-        if b["ou_pred"] != d["ou_pred"]:
-            ou_ok_b = "✓" if b["ou_correct"] else "✗"
-            ou_ok_d = "✓" if d["ou_correct"] else "✗"
-            print("    OU: ρ=0→%s%s  DC→%s%s  實際=%s" % (
-                b["ou_pred"], ou_ok_b, d["ou_pred"], ou_ok_d, b["actual_ou"]))
+    result = {
+        "updated_at": _dt.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "total_matches": base["total_matches"],
+        "current_model": "plain_poisson",
+        "current_ah_accuracy": base["ah_accuracy"],
+        "current_ou_accuracy": base["ou_accuracy"],
+        "best_ah_model": best_ah["label"],
+        "best_ah_accuracy": best_ah["ah_accuracy"],
+        "best_ou_model": best_ou["label"],
+        "best_ou_accuracy": best_ou["ou_accuracy"],
+        "adopt_dc_rho": None,  # filled below
+        "rows": rows,
+    }
+
+    # Recommend adoption if any DC rho beats current by ≥2%
+    for row in rows[1:]:
+        d_ah = row["ah_accuracy"] - base["ah_accuracy"]
+        d_ou = row["ou_accuracy"] - base["ou_accuracy"]
+        if d_ah >= 0.02 or d_ou >= 0.02:
+            result["adopt_dc_rho"] = row["rho"]
+            break
+
+    if save:
+        out = DATA_DIR / "backtest" / "model_comparison.json"
+        out.parent.mkdir(parents=True, exist_ok=True)
+        out.write_text(json.dumps(result, ensure_ascii=False, indent=2))
+        print("[compare_models] 結果已存至 %s" % out)
+
+    # Print summary
+    print("\n%s" % ("=" * 72))
+    print("  模型對比：Plain Poisson vs Dixon-Coles (%d 場回測)" % base["total_matches"])
+    print("=" * 72)
+    print("  %-26s  %6s  %6s  %7s  %7s" % ("版本", "AH準確", "OU準確", "AH Brier", "OU Brier"))
+    print("  " + "-" * 66)
+    for row in rows:
+        ah_m = " ◀" if row["label"] == best_ah["label"] else ""
+        ou_m = " ◀" if row["label"] == best_ou["label"] else ""
+        print("  %-26s  %5.1f%%  %5.1f%%  %7.3f  %7.3f%s%s" % (
+            row["label"], row["ah_accuracy"]*100, row["ou_accuracy"]*100,
+            row["ah_brier"], row["ou_brier"], ah_m, ou_m))
+    print("=" * 72)
+    if result["adopt_dc_rho"] is not None:
+        print("  ⚡ 建議採用 ρ=%.2f（AH 或 OU 改善 ≥2%%）" % result["adopt_dc_rho"])
+    else:
+        print("  ✓ 維持現有模型（無 DC 版本改善 ≥2%%）")
     print()
+    return result
 
 
 if __name__ == "__main__":
     import sys
     if "--compare" in sys.argv:
-        compare_models()
+        compare_models(save=True)
     else:
         report = run_validation()
         print_report(report)
         save_validation(report)
+        compare_models(save=True)
