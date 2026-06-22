@@ -373,7 +373,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
         <span class="market-name {ah_color}">{ah_label}</span>
         <span class="conf-badge {cc_ah}">信心 {ah_conf}%</span>
       </div>
-      {_prob_bar(50 + ah_conf // 2, ah_fill)}
+      {_prob_bar(ah_conf, ah_fill)}
     </div>
     <div class="market-box">
       <div class="market-label">大小球（2.5）</div>
@@ -381,7 +381,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
         <span class="market-name {ou_color}">{ou_label}</span>
         <span class="conf-badge {cc_ou}">信心 {ou_conf}%</span>
       </div>
-      {_prob_bar(50 + ou_conf // 2, ou_fill)}
+      {_prob_bar(ou_conf, ou_fill)}
     </div>
     <div class="market-box">
       <div class="market-label">勝負賠率（1X2）</div>

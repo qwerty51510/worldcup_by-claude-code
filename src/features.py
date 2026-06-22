@@ -149,7 +149,9 @@ def _lambda_from_wc_form(home: str, away: str):
     a_atk = smooth_rate(away, "scored")
     a_def = smooth_rate(away, "conceded")
 
-    lh = round(max(0.3, _WC_LEAGUE_AVG * h_atk * a_def + 0.05), 3)  # +0.05 home advantage
+    _HOST_NATIONS = {"United States", "Canada", "Mexico"}
+    home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
+    lh = round(max(0.3, _WC_LEAGUE_AVG * h_atk * a_def + home_bonus), 3)
     la = round(max(0.3, _WC_LEAGUE_AVG * a_atk * h_def), 3)
     ah_line = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
     return lh, la, ah_line, 2.5
