@@ -29,7 +29,7 @@ def run(date: str) -> None:
         save_match_day(date, {"matches": matches, "odds": odds, "polymarket": polymarket})
 
     print("[pipeline] Building features...")
-    features = build_features(matches, odds, calibration)
+    features = build_features(matches, odds, calibration, pm_strengths=polymarket)
 
     print("[pipeline] Predicting...")
     predictions = predict_all(features, calibration)

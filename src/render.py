@@ -112,9 +112,19 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
             cc_ah = _conf_class(p["ah_confidence"])
             cc_ou = _conf_class(p["ou_confidence"])
             factors = "、".join(p.get("key_factors", []))
+            score = p.get("predicted_score", "?-?")
+            p_hw = int(p.get("p_home_win", 0) * 100)
+            p_d = int(p.get("p_draw", 0) * 100)
+            p_aw = int(p.get("p_away_win", 0) * 100)
+            score_cell = (
+                f"<span style='font-weight:700;font-size:1.05rem;color:#f5c518'>{score}</span>"
+                f"<br><span style='font-size:0.75rem;color:#666'>"
+                f"主{p_hw}% 平{p_d}% 客{p_aw}%</span>"
+            )
             rows += (
                 f"<tr>"
                 f"<td class='match-name'>{p['home_team']} vs {p['away_team']}</td>"
+                f"<td>{score_cell}</td>"
                 f"<td><span class='badge {cc_ah}'>{ah_label} {p['ah_confidence']}%</span></td>"
                 f"<td><span class='badge {cc_ou}'>{ou_label} {p['ou_confidence']}%</span></td>"
                 f"<td class='factor'>{factors}</td>"
@@ -122,7 +132,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
             )
         table = (
             "<table><thead><tr>"
-            "<th>比賽</th><th>亞洲讓球盤</th><th>大小球</th><th>關鍵因素</th>"
+            "<th>比賽</th><th>預測比分</th><th>亞洲讓球盤</th><th>大小球</th><th>關鍵因素</th>"
             f"</tr></thead><tbody>{rows}</tbody></table>"
         )
     else:

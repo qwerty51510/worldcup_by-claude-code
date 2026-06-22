@@ -7,7 +7,7 @@ def test_run_calls_all_stages(monkeypatch):
     monkeypatch.setattr("src.pipeline.fetch_odds", lambda ids: {})
     monkeypatch.setattr("src.pipeline.fetch_polymarket", lambda: {})
     monkeypatch.setattr("src.pipeline.save_match_day", lambda d, data: None)
-    monkeypatch.setattr("src.pipeline.build_features", lambda m, o, c: [])
+    monkeypatch.setattr("src.pipeline.build_features", lambda m, o, c, pm_strengths=None: [])
     monkeypatch.setattr("src.pipeline.predict_all", lambda f, c: [])
     monkeypatch.setattr("src.pipeline.save_predictions", lambda d, p: calls.append("save_pred"))
     monkeypatch.setattr("src.pipeline.load_calibration", lambda: {})

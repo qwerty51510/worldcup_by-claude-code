@@ -55,26 +55,53 @@ def fetch_odds(match_ids: list) -> dict:
 
 
 def fetch_polymarket() -> dict:
+    """Fetch Polymarket WC 2026 winner market probabilities (team → P(win WC))."""
     url = f"{POLYMARKET_BASE}/markets"
-    params = {"tag": "world-cup-2026", "limit": 100}
+    params = {"q": "win the 2026 FIFA World Cup", "limit": 60}
     try:
         r = requests.get(url, params=params, timeout=10)
         r.raise_for_status()
         data = r.json()
-        # API returns list directly or dict with "markets" key
-        markets = data if isinstance(data, list) else data.get("markets", [])
+        if not isinstance(data, list):
+            return {}
     except Exception as e:
         print(f"[fetch_polymarket] failed: {e}")
         return {}
+
     result = {}
-    for m in markets:
+    for m in data:
+        if not isinstance(m, dict):
+            continue
         q = m.get("question", "")
-        prices = m.get("outcomePrices", [])
-        if "win" in q.lower() and len(prices) >= 1:
+        if "win the 2026 FIFA World Cup" not in q:
+            continue
+        outs = m.get("outcomes", [])
+        if isinstance(outs, str):
             try:
-                result[q] = float(prices[0])
-            except (ValueError, TypeError):
-                pass
+                outs = json.loads(outs)
+            except Exception:
+                continue
+        if outs != ["Yes", "No"]:
+            continue
+        prices = m.get("outcomePrices", [])
+        if isinstance(prices, str):
+            try:
+                prices = json.loads(prices)
+            except Exception:
+                continue
+        try:
+            yes_p = float(prices[0])
+        except (ValueError, TypeError, IndexError):
+            continue
+        team = (
+            q.replace("Will ", "")
+            .replace(" win the 2026 FIFA World Cup?", "")
+            .replace(" win the 2026 FIFA World Cup", "")
+            .strip()
+        )
+        result[team] = yes_p
+
+    print(f"[fetch_polymarket] Got WC winner probs for {len(result)} teams")
     return result
 
 

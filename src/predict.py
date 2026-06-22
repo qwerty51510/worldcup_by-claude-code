@@ -35,6 +35,37 @@ def _prob_to_confidence(prob: float) -> int:
     return min(100, max(0, int(abs(prob - 0.5) * 200)))
 
 
+def _predict_score(lambda_home: float, lambda_away: float) -> dict:
+    """
+    Compute most likely exact score and 1X2 probabilities from Poisson model.
+    Returns predicted_score, p_home_win, p_draw, p_away_win.
+    """
+    max_goals = 8
+    best_prob = 0.0
+    best_h, best_a = 0, 0
+    p_home, p_draw, p_away = 0.0, 0.0, 0.0
+
+    for h in range(max_goals + 1):
+        for a in range(max_goals + 1):
+            p = _poisson_pmf(h, lambda_home) * _poisson_pmf(a, lambda_away)
+            if p > best_prob:
+                best_prob = p
+                best_h, best_a = h, a
+            if h > a:
+                p_home += p
+            elif h == a:
+                p_draw += p
+            else:
+                p_away += p
+
+    return {
+        "predicted_score": f"{best_h}-{best_a}",
+        "p_home_win": round(p_home, 3),
+        "p_draw": round(p_draw, 3),
+        "p_away_win": round(p_away, 3),
+    }
+
+
 def predict_match(feature: dict, calibration: dict) -> dict:
     lh = feature["lambda_home"]
     la = feature["lambda_away"]
@@ -71,6 +102,8 @@ def predict_match(feature: dict, calibration: dict) -> dict:
     if not key_factors:
         key_factors.append("Poisson 標準預測")
 
+    score_info = _predict_score(lh, la)
+
     return {
         "match_id": feature["match_id"],
         "home_team": feature["home_team"],
@@ -79,6 +112,10 @@ def predict_match(feature: dict, calibration: dict) -> dict:
         "ah_confidence": ah_confidence,
         "ou_prediction": ou_prediction,
         "ou_confidence": ou_confidence,
+        "predicted_score": score_info["predicted_score"],
+        "p_home_win": score_info["p_home_win"],
+        "p_draw": score_info["p_draw"],
+        "p_away_win": score_info["p_away_win"],
         "key_factors": key_factors,
         "lambda_home": round(lh, 3),
         "lambda_away": round(la, 3),

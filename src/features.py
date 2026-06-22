@@ -1,4 +1,10 @@
+import math
 from src.config import FIFA_RANKINGS, BASE_LAMBDA, RANK_DECAY, AH_LINE_MULTIPLIER
+
+# Log-linear mapping: P(win WC) → strength in range [0.5, 2.0]
+# Calibrated so France(19.75%) → 2.0, Qatar(0.05%) → 0.5
+_PM_LOG_A = 2.406
+_PM_LOG_B = 0.2508
 
 
 def compute_incentive_score(must_win: bool, safe_draw: bool, dead_rubber: bool) -> float:
@@ -17,38 +23,46 @@ def compute_sharp_signal(open_handicap: float, current_handicap: float) -> float
 
 
 def _rank_to_strength(rank: int) -> float:
-    """Convert FIFA rank to relative strength. Optimised decay=0.03 from WC 2026 validation."""
     return 2.0 * (1.0 / (1.0 + (rank - 1) * RANK_DECAY))
 
 
+def _pm_to_strength(p_win_wc: float) -> float:
+    """Convert Polymarket WC winner probability to team strength (0.5–2.0 range)."""
+    p = max(p_win_wc, 0.0005)  # floor at 0.05% to avoid log(0)
+    return max(0.5, min(2.0, _PM_LOG_A + _PM_LOG_B * math.log(p)))
+
+
 def _round_ah(line: float) -> float:
-    """Round to nearest 0.25 AH increment."""
     return round(line * 4) / 4
 
 
+def _strengths_to_lambdas(home_str: float, away_str: float) -> tuple:
+    total = home_str + away_str
+    lh = round(max(0.4, BASE_LAMBDA * (home_str / total) * 2.0 + 0.1), 3)
+    la = round(max(0.3, BASE_LAMBDA * (away_str / total) * 2.0), 3)
+    implied_ah = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
+    implied_ou = round((lh + la) * 2) / 2
+    return lh, la, implied_ah, implied_ou
+
+
+def _lambda_from_pm(home: str, away: str, pm_strengths: dict) -> tuple:
+    """Use Polymarket WC winner probabilities as team strength signal."""
+    h_str = _pm_to_strength(pm_strengths[home]) if home in pm_strengths else None
+    a_str = _pm_to_strength(pm_strengths[away]) if away in pm_strengths else None
+
+    # fall back to FIFA for teams not in PM market
+    if h_str is None:
+        h_str = _rank_to_strength(FIFA_RANKINGS.get(home, 40))
+    if a_str is None:
+        a_str = _rank_to_strength(FIFA_RANKINGS.get(away, 40))
+
+    return _strengths_to_lambdas(h_str, a_str)
+
+
 def _lambda_from_rankings(home: str, away: str) -> tuple:
-    """
-    Seed expected goals and implied AH line from FIFA rankings.
-    Returns (lambda_home, lambda_away, implied_ah_line, implied_ou_line).
-    """
-    home_rank = FIFA_RANKINGS.get(home, 40)
-    away_rank = FIFA_RANKINGS.get(away, 40)
-    home_str = _rank_to_strength(home_rank)
-    away_str = _rank_to_strength(away_rank)
-    total_str = home_str + away_str
-    # home gets slight advantage in neutral WC venue
-    lambda_home = BASE_LAMBDA * (home_str / total_str) * 2.0 + 0.1
-    lambda_away = BASE_LAMBDA * (away_str / total_str) * 2.0
-    lambda_home = round(max(0.4, lambda_home), 3)
-    lambda_away = round(max(0.3, lambda_away), 3)
-
-    # AH line: grid-search optimised multiplier 0.3 → avoids over-aggressive lines
-    implied_ah = _round_ah(-(lambda_home - lambda_away) * AH_LINE_MULTIPLIER)
-    # O/U: WC 2026 avg = 3.02 goals/match → use expected total directly (no extra buffer)
-    # Model BASE_LAMBDA calibrated to 1.4 so totals ≈ 2.8-3.2 naturally
-    implied_ou = round((lambda_home + lambda_away) * 2) / 2
-
-    return lambda_home, lambda_away, implied_ah, implied_ou
+    home_str = _rank_to_strength(FIFA_RANKINGS.get(home, 40))
+    away_str = _rank_to_strength(FIFA_RANKINGS.get(away, 40))
+    return _strengths_to_lambdas(home_str, away_str)
 
 
 def _extract_ah_ou(bookmakers: list) -> tuple:
@@ -81,7 +95,9 @@ def _lambda_from_ah_line(ah_line: float) -> tuple:
     return max(0.5, home_base), max(0.3, away_base)
 
 
-def build_features(matches: list, odds: dict, calibration: dict) -> list:
+def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: dict = None) -> list:
+    if pm_strengths is None:
+        pm_strengths = {}
     results = []
     for match in matches:
         match_id = str(match.get("id", ""))
@@ -101,6 +117,9 @@ def build_features(matches: list, odds: dict, calibration: dict) -> list:
         if has_odds:
             lambda_home, lambda_away = _lambda_from_ah_line(ah_line)
             data_source = "盤口線"
+        elif pm_strengths and (home in pm_strengths or away in pm_strengths):
+            lambda_home, lambda_away, ah_line, ou_line = _lambda_from_pm(home, away, pm_strengths)
+            data_source = "Polymarket 實力評估"
         else:
             lambda_home, lambda_away, ah_line, ou_line = _lambda_from_rankings(home, away)
             data_source = "FIFA排名（推算盤口）"
