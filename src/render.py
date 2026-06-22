@@ -594,20 +594,29 @@ def render_results(out_path: str = None) -> None:
                 actual_ou_zh = _OU_PRED_ZH.get(r.get("actual_ou", ""), "")
                 ou_result = "<span class='wrong'>✗ 預測%s，實際%s</span>" % (ou_pred_zh, actual_ou_zh)
 
+            pred_score = r.get("predicted_score", "?-?")
+            actual_score = r["score"]
+            score_cell = (
+                "<div style='text-align:center'>"
+                "<div style='font-size:0.7rem;color:var(--muted)'>預測 %s</div>"
+                "<div style='font-weight:700;font-size:1.1rem'>%s</div>"
+                "</div>"
+            ) % (pred_score, actual_score)
+
             rows += (
                 "<tr>"
                 "<td style='color:var(--muted);white-space:nowrap'>%s</td>"
                 "<td style='color:var(--muted)'>%s組</td>"
                 "<td><b>%s</b> vs <b>%s</b></td>"
-                "<td style='font-weight:700;font-size:1.1rem;text-align:center'>%s</td>"
+                "<td>%s</td>"
                 "<td>%s</td>"
                 "<td>%s</td>"
                 "</tr>"
-            ) % (r["date"], r["group"], home_zh, away_zh, r["score"], ah_result, ou_result)
+            ) % (r["date"], r["group"], home_zh, away_zh, score_cell, ah_result, ou_result)
 
         tbl = (
             "<div class='tbl-wrap'><table><thead><tr>"
-            "<th>日期</th><th>組別</th><th>比賽</th><th>比分</th><th>讓球盤預測</th><th>大小球預測</th>"
+            "<th>日期</th><th>組別</th><th>比賽</th><th>比分（預測／實際）</th><th>讓球盤預測</th><th>大小球預測</th>"
             "</tr></thead><tbody>%s</tbody></table></div>"
         ) % rows
     else:

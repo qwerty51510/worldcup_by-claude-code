@@ -7,7 +7,7 @@ For each match, we predict using ONLY data available BEFORE that match:
 """
 import json
 from pathlib import Path
-from src.predict import _poisson_ah_prob, _poisson_ou_prob
+from src.predict import _poisson_ah_prob, _poisson_ou_prob, _predict_score
 from src.config import FIFA_RANKINGS, RANK_DECAY, AH_LINE_MULTIPLIER, DEFAULT_CALIBRATION
 
 DATA_DIR = Path(__file__).parent.parent / "data"
@@ -82,12 +82,15 @@ def _predict_single(home: str, away: str, lh: float, la: float,
     ou_pred = "over" if ou_prob_over > 0.5 else "under"
     ou_conf = min(100, max(0, int(abs(ou_prob_over - 0.5) * 200)))
 
+    score_info = _predict_score(lh, la)
+
     return {
         "home": home, "away": away,
         "ah_pred": ah_pred, "ah_conf": ah_conf, "ah_prob": round(ah_prob_home, 3),
         "ou_pred": ou_pred, "ou_conf": ou_conf, "ou_prob": round(ou_prob_over, 3),
         "lambda_home": lh, "lambda_away": la,
         "ah_line": ah_line, "ou_line": ou_line,
+        "predicted_score": score_info["predicted_score"],
     }
 
 
@@ -136,7 +139,8 @@ def run_validation(calibration: dict = None) -> dict:
         results.append({
             "date": match["date"], "group": match["group"], "round": match["round"],
             "home": match["home"], "away": match["away"],
-            "score": f"{match['home_goals']}-{match['away_goals']}",
+            "predicted_score": pred["predicted_score"],
+            "score": "%d-%d" % (match["home_goals"], match["away_goals"]),
             "lambda_home": lh, "lambda_away": la,
             "ah_line": ah_line, "ou_line": ou_line,
             "ah_pred": pred["ah_pred"], "ah_prob": pred["ah_prob"],
