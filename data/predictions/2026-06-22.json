@@ -3,6 +3,7 @@
     "match_id": "537366",
     "home_team": "New Zealand",
     "away_team": "Egypt",
+    "kickoff": "06/22 09:00",
     "ah_prediction": "away",
     "ah_confidence": 33,
     "ou_prediction": "over",
@@ -15,12 +16,15 @@
       "強度來源：WC 2026 實戰數據"
     ],
     "lambda_home": 1.182,
-    "lambda_away": 2.533
+    "lambda_away": 2.533,
+    "reasoning": "【強度】New Zealand（1284）vs Egypt（1509），實力有明顯優勢（ELO -225）\n【近況】New Zealand 2場 進3 失5；Egypt 2場 進4 失2\n【進球預期】主1.2 + 客2.5 = 3.7，OVER 43% 信心\n【勝負】Egypt 明顯佔優（勝率 66%），平局機率 17%",
+    "injury_notes": []
   },
   {
     "match_id": "537399",
     "home_team": "Argentina",
     "away_team": "Austria",
+    "kickoff": "06/23 01:00",
     "ah_prediction": "home",
     "ah_confidence": 37,
     "ou_prediction": "over",
@@ -33,12 +37,15 @@
       "強度來源：WC 2026 實戰數據"
     ],
     "lambda_home": 2.246,
-    "lambda_away": 0.857
+    "lambda_away": 0.857,
+    "reasoning": "【強度】Argentina（2031）vs Austria（1597），實力差距懸殊（ELO +434）\n【近況】Argentina 1場 進3 失0；Austria 1場 進3 失1\n【進球預期】主2.2 + 客0.9 = 3.1，OVER 19% 信心\n【勝負】Argentina 明顯佔優（勝率 68%），平局機率 18%",
+    "injury_notes": []
   },
   {
     "match_id": "537393",
     "home_team": "France",
     "away_team": "Iraq",
+    "kickoff": "06/23 05:00",
     "ah_prediction": "home",
     "ah_confidence": 63,
     "ou_prediction": "over",
@@ -51,12 +58,15 @@
       "強度來源：WC 2026 實戰數據"
     ],
     "lambda_home": 4.34,
-    "lambda_away": 0.774
+    "lambda_away": 0.774,
+    "reasoning": "【強度】France（2005）vs Iraq（1353），實力差距懸殊（ELO +652）\n【近況】France 1場 進3 失1；Iraq 1場 進1 失4\n【進球預期】主4.3 + 客0.8 = 5.1，OVER 75% 信心\n【勝負】France 明顯佔優（勝率 89%），平局機率 5%",
+    "injury_notes": []
   },
   {
     "match_id": "537394",
     "home_team": "Norway",
     "away_team": "Senegal",
+    "kickoff": "06/23 08:00",
     "ah_prediction": "home",
     "ah_confidence": 56,
     "ou_prediction": "over",
@@ -69,6 +79,8 @@
       "強度來源：WC 2026 實戰數據"
     ],
     "lambda_home": 3.26,
-    "lambda_away": 1.129
+    "lambda_away": 1.129,
+    "reasoning": "【強度】Norway（1731）vs Senegal（1647），實力略佔優勢（ELO +84）\n【近況】Norway 1場 進4 失1；Senegal 1場 進1 失3\n【進球預期】主3.3 + 客1.1 = 4.4，OVER 62% 信心\n【勝負】Norway 明顯佔優（勝率 77%），平局機率 12%",
+    "injury_notes": []
   }
 ]
