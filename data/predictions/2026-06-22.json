@@ -1,1 +1,74 @@
-[]
+[
+  {
+    "match_id": "537366",
+    "home_team": "New Zealand",
+    "away_team": "Egypt",
+    "ah_prediction": "away",
+    "ah_confidence": 7,
+    "ou_prediction": "under",
+    "ou_confidence": 33,
+    "predicted_score": "1-1",
+    "p_home_win": 0.23,
+    "p_draw": 0.231,
+    "p_away_win": 0.538,
+    "key_factors": [
+      "強度來源：Polymarket 實力評估"
+    ],
+    "lambda_home": 1.098,
+    "lambda_away": 1.802
+  },
+  {
+    "match_id": "537399",
+    "home_team": "Argentina",
+    "away_team": "Austria",
+    "ah_prediction": "home",
+    "ah_confidence": 20,
+    "ou_prediction": "under",
+    "ou_confidence": 33,
+    "predicted_score": "1-0",
+    "p_home_win": 0.6,
+    "p_draw": 0.217,
+    "p_away_win": 0.183,
+    "key_factors": [
+      "強度來源：Polymarket 實力評估"
+    ],
+    "lambda_home": 1.936,
+    "lambda_away": 0.964
+  },
+  {
+    "match_id": "537393",
+    "home_team": "France",
+    "away_team": "Iraq",
+    "ah_prediction": "home",
+    "ah_confidence": 54,
+    "ou_prediction": "under",
+    "ou_confidence": 33,
+    "predicted_score": "2-0",
+    "p_home_win": 0.773,
+    "p_draw": 0.154,
+    "p_away_win": 0.072,
+    "key_factors": [
+      "強度來源：Polymarket 實力評估"
+    ],
+    "lambda_home": 2.34,
+    "lambda_away": 0.56
+  },
+  {
+    "match_id": "537394",
+    "home_team": "Norway",
+    "away_team": "Senegal",
+    "ah_prediction": "away",
+    "ah_confidence": 4,
+    "ou_prediction": "under",
+    "ou_confidence": 33,
+    "predicted_score": "1-1",
+    "p_home_win": 0.48,
+    "p_draw": 0.241,
+    "p_away_win": 0.279,
+    "key_factors": [
+      "強度來源：Polymarket 實力評估"
+    ],
+    "lambda_home": 1.676,
+    "lambda_away": 1.224
+  }
+]
