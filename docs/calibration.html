@@ -194,8 +194,19 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
   background: rgba(59,130,246,0.1); color: var(--accent);
   border-radius: 4px; padding: 2px 8px; font-size: 0.72rem; font-weight: 600;
 }
-.correct { color: var(--green); }
-.wrong   { color: var(--red); }
+.correct { color: var(--green); font-weight: 600; }
+.wrong   { color: var(--red); font-weight: 600; }
+/* ── stat summary row ── */
+.stat-row {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.stat-box {
+  flex: 1; min-width: 100px;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 12px; text-align: center;
+}
+.stat-num { font-size: 1.6rem; font-weight: 700; line-height: 1.2; }
+.stat-lbl { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
 /* ── kickoff time ── */
 .kickoff-time {
   font-size: 0.78rem; color: var(--gold); font-weight: 600;
@@ -257,7 +268,7 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 <div class="section-title">當前參數權重</div>
 <div class="tbl-wrap">
   <table><thead><tr><th>參數</th><th>數值</th></tr></thead>
-  <tbody><tr><td>讓球盤權重</td><td><span class='tag'>1.1040808032</span></td></tr><tr><td>大小球權重</td><td><span class='tag'>1.0</span></td></tr><tr><td>莊家資金信號係數</td><td><span class='tag'>0.85</span></td></tr><tr><td>必贏場進攻加成</td><td><span class='tag'>0.15</span></td></tr><tr><td>氣候不適應懲罰</td><td><span class='tag'>0.05</span></td></tr><tr><td>球隊老化閾值</td><td><span class='tag'>29.5</span></td></tr><tr><td>模型版本</td><td><span class='tag'>1.0</span></td></tr><tr><td>最後更新</td><td><span class='tag'>2026-06-22</span></td></tr></tbody></table>
+  <tbody><tr><td>讓球盤權重</td><td><span class='tag'>1.126162419264</span></td></tr><tr><td>大小球權重</td><td><span class='tag'>1.0</span></td></tr><tr><td>莊家資金信號係數</td><td><span class='tag'>0.85</span></td></tr><tr><td>必贏場進攻加成</td><td><span class='tag'>0.15</span></td></tr><tr><td>氣候不適應懲罰</td><td><span class='tag'>0.05</span></td></tr><tr><td>球隊老化閾值</td><td><span class='tag'>29.5</span></td></tr><tr><td>模型版本</td><td><span class='tag'>1.0</span></td></tr><tr><td>最後更新</td><td><span class='tag'>2026-06-22</span></td></tr></tbody></table>
 </div>
 </main>
 <script>
