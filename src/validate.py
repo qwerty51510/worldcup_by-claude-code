@@ -14,18 +14,21 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 RESULTS_FILE = DATA_DIR / "wc2026_results.json"
 
 
-def _lambda_for_match(home: str, away: str, completed_before: list) -> tuple:
+def _lambda_for_match(home: str, away: str, completed_before: list,
+                      match_date: str = "") -> tuple:
     """
-    Walk-forward lambda using the same ELO-informed Bayesian model as features.py.
+    Walk-forward lambda — mirrors features.py logic exactly (formation + stamina).
     Only uses data available before this match (no future leakage).
     Returns (lambda_home, lambda_away, ah_line, ou_line, method).
     """
-    from src.features import _load_elo, _elo_to_strength, _WC_LEAGUE_AVG, _round_ah
+    from src.features import (
+        _load_elo, _elo_to_strength, _WC_LEAGUE_AVG, _round_ah,
+        _load_formations, _FORMATION_FACTORS, _stamina_factor,
+    )
 
     elo = _load_elo()
-    PRIOR = 2.0  # same as features.py
+    PRIOR = 2.0
 
-    # Build per-team stats from only matches completed before this one
     stats: dict = {}
     for m in completed_before:
         for team, sc, cn in [
@@ -53,6 +56,36 @@ def _lambda_for_match(home: str, away: str, completed_before: list) -> tuple:
     h_def = smooth_rate(home, "conceded")
     a_atk = smooth_rate(away, "scored")
     a_def = smooth_rate(away, "conceded")
+
+    # Formation adjustment (same coefficients as features.py)
+    formations = _load_formations()
+    h_form = formations.get(home, {}).get("formation", "4-4-2")
+    a_form = formations.get(away, {}).get("formation", "4-4-2")
+    h_atk_m, h_def_m = _FORMATION_FACTORS.get(h_form, (1.0, 1.0))
+    a_atk_m, a_def_m = _FORMATION_FACTORS.get(a_form, (1.0, 1.0))
+    h_atk *= h_atk_m
+    h_def *= h_def_m
+    a_atk *= a_atk_m
+    a_def *= a_def_m
+
+    # Stamina / rest-days (use completed_before so no future data leaks)
+    if match_date:
+        from datetime import datetime as _dt
+
+        def _days(team):
+            past = [r["date"] for r in completed_before
+                    if (r["home"] == team or r["away"] == team) and r["date"] < match_date]
+            if not past:
+                return 999
+            last = max(past)
+            return (_dt.strptime(match_date, "%Y-%m-%d") - _dt.strptime(last, "%Y-%m-%d")).days
+
+        h_stam = _stamina_factor(_days(home))
+        a_stam = _stamina_factor(_days(away))
+        h_atk *= h_stam
+        a_atk *= a_stam
+        h_def *= (2.0 - h_stam)
+        a_def *= (2.0 - a_stam)
 
     _HOST_NATIONS = {"United States", "Canada", "Mexico"}
     home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
@@ -122,7 +155,7 @@ def run_validation(calibration: dict = None) -> dict:
 
     for match in matches_by_date:
         lh, la, ah_line, ou_line, method = _lambda_for_match(
-            match["home"], match["away"], completed
+            match["home"], match["away"], completed, match_date=match["date"]
         )
         pred = _predict_single(match["home"], match["away"], lh, la, ah_line, ou_line, calibration)
         actual_ah = _actual_ah_result(match)  # None if draw (push)

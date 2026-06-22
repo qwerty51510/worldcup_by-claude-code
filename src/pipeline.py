@@ -3,6 +3,7 @@ from datetime import date as dt_date
 
 from src.backtest import compute_brier_score, generate_postmortem, load_calibration, save_calibration, update_calibration
 from src.features import build_features
+from src.features import clear_caches
 from src.fetch_data import fetch_matches, fetch_odds, fetch_polymarket, save_match_day, update_wc_results
 from src.predict import predict_all, save_predictions
 from src.render import render_all
@@ -19,6 +20,7 @@ def run(date: str) -> None:
     new_results = update_wc_results()
     if new_results > 0:
         print(f"[pipeline] {new_results} new result(s) — refreshing walk-forward validation...")
+        clear_caches()  # reset stale in-memory data after file update
         refresh_validation()
 
     # ── 2. Fetch today's matches, odds, Polymarket ───────────────────────────

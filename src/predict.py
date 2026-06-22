@@ -89,8 +89,9 @@ def _load_injuries() -> dict:
 
 def _generate_reasoning(home: str, away: str, lh: float, la: float,
                          p_home: float, p_draw: float, p_away: float,
-                         ou_pred: str, ou_conf: int) -> str:
-    from src.features import _load_elo, _load_wc_team_stats, _WC_LEAGUE_AVG
+                         ou_pred: str, ou_conf: int,
+                         feature: dict = None) -> str:
+    from src.features import _load_elo, _load_wc_team_stats, _WC_LEAGUE_AVG, STYLE_ZH
     from src.config import team_zh
     elo = _load_elo()
     stats = _load_wc_team_stats()
@@ -101,36 +102,62 @@ def _generate_reasoning(home: str, away: str, lh: float, la: float,
     diff = h_elo - a_elo
 
     if abs(diff) >= 400:
-        str_text = f"實力差距懸殊（ELO {diff:+d}）"
+        str_text = "實力差距懸殊（ELO %+d）" % diff
     elif abs(diff) >= 200:
-        str_text = f"實力有明顯優勢（ELO {diff:+d}）"
+        str_text = "實力有明顯優勢（ELO %+d）" % diff
     elif abs(diff) >= 80:
-        str_text = f"實力略佔優勢（ELO {diff:+d}）"
+        str_text = "實力略佔優勢（ELO %+d）" % diff
     else:
-        str_text = f"實力相當（ELO {diff:+d}）"
+        str_text = "實力相當（ELO %+d）" % diff
 
-    lines = [f"【強度】{h_zh}（ELO {h_elo}）vs {a_zh}（ELO {a_elo}），{str_text}"]
+    lines = ["【強度】%s（ELO %d）vs %s（ELO %d），%s" % (h_zh, h_elo, a_zh, a_elo, str_text)]
 
     form_parts = []
     for team, zh in [(home, h_zh), (away, a_zh)]:
         s = stats.get(team)
         if s and s["played"] > 0:
-            form_parts.append(f"{zh} {s['played']}場 進{s['scored']} 失{s['conceded']}")
+            form_parts.append("%s %d場 進%d 失%d" % (zh, s["played"], s["scored"], s["conceded"]))
     if form_parts:
         lines.append("【近況】" + "；".join(form_parts))
 
+    # Formation + tactics
+    if feature:
+        h_form = feature.get("formation_home", "4-4-2")
+        a_form = feature.get("formation_away", "4-4-2")
+        h_style = STYLE_ZH.get(feature.get("style_home", "balanced"), "均衡")
+        a_style = STYLE_ZH.get(feature.get("style_away", "balanced"), "均衡")
+        lines.append("【陣型戰術】%s %s（%s）vs %s %s（%s）" % (
+            h_zh, h_form, h_style, a_zh, a_form, a_style))
+
+        # Stamina
+        h_rest = feature.get("rest_days_home", 999)
+        a_rest = feature.get("rest_days_away", 999)
+
+        def _rest_desc(days):
+            if days >= 999:
+                return "首場出賽"
+            if days <= 3:
+                return "%d天（疲態明顯）" % days
+            if days <= 4:
+                return "%d天（略有疲態）" % days
+            return "%d天（體力充足）" % days
+
+        lines.append("【體力】%s 休息%s；%s 休息%s" % (
+            h_zh, _rest_desc(h_rest), a_zh, _rest_desc(a_rest)))
+
     total = lh + la
     ou_label = "大球" if ou_pred == "over" else "小球"
-    lines.append(f"【進球預期】主 {lh:.1f} + 客 {la:.1f} = {total:.1f}，傾向{ou_label}（信心 {ou_conf}%）")
+    lines.append("【進球預期】主 %.1f + 客 %.1f = %.1f，傾向%s（信心 %d%%）" % (
+        lh, la, total, ou_label, ou_conf))
 
     fav_zh = h_zh if p_home > p_away else a_zh
     fav_p = max(p_home, p_away)
     if fav_p >= 0.65:
-        lines.append(f"【勝負】{fav_zh} 明顯佔優（勝率 {int(fav_p*100)}%），平局機率 {int(p_draw*100)}%")
+        lines.append("【勝負】%s 明顯佔優（勝率 %d%%），平局機率 %d%%" % (fav_zh, int(fav_p*100), int(p_draw*100)))
     elif fav_p >= 0.50:
-        lines.append(f"【勝負】{fav_zh} 略佔優（勝率 {int(fav_p*100)}%），平局機率 {int(p_draw*100)}%")
+        lines.append("【勝負】%s 略佔優（勝率 %d%%），平局機率 %d%%" % (fav_zh, int(fav_p*100), int(p_draw*100)))
     else:
-        lines.append(f"【勝負】雙方勢均力敵，平局機率 {int(p_draw*100)}% 不低")
+        lines.append("【勝負】雙方勢均力敵，平局機率 %d%% 不低" % int(p_draw*100))
 
     return "\n".join(lines)
 
@@ -186,6 +213,7 @@ def predict_match(feature: dict, calibration: dict) -> dict:
         home, away, lh, la,
         score_info["p_home_win"], score_info["p_draw"], score_info["p_away_win"],
         ou_prediction, ou_confidence,
+        feature=feature,
     )
 
     return {

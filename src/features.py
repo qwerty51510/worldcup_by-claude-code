@@ -1,5 +1,6 @@
 import json
 import math
+from datetime import datetime
 from pathlib import Path
 from src.config import FIFA_RANKINGS, BASE_LAMBDA, RANK_DECAY, AH_LINE_MULTIPLIER
 
@@ -14,9 +15,33 @@ _ELO_SCALE = 750.0  # 750 ELO points → 2x strength
 
 _ELO_RATINGS: dict = {}
 _WC_TEAM_STATS: dict = {}  # computed once from wc2026_results.json
+_WC_RESULTS: list = []     # full results list for rest-days calculation
+_FORMATIONS: dict = {}     # team formation + style
 
 # WC 2026 league average: 121 goals / 40 matches / 2 teams per match = 1.51
 _WC_LEAGUE_AVG = 1.51
+
+# Formation → (attack_multiplier, defense_multiplier)
+# attack_mult  > 1 = scores more;  defense_mult < 1 = concedes less
+_FORMATION_FACTORS: dict = {
+    "3-4-3":   (1.10, 1.07),
+    "4-3-3":   (1.06, 1.04),
+    "4-2-3-1": (1.03, 1.02),
+    "4-4-2":   (1.00, 1.00),
+    "4-4-1-1": (0.97, 0.97),
+    "4-5-1":   (0.92, 0.92),
+    "4-1-4-1": (0.90, 0.90),
+    "5-3-2":   (0.88, 0.88),
+    "5-4-1":   (0.85, 0.85),
+}
+
+STYLE_ZH: dict = {
+    "attacking":  "進攻型",
+    "possession": "控球進攻",
+    "balanced":   "均衡",
+    "counter":    "防守反擊",
+    "defensive":  "防守型",
+}
 
 
 def _load_elo() -> dict:
@@ -29,17 +54,23 @@ def _load_elo() -> dict:
     return _ELO_RATINGS
 
 
+def _load_wc_results() -> list:
+    global _WC_RESULTS
+    if _WC_RESULTS:
+        return _WC_RESULTS
+    path = Path(__file__).parent.parent / "data" / "wc2026_results.json"
+    if path.exists():
+        _WC_RESULTS = json.loads(path.read_text())
+    return _WC_RESULTS
+
+
 def _load_wc_team_stats() -> dict:
     """Load per-team attack/defense stats from WC 2026 results (computed once)."""
     global _WC_TEAM_STATS
     if _WC_TEAM_STATS:
         return _WC_TEAM_STATS
-    path = Path(__file__).parent.parent / "data" / "wc2026_results.json"
-    if not path.exists():
-        return {}
-    results = json.loads(path.read_text())
     stats: dict = {}
-    for m in results:
+    for m in _load_wc_results():
         for team, scored, conceded in [
             (m["home"], m["home_goals"], m["away_goals"]),
             (m["away"], m["away_goals"], m["home_goals"]),
@@ -50,6 +81,44 @@ def _load_wc_team_stats() -> dict:
             s["played"] += 1
     _WC_TEAM_STATS = stats
     return stats
+
+
+def _load_formations() -> dict:
+    global _FORMATIONS
+    if _FORMATIONS:
+        return _FORMATIONS
+    path = Path(__file__).parent.parent / "data" / "formations.json"
+    if path.exists():
+        data = json.loads(path.read_text())
+        _FORMATIONS = {k: v for k, v in data.items() if not k.startswith("_")}
+    return _FORMATIONS
+
+
+def clear_caches() -> None:
+    """Reset in-memory caches after wc2026_results.json is updated."""
+    global _WC_TEAM_STATS, _WC_RESULTS
+    _WC_TEAM_STATS = {}
+    _WC_RESULTS = []
+
+
+def _rest_days(team: str, match_date: str, results: list = None) -> int:
+    """Days since team's last WC match. Returns 999 if first match."""
+    if results is None:
+        results = _load_wc_results()
+    past = [r["date"] for r in results
+            if (r["home"] == team or r["away"] == team) and r["date"] < match_date]
+    if not past:
+        return 999
+    last = max(past)
+    return (datetime.strptime(match_date, "%Y-%m-%d") - datetime.strptime(last, "%Y-%m-%d")).days
+
+
+def _stamina_factor(days: int) -> float:
+    if days <= 3:
+        return 0.93
+    if days <= 4:
+        return 0.97
+    return 1.00
 
 
 def _elo_to_strength(elo: float) -> float:
@@ -121,16 +190,17 @@ def _lambda_from_rankings(home: str, away: str) -> tuple:
     return _strengths_to_lambdas(home_str, away_str)
 
 
-def _lambda_from_wc_form(home: str, away: str):
+def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
+                         prior_results: list = None):
     """
-    Bayesian-smoothed Dixon-Coles lambda.
-    Prior is ELO-informed (not flat league average) so teams with only 1 WC match
-    still reflect their historical strength rather than regressing to the mean.
+    Bayesian-smoothed Dixon-Coles lambda with formation and stamina adjustments.
+    prior_results: if provided, use this list instead of the global cache
+                   (used by validate.py walk-forward to avoid leaking future data).
     """
-    stats = _load_wc_team_stats()
+    stats = _load_wc_team_stats() if prior_results is None else _build_stats(prior_results)
     elo = _load_elo()
 
-    PRIOR = 2.0  # equivalent prior matches weighted by ELO-based expectation
+    PRIOR = 2.0
 
     def team_strength(team: str) -> float:
         if team in elo:
@@ -140,7 +210,6 @@ def _lambda_from_wc_form(home: str, away: str):
     def smooth_rate(team: str, stat: str) -> float:
         s = stats.get(team, {"scored": 0, "conceded": 0, "played": 0})
         strength = team_strength(team)
-        # ELO-informed prior: strong teams expected to score more and concede less
         prior_rate = (strength if stat == "scored" else 1.0 / strength) * _WC_LEAGUE_AVG
         return (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / _WC_LEAGUE_AVG
 
@@ -149,12 +218,51 @@ def _lambda_from_wc_form(home: str, away: str):
     a_atk = smooth_rate(away, "scored")
     a_def = smooth_rate(away, "conceded")
 
+    # ── Formation adjustment ─────────────────────────────────────────────────
+    formations = _load_formations()
+    h_form = formations.get(home, {}).get("formation", "4-4-2")
+    a_form = formations.get(away, {}).get("formation", "4-4-2")
+    h_atk_m, h_def_m = _FORMATION_FACTORS.get(h_form, (1.0, 1.0))
+    a_atk_m, a_def_m = _FORMATION_FACTORS.get(a_form, (1.0, 1.0))
+    h_atk *= h_atk_m
+    h_def *= h_def_m
+    a_atk *= a_atk_m
+    a_def *= a_def_m
+
+    # ── Stamina / rest-days adjustment ───────────────────────────────────────
+    if match_date:
+        rest_src = prior_results if prior_results is not None else None
+        h_days = _rest_days(home, match_date, rest_src)
+        a_days = _rest_days(away, match_date, rest_src)
+        h_stam = _stamina_factor(h_days)
+        a_stam = _stamina_factor(a_days)
+        h_atk *= h_stam
+        a_atk *= a_stam
+        # fatigue also slightly opens up defense (tired teams concede more)
+        h_def *= (2.0 - h_stam)
+        a_def *= (2.0 - a_stam)
+
+    # ── Home advantage (host nations only) ──────────────────────────────────
     _HOST_NATIONS = {"United States", "Canada", "Mexico"}
     home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
     lh = round(max(0.3, _WC_LEAGUE_AVG * h_atk * a_def + home_bonus), 3)
     la = round(max(0.3, _WC_LEAGUE_AVG * a_atk * h_def), 3)
     ah_line = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
     return lh, la, ah_line, 2.5
+
+
+def _build_stats(results: list) -> dict:
+    stats: dict = {}
+    for m in results:
+        for team, scored, conceded in [
+            (m["home"], m["home_goals"], m["away_goals"]),
+            (m["away"], m["away_goals"], m["home_goals"]),
+        ]:
+            s = stats.setdefault(team, {"scored": 0, "conceded": 0, "played": 0})
+            s["scored"] += scored
+            s["conceded"] += conceded
+            s["played"] += 1
+    return stats
 
 
 def _extract_ah_ou(bookmakers: list) -> tuple:
@@ -205,9 +313,10 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
         bookmakers = odds_entry.get("bookmakers", []) if odds_entry else []
         ah_line, ou_line = _extract_ah_ou(bookmakers)
 
+        match_date = (match.get("utcDate", "") or "")[:10]
         has_odds = ah_line is not None
         elo = _load_elo()
-        wc_form = _lambda_from_wc_form(home, away)
+        wc_form = _lambda_from_wc_form(home, away, match_date)
         if has_odds:
             lambda_home, lambda_away = _lambda_from_ah_line(ah_line)
             data_source = "盤口線"
@@ -246,6 +355,12 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
         if must_win_away:
             lambda_away *= (1 + boost)
 
+        formations = _load_formations()
+        h_form_info = formations.get(home, {"formation": "4-4-2", "style": "balanced"})
+        a_form_info = formations.get(away, {"formation": "4-4-2", "style": "balanced"})
+        h_rest = _rest_days(home, match_date) if match_date else 999
+        a_rest = _rest_days(away, match_date) if match_date else 999
+
         results.append({
             "match_id": match_id,
             "home_team": home,
@@ -260,5 +375,11 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             "must_win_home": must_win_home,
             "must_win_away": must_win_away,
             "data_source": data_source,
+            "formation_home": h_form_info.get("formation", "4-4-2"),
+            "formation_away": a_form_info.get("formation", "4-4-2"),
+            "style_home": h_form_info.get("style", "balanced"),
+            "style_away": a_form_info.get("style", "balanced"),
+            "rest_days_home": h_rest,
+            "rest_days_away": a_rest,
         })
     return results
