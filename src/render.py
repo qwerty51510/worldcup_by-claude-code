@@ -201,8 +201,19 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
   background: rgba(59,130,246,0.1); color: var(--accent);
   border-radius: 4px; padding: 2px 8px; font-size: 0.72rem; font-weight: 600;
 }
-.correct { color: var(--green); }
-.wrong   { color: var(--red); }
+.correct { color: var(--green); font-weight: 600; }
+.wrong   { color: var(--red); font-weight: 600; }
+/* ── stat summary row ── */
+.stat-row {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.stat-box {
+  flex: 1; min-width: 100px;
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 12px; text-align: center;
+}
+.stat-num { font-size: 1.6rem; font-weight: 700; line-height: 1.2; }
+.stat-lbl { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
 /* ── kickoff time ── */
 .kickoff-time {
   font-size: 0.78rem; color: var(--gold); font-weight: 600;
@@ -522,36 +533,93 @@ def render_calibration(calibration: dict, brier_history: list, out_path: str = N
     Path(path).write_text(html, encoding="utf-8")
 
 
-def render_results(results_history: list, out_path: str = None) -> None:
-    if results_history:
+def _load_validation_results() -> dict:
+    path = Path(__file__).parent.parent / "data" / "backtest" / "wc2026_validation.json"
+    if path.exists():
+        import json as _json
+        return _json.loads(path.read_text())
+    return {}
+
+
+def render_results(out_path: str = None) -> None:
+    val = _load_validation_results()
+    records = val.get("all_results", [])
+
+    _AH_PRED_ZH = {"home": "主隊", "away": "客隊"}
+    _OU_PRED_ZH = {"over": "大球", "under": "小球"}
+
+    if records:
+        decisive = [r for r in records if not r.get("ah_is_push")]
+        ah_acc = sum(r["ah_correct"] for r in decisive) / len(decisive) if decisive else 0
+        ou_acc = sum(r["ou_correct"] for r in records) / len(records) if records else 0
+
+        summary = (
+            "<div class='stat-row'>"
+            "<div class='stat-box'>"
+            "<div class='stat-num'>%d</div><div class='stat-lbl'>總場數</div></div>" % len(records) +
+            "<div class='stat-box'>"
+            "<div class='stat-num' style='color:var(--accent)'>%.1f%%</div>"
+            "<div class='stat-lbl'>讓球盤準確率</div></div>" % (ah_acc * 100) +
+            "<div class='stat-box'>"
+            "<div class='stat-num' style='color:var(--gold)'>%.1f%%</div>"
+            "<div class='stat-lbl'>大小球準確率</div></div>" % (ou_acc * 100) +
+            "<div class='stat-box'>"
+            "<div class='stat-num'>%d</div><div class='stat-lbl'>決出勝負</div></div>" % len(decisive) +
+            "<div class='stat-box'>"
+            "<div class='stat-num'>%d</div><div class='stat-lbl'>平局 Push</div></div>" % (len(records) - len(decisive)) +
+            "</div>"
+        )
+
         rows = ""
-        for r in results_history:
-            ah_ok = r.get("ah_correct")
-            ou_ok = r.get("ou_correct")
-            ah_cls = "correct" if ah_ok else "wrong"
-            ou_cls = "correct" if ou_ok else "wrong"
+        for r in records:
+            home_zh = team_zh(r["home"])
+            away_zh = team_zh(r["away"])
+            ah_is_push = r.get("ah_is_push", False)
+            ah_pred_zh = _AH_PRED_ZH.get(r["ah_pred"], r["ah_pred"])
+            ou_pred_zh = _OU_PRED_ZH.get(r["ou_pred"], r["ou_pred"])
+            ah_prob_pct = int(r["ah_prob"] * 100)
+            ou_prob_pct = int(r["ou_prob"] * 100)
+
+            if ah_is_push:
+                ah_result = "<span class='tag'>平局 Push</span>"
+            elif r["ah_correct"]:
+                ah_result = "<span class='correct'>✓ %s %d%%</span>" % (ah_pred_zh, ah_prob_pct)
+            else:
+                actual_zh = _AH_PRED_ZH.get(r.get("actual_ah", ""), "")
+                ah_result = "<span class='wrong'>✗ 預測%s，實際%s</span>" % (ah_pred_zh, actual_zh)
+
+            if r["ou_correct"]:
+                ou_result = "<span class='correct'>✓ %s %d%%</span>" % (ou_pred_zh, ou_prob_pct)
+            else:
+                actual_ou_zh = _OU_PRED_ZH.get(r.get("actual_ou", ""), "")
+                ou_result = "<span class='wrong'>✗ 預測%s，實際%s</span>" % (ou_pred_zh, actual_ou_zh)
+
             rows += (
-                f"<tr>"
-                f"<td style='color:var(--muted)'>{r.get('date','')}</td>"
-                f"<td><b>{r.get('home_team','')} vs {r.get('away_team','')}</b></td>"
-                f"<td style='font-weight:700;font-size:1.05rem'>{r.get('actual_score','-')}</td>"
-                f"<td class='{ah_cls}'>{'✓' if ah_ok else '✗'} 讓球盤</td>"
-                f"<td class='{ou_cls}'>{'✓' if ou_ok else '✗'} 大小球</td>"
-                f"</tr>"
-            )
+                "<tr>"
+                "<td style='color:var(--muted);white-space:nowrap'>%s</td>"
+                "<td style='color:var(--muted)'>%s組</td>"
+                "<td><b>%s</b> vs <b>%s</b></td>"
+                "<td style='font-weight:700;font-size:1.1rem;text-align:center'>%s</td>"
+                "<td>%s</td>"
+                "<td>%s</td>"
+                "</tr>"
+            ) % (r["date"], r["group"], home_zh, away_zh, r["score"], ah_result, ou_result)
+
         tbl = (
             "<div class='tbl-wrap'><table><thead><tr>"
-            "<th>日期</th><th>比賽</th><th>比分</th><th>讓球盤</th><th>大小球</th>"
-            f"</tr></thead><tbody>{rows}</tbody></table></div>"
-        )
+            "<th>日期</th><th>組別</th><th>比賽</th><th>比分</th><th>讓球盤預測</th><th>大小球預測</th>"
+            "</tr></thead><tbody>%s</tbody></table></div>"
+        ) % rows
     else:
-        tbl = "<div class='empty'><div class='empty-icon'>🏆</div><p>賽事結果將在每場比賽後自動更新</p></div>"
+        summary = ""
+        tbl = "<div class='empty'><div class='empty-icon'>🏆</div><p>賽事結果將在比賽後自動更新</p></div>"
 
-    body = f"""
-<div class="page-header">
-  <div class="page-title">歷史預測結果</div>
-</div>
-{tbl}"""
+    body = (
+        "<div class='page-header'><div class='page-title'>賽程與預測結果</div></div>"
+        "<p style='color:var(--muted);margin-bottom:1rem'>"
+        "Walk-forward 回測：每場比賽僅使用賽前數據預測，不含未來資訊。</p>"
+        "%s%s"
+    ) % (summary, tbl)
     html = _base_html("歷史結果", body, active_nav="歷史結果")
     path = out_path or str(DOCS_DIR / "results.html")
     Path(path).parent.mkdir(parents=True, exist_ok=True)
@@ -573,4 +641,4 @@ def render_all(date: str) -> None:
     postmortem = generate_postmortem(predictions, [])
     render_postmortem(postmortem)
 
-    render_results([])
+    render_results()
