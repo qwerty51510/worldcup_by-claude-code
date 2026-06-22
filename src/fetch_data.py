@@ -11,18 +11,25 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 
 
 def fetch_matches(date: str) -> list:
+    """Fetch WC matches for `date` and the following day (UTC), deduped by id.
+    Covers cross-midnight kicks that fall on UTC+next-day but are the same round.
+    """
+    from datetime import datetime, timedelta
     key = os.environ.get("FOOTBALL_DATA_API_KEY", "")
     if not key:
         print("[fetch_matches] FOOTBALL_DATA_API_KEY not set, returning empty")
         return []
     headers = {"X-Auth-Token": key}
     url = f"{FOOTBALL_DATA_BASE}/competitions/{WORLD_CUP_COMPETITION_ID}/matches"
-    params = {"dateFrom": date, "dateTo": date}
+    next_day = (datetime.strptime(date, "%Y-%m-%d") + timedelta(days=1)).strftime("%Y-%m-%d")
+    params = {"dateFrom": date, "dateTo": next_day}
     try:
         r = requests.get(url, headers=headers, params=params, timeout=10)
         r.raise_for_status()
         time.sleep(6)  # respect 10 req/min free tier limit
-        return r.json().get("matches", [])
+        matches = r.json().get("matches", [])
+        print(f"[fetch_matches] Got {len(matches)} matches ({date} → {next_day})")
+        return matches
     except Exception as e:
         print(f"[fetch_matches] failed: {e}")
         return []
