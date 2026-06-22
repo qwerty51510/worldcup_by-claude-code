@@ -28,14 +28,16 @@ def run(date: str) -> None:
     if matches or odds or polymarket:
         save_match_day(date, {"matches": matches, "odds": odds, "polymarket": polymarket})
 
+    finished = [m for m in matches if m.get("status") == "FINISHED"]
+    upcoming = [m for m in matches if m.get("status") in ("TIMED", "SCHEDULED")]
+    print(f"[pipeline] {len(upcoming)} upcoming, {len(finished)} finished")
+
     print("[pipeline] Building features...")
-    features = build_features(matches, odds, calibration, pm_strengths=polymarket)
+    features = build_features(upcoming, odds, calibration, pm_strengths=polymarket)
 
     print("[pipeline] Predicting...")
     predictions = predict_all(features, calibration)
     save_predictions(date, predictions)
-
-    finished = [m for m in matches if m.get("status") == "FINISHED"]
     if finished:
         brier = compute_brier_score(predictions, finished)
         print(f"[pipeline] Brier Score: {brier:.4f}")
