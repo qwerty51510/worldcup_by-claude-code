@@ -196,6 +196,45 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 }
 .correct { color: var(--green); }
 .wrong   { color: var(--red); }
+/* ── kickoff time ── */
+.kickoff-time {
+  font-size: 0.78rem; color: var(--gold); font-weight: 600;
+  margin-bottom: 10px; letter-spacing: 0.3px;
+}
+/* ── reasoning ── */
+.reasoning-box {
+  margin-top: 14px;
+  background: rgba(30,45,69,0.6);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.reasoning-title {
+  font-size: 0.72rem; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px;
+}
+.reasoning-line {
+  font-size: 0.82rem; color: #94a3b8; line-height: 1.7;
+}
+.reasoning-line + .reasoning-line { margin-top: 3px; }
+/* ── injury ── */
+.injury-box {
+  margin-top: 10px;
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+}
+.injury-none {
+  color: var(--muted); font-size: 0.76rem;
+  background: transparent; border-color: var(--border);
+}
+.injury-title {
+  font-size: 0.72rem; font-weight: 700; color: #ef4444;
+  text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;
+}
+.injury-item { color: #fca5a5; margin-top: 3px; }
 </style>
 </head>
 <body>

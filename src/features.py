@@ -248,6 +248,7 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             "match_id": match_id,
             "home_team": home,
             "away_team": away,
+            "kickoff_utc": match.get("utcDate", ""),
             "lambda_home": lambda_home,
             "lambda_away": lambda_away,
             "ah_line": ah_line,

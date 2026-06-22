@@ -202,6 +202,45 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
 }
 .correct { color: var(--green); }
 .wrong   { color: var(--red); }
+/* ── kickoff time ── */
+.kickoff-time {
+  font-size: 0.78rem; color: var(--gold); font-weight: 600;
+  margin-bottom: 10px; letter-spacing: 0.3px;
+}
+/* ── reasoning ── */
+.reasoning-box {
+  margin-top: 14px;
+  background: rgba(30,45,69,0.6);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.reasoning-title {
+  font-size: 0.72rem; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px;
+}
+.reasoning-line {
+  font-size: 0.82rem; color: #94a3b8; line-height: 1.7;
+}
+.reasoning-line + .reasoning-line { margin-top: 3px; }
+/* ── injury ── */
+.injury-box {
+  margin-top: 10px;
+  background: rgba(239,68,68,0.06);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+}
+.injury-none {
+  color: var(--muted); font-size: 0.76rem;
+  background: transparent; border-color: var(--border);
+}
+.injury-title {
+  font-size: 0.72rem; font-weight: 700; color: #ef4444;
+  text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;
+}
+.injury-item { color: #fca5a5; margin-top: 3px; }
 """
 
 
@@ -288,9 +327,25 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
             # AH line display
             ah_line_val = p.get("lambda_home", 0) - p.get("lambda_away", 0)
 
+            kickoff = p.get("kickoff", "")
+            reasoning_lines = p.get("reasoning", "").split("\n")
+            injury_notes = p.get("injury_notes", [])
+
+            reasoning_html = "".join(
+                f'<div class="reasoning-line">{line}</div>'
+                for line in reasoning_lines if line.strip()
+            )
+            injury_html = ""
+            if injury_notes:
+                items = "".join(f'<div class="injury-item">🤕 {n}</div>' for n in injury_notes)
+                injury_html = f'<div class="injury-box"><div class="injury-title">傷兵報告</div>{items}</div>'
+            else:
+                injury_html = '<div class="injury-box injury-none">傷兵狀況：暫無已知缺陣</div>'
+
             cards += f"""
 <div class="card">
   <div class="card-header">
+    {'<div class="kickoff-time">🕐 開賽時間（UTC+8）：' + kickoff + '</div>' if kickoff else ''}
     <div class="teams">
       <div class="team home">
         <div class="team-name">{p['home_team']}</div>
@@ -341,6 +396,11 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
         </div>
       </div>
     </div>
+    <div class="reasoning-box">
+      <div class="reasoning-title">分析依據</div>
+      {reasoning_html}
+    </div>
+    {injury_html}
   </div>
 </div>"""
         content = f'<div class="cards">{cards}</div>'

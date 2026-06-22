@@ -1,8 +1,10 @@
 import json
+from datetime import datetime, timezone, timedelta
 from math import exp, factorial
 from pathlib import Path
 
 DATA_DIR = Path(__file__).parent.parent / "data"
+_UTC8 = timezone(timedelta(hours=8))
 
 
 def _poisson_pmf(k: int, lam: float) -> float:
@@ -66,6 +68,74 @@ def _predict_score(lambda_home: float, lambda_away: float) -> dict:
     }
 
 
+def _format_kickoff(utc_str: str) -> str:
+    """Convert UTC ISO string to UTC+8 display string."""
+    if not utc_str:
+        return ""
+    try:
+        dt = datetime.fromisoformat(utc_str.replace("Z", "+00:00"))
+        local = dt.astimezone(_UTC8)
+        return local.strftime("%m/%d %H:%M")
+    except Exception:
+        return utc_str
+
+
+def _load_injuries() -> dict:
+    path = DATA_DIR / "injuries.json"
+    if path.exists():
+        return json.loads(path.read_text())
+    return {}
+
+
+def _generate_reasoning(home: str, away: str, lh: float, la: float,
+                         p_home: float, p_draw: float, p_away: float,
+                         ou_pred: str, ou_conf: int) -> str:
+    from src.features import _load_elo, _load_wc_team_stats, _WC_LEAGUE_AVG
+    elo = _load_elo()
+    stats = _load_wc_team_stats()
+
+    h_elo = elo.get(home, 1500)
+    a_elo = elo.get(away, 1500)
+    diff = h_elo - a_elo
+
+    # Strength description
+    if abs(diff) >= 400:
+        str_text = f"實力差距懸殊（ELO {diff:+d}）"
+    elif abs(diff) >= 200:
+        str_text = f"實力有明顯優勢（ELO {diff:+d}）"
+    elif abs(diff) >= 80:
+        str_text = f"實力略佔優勢（ELO {diff:+d}）"
+    else:
+        str_text = f"實力相當（ELO {diff:+d}）"
+
+    lines = [f"【強度】{home}（{h_elo}）vs {away}（{a_elo}），{str_text}"]
+
+    # WC 2026 form
+    form_parts = []
+    for team in [home, away]:
+        s = stats.get(team)
+        if s and s["played"] > 0:
+            form_parts.append(f"{team} {s['played']}場 進{s['scored']} 失{s['conceded']}")
+    if form_parts:
+        lines.append("【近況】" + "；".join(form_parts))
+
+    # Goal expectation
+    total = lh + la
+    lines.append(f"【進球預期】主{lh:.1f} + 客{la:.1f} = {total:.1f}，{ou_pred.upper()} {ou_conf}% 信心")
+
+    # Win probability narrative
+    fav = home if p_home > p_away else away
+    fav_p = max(p_home, p_away)
+    if fav_p >= 0.65:
+        lines.append(f"【勝負】{fav} 明顯佔優（勝率 {int(fav_p*100)}%），平局機率 {int(p_draw*100)}%")
+    elif fav_p >= 0.50:
+        lines.append(f"【勝負】{fav} 略佔優（勝率 {int(fav_p*100)}%），本場存在平局可能（{int(p_draw*100)}%）")
+    else:
+        lines.append(f"【勝負】雙方難分高下，平局機率 {int(p_draw*100)}% 不低")
+
+    return "\n".join(lines)
+
+
 def predict_match(feature: dict, calibration: dict) -> dict:
     lh = feature["lambda_home"]
     la = feature["lambda_away"]
@@ -103,11 +173,27 @@ def predict_match(feature: dict, calibration: dict) -> dict:
         key_factors.append("Poisson 標準預測")
 
     score_info = _predict_score(lh, la)
+    home = feature["home_team"]
+    away = feature["away_team"]
+
+    injuries = _load_injuries()
+    injury_notes = []
+    for team in [home, away]:
+        team_injuries = injuries.get(team, [])
+        if team_injuries:
+            injury_notes.append(f"{team}：" + "、".join(team_injuries))
+
+    reasoning = _generate_reasoning(
+        home, away, lh, la,
+        score_info["p_home_win"], score_info["p_draw"], score_info["p_away_win"],
+        ou_prediction, ou_confidence,
+    )
 
     return {
         "match_id": feature["match_id"],
-        "home_team": feature["home_team"],
-        "away_team": feature["away_team"],
+        "home_team": home,
+        "away_team": away,
+        "kickoff": _format_kickoff(feature.get("kickoff_utc", "")),
         "ah_prediction": ah_prediction,
         "ah_confidence": ah_confidence,
         "ou_prediction": ou_prediction,
@@ -119,6 +205,8 @@ def predict_match(feature: dict, calibration: dict) -> dict:
         "key_factors": key_factors,
         "lambda_home": round(lh, 3),
         "lambda_away": round(la, 3),
+        "reasoning": reasoning,
+        "injury_notes": injury_notes,
     }
 
 
