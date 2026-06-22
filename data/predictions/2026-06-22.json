@@ -61,5 +61,89 @@
     "lambda_away": 1.129,
     "reasoning": "【強度】Norway（1731）vs Senegal（1647），實力略佔優勢（ELO +84）\n【近況】Norway 1場 進4 失1；Senegal 1場 進1 失3\n【進球預期】主3.3 + 客1.1 = 4.4，OVER 62% 信心\n【勝負】Norway 明顯佔優（勝率 77%），平局機率 12%",
     "injury_notes": []
+  },
+  {
+    "match_id": "537400",
+    "home_team": "Jordan",
+    "away_team": "Algeria",
+    "kickoff": "06/23 11:00",
+    "ah_prediction": "away",
+    "ah_confidence": 14,
+    "ou_prediction": "over",
+    "ou_confidence": 19,
+    "predicted_score": "1-1",
+    "p_home_win": 0.428,
+    "p_draw": 0.237,
+    "p_away_win": 0.334,
+    "key_factors": [
+      "強度來源：WC 2026 實戰數據"
+    ],
+    "lambda_home": 1.655,
+    "lambda_away": 1.438,
+    "reasoning": "【強度】Jordan（1346）vs Algeria（1498），實力略佔優勢（ELO -152）\n【近況】Jordan 1場 進1 失3；Algeria 1場 進0 失3\n【進球預期】主1.7 + 客1.4 = 3.1，OVER 19% 信心\n【勝負】雙方難分高下，平局機率 23% 不低",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537405",
+    "home_team": "Portugal",
+    "away_team": "Uzbekistan",
+    "kickoff": "06/24 01:00",
+    "ah_prediction": "home",
+    "ah_confidence": 52,
+    "ou_prediction": "over",
+    "ou_confidence": 33,
+    "predicted_score": "2-0",
+    "p_home_win": 0.76,
+    "p_draw": 0.147,
+    "p_away_win": 0.091,
+    "key_factors": [
+      "強度來源：WC 2026 實戰數據"
+    ],
+    "lambda_home": 2.63,
+    "lambda_away": 0.81,
+    "reasoning": "【強度】Portugal（1887）vs Uzbekistan（1312），實力差距懸殊（ELO +575）\n【近況】Portugal 1場 進1 失1；Uzbekistan 1場 進1 失3\n【進球預期】主2.6 + 客0.8 = 3.4，OVER 33% 信心\n【勝負】Portugal 明顯佔優（勝率 76%），平局機率 14%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537411",
+    "home_team": "England",
+    "away_team": "Ghana",
+    "kickoff": "06/24 04:00",
+    "ah_prediction": "home",
+    "ah_confidence": 8,
+    "ou_prediction": "over",
+    "ou_confidence": 20,
+    "predicted_score": "1-1",
+    "p_home_win": 0.54,
+    "p_draw": 0.222,
+    "p_away_win": 0.237,
+    "key_factors": [
+      "強度來源：WC 2026 實戰數據"
+    ],
+    "lambda_home": 1.916,
+    "lambda_away": 1.201,
+    "reasoning": "【強度】England（1946）vs Ghana（1521），實力差距懸殊（ELO +425）\n【近況】England 1場 進4 失2；Ghana 1場 進1 失0\n【進球預期】主1.9 + 客1.2 = 3.1，OVER 20% 信心\n【勝負】England 略佔優（勝率 54%），本場存在平局可能（22%）",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537412",
+    "home_team": "Panama",
+    "away_team": "Croatia",
+    "kickoff": "06/24 07:00",
+    "ah_prediction": "home",
+    "ah_confidence": 1,
+    "ou_prediction": "over",
+    "ou_confidence": 22,
+    "predicted_score": "1-1",
+    "p_home_win": 0.279,
+    "p_draw": 0.228,
+    "p_away_win": 0.493,
+    "key_factors": [
+      "強度來源：WC 2026 實戰數據"
+    ],
+    "lambda_home": 1.332,
+    "lambda_away": 1.838,
+    "reasoning": "【強度】Panama（1376）vs Croatia（1718），實力有明顯優勢（ELO -342）\n【近況】Panama 1場 進0 失1；Croatia 1場 進2 失4\n【進球預期】主1.3 + 客1.8 = 3.2，OVER 22% 信心\n【勝負】雙方難分高下，平局機率 22% 不低",
+    "injury_notes": []
   }
 ]
