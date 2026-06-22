@@ -82,3 +82,19 @@ def load_calibration() -> dict:
 def save_calibration(calibration: dict) -> None:
     CALIBRATION_PATH.parent.mkdir(parents=True, exist_ok=True)
     CALIBRATION_PATH.write_text(json.dumps(calibration, ensure_ascii=False, indent=2))
+
+
+BRIER_HISTORY_PATH = DATA_DIR / "backtest" / "brier_history.json"
+
+
+def load_brier_history() -> list:
+    if BRIER_HISTORY_PATH.exists():
+        return json.loads(BRIER_HISTORY_PATH.read_text())
+    return []
+
+
+def save_brier_history(score: float) -> None:
+    history = load_brier_history()
+    history.append(round(score, 4))
+    BRIER_HISTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
+    BRIER_HISTORY_PATH.write_text(json.dumps(history, ensure_ascii=False, indent=2))

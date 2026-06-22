@@ -132,3 +132,10 @@ def save_predictions(date: str, predictions: list) -> None:
     (out_dir / f"{date}.json").write_text(
         json.dumps(predictions, ensure_ascii=False, indent=2)
     )
+
+
+def _load_predictions(date: str) -> list:
+    path = DATA_DIR / "predictions" / f"{date}.json"
+    if path.exists():
+        return json.loads(path.read_text())
+    return []
