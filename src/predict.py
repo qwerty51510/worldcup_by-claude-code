@@ -11,25 +11,51 @@ def _poisson_pmf(k: int, lam: float) -> float:
     return (lam ** k) * exp(-lam) / factorial(k)
 
 
-def _poisson_ah_prob(lambda_home: float, lambda_away: float, handicap: float) -> float:
-    """P(home covers AH): home_goals + handicap > away_goals."""
+def _dc_tau(h: int, a: int, lh: float, la: float, rho: float) -> float:
+    """
+    Dixon-Coles (1997) low-score correction factor τ.
+    rho < 0 boosts 0-0 and 1-1 probabilities (more common in football than
+    independent Poisson predicts).  Typical value for international football: -0.13.
+    τ = 1 for all scores with h≥2 or a≥2 (no correction needed there).
+    """
+    if h == 0 and a == 0:
+        return 1.0 - lh * la * rho
+    if h == 0 and a == 1:
+        return 1.0 + lh * rho
+    if h == 1 and a == 0:
+        return 1.0 + la * rho
+    if h == 1 and a == 1:
+        return 1.0 - rho
+    return 1.0
+
+
+def _poisson_ah_prob(lambda_home: float, lambda_away: float, handicap: float,
+                     rho: float = 0.0) -> float:
+    """P(home covers AH). rho=0 → standard Poisson; rho<0 → Dixon-Coles correction."""
     max_goals = 10
     prob = 0.0
     for h in range(max_goals + 1):
         for a in range(max_goals + 1):
+            p = _poisson_pmf(h, lambda_home) * _poisson_pmf(a, lambda_away)
+            if rho != 0.0:
+                p *= _dc_tau(h, a, lambda_home, lambda_away, rho)
             if (h + handicap) > a:
-                prob += _poisson_pmf(h, lambda_home) * _poisson_pmf(a, lambda_away)
+                prob += p
     return prob
 
 
-def _poisson_ou_prob(lambda_home: float, lambda_away: float, line: float) -> float:
-    """P(total goals > line) — probability of Over."""
+def _poisson_ou_prob(lambda_home: float, lambda_away: float, line: float,
+                     rho: float = 0.0) -> float:
+    """P(total goals > line). rho=0 → standard Poisson; rho<0 → Dixon-Coles correction."""
     max_goals = 10
     prob_over = 0.0
     for h in range(max_goals + 1):
         for a in range(max_goals + 1):
+            p = _poisson_pmf(h, lambda_home) * _poisson_pmf(a, lambda_away)
+            if rho != 0.0:
+                p *= _dc_tau(h, a, lambda_home, lambda_away, rho)
             if (h + a) > line:
-                prob_over += _poisson_pmf(h, lambda_home) * _poisson_pmf(a, lambda_away)
+                prob_over += p
     return prob_over
 
 

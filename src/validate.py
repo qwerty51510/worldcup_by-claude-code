@@ -101,17 +101,15 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
 
 
 def _predict_single(home: str, away: str, lh: float, la: float,
-                    ah_line: float, ou_line: float, calibration: dict) -> dict:
-    """Run Poisson prediction for one match."""
-    sharp = 0.0
-    mul = calibration.get("sharp_money_multiplier", 0.85)
-
-    ah_prob_home = _poisson_ah_prob(lh, la, ah_line)
+                    ah_line: float, ou_line: float, calibration: dict,
+                    rho: float = 0.0) -> dict:
+    """Run Poisson prediction for one match. rho=0 → plain Poisson; rho<0 → Dixon-Coles."""
+    ah_prob_home = _poisson_ah_prob(lh, la, ah_line, rho=rho)
     ah_prob_home = min(0.95, max(0.05, ah_prob_home))
     ah_pred = "home" if ah_prob_home > 0.5 else "away"
     ah_conf = min(100, max(0, int(abs(ah_prob_home - 0.5) * 200)))
 
-    ou_prob_over = _poisson_ou_prob(lh, la, ou_line)
+    ou_prob_over = _poisson_ou_prob(lh, la, ou_line, rho=rho)
     ou_pred = "over" if ou_prob_over > 0.5 else "under"
     ou_conf = min(100, max(0, int(abs(ou_prob_over - 0.5) * 200)))
 
@@ -142,7 +140,7 @@ def _actual_ou_result(match: dict, ou_line: float) -> str:
     return "over" if total > ou_line else "under"
 
 
-def run_validation(calibration: dict = None) -> dict:
+def run_validation(calibration: dict = None, rho: float = 0.0) -> dict:
     """Run walk-forward validation on all 40 completed WC 2026 matches."""
     if calibration is None:
         calibration = dict(DEFAULT_CALIBRATION)
@@ -157,7 +155,7 @@ def run_validation(calibration: dict = None) -> dict:
         lh, la, ah_line, ou_line, method = _lambda_for_match(
             match["home"], match["away"], completed, match_date=match["date"]
         )
-        pred = _predict_single(match["home"], match["away"], lh, la, ah_line, ou_line, calibration)
+        pred = _predict_single(match["home"], match["away"], lh, la, ah_line, ou_line, calibration, rho=rho)
         actual_ah = _actual_ah_result(match)  # None if draw (push)
         actual_ou = _actual_ou_result(match, ou_line)
 
@@ -259,7 +257,86 @@ def refresh_validation() -> dict:
     return report
 
 
+def compare_models(rho_values: list = None) -> None:
+    """
+    A/B test: run walk-forward validation for plain Poisson (ρ=0) and one or more
+    Dixon-Coles ρ values. Print a side-by-side comparison table.
+    """
+    if rho_values is None:
+        rho_values = [-0.05, -0.10, -0.13, -0.18]
+
+    configs = [("Plain Poisson (ρ=0.00)", 0.0)] + [
+        ("Dixon-Coles  ρ=%.2f" % r, r) for r in rho_values
+    ]
+
+    print("\n%s" % ("=" * 72))
+    print("  模型對比：Plain Poisson vs Dixon-Coles (ρ 修正)")
+    print("=" * 72)
+    header = "  %-28s  %6s  %6s  %7s  %7s"
+    print(header % ("版本", "AH準確", "OU準確", "AH Brier", "OU Brier"))
+    print("  " + "-" * 68)
+
+    best_ah = ("", 0.0)
+    best_ou = ("", 0.0)
+    rows = []
+
+    for label, rho in configs:
+        r = run_validation(rho=rho)
+        ah = r["ah_accuracy"]
+        ou = r["ou_accuracy"]
+        ab = r["ah_brier"]
+        ob = r["ou_brier"]
+        rows.append((label, rho, ah, ou, ab, ob))
+        if ah > best_ah[1]:
+            best_ah = (label, ah)
+        if ou > best_ou[1]:
+            best_ou = (label, ou)
+
+    for label, rho, ah, ou, ab, ob in rows:
+        ah_mark = " ◀" if label == best_ah[0] else ""
+        ou_mark = " ◀" if label == best_ou[0] else ""
+        print("  %-28s  %5.1f%%  %5.1f%%  %7.3f  %7.3f%s%s" % (
+            label, ah * 100, ou * 100, ab, ob, ah_mark, ou_mark))
+
+    print("=" * 72)
+    print("\n  ◀ = 最佳")
+    print("\n【差異分析】")
+    base = rows[0]
+    for label, rho, ah, ou, ab, ob in rows[1:]:
+        d_ah = (ah - base[2]) * 100
+        d_ou = (ou - base[3]) * 100
+        print("  ρ=%.2f  AH %+.1f%%  OU %+.1f%%" % (rho, d_ah, d_ou))
+    print()
+
+    # Per-match detail: where did DC change the prediction vs plain Poisson?
+    base_results = run_validation(rho=0.0)["all_results"]
+    best_rho = min(rho_values, key=lambda r: abs(r - (-0.13)))
+    dc_results  = run_validation(rho=best_rho)["all_results"]
+    changed = []
+    for b, d in zip(base_results, dc_results):
+        if b["ah_pred"] != d["ah_pred"] or b["ou_pred"] != d["ou_pred"]:
+            changed.append((b, d))
+    print("  ρ=%.2f 相較 ρ=0 改變預測的場次：%d 場" % (best_rho, len(changed)))
+    for b, d in changed[:10]:
+        print("  [%s] %s vs %s" % (b["date"], b["home"], b["away"]))
+        if b["ah_pred"] != d["ah_pred"]:
+            ah_ok_b = "✓" if b["ah_correct"] else "✗"
+            ah_ok_d = "✓" if d["ah_correct"] else "✗"
+            print("    AH: ρ=0→%s%s  DC→%s%s  實際=%s" % (
+                b["ah_pred"], ah_ok_b, d["ah_pred"], ah_ok_d, b["actual_ah"]))
+        if b["ou_pred"] != d["ou_pred"]:
+            ou_ok_b = "✓" if b["ou_correct"] else "✗"
+            ou_ok_d = "✓" if d["ou_correct"] else "✗"
+            print("    OU: ρ=0→%s%s  DC→%s%s  實際=%s" % (
+                b["ou_pred"], ou_ok_b, d["ou_pred"], ou_ok_d, b["actual_ou"]))
+    print()
+
+
 if __name__ == "__main__":
-    report = run_validation()
-    print_report(report)
-    save_validation(report)
+    import sys
+    if "--compare" in sys.argv:
+        compare_models()
+    else:
+        report = run_validation()
+        print_report(report)
+        save_validation(report)
