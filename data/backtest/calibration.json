@@ -1,0 +1,10 @@
+{
+  "ah_weight": 1.0,
+  "ou_weight": 1.0,
+  "sharp_money_multiplier": 0.85,
+  "incentive_boost": 0.15,
+  "climate_penalty": 0.05,
+  "age_decay_threshold": 29.5,
+  "version": "1.0",
+  "last_updated": "2026-06-22"
+}

@@ -1,0 +1,8 @@
+requests==2.32.3
+scipy==1.13.1
+numpy==1.26.4
+pandas==2.2.2
+plotly==5.22.0
+pytest==8.2.2
+pytest-mock==3.14.0
+responses==0.25.3
