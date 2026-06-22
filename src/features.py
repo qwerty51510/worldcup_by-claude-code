@@ -242,6 +242,12 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
         h_def *= (2.0 - h_stam)
         a_def *= (2.0 - a_stam)
 
+    # ── Tactical conservation (積分管理) ────────────────────────────────────
+    if match_date:
+        _results_for_cons = _load_wc_results() if prior_results is None else prior_results
+        h_atk *= _conservation_factor(home, away, match_date, _results_for_cons)
+        a_atk *= _conservation_factor(away, home, match_date, _results_for_cons)
+
     # ── Home advantage (host nations only) ──────────────────────────────────
     _HOST_NATIONS = {"United States", "Canada", "Mexico"}
     home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
@@ -249,6 +255,40 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
     la = round(max(0.3, _WC_LEAGUE_AVG * a_atk * h_def), 3)
     ah_line = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
     return lh, la, ah_line, 2.5
+
+
+def _team_wc_points(team: str, match_date: str, results: list) -> int:
+    """Points earned by team in WC 2026 strictly before match_date."""
+    pts = 0
+    for r in results:
+        if r["date"] >= match_date:
+            continue
+        if r["home"] == team:
+            if r["home_goals"] > r["away_goals"]:
+                pts += 3
+            elif r["home_goals"] == r["away_goals"]:
+                pts += 1
+        elif r["away"] == team:
+            if r["away_goals"] > r["home_goals"]:
+                pts += 3
+            elif r["home_goals"] == r["away_goals"]:
+                pts += 1
+    return pts
+
+
+def _conservation_factor(team: str, opponent: str, match_date: str, results: list) -> float:
+    """
+    積分管理：team already has ≥3 WC pts and faces an evenly-matched opponent
+    (ELO diff ≤200) → reduce attacking lambda by 10% (safe-draw strategy).
+    """
+    if not match_date or not results:
+        return 1.0
+    if _team_wc_points(team, match_date, results) < 3:
+        return 1.0
+    elo = _load_elo()
+    if abs(elo.get(team, 1500) - elo.get(opponent, 1500)) <= 200:
+        return 0.90
+    return 1.0
 
 
 def _build_stats(results: list) -> dict:

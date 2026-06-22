@@ -447,35 +447,117 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
     Path(path).write_text(html, encoding="utf-8")
 
 
-def render_postmortem(postmortem: list, out_path: str = None) -> None:
-    if postmortem:
-        rows = ""
-        for p in postmortem:
-            err_pct = int(p["error"] * 100)
-            cls = "conf-high" if p["error"] < 0.3 else "conf-mid"
-            predicted_label = _AH_LABEL.get(p["predicted"], p["predicted"])
-            rows += (
-                f"<tr>"
-                f"<td>{p['home_team']} vs {p['away_team']}</td>"
-                f"<td>{predicted_label}（{p['confidence']}%）</td>"
-                f"<td>{p['actual_score']}</td>"
-                f"<td><span class='conf-badge {cls}'>{err_pct}% 誤差</span></td>"
-                f"</tr>"
-            )
-        tbl = (
-            "<div class='tbl-wrap'><table><thead><tr>"
-            "<th>比賽</th><th>預測方向</th><th>實際比分</th><th>誤差</th>"
-            f"</tr></thead><tbody>{rows}</tbody></table></div>"
-        )
-    else:
-        tbl = "<div class='empty'><div class='empty-icon'>✅</div><p>目前尚無高誤差預測紀錄</p></div>"
+def _load_postmortem() -> dict:
+    path = Path(__file__).parent.parent / "data" / "backtest" / "postmortem.json"
+    if path.exists():
+        return json.loads(path.read_text())
+    return {}
 
-    body = f"""
-<div class="page-header">
-  <div class="page-title">復盤分析</div>
-</div>
-<p>列出模型信心高但預測錯誤的比賽，用於識別模型盲點並調整參數。</p>
-{tbl}"""
+
+def render_postmortem(out_path: str = None) -> None:
+    pm = _load_postmortem()
+    _AH_PRED_ZH = {"home": "主隊", "away": "客隊"}
+    _OU_PRED_ZH = {"over": "大球", "under": "小球"}
+
+    if not pm or not pm.get("matches"):
+        body = (
+            "<div class='page-header'><div class='page-title'>復盤分析</div></div>"
+            "<div class='empty'><div class='empty-icon'>🔍</div>"
+            "<p>賽後復盤將在每次有新比賽結果後自動更新</p></div>"
+        )
+        html = _base_html("復盤分析", body, active_nav="復盤分析")
+        path = out_path or str(DOCS_DIR / "postmortem.html")
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
+        Path(path).write_text(html, encoding="utf-8")
+        return
+
+    s = pm["summary"]
+    updated = pm.get("generated_at", "")[:10]
+
+    summary = (
+        "<div class='stat-row'>"
+        "<div class='stat-box'><div class='stat-num'>%d</div><div class='stat-lbl'>回測場數</div></div>"
+        "<div class='stat-box'><div class='stat-num' style='color:var(--accent)'>%.1f%%</div><div class='stat-lbl'>讓球盤準確率</div></div>"
+        "<div class='stat-box'><div class='stat-num' style='color:var(--gold)'>%.1f%%</div><div class='stat-lbl'>大小球準確率</div></div>"
+        "<div class='stat-box'><div class='stat-num'>%d</div><div class='stat-lbl'>比分完全猜對</div></div>"
+        "<div class='stat-box'><div class='stat-num'>%.1f</div><div class='stat-lbl'>總球數誤差均值</div></div>"
+        "</div>"
+    ) % (pm["total_matches"], s["ah_accuracy"] * 100, s["ou_accuracy"] * 100,
+         s["score_exact_match"], s["avg_goal_total_error"])
+
+    # Team bias table
+    team_rows = ""
+    for t in pm["team_analysis"][:12]:
+        bias = t["goal_bias"]
+        if bias > 0.3:
+            bias_color = "var(--red)"
+            bias_txt = "+%.2f 高估" % bias
+        elif bias < -0.3:
+            bias_color = "var(--green)"
+            bias_txt = "%.2f 低估" % bias
+        else:
+            bias_color = "var(--muted)"
+            bias_txt = "%.2f 準確" % bias
+        ah_txt = "%.1f%%" % (t["ah_accuracy"] * 100) if t["ah_accuracy"] is not None else "-"
+        team_rows += (
+            "<tr>"
+            "<td>%s</td><td>%d</td><td>%.2f</td><td>%.2f</td>"
+            "<td style='color:%s;font-weight:600'>%s</td><td>%s</td>"
+            "</tr>"
+        ) % (team_zh(t["team"]), t["matches"],
+             t["pred_goals_avg"], t["actual_goals_avg"],
+             bias_color, bias_txt, ah_txt)
+
+    team_tbl = (
+        "<div class='section-title'>進球預測偏差</div>"
+        "<p>正值＝高估進球；負值＝低估。偏差大代表模型對該隊掌握較不準確。</p>"
+        "<div class='tbl-wrap'><table><thead><tr>"
+        "<th>隊伍</th><th>場次</th><th>預測均值</th><th>實際均值</th><th>偏差</th><th>AH準確率</th>"
+        "</tr></thead><tbody>%s</tbody></table></div>"
+    ) % team_rows
+
+    # Missed AH table
+    missed = pm.get("missed_ah_matches", [])
+    if missed:
+        missed_rows = ""
+        for m in missed:
+            pred_zh = _AH_PRED_ZH.get(m["ah_pred"], m["ah_pred"])
+            actual_zh = _AH_PRED_ZH.get(m.get("actual_ah") or "", "")
+            missed_rows += (
+                "<tr>"
+                "<td style='color:var(--muted)'>%s</td>"
+                "<td style='color:var(--muted)'>%s組</td>"
+                "<td><b>%s</b> vs <b>%s</b></td>"
+                "<td style='text-align:center'>"
+                "<div style='font-size:0.7rem;color:var(--muted)'>預測 %s</div>"
+                "<div style='font-weight:700'>%s</div>"
+                "</td>"
+                "<td><span class='wrong'>預測%s →實際%s</span></td>"
+                "</tr>"
+            ) % (m["date"], m["group"],
+                 team_zh(m["home"]), team_zh(m["away"]),
+                 m["predicted_score"], m["actual_score"],
+                 pred_zh, actual_zh)
+
+        missed_tbl = (
+            "<div class='section-title'>讓球盤預測失準（%d 場）</div>"
+            "<div class='tbl-wrap'><table><thead><tr>"
+            "<th>日期</th><th>組別</th><th>比賽</th><th>比分</th><th>讓球盤結果</th>"
+            "</tr></thead><tbody>%s</tbody></table></div>"
+        ) % (len(missed), missed_rows)
+    else:
+        missed_tbl = (
+            "<div class='section-title'>讓球盤預測失準</div>"
+            "<div class='empty'><div class='empty-icon'>✅</div><p>目前無失準記錄</p></div>"
+        )
+
+    body = (
+        "<div class='page-header'><div class='page-title'>復盤分析</div>"
+        "<span class='date-chip'>最後更新 %s</span></div>"
+        "<p>Walk-forward 回測：每場比賽僅使用賽前數據預測，無未來資料洩漏。</p>"
+        "%s%s%s"
+    ) % (updated, summary, team_tbl, missed_tbl)
+
     html = _base_html("復盤分析", body, active_nav="復盤分析")
     path = out_path or str(DOCS_DIR / "postmortem.html")
     Path(path).parent.mkdir(parents=True, exist_ok=True)
@@ -636,7 +718,7 @@ def render_results(out_path: str = None) -> None:
 
 
 def render_all(date: str) -> None:
-    from src.backtest import generate_postmortem, load_calibration, load_brier_history
+    from src.backtest import load_calibration, load_brier_history
     from src.predict import _load_predictions
 
     predictions = _load_predictions(date)
@@ -646,8 +728,5 @@ def render_all(date: str) -> None:
     brier_history = load_brier_history()
     render_calibration(calibration, brier_history)
 
-    # postmortem requires completed-match data; pass empty lists when none available
-    postmortem = generate_postmortem(predictions, [])
-    render_postmortem(postmortem)
-
+    render_postmortem()
     render_results()
