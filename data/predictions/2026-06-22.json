@@ -4,71 +4,71 @@
     "home_team": "New Zealand",
     "away_team": "Egypt",
     "ah_prediction": "away",
-    "ah_confidence": 20,
+    "ah_confidence": 33,
     "ou_prediction": "over",
-    "ou_confidence": 40,
+    "ou_confidence": 43,
     "predicted_score": "1-2",
-    "p_home_win": 0.204,
-    "p_draw": 0.193,
-    "p_away_win": 0.603,
+    "p_home_win": 0.159,
+    "p_draw": 0.174,
+    "p_away_win": 0.666,
     "key_factors": [
       "強度來源：WC 2026 實戰數據"
     ],
-    "lambda_home": 1.301,
-    "lambda_away": 2.33
+    "lambda_home": 1.182,
+    "lambda_away": 2.533
   },
   {
     "match_id": "537399",
     "home_team": "Argentina",
     "away_team": "Austria",
-    "ah_prediction": "away",
-    "ah_confidence": 1,
+    "ah_prediction": "home",
+    "ah_confidence": 37,
     "ou_prediction": "over",
-    "ou_confidence": 22,
-    "predicted_score": "1-1",
-    "p_home_win": 0.491,
-    "p_draw": 0.228,
-    "p_away_win": 0.281,
+    "ou_confidence": 19,
+    "predicted_score": "2-0",
+    "p_home_win": 0.688,
+    "p_draw": 0.183,
+    "p_away_win": 0.129,
     "key_factors": [
       "強度來源：WC 2026 實戰數據"
     ],
-    "lambda_home": 1.831,
-    "lambda_away": 1.338
+    "lambda_home": 2.246,
+    "lambda_away": 0.857
   },
   {
     "match_id": "537393",
     "home_team": "France",
     "away_team": "Iraq",
     "ah_prediction": "home",
-    "ah_confidence": 52,
+    "ah_confidence": 63,
     "ou_prediction": "over",
-    "ou_confidence": 61,
-    "predicted_score": "3-1",
-    "p_home_win": 0.755,
-    "p_draw": 0.131,
-    "p_away_win": 0.108,
+    "ou_confidence": 75,
+    "predicted_score": "4-0",
+    "p_home_win": 0.891,
+    "p_draw": 0.051,
+    "p_away_win": 0.024,
     "key_factors": [
       "強度來源：WC 2026 實戰數據"
     ],
-    "lambda_home": 3.16,
-    "lambda_away": 1.189
+    "lambda_home": 4.34,
+    "lambda_away": 0.774
   },
   {
     "match_id": "537394",
     "home_team": "Norway",
     "away_team": "Senegal",
     "ah_prediction": "home",
-    "ah_confidence": 52,
+    "ah_confidence": 56,
     "ou_prediction": "over",
-    "ou_confidence": 61,
+    "ou_confidence": 62,
     "predicted_score": "3-1",
-    "p_home_win": 0.755,
-    "p_draw": 0.131,
-    "p_away_win": 0.108,
+    "p_home_win": 0.778,
+    "p_draw": 0.122,
+    "p_away_win": 0.094,
     "key_factors": [
       "強度來源：WC 2026 實戰數據"
     ],
-    "lambda_home": 3.16,
-    "lambda_away": 1.189
+    "lambda_home": 3.26,
+    "lambda_away": 1.129
   }
 ]
