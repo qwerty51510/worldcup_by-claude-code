@@ -1,27 +1,5 @@
 [
   {
-    "match_id": "537399",
-    "home_team": "Argentina",
-    "away_team": "Austria",
-    "kickoff": "06/23 01:00",
-    "kickoff_utc": "2026-06-22T17:00:00Z",
-    "ah_prediction": "home",
-    "ah_confidence": 51,
-    "ou_prediction": "over",
-    "ou_confidence": 18,
-    "predicted_score": "2-0",
-    "p_home_win": 0.758,
-    "p_draw": 0.156,
-    "p_away_win": 0.085,
-    "key_factors": [
-      "強度來源：WC 2026 實戰數據"
-    ],
-    "lambda_home": 2.406,
-    "lambda_away": 0.669,
-    "reasoning": "【強度】阿根廷（ELO 2031）vs 奧地利（ELO 1597），實力差距懸殊（ELO +434）\n【近況】阿根廷 2場 進6 失0；奧地利 1場 進3 失1\n【陣型戰術】阿根廷 4-3-3（進攻型）vs 奧地利 4-4-2（均衡）\n【體力】阿根廷 休息5天（體力充足）；奧地利 休息5天（體力充足）\n【進球預期】主 2.4 + 客 0.7 = 3.1，傾向大球（信心 18%）\n【勝負】阿根廷 明顯佔優（勝率 75%），平局機率 15%",
-    "injury_notes": []
-  },
-  {
     "match_id": "537393",
     "home_team": "France",
     "away_team": "Iraq",
@@ -50,19 +28,19 @@
     "kickoff": "06/23 08:00",
     "kickoff_utc": "2026-06-23T00:00:00Z",
     "ah_prediction": "home",
-    "ah_confidence": 69,
+    "ah_confidence": 62,
     "ou_prediction": "over",
-    "ou_confidence": 78,
-    "predicted_score": "4-1",
-    "p_home_win": 0.829,
-    "p_draw": 0.086,
-    "p_away_win": 0.063,
+    "ou_confidence": 71,
+    "predicted_score": "3-1",
+    "p_home_win": 0.801,
+    "p_draw": 0.106,
+    "p_away_win": 0.082,
     "key_factors": [
       "強度來源：WC 2026 實戰數據"
     ],
-    "lambda_home": 4.025,
+    "lambda_home": 3.623,
     "lambda_away": 1.204,
-    "reasoning": "【強度】挪威（ELO 1731）vs 塞內加爾（ELO 1647），實力略佔優勢（ELO +84）\n【近況】挪威 2場 進8 失2；塞內加爾 1場 進1 失3\n【陣型戰術】挪威 4-3-3（均衡）vs 塞內加爾 4-3-3（均衡）\n【體力】挪威 休息7天（體力充足）；塞內加爾 休息7天（體力充足）\n【進球預期】主 4.0 + 客 1.2 = 5.2，傾向大球（信心 78%）\n【勝負】挪威 明顯佔優（勝率 82%），平局機率 8%",
+    "reasoning": "【強度】挪威（ELO 1731）vs 塞內加爾（ELO 1647），實力略佔優勢（ELO +84）\n【近況】挪威 2場 進8 失2；塞內加爾 1場 進1 失3\n【陣型戰術】挪威 4-3-3（均衡）vs 塞內加爾 4-3-3（均衡）\n【體力】挪威 休息7天（體力充足）；塞內加爾 休息7天（體力充足）\n【進球預期】主 3.6 + 客 1.2 = 4.8，傾向大球（信心 71%）\n【勝負】挪威 明顯佔優（勝率 80%），平局機率 10%",
     "injury_notes": []
   },
   {

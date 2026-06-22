@@ -1,11 +1,11 @@
 {
-  "total_matches": 57,
-  "decisive_matches": 41,
+  "total_matches": 58,
+  "decisive_matches": 42,
   "push_matches": 16,
-  "ah_accuracy": 0.683,
-  "ou_accuracy": 0.649,
-  "ah_brier": 0.224,
-  "ou_brier": 0.335,
+  "ah_accuracy": 0.69,
+  "ou_accuracy": 0.638,
+  "ah_brier": 0.22,
+  "ou_brier": 0.332,
   "round1": {
     "matches": 34,
     "decisive_matches": 23,
@@ -14,11 +14,11 @@
     "ou_accuracy": 0.647
   },
   "round2": {
-    "matches": 23,
-    "decisive_matches": 18,
+    "matches": 24,
+    "decisive_matches": 19,
     "push_matches": 5,
-    "ah_accuracy": 0.611,
-    "ou_accuracy": 0.652
+    "ah_accuracy": 0.632,
+    "ou_accuracy": 0.625
   },
   "failures": [
     {
@@ -2173,6 +2173,31 @@
       "actual_ou": "over",
       "ou_correct": true,
       "ou_brier": 0.537,
+      "method": "ELO+WC實績"
+    },
+    {
+      "date": "2026-06-22",
+      "group": "J",
+      "round": 2,
+      "home": "Argentina",
+      "away": "Austria",
+      "predicted_score": "2-0",
+      "score": "2-0",
+      "lambda_home": 2.406,
+      "lambda_away": 0.669,
+      "ah_line": -0.5,
+      "ou_line": 2.5,
+      "ah_pred": "home",
+      "ah_prob": 0.759,
+      "actual_ah": "home",
+      "ah_is_push": false,
+      "ah_correct": true,
+      "ah_brier": 0.058,
+      "ou_pred": "over",
+      "ou_prob": 0.593,
+      "actual_ou": "under",
+      "ou_correct": false,
+      "ou_brier": 0.166,
       "method": "ELO+WC實績"
     }
   ]
