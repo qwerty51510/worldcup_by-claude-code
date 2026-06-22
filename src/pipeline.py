@@ -23,7 +23,10 @@ def run(date: str) -> None:
     print("[pipeline] Fetching Polymarket...")
     polymarket = fetch_polymarket()
 
-    save_match_day(date, {"matches": matches, "odds": odds, "polymarket": polymarket})
+    # only persist match data when we actually fetched something — avoids
+    # overwriting real data during local runs without API keys
+    if matches or odds or polymarket:
+        save_match_day(date, {"matches": matches, "odds": odds, "polymarket": polymarket})
 
     print("[pipeline] Building features...")
     features = build_features(matches, odds, calibration)

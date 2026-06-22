@@ -11,13 +11,21 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 
 
 def fetch_matches(date: str) -> list:
-    headers = {"X-Auth-Token": os.environ["FOOTBALL_DATA_API_KEY"]}
+    key = os.environ.get("FOOTBALL_DATA_API_KEY", "")
+    if not key:
+        print("[fetch_matches] FOOTBALL_DATA_API_KEY not set, returning empty")
+        return []
+    headers = {"X-Auth-Token": key}
     url = f"{FOOTBALL_DATA_BASE}/competitions/{WORLD_CUP_COMPETITION_ID}/matches"
     params = {"dateFrom": date, "dateTo": date}
-    r = requests.get(url, headers=headers, params=params, timeout=10)
-    r.raise_for_status()
-    time.sleep(6)  # respect 10 req/min free tier limit
-    return r.json().get("matches", [])
+    try:
+        r = requests.get(url, headers=headers, params=params, timeout=10)
+        r.raise_for_status()
+        time.sleep(6)  # respect 10 req/min free tier limit
+        return r.json().get("matches", [])
+    except Exception as e:
+        print(f"[fetch_matches] failed: {e}")
+        return []
 
 
 def fetch_odds(match_ids: list) -> dict:
@@ -52,7 +60,9 @@ def fetch_polymarket() -> dict:
     try:
         r = requests.get(url, params=params, timeout=10)
         r.raise_for_status()
-        markets = r.json().get("markets", [])
+        data = r.json()
+        # API returns list directly or dict with "markets" key
+        markets = data if isinstance(data, list) else data.get("markets", [])
     except Exception as e:
         print(f"[fetch_polymarket] failed: {e}")
         return {}

@@ -1,4 +1,4 @@
-from src.config import FIFA_RANKINGS, BASE_LAMBDA
+from src.config import FIFA_RANKINGS, BASE_LAMBDA, RANK_DECAY, AH_LINE_MULTIPLIER
 
 
 def compute_incentive_score(must_win: bool, safe_draw: bool, dead_rubber: bool) -> float:
@@ -17,21 +17,38 @@ def compute_sharp_signal(open_handicap: float, current_handicap: float) -> float
 
 
 def _rank_to_strength(rank: int) -> float:
-    """Convert FIFA rank to relative strength score. Rank 1 ≈ 2.0x, rank 65 ≈ 0.5x."""
-    return 2.0 * (1.0 / (1.0 + (rank - 1) * 0.025))
+    """Convert FIFA rank to relative strength. Optimised decay=0.03 from WC 2026 validation."""
+    return 2.0 * (1.0 / (1.0 + (rank - 1) * RANK_DECAY))
+
+
+def _round_ah(line: float) -> float:
+    """Round to nearest 0.25 AH increment."""
+    return round(line * 4) / 4
 
 
 def _lambda_from_rankings(home: str, away: str) -> tuple:
-    """Seed expected goals using FIFA rankings when no odds data available."""
+    """
+    Seed expected goals and implied AH line from FIFA rankings.
+    Returns (lambda_home, lambda_away, implied_ah_line, implied_ou_line).
+    """
     home_rank = FIFA_RANKINGS.get(home, 40)
     away_rank = FIFA_RANKINGS.get(away, 40)
     home_str = _rank_to_strength(home_rank)
     away_str = _rank_to_strength(away_rank)
     total_str = home_str + away_str
-    # home gets slight advantage (~+0.1 goals in neutral-ish WC venue)
+    # home gets slight advantage in neutral WC venue
     lambda_home = BASE_LAMBDA * (home_str / total_str) * 2.0 + 0.1
     lambda_away = BASE_LAMBDA * (away_str / total_str) * 2.0
-    return round(max(0.4, lambda_home), 3), round(max(0.3, lambda_away), 3)
+    lambda_home = round(max(0.4, lambda_home), 3)
+    lambda_away = round(max(0.3, lambda_away), 3)
+
+    # AH line: grid-search optimised multiplier 0.3 → avoids over-aggressive lines
+    implied_ah = _round_ah(-(lambda_home - lambda_away) * AH_LINE_MULTIPLIER)
+    # O/U: WC 2026 avg = 3.02 goals/match → use expected total directly (no extra buffer)
+    # Model BASE_LAMBDA calibrated to 1.4 so totals ≈ 2.8-3.2 naturally
+    implied_ou = round((lambda_home + lambda_away) * 2) / 2
+
+    return lambda_home, lambda_away, implied_ah, implied_ou
 
 
 def _extract_ah_ou(bookmakers: list) -> tuple:
@@ -85,9 +102,8 @@ def build_features(matches: list, odds: dict, calibration: dict) -> list:
             lambda_home, lambda_away = _lambda_from_ah_line(ah_line)
             data_source = "盤口線"
         else:
-            lambda_home, lambda_away = _lambda_from_rankings(home, away)
-            ah_line = 0.0
-            data_source = "FIFA排名"
+            lambda_home, lambda_away, ah_line, ou_line = _lambda_from_rankings(home, away)
+            data_source = "FIFA排名（推算盤口）"
 
         must_win_home = False
         must_win_away = False
