@@ -4,71 +4,71 @@
     "home_team": "New Zealand",
     "away_team": "Egypt",
     "ah_prediction": "away",
-    "ah_confidence": 7,
-    "ou_prediction": "under",
-    "ou_confidence": 33,
-    "predicted_score": "1-1",
-    "p_home_win": 0.23,
-    "p_draw": 0.231,
-    "p_away_win": 0.538,
+    "ah_confidence": 20,
+    "ou_prediction": "over",
+    "ou_confidence": 40,
+    "predicted_score": "1-2",
+    "p_home_win": 0.204,
+    "p_draw": 0.193,
+    "p_away_win": 0.603,
     "key_factors": [
-      "強度來源：Polymarket 實力評估"
+      "強度來源：WC 2026 實戰數據"
     ],
-    "lambda_home": 1.098,
-    "lambda_away": 1.802
+    "lambda_home": 1.301,
+    "lambda_away": 2.33
   },
   {
     "match_id": "537399",
     "home_team": "Argentina",
     "away_team": "Austria",
-    "ah_prediction": "home",
-    "ah_confidence": 20,
-    "ou_prediction": "under",
-    "ou_confidence": 33,
-    "predicted_score": "1-0",
-    "p_home_win": 0.6,
-    "p_draw": 0.217,
-    "p_away_win": 0.183,
+    "ah_prediction": "away",
+    "ah_confidence": 1,
+    "ou_prediction": "over",
+    "ou_confidence": 22,
+    "predicted_score": "1-1",
+    "p_home_win": 0.491,
+    "p_draw": 0.228,
+    "p_away_win": 0.281,
     "key_factors": [
-      "強度來源：Polymarket 實力評估"
+      "強度來源：WC 2026 實戰數據"
     ],
-    "lambda_home": 1.936,
-    "lambda_away": 0.964
+    "lambda_home": 1.831,
+    "lambda_away": 1.338
   },
   {
     "match_id": "537393",
     "home_team": "France",
     "away_team": "Iraq",
     "ah_prediction": "home",
-    "ah_confidence": 54,
-    "ou_prediction": "under",
-    "ou_confidence": 33,
-    "predicted_score": "2-0",
-    "p_home_win": 0.773,
-    "p_draw": 0.154,
-    "p_away_win": 0.072,
+    "ah_confidence": 52,
+    "ou_prediction": "over",
+    "ou_confidence": 61,
+    "predicted_score": "3-1",
+    "p_home_win": 0.755,
+    "p_draw": 0.131,
+    "p_away_win": 0.108,
     "key_factors": [
-      "強度來源：Polymarket 實力評估"
+      "強度來源：WC 2026 實戰數據"
     ],
-    "lambda_home": 2.34,
-    "lambda_away": 0.56
+    "lambda_home": 3.16,
+    "lambda_away": 1.189
   },
   {
     "match_id": "537394",
     "home_team": "Norway",
     "away_team": "Senegal",
-    "ah_prediction": "away",
-    "ah_confidence": 4,
-    "ou_prediction": "under",
-    "ou_confidence": 33,
-    "predicted_score": "1-1",
-    "p_home_win": 0.48,
-    "p_draw": 0.241,
-    "p_away_win": 0.279,
+    "ah_prediction": "home",
+    "ah_confidence": 52,
+    "ou_prediction": "over",
+    "ou_confidence": 61,
+    "predicted_score": "3-1",
+    "p_home_win": 0.755,
+    "p_draw": 0.131,
+    "p_away_win": 0.108,
     "key_factors": [
-      "強度來源：Polymarket 實力評估"
+      "強度來源：WC 2026 實戰數據"
     ],
-    "lambda_home": 1.676,
-    "lambda_away": 1.224
+    "lambda_home": 3.16,
+    "lambda_away": 1.189
   }
 ]
