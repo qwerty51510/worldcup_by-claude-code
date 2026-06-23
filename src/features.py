@@ -363,16 +363,40 @@ def _build_stats(results: list) -> dict:
     return stats
 
 
-def _extract_ah_ou(bookmakers: list) -> tuple:
-    ah_line = None  # None = no odds data
+def _ah_from_1x2(p_home: float, p_away: float, ou_line: float) -> float:
+    """
+    Derive implied AH line from 1X2 win probabilities + OU totals line.
+    Standard betting-market technique: strength ratio from win probs × total goals.
+    Exponent 0.7 calibrated against WC historical data.
+    """
+    if p_home <= 0 or p_away <= 0 or ou_line is None:
+        return 0.0
+    r = max(0.05, min(50.0, (p_home / p_away) ** 0.7))
+    S = max(1.5, ou_line)
+    lh = S * r / (r + 1.0)
+    la = S - lh
+    return _round_ah(-(lh - la))
+
+
+def _extract_ah_ou(bookmakers: list, home_team: str = "", away_team: str = "") -> tuple:
+    """
+    Extract AH line and OU line from bookmaker data.
+    Returns (ah_line, ou_line, ah_is_native) where:
+      ah_is_native=True  → came from asian_handicap market (most reliable)
+      ah_is_native=False → derived from h2h + totals (implied, still market-based)
+      ah_line=None       → no market data at all
+    """
+    native_ah = None
     ou_line = None
+    h2h_prices: dict = {}
+
     for bm in bookmakers:
         for market in bm.get("markets", []):
             if market["key"] in ("asian_handicap", "spreads"):
                 for outcome in market.get("outcomes", []):
                     if outcome.get("point") is not None:
                         try:
-                            ah_line = float(outcome["point"])
+                            native_ah = float(outcome["point"])
                             break
                         except (TypeError, ValueError):
                             pass
@@ -384,7 +408,49 @@ def _extract_ah_ou(bookmakers: list) -> tuple:
                             break
                         except (TypeError, ValueError):
                             pass
-    return ah_line, ou_line
+            if market["key"] == "h2h":
+                for outcome in market.get("outcomes", []):
+                    name = outcome.get("name", "")
+                    try:
+                        price = float(outcome.get("price", 0))
+                        if price > 1.0 and name:
+                            h2h_prices[name] = price
+                    except (TypeError, ValueError):
+                        pass
+
+    if native_ah is not None:
+        return native_ah, ou_line, True
+
+    # Derive AH from h2h + totals when asian_handicap market unavailable
+    if ou_line is not None and h2h_prices:
+        def _find_price(team: str) -> float:
+            if team in h2h_prices:
+                return h2h_prices[team]
+            for k, v in h2h_prices.items():
+                if k.lower() in team.lower() or team.lower() in k.lower():
+                    return v
+            return 0.0
+
+        ph_raw = _find_price(home_team)
+        pa_raw = _find_price(away_team)
+
+        # Fallback: if name matching fails use the two non-Draw outcomes in order
+        if (not ph_raw or not pa_raw) and h2h_prices:
+            non_draw = {k: v for k, v in h2h_prices.items() if k.lower() != "draw"}
+            if len(non_draw) == 2:
+                sorted_prices = sorted(non_draw.values())
+                ph_raw, pa_raw = sorted_prices[0], sorted_prices[1]
+
+        if ph_raw > 1.0 and pa_raw > 1.0:
+            p_home_raw = 1.0 / ph_raw
+            p_away_raw = 1.0 / pa_raw
+            p_draw_raw = 1.0 / h2h_prices.get("Draw", 99)
+            total = p_home_raw + p_away_raw + p_draw_raw
+            derived_ah = _ah_from_1x2(p_home_raw / total, p_away_raw / total, ou_line)
+            print(f"[features] h2h→AH: {home_team}({ph_raw}) vs {away_team}({pa_raw}) OU={ou_line} → {derived_ah}")
+            return derived_ah, ou_line, False
+
+    return None, ou_line, False
 
 
 def _lambda_from_ah_line(ah_line: float) -> tuple:
@@ -409,21 +475,32 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
                 break
 
         bookmakers = odds_entry.get("bookmakers", []) if odds_entry else []
-        ah_line, ou_line = _extract_ah_ou(bookmakers)
+        odds_home = odds_entry.get("home_team", home) if odds_entry else home
+        odds_away = odds_entry.get("away_team", away) if odds_entry else away
+        ah_line, ou_line, ah_is_native = _extract_ah_ou(bookmakers, odds_home, odds_away)
 
         match_date = (match.get("utcDate", "") or "")[:10]
-        has_odds = ah_line is not None
         elo = _load_elo()
         wc_form = _lambda_from_wc_form(home, away, match_date)
-        if has_odds:
+
+        if ah_is_native:
+            # Native asian_handicap market: use market-implied lambdas + market AH line
             lambda_home, lambda_away = _lambda_from_ah_line(ah_line)
-            data_source = "盤口線"
+            data_source = "盤口線（AH市場）"
+        elif ah_line is not None and wc_form is not None:
+            # AH derived from h2h+totals: use our WC form lambdas (better signal)
+            # but the market-derived AH line for display and probability calculation
+            lambda_home, lambda_away, _, ou_line_model = wc_form
+            if ou_line is None:
+                ou_line = ou_line_model
+            data_source = "盤口線（h2h推算）"
         elif wc_form is not None:
-            # WC 2026 actual match data — most direct signal for current form
-            lambda_home, lambda_away, _, ou_line = wc_form
-            # Use market-calibrated AH line (≈ expected goal diff) for display,
-            # not the Brier-tuned internal multiplier which produces unrealistic near-zero lines
+            # No market odds at all — use WC form model
+            lambda_home, lambda_away, _, ou_line_model = wc_form
+            # Market-calibrated AH line (≈ expected goal diff)
             ah_line = _round_ah(-(lambda_home - lambda_away))
+            if ou_line is None:
+                ou_line = ou_line_model
             data_source = "WC 2026 實戰數據"
         elif elo.get(home) or elo.get(away):
             h_str = _elo_to_strength(elo.get(home, _ELO_BASE))
@@ -432,21 +509,36 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
                 h_str = (h_str + _pm_to_strength(pm_strengths[home])) / 2
             if away in pm_strengths:
                 a_str = (a_str + _pm_to_strength(pm_strengths[away])) / 2
-            lambda_home, lambda_away, _, ou_line = _strengths_to_lambdas(h_str, a_str)
+            lambda_home, lambda_away, _, ou_model = _strengths_to_lambdas(h_str, a_str)
             ah_line = _round_ah(-(lambda_home - lambda_away))
+            if ou_line is None:
+                ou_line = ou_model
             data_source = "ELO歷史+Polymarket" if (home in pm_strengths or away in pm_strengths) else "ELO歷史數據"
         elif pm_strengths and (home in pm_strengths or away in pm_strengths):
-            lambda_home, lambda_away, _, ou_line = _lambda_from_pm(home, away, pm_strengths)
+            lambda_home, lambda_away, _, ou_model = _lambda_from_pm(home, away, pm_strengths)
             ah_line = _round_ah(-(lambda_home - lambda_away))
+            if ou_line is None:
+                ou_line = ou_model
             data_source = "Polymarket 實力評估"
         else:
-            lambda_home, lambda_away, _, ou_line = _lambda_from_rankings(home, away)
+            lambda_home, lambda_away, _, ou_model = _lambda_from_rankings(home, away)
             ah_line = _round_ah(-(lambda_home - lambda_away))
+            if ou_line is None:
+                ou_line = ou_model
             data_source = "FIFA排名（推算盤口）"
 
         # Bookmaker OU takes priority; fall back to model-derived line
         if ou_line is None:
             ou_line = _derive_ou_line(lambda_home, lambda_away)
+
+        # PM-implied AH line for comparison (detect large discrepancies)
+        pm_ah_gap = None
+        if pm_strengths and (home in pm_strengths or away in pm_strengths):
+            lh_pm, la_pm, _, _ = _lambda_from_pm(home, away, pm_strengths)
+            pm_ah = _round_ah(-(lh_pm - la_pm))
+            gap = round(pm_ah - ah_line, 2)
+            if abs(gap) >= 0.75:
+                pm_ah_gap = gap  # positive = PM implies home stronger than our line
 
         must_win_home = False
         must_win_away = False
@@ -483,6 +575,7 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             "must_win_home": must_win_home,
             "must_win_away": must_win_away,
             "data_source": data_source,
+            "pm_ah_gap": pm_ah_gap,
             "formation_home": h_form_info.get("formation", "4-4-2"),
             "formation_away": a_form_info.get("formation", "4-4-2"),
             "style_home": h_form_info.get("style", "balanced"),
