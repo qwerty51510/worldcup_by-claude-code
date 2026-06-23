@@ -405,8 +405,15 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
                 if "強度來源" in f:
                     source = f.replace("強度來源：", "")
 
-            # AH line display
-            ah_line_val = p.get("lambda_home", 0) - p.get("lambda_away", 0)
+            ah_line_val = p.get("ah_line", 0) or 0
+            ou_line_val = p.get("ou_line", 2.5) or 2.5
+            if ah_line_val == 0:
+                ah_line_label = "亞洲讓球盤（平手）"
+            elif ah_line_val < 0:
+                ah_line_label = "亞洲讓球盤（主讓 %g）" % abs(ah_line_val)
+            else:
+                ah_line_label = "亞洲讓球盤（主受讓 %g）" % ah_line_val
+            ou_line_label = "大小球（%g）" % ou_line_val
 
             kickoff = p.get("kickoff", "")
             kickoff_utc = p.get("kickoff_utc", "")
@@ -449,7 +456,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
   </div>
   <div class="card-body">
     <div class="market-box">
-      <div class="market-label">亞洲讓球盤</div>
+      <div class="market-label">{ah_line_label}</div>
       <div class="market-prediction">
         <span class="market-name {ah_color}">{ah_label}</span>
         <span class="conf-badge {cc_ah}">信心 {ah_conf}%</span>
@@ -457,7 +464,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
       {_prob_bar(ah_conf, ah_fill)}
     </div>
     <div class="market-box">
-      <div class="market-label">大小球（2.5）</div>
+      <div class="market-label">{ou_line_label}</div>
       <div class="market-prediction">
         <span class="market-name {ou_color}">{ou_label}</span>
         <span class="conf-badge {cc_ou}">信心 {ou_conf}%</span>
@@ -719,19 +726,45 @@ def render_results(out_path: str = None) -> None:
             ah_prob_pct = int(r["ah_prob"] * 100)
             ou_prob_pct = int(r["ou_prob"] * 100)
 
+            ah_line_val = r.get("ah_line") or 0
+            ou_line_val = r.get("ou_line") or 2.5
+
+            if ah_line_val == 0:
+                ah_line_str = "平手盤"
+            elif ah_line_val < 0:
+                ah_line_str = "主讓 %g" % abs(ah_line_val)
+            else:
+                ah_line_str = "主受讓 %g" % ah_line_val
+
             if ah_is_push:
-                ah_result = "<span class='tag'>平局 Push</span>"
+                ah_result = (
+                    "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
+                    "<span class='tag'>平局 Push</span>"
+                ) % ah_line_str
             elif r["ah_correct"]:
-                ah_result = "<span class='correct'>✓ %s %d%%</span>" % (ah_pred_zh, ah_prob_pct)
+                ah_result = (
+                    "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
+                    "<span class='correct'>✓ %s %d%%</span>"
+                ) % (ah_line_str, ah_pred_zh, ah_prob_pct)
             else:
                 actual_zh = _AH_PRED_ZH.get(r.get("actual_ah", ""), "")
-                ah_result = "<span class='wrong'>✗ 預測%s，實際%s</span>" % (ah_pred_zh, actual_zh)
+                ah_result = (
+                    "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
+                    "<span class='wrong'>✗ 預測%s，實際%s</span>"
+                ) % (ah_line_str, ah_pred_zh, actual_zh)
 
+            ou_line_str = "大小 %g" % ou_line_val
             if r["ou_correct"]:
-                ou_result = "<span class='correct'>✓ %s %d%%</span>" % (ou_pred_zh, ou_prob_pct)
+                ou_result = (
+                    "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
+                    "<span class='correct'>✓ %s %d%%</span>"
+                ) % (ou_line_str, ou_pred_zh, ou_prob_pct)
             else:
                 actual_ou_zh = _OU_PRED_ZH.get(r.get("actual_ou", ""), "")
-                ou_result = "<span class='wrong'>✗ 預測%s，實際%s</span>" % (ou_pred_zh, actual_ou_zh)
+                ou_result = (
+                    "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
+                    "<span class='wrong'>✗ 預測%s，實際%s</span>"
+                ) % (ou_line_str, ou_pred_zh, actual_ou_zh)
 
             pred_score = r.get("predicted_score", "?-?")
             actual_score = r["score"]
