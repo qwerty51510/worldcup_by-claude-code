@@ -54,15 +54,18 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
         rank = FIFA_RANKINGS.get(team, 40)
         return 2.0 * (1.0 / (1.0 + (rank - 1) * RANK_DECAY))
 
+    _H2H_AVG = 1.31  # avg goals/match in H2H dataset (2022-2026)
+
     def smooth_rate(team: str, stat: str) -> float:
         s = stats.get(team, {"scored": 0, "conceded": 0, "played": 0})
         strength = team_strength(team)
         elo_prior = (strength if stat == "scored" else 1.0 / strength) * league_avg
         h = team_history.get(team, {"scored": 0, "conceded": 0, "played": 0})
         if h["played"] >= 3:
-            hist_rate = h[stat] / h["played"]
+            hist_strength = (h[stat] / h["played"]) / _H2H_AVG
+            hist_prior = hist_strength * league_avg
             blend = min(h["played"] / 10.0, 0.5)
-            prior_rate = elo_prior * (1 - blend) + hist_rate * blend
+            prior_rate = elo_prior * (1 - blend) + hist_prior * blend
         else:
             prior_rate = elo_prior
         return (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / league_avg

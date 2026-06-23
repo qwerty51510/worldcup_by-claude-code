@@ -286,18 +286,24 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
             return _elo_to_strength(elo[team])
         return _rank_to_strength(FIFA_RANKINGS.get(team, 40))
 
+    # Average G/match in our H2H dataset (2022-2026 international matches)
+    # Used to normalize historical rates to WC-level context
+    _H2H_AVG = 1.31
+
     def smooth_rate(team: str, stat: str) -> float:
         s = stats.get(team, {"scored": 0, "conceded": 0, "played": 0})
         strength = team_strength(team)
         elo_prior = (strength if stat == "scored" else 1.0 / strength) * league_avg
 
-        # Blend ELO prior with pre-tournament historical rate (if available)
+        # Blend ELO prior with pre-tournament historical rate (if available).
+        # Normalize hist_rate by H2H dataset avg first so the blend stays in
+        # WC-context units (avoids pulling prior toward the lower H2H average).
         h = team_history.get(team, {"scored": 0, "conceded": 0, "played": 0})
         if h["played"] >= 3:
-            hist_rate = (h[stat] / h["played"])  # goals per match (absolute)
-            # Weight history up to 50%: more games → more trust, capped at 0.5
+            hist_strength = (h[stat] / h["played"]) / _H2H_AVG  # relative to H2H avg
+            hist_prior = hist_strength * league_avg               # scaled to WC context
             blend = min(h["played"] / 10.0, 0.5)
-            prior_rate = elo_prior * (1 - blend) + hist_rate * blend
+            prior_rate = elo_prior * (1 - blend) + hist_prior * blend
         else:
             prior_rate = elo_prior
 
