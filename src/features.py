@@ -420,7 +420,10 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             data_source = "盤口線"
         elif wc_form is not None:
             # WC 2026 actual match data — most direct signal for current form
-            lambda_home, lambda_away, ah_line, ou_line = wc_form
+            lambda_home, lambda_away, _, ou_line = wc_form
+            # Use market-calibrated AH line (≈ expected goal diff) for display,
+            # not the Brier-tuned internal multiplier which produces unrealistic near-zero lines
+            ah_line = _round_ah(-(lambda_home - lambda_away))
             data_source = "WC 2026 實戰數據"
         elif elo.get(home) or elo.get(away):
             h_str = _elo_to_strength(elo.get(home, _ELO_BASE))
@@ -429,13 +432,16 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
                 h_str = (h_str + _pm_to_strength(pm_strengths[home])) / 2
             if away in pm_strengths:
                 a_str = (a_str + _pm_to_strength(pm_strengths[away])) / 2
-            lambda_home, lambda_away, ah_line, ou_line = _strengths_to_lambdas(h_str, a_str)
+            lambda_home, lambda_away, _, ou_line = _strengths_to_lambdas(h_str, a_str)
+            ah_line = _round_ah(-(lambda_home - lambda_away))
             data_source = "ELO歷史+Polymarket" if (home in pm_strengths or away in pm_strengths) else "ELO歷史數據"
         elif pm_strengths and (home in pm_strengths or away in pm_strengths):
-            lambda_home, lambda_away, ah_line, ou_line = _lambda_from_pm(home, away, pm_strengths)
+            lambda_home, lambda_away, _, ou_line = _lambda_from_pm(home, away, pm_strengths)
+            ah_line = _round_ah(-(lambda_home - lambda_away))
             data_source = "Polymarket 實力評估"
         else:
-            lambda_home, lambda_away, ah_line, ou_line = _lambda_from_rankings(home, away)
+            lambda_home, lambda_away, _, ou_line = _lambda_from_rankings(home, away)
+            ah_line = _round_ah(-(lambda_home - lambda_away))
             data_source = "FIFA排名（推算盤口）"
 
         # Bookmaker OU takes priority; fall back to model-derived line
