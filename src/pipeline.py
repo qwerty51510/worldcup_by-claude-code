@@ -4,9 +4,10 @@ from datetime import date as dt_date
 from src.backtest import compute_brier_score, generate_postmortem, load_calibration, save_calibration, update_calibration
 from src.features import build_features
 from src.features import clear_caches
-from src.fetch_data import fetch_matches, fetch_odds, fetch_polymarket, save_match_day, update_wc_results
+from src.fetch_data import fetch_matches, fetch_odds, fetch_polymarket, save_match_day, update_wc_results, update_team_history
 from src.predict import predict_all, save_predictions
 from src.render import render_all
+from src.tuner import tune_params, save_tuned_params
 from src.validate import refresh_validation
 
 
@@ -15,6 +16,9 @@ def run(date: str) -> None:
 
     calibration = load_calibration()
 
+    # ── 0. Ensure pre-tournament team history is cached ──────────────────────
+    update_team_history()
+
     # ── 1. Pull latest completed match results into wc2026_results.json ──────
     print("[pipeline] Updating completed WC results...")
     new_results = update_wc_results()
@@ -22,6 +26,12 @@ def run(date: str) -> None:
         print(f"[pipeline] {new_results} new result(s) — refreshing walk-forward validation...")
         clear_caches()  # reset stale in-memory data after file update
         refresh_validation()
+
+        # Auto-tune params after each new batch of results
+        print("[pipeline] Running parameter tuning...")
+        best = tune_params()
+        save_tuned_params(best)
+        clear_caches()  # force features.py to reload new tuned params
 
     # ── 2. Fetch today's matches, odds, Polymarket ───────────────────────────
     print("[pipeline] Fetching matches...")

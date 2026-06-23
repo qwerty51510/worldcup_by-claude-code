@@ -24,9 +24,17 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     from src.features import (
         _load_elo, _elo_to_strength, _WC_LEAGUE_AVG, _round_ah,
         _load_formations, _FORMATION_FACTORS, _stamina_factor, _derive_ou_line,
+        _load_team_history, _load_tuned_params,
     )
 
     elo = _load_elo()
+    team_history = _load_team_history()
+
+    # Respect tuned params (updated by tuner after each validation run)
+    tp = _load_tuned_params()
+    league_avg = tp.get("wc_league_avg", _WC_LEAGUE_AVG)
+    ah_mult = tp.get("ah_line_multiplier", AH_LINE_MULTIPLIER)
+
     PRIOR = 2.0
 
     stats: dict = {}
@@ -49,8 +57,15 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     def smooth_rate(team: str, stat: str) -> float:
         s = stats.get(team, {"scored": 0, "conceded": 0, "played": 0})
         strength = team_strength(team)
-        prior_rate = (strength if stat == "scored" else 1.0 / strength) * _WC_LEAGUE_AVG
-        return (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / _WC_LEAGUE_AVG
+        elo_prior = (strength if stat == "scored" else 1.0 / strength) * league_avg
+        h = team_history.get(team, {"scored": 0, "conceded": 0, "played": 0})
+        if h["played"] >= 3:
+            hist_rate = h[stat] / h["played"]
+            blend = min(h["played"] / 10.0, 0.5)
+            prior_rate = elo_prior * (1 - blend) + hist_rate * blend
+        else:
+            prior_rate = elo_prior
+        return (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / league_avg
 
     h_atk = smooth_rate(home, "scored")
     h_def = smooth_rate(home, "conceded")
@@ -89,9 +104,9 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
 
     _HOST_NATIONS = {"United States", "Canada", "Mexico"}
     home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
-    lh = round(max(0.3, _WC_LEAGUE_AVG * h_atk * a_def + home_bonus), 3)
-    la = round(max(0.3, _WC_LEAGUE_AVG * a_atk * h_def), 3)
-    ah_line = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
+    lh = round(max(0.3, league_avg * h_atk * a_def + home_bonus), 3)
+    la = round(max(0.3, league_avg * a_atk * h_def), 3)
+    ah_line = _round_ah(-(lh - la) * ah_mult)
     ou_line = _derive_ou_line(lh, la)
 
     played_home = stats.get(home, {}).get("played", 0)

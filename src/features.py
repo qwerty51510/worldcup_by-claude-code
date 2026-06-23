@@ -16,7 +16,9 @@ _ELO_SCALE = 750.0  # 750 ELO points → 2x strength
 _ELO_RATINGS: dict = {}
 _WC_TEAM_STATS: dict = {}  # computed once from wc2026_results.json
 _WC_RESULTS: list = []     # full results list for rest-days calculation
-_FORMATIONS: dict = {}     # team formation + style
+_FORMATIONS: dict = {}
+_TEAM_HISTORY: dict = {}   # pre-tournament stats from team_history.json
+_TUNED_PARAMS: dict = {}   # params from tuner (wc_league_avg, ah_line_multiplier)     # team formation + style
 
 # WC 2026 league average: 121 goals / 40 matches / 2 teams per match = 1.51
 _WC_LEAGUE_AVG = 1.51
@@ -131,11 +133,40 @@ def _load_formations() -> dict:
     return _FORMATIONS
 
 
+def _load_team_history() -> dict:
+    """Load pre-tournament team stats from team_history.json (cached)."""
+    global _TEAM_HISTORY
+    if _TEAM_HISTORY:
+        return _TEAM_HISTORY
+    path = Path(__file__).parent.parent / "data" / "team_history.json"
+    if path.exists():
+        try:
+            _TEAM_HISTORY = json.loads(path.read_text())
+        except Exception:
+            _TEAM_HISTORY = {}
+    return _TEAM_HISTORY
+
+
+def _load_tuned_params() -> dict:
+    """Load tuned params from tuning.json (cached; reset by clear_caches)."""
+    global _TUNED_PARAMS
+    if _TUNED_PARAMS:
+        return _TUNED_PARAMS
+    path = Path(__file__).parent.parent / "data" / "tuning.json"
+    if path.exists():
+        try:
+            _TUNED_PARAMS = json.loads(path.read_text())
+        except Exception:
+            _TUNED_PARAMS = {}
+    return _TUNED_PARAMS
+
+
 def clear_caches() -> None:
     """Reset in-memory caches after wc2026_results.json is updated."""
-    global _WC_TEAM_STATS, _WC_RESULTS
+    global _WC_TEAM_STATS, _WC_RESULTS, _TUNED_PARAMS
     _WC_TEAM_STATS = {}
     _WC_RESULTS = []
+    _TUNED_PARAMS = {}  # force reload of tuned params on next prediction
 
 
 def _rest_days(team: str, match_date: str, results: list = None) -> int:
@@ -201,10 +232,12 @@ def _strengths_to_lambdas(home_str: float, away_str: float) -> tuple:
     # This makes total expected goals vary by mismatch (lopsided = more goals)
     # and AH line reflect real strength gap. Avoids the prior bug where
     # lh+la was always constant (= 2*BASE) regardless of team quality.
+    tp = _load_tuned_params()
+    ah_mult = tp.get("ah_line_multiplier", AH_LINE_MULTIPLIER)
     ratio = max(home_str, 0.1) / max(away_str, 0.1)
     lh = round(max(0.4, BASE_LAMBDA * math.sqrt(ratio) + 0.1), 3)   # +0.1 home advantage
     la = round(max(0.3, BASE_LAMBDA * math.sqrt(1.0 / ratio)), 3)
-    implied_ah = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
+    implied_ah = _round_ah(-(lh - la) * ah_mult)
     implied_ou = _derive_ou_line(lh, la)
     return lh, la, implied_ah, implied_ou
 
@@ -232,12 +265,19 @@ def _lambda_from_rankings(home: str, away: str) -> tuple:
 def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
                          prior_results: list = None):
     """
-    Bayesian-smoothed Dixon-Coles lambda with formation and stamina adjustments.
+    Bayesian-smoothed Dixon-Coles lambda with formation, stamina, and team history.
     prior_results: if provided, use this list instead of the global cache
                    (used by validate.py walk-forward to avoid leaking future data).
+    Tuned params (wc_league_avg, ah_line_multiplier) loaded from tuning.json if available.
     """
     stats = _load_wc_team_stats() if prior_results is None else _build_stats(prior_results)
     elo = _load_elo()
+    team_history = _load_team_history()
+
+    # Load tuned params; fall back to config constants
+    tp = _load_tuned_params()
+    league_avg = tp.get("wc_league_avg", _WC_LEAGUE_AVG)
+    ah_mult = tp.get("ah_line_multiplier", AH_LINE_MULTIPLIER)
 
     PRIOR = 2.0
 
@@ -249,8 +289,19 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
     def smooth_rate(team: str, stat: str) -> float:
         s = stats.get(team, {"scored": 0, "conceded": 0, "played": 0})
         strength = team_strength(team)
-        prior_rate = (strength if stat == "scored" else 1.0 / strength) * _WC_LEAGUE_AVG
-        return (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / _WC_LEAGUE_AVG
+        elo_prior = (strength if stat == "scored" else 1.0 / strength) * league_avg
+
+        # Blend ELO prior with pre-tournament historical rate (if available)
+        h = team_history.get(team, {"scored": 0, "conceded": 0, "played": 0})
+        if h["played"] >= 3:
+            hist_rate = (h[stat] / h["played"])  # goals per match (absolute)
+            # Weight history up to 50%: more games → more trust, capped at 0.5
+            blend = min(h["played"] / 10.0, 0.5)
+            prior_rate = elo_prior * (1 - blend) + hist_rate * blend
+        else:
+            prior_rate = elo_prior
+
+        return (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / league_avg
 
     h_atk = smooth_rate(home, "scored")
     h_def = smooth_rate(home, "conceded")
@@ -286,9 +337,9 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
     # ── Home advantage (host nations only) ──────────────────────────────────
     _HOST_NATIONS = {"United States", "Canada", "Mexico"}
     home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
-    lh = round(max(0.3, _WC_LEAGUE_AVG * h_atk * a_def + home_bonus), 3)
-    la = round(max(0.3, _WC_LEAGUE_AVG * a_atk * h_def), 3)
-    ah_line = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
+    lh = round(max(0.3, league_avg * h_atk * a_def + home_bonus), 3)
+    la = round(max(0.3, league_avg * a_atk * h_def), 3)
+    ah_line = _round_ah(-(lh - la) * ah_mult)
     return lh, la, ah_line, _derive_ou_line(lh, la)
 
 

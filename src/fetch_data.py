@@ -9,6 +9,19 @@ from src.config import FOOTBALL_DATA_BASE, ODDS_API_BASE, POLYMARKET_BASE, WORLD
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 
+# Authoritative canonical names for all 48 WC 2026 teams
+_WC2026_CANONICAL_TEAMS: frozenset = frozenset({
+    "Algeria", "Argentina", "Australia", "Austria", "Belgium",
+    "Bosnia and Herzegovina", "Brazil", "Cabo Verde", "Canada", "Colombia",
+    "Croatia", "Curaçao", "Czechia", "DR Congo", "Ecuador", "Egypt",
+    "England", "France", "Germany", "Ghana", "Haiti", "Iran", "Iraq",
+    "Ivory Coast", "Japan", "Jordan", "Mexico", "Morocco", "Netherlands",
+    "New Zealand", "Norway", "Panama", "Paraguay", "Portugal", "Qatar",
+    "Saudi Arabia", "Scotland", "Senegal", "South Africa", "South Korea",
+    "Spain", "Sweden", "Switzerland", "Tunisia", "Turkey", "United States",
+    "Uruguay", "Uzbekistan",
+})
+
 
 def fetch_matches(date: str) -> list:
     """Fetch WC matches for `date` and the following day (UTC), deduped by id.
@@ -118,14 +131,47 @@ def save_match_day(date: str, data: dict) -> None:
     (out_dir / f"{date}.json").write_text(json.dumps(data, ensure_ascii=False, indent=2))
 
 
-# football-data.org sometimes uses different team names than our config
-_TEAM_NAME_MAP = {
+# Comprehensive variant → canonical name mapping (football-data.org + other sources)
+_TEAM_NAME_MAP: dict = {
+    # Korea
     "Korea Republic": "South Korea",
+    "Republic of Korea": "South Korea",
+    # Ivory Coast
     "Côte d'Ivoire": "Ivory Coast",
+    "Cote d'Ivoire": "Ivory Coast",
+    "Cote dIvoire": "Ivory Coast",
+    # Iran
     "IR Iran": "Iran",
+    "Islamic Republic of Iran": "Iran",
+    # Bosnia
     "Bosnia-Herzegovina": "Bosnia and Herzegovina",
+    "Bosnia & Herzegovina": "Bosnia and Herzegovina",
+    "Bosnia-Herzegowina": "Bosnia and Herzegovina",
+    # USA
     "USA": "United States",
+    "US": "United States",
+    # Cape Verde
     "Cape Verde Islands": "Cabo Verde",
+    "Cape Verde": "Cabo Verde",
+    # Turkey
+    "Türkiye": "Turkey",
+    "Turkiye": "Turkey",
+    # DR Congo
+    "Congo DR": "DR Congo",
+    "Democratic Republic of Congo": "DR Congo",
+    "DR Congo": "DR Congo",
+    # Czech Republic
+    "Czech Republic": "Czechia",
+    # Scotland, Norway (usually consistent but just in case)
+    # Australia
+    "Socceroos": "Australia",
+    # Ecuador
+    "Ecuador": "Ecuador",
+    # Curacao
+    "Curacao": "Curaçao",
+    "Curaçao": "Curaçao",
+    # New Zealand
+    "New Zealand": "New Zealand",
 }
 
 
@@ -156,6 +202,8 @@ def fetch_completed_results() -> list:
 def update_wc_results() -> int:
     """
     Pull all finished WC 2026 matches, merge into wc2026_results.json.
+    Deduplication uses (sorted_pair, matchday) to catch home/away swaps and
+    date mismatches. After merge, validates that unique team count ≤ 48.
     Returns number of new matches added.
     """
     raw = fetch_completed_results()
@@ -164,7 +212,12 @@ def update_wc_results() -> int:
 
     results_path = DATA_DIR / "wc2026_results.json"
     existing = json.loads(results_path.read_text()) if results_path.exists() else []
-    existing_keys = {(r["home"], r["away"], r["date"]) for r in existing}
+
+    # Pair-based key: catches swapped home/away and date mismatches
+    existing_keys = {
+        (tuple(sorted([r["home"], r["away"]])), r.get("round", 0))
+        for r in existing
+    }
 
     new_records = []
     for m in raw:
@@ -180,8 +233,15 @@ def update_wc_results() -> int:
 
         if not home or not away or home_goals is None or away_goals is None:
             continue
-        if (home, away, date_str) in existing_keys:
+
+        pair_key = (tuple(sorted([home, away])), matchday)
+        if pair_key in existing_keys:
             continue
+
+        # Warn about unrecognised team names
+        for team in (home, away):
+            if team not in _WC2026_CANONICAL_TEAMS:
+                print(f"[update_wc_results] WARNING: unknown team '{team}' — check _TEAM_NAME_MAP")
 
         new_records.append({
             "date": date_str,
@@ -192,13 +252,116 @@ def update_wc_results() -> int:
             "away_goals": int(away_goals),
             "round": int(matchday),
         })
-        existing_keys.add((home, away, date_str))
+        existing_keys.add(pair_key)
 
     if new_records:
         merged = sorted(existing + new_records, key=lambda r: r["date"])
+
+        # Validate team count integrity
+        all_teams = {t for r in merged for t in (r["home"], r["away"])}
+        unknown = all_teams - _WC2026_CANONICAL_TEAMS
+        if unknown:
+            print(f"[update_wc_results] WARNING: unrecognised teams in merged data: {unknown}")
+        if len(all_teams) > 48:
+            print(
+                f"[update_wc_results] ERROR: {len(all_teams)} unique teams > 48 — "
+                "possible duplicate match entries!"
+            )
+
         results_path.write_text(json.dumps(merged, ensure_ascii=False, indent=2))
-        print(f"[update_wc_results] Added {len(new_records)} new result(s)")
+        print(f"[update_wc_results] Added {len(new_records)} new result(s), {len(all_teams)} teams total")
     else:
         print("[update_wc_results] No new results")
 
     return len(new_records)
+
+
+def _fetch_wc_team_ids() -> dict:
+    """Return {canonical_team_name: football_data_id} for all WC 2026 teams."""
+    key = os.environ.get("FOOTBALL_DATA_API_KEY", "")
+    if not key:
+        return {}
+    headers = {"X-Auth-Token": key}
+    url = f"{FOOTBALL_DATA_BASE}/competitions/{WORLD_CUP_COMPETITION_ID}/teams"
+    try:
+        r = requests.get(url, headers=headers, timeout=15)
+        r.raise_for_status()
+        time.sleep(6)
+        return {
+            _normalize_team(t["name"]): t["id"]
+            for t in r.json().get("teams", [])
+        }
+    except Exception as e:
+        print(f"[_fetch_wc_team_ids] failed: {e}")
+        return {}
+
+
+def fetch_team_history() -> dict:
+    """
+    Fetch pre-tournament international match stats for all WC 2026 teams.
+    Covers 2025-01-01 → 2026-06-10 (before tournament start).
+    Returns {team_name: {scored, conceded, played}}.
+    Requires ~5 minutes due to API rate limiting (10 req/min free tier).
+    """
+    team_ids = _fetch_wc_team_ids()
+    if not team_ids:
+        print("[fetch_team_history] No team IDs available, skipping")
+        return {}
+
+    key = os.environ.get("FOOTBALL_DATA_API_KEY", "")
+    if not key:
+        return {}
+
+    headers = {"X-Auth-Token": key}
+    history: dict = {}
+    total = len(team_ids)
+
+    for i, (team_name, team_id) in enumerate(team_ids.items()):
+        url = f"{FOOTBALL_DATA_BASE}/teams/{team_id}/matches"
+        params = {"dateFrom": "2025-01-01", "dateTo": "2026-06-10", "status": "FINISHED"}
+        try:
+            r = requests.get(url, headers=headers, params=params, timeout=15)
+            r.raise_for_status()
+            time.sleep(6)
+            scored = conceded = played = 0
+            for m in r.json().get("matches", []):
+                home_n = _normalize_team(m.get("homeTeam", {}).get("name", ""))
+                away_n = _normalize_team(m.get("awayTeam", {}).get("name", ""))
+                sc = m.get("score", {}).get("fullTime", {})
+                hg, ag = sc.get("home"), sc.get("away")
+                if hg is None or ag is None:
+                    continue
+                if home_n == team_name:
+                    scored += int(hg); conceded += int(ag)
+                elif away_n == team_name:
+                    scored += int(ag); conceded += int(hg)
+                else:
+                    continue
+                played += 1
+            history[team_name] = {"scored": scored, "conceded": conceded, "played": played}
+            print(f"[fetch_team_history] {i+1}/{total} {team_name}: {played}場 {scored}進/{conceded}失")
+        except Exception as e:
+            print(f"[fetch_team_history] {team_name} ({team_id}): {e}")
+
+    return history
+
+
+def update_team_history() -> bool:
+    """
+    Fetch and cache pre-tournament team history if missing or >7 days old.
+    Returns True if the file was updated.
+    """
+    path = DATA_DIR / "team_history.json"
+    if path.exists():
+        age_days = (time.time() - path.stat().st_mtime) / 86400
+        if age_days < 7:
+            print("[update_team_history] 歷史數據在7天內，跳過重新抓取")
+            return False
+
+    print("[update_team_history] 抓取各隊賽前歷史數據（約需5分鐘）...")
+    history = fetch_team_history()
+    if history:
+        path.write_text(json.dumps(history, ensure_ascii=False, indent=2))
+        print(f"[update_team_history] 已儲存 {len(history)} 支球隊的歷史數據")
+        return True
+    return False
