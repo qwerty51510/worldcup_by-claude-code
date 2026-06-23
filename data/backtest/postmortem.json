@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-23T03:29:40Z",
-  "total_matches": 60,
+  "generated_at": "2026-06-23T05:11:32Z",
+  "total_matches": 61,
   "summary": {
-    "ah_accuracy": 0.727,
-    "ou_accuracy": 0.617,
+    "ah_accuracy": 0.711,
+    "ou_accuracy": 0.607,
     "score_exact_match": 11,
-    "avg_goal_total_error": 1.35
+    "avg_goal_total_error": 1.36
   },
   "matches": [
     {
@@ -1147,6 +1147,25 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
+    },
+    {
+      "date": "2026-06-23",
+      "group": "J",
+      "round": 2,
+      "home": "Jordan",
+      "away": "Algeria",
+      "predicted_score": "1-0",
+      "actual_score": "1-2",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 1.659,
+      "lambda_away": 0.992,
+      "ah_pred": "home",
+      "actual_ah": "away",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ],
   "team_analysis": [
@@ -1301,6 +1320,14 @@
       "actual_goals_avg": 1.0,
       "goal_bias": -0.67,
       "ah_accuracy": 0.5
+    },
+    {
+      "team": "Algeria",
+      "matches": 3,
+      "pred_goals_avg": 0.0,
+      "actual_goals_avg": 0.67,
+      "goal_bias": -0.67,
+      "ah_accuracy": 0.667
     },
     {
       "team": "South Africa",
@@ -1511,20 +1538,12 @@
       "ah_accuracy": 1.0
     },
     {
-      "team": "Algeria",
-      "matches": 2,
-      "pred_goals_avg": 0.0,
-      "actual_goals_avg": 0.0,
-      "goal_bias": 0.0,
-      "ah_accuracy": 1.0
-    },
-    {
       "team": "Jordan",
-      "matches": 1,
+      "matches": 2,
       "pred_goals_avg": 1.0,
       "actual_goals_avg": 1.0,
       "goal_bias": 0.0,
-      "ah_accuracy": 1.0
+      "ah_accuracy": 0.5
     },
     {
       "team": "DR Congo",
@@ -1775,6 +1794,25 @@
       "lambda_away": 1.456,
       "ah_pred": "away",
       "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-23",
+      "group": "J",
+      "round": 2,
+      "home": "Jordan",
+      "away": "Algeria",
+      "predicted_score": "1-0",
+      "actual_score": "1-2",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 1.659,
+      "lambda_away": 0.992,
+      "ah_pred": "home",
+      "actual_ah": "away",
       "ah_correct": false,
       "ah_is_push": false,
       "ou_pred": "under",

@@ -538,5 +538,14 @@
     "home_goals": 3,
     "away_goals": 2,
     "round": 2
+  },
+  {
+    "date": "2026-06-23",
+    "group": "J",
+    "home": "Jordan",
+    "away": "Algeria",
+    "home_goals": 1,
+    "away_goals": 2,
+    "round": 2
   }
 ]

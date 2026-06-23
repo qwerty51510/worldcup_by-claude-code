@@ -1,29 +1,5 @@
 [
   {
-    "match_id": "537400",
-    "home_team": "Jordan",
-    "away_team": "Algeria",
-    "kickoff": "06/23 11:00",
-    "kickoff_utc": "2026-06-23T03:00:00Z",
-    "ah_prediction": "home",
-    "ah_confidence": 5,
-    "ou_prediction": "under",
-    "ou_confidence": 1,
-    "predicted_score": "1-0",
-    "p_home_win": 0.53,
-    "p_draw": 0.244,
-    "p_away_win": 0.226,
-    "key_factors": [
-      "強度來源：WC 2026 實戰數據"
-    ],
-    "lambda_home": 1.659,
-    "lambda_away": 0.992,
-    "ah_line": -0.25,
-    "ou_line": 2.5,
-    "reasoning": "【強度】約旦（ELO 1346）vs 阿爾及利亞（ELO 1498），實力略佔優勢（ELO -152）\n【近況】約旦 1場 進1 失3；阿爾及利亞 2場 進0 失6\n【陣型戰術】約旦 4-5-1（防守型）vs 阿爾及利亞 4-4-2（均衡）\n【體力】約旦 休息6天（體力充足）；阿爾及利亞 休息6天（體力充足）\n【進球預期】主 1.7 + 客 1.0 = 2.7，傾向小球（信心 1%）\n【勝負】約旦 略佔優（勝率 53%），平局機率 24%",
-    "injury_notes": []
-  },
-  {
     "match_id": "537405",
     "home_team": "Portugal",
     "away_team": "Uzbekistan",

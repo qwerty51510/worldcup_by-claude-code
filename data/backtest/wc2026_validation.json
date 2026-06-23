@@ -1,10 +1,10 @@
 {
-  "total_matches": 60,
-  "decisive_matches": 44,
+  "total_matches": 61,
+  "decisive_matches": 45,
   "push_matches": 16,
-  "ah_accuracy": 0.727,
-  "ou_accuracy": 0.617,
-  "ah_brier": 0.209,
+  "ah_accuracy": 0.711,
+  "ou_accuracy": 0.607,
+  "ah_brier": 0.21,
   "ou_brier": 0.235,
   "round1": {
     "matches": 34,
@@ -14,11 +14,11 @@
     "ou_accuracy": 0.588
   },
   "round2": {
-    "matches": 26,
-    "decisive_matches": 21,
+    "matches": 27,
+    "decisive_matches": 22,
     "push_matches": 5,
-    "ah_accuracy": 0.714,
-    "ou_accuracy": 0.654
+    "ah_accuracy": 0.682,
+    "ou_accuracy": 0.63
   },
   "failures": [
     {
@@ -319,6 +319,31 @@
       "actual_ou": "over",
       "ou_correct": false,
       "ou_brier": 0.356,
+      "method": "ELO+WC實績"
+    },
+    {
+      "date": "2026-06-23",
+      "group": "J",
+      "round": 2,
+      "home": "Jordan",
+      "away": "Algeria",
+      "predicted_score": "1-0",
+      "score": "1-2",
+      "lambda_home": 1.659,
+      "lambda_away": 0.992,
+      "ah_line": -0.25,
+      "ou_line": 2.5,
+      "ah_pred": "home",
+      "ah_prob": 0.53,
+      "actual_ah": "away",
+      "ah_is_push": false,
+      "ah_correct": false,
+      "ah_brier": 0.281,
+      "ou_pred": "under",
+      "ou_prob": 0.494,
+      "actual_ou": "over",
+      "ou_correct": false,
+      "ou_brier": 0.256,
       "method": "ELO+WC實績"
     }
   ],
@@ -2223,6 +2248,31 @@
       "actual_ou": "under",
       "ou_correct": true,
       "ou_brier": 0.177,
+      "method": "ELO+WC實績"
+    },
+    {
+      "date": "2026-06-23",
+      "group": "J",
+      "round": 2,
+      "home": "Jordan",
+      "away": "Algeria",
+      "predicted_score": "1-0",
+      "score": "1-2",
+      "lambda_home": 1.659,
+      "lambda_away": 0.992,
+      "ah_line": -0.25,
+      "ou_line": 2.5,
+      "ah_pred": "home",
+      "ah_prob": 0.53,
+      "actual_ah": "away",
+      "ah_is_push": false,
+      "ah_correct": false,
+      "ah_brier": 0.281,
+      "ou_pred": "under",
+      "ou_prob": 0.494,
+      "actual_ou": "over",
+      "ou_correct": false,
+      "ou_brier": 0.256,
       "method": "ELO+WC實績"
     }
   ]
