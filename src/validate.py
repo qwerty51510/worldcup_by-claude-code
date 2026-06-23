@@ -87,28 +87,6 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
         h_def *= (2.0 - h_stam)
         a_def *= (2.0 - a_stam)
 
-        # Tactical conservation (積分管理): already ≥3 pts + evenly-matched → conservative
-        def _team_pts(team):
-            pts = 0
-            for r in completed_before:
-                if r["date"] >= match_date:
-                    continue
-                if r["home"] == team:
-                    if r["home_goals"] > r["away_goals"]: pts += 3
-                    elif r["home_goals"] == r["away_goals"]: pts += 1
-                elif r["away"] == team:
-                    if r["away_goals"] > r["home_goals"]: pts += 3
-                    elif r["home_goals"] == r["away_goals"]: pts += 1
-            return pts
-
-        def _cons(team, opp):
-            if _team_pts(team) < 3:
-                return 1.0
-            return 0.90 if abs(elo.get(team, 1500) - elo.get(opp, 1500)) <= 200 else 1.0
-
-        h_atk *= _cons(home, away)
-        a_atk *= _cons(away, home)
-
     _HOST_NATIONS = {"United States", "Canada", "Mexico"}
     home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
     lh = round(max(0.3, _WC_LEAGUE_AVG * h_atk * a_def + home_bonus), 3)

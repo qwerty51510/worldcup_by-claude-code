@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-22T20:30:52Z",
+  "generated_at": "2026-06-23T02:19:09Z",
   "total_matches": 58,
   "summary": {
-    "ah_accuracy": 0.69,
-    "ou_accuracy": 0.638,
+    "ah_accuracy": 0.714,
+    "ou_accuracy": 0.586,
     "score_exact_match": 11,
     "avg_goal_total_error": 1.36
   },
@@ -90,11 +90,11 @@
       "round": 1,
       "home": "South Korea",
       "away": "Czechia",
-      "predicted_score": "1-1",
+      "predicted_score": "2-1",
       "actual_score": "2-1",
-      "score_correct": false,
-      "goal_total_error": 1,
-      "lambda_home": 1.824,
+      "score_correct": true,
+      "goal_total_error": 0,
+      "lambda_home": 2.027,
       "lambda_away": 1.181,
       "ah_pred": "home",
       "actual_ah": "home",
@@ -303,14 +303,14 @@
       "actual_score": "2-0",
       "score_correct": false,
       "goal_total_error": 0,
-      "lambda_home": 1.461,
+      "lambda_home": 1.624,
       "lambda_away": 1.09,
       "ah_pred": "away",
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-15",
@@ -398,7 +398,7 @@
       "actual_score": "5-1",
       "score_correct": false,
       "goal_total_error": 2,
-      "lambda_home": 4.149,
+      "lambda_home": 4.61,
       "lambda_away": 0.969,
       "ah_pred": "home",
       "actual_ah": "home",
@@ -660,18 +660,18 @@
       "round": 2,
       "home": "Mexico",
       "away": "South Korea",
-      "predicted_score": "1-0",
+      "predicted_score": "1-1",
       "actual_score": "1-0",
-      "score_correct": true,
-      "goal_total_error": 0,
-      "lambda_home": 1.527,
-      "lambda_away": 0.974,
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.686,
+      "lambda_away": 1.083,
       "ah_pred": "home",
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-18",
@@ -741,7 +741,7 @@
       "score_correct": false,
       "goal_total_error": 1,
       "lambda_home": 0.721,
-      "lambda_away": 0.872,
+      "lambda_away": 0.969,
       "ah_pred": "away",
       "actual_ah": "home",
       "ah_correct": false,
@@ -778,14 +778,14 @@
       "actual_score": "2-0",
       "score_correct": false,
       "goal_total_error": 0,
-      "lambda_home": 1.358,
-      "lambda_away": 1.258,
+      "lambda_home": 1.498,
+      "lambda_away": 1.398,
       "ah_pred": "away",
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-19",
@@ -816,8 +816,8 @@
       "actual_score": "1-0",
       "score_correct": true,
       "goal_total_error": 0,
-      "lambda_home": 1.317,
-      "lambda_away": 0.582,
+      "lambda_home": 1.452,
+      "lambda_away": 0.646,
       "ah_pred": "home",
       "actual_ah": "home",
       "ah_correct": true,
@@ -835,7 +835,7 @@
       "actual_score": "0-1",
       "score_correct": false,
       "goal_total_error": 1,
-      "lambda_home": 0.523,
+      "lambda_home": 0.581,
       "lambda_away": 0.708,
       "ah_pred": "away",
       "actual_ah": "away",
@@ -950,10 +950,10 @@
       "score_correct": false,
       "goal_total_error": 1,
       "lambda_home": 1.764,
-      "lambda_away": 1.135,
-      "ah_pred": "home",
+      "lambda_away": 1.261,
+      "ah_pred": "away",
       "actual_ah": "away",
-      "ah_correct": false,
+      "ah_correct": true,
       "ah_is_push": false,
       "ou_pred": "over",
       "ou_correct": false
@@ -1198,7 +1198,7 @@
       "pred_goals_avg": 1.0,
       "actual_goals_avg": 0.0,
       "goal_bias": 1.0,
-      "ah_accuracy": 0.0
+      "ah_accuracy": 0.5
     },
     {
       "team": "Belgium",
@@ -1287,14 +1287,6 @@
       "actual_goals_avg": 0.5,
       "goal_bias": 0.5,
       "ah_accuracy": 1.0
-    },
-    {
-      "team": "South Korea",
-      "matches": 4,
-      "pred_goals_avg": 0.5,
-      "actual_goals_avg": 1.0,
-      "goal_bias": -0.5,
-      "ah_accuracy": 0.75
     },
     {
       "team": "Qatar",
@@ -1409,6 +1401,14 @@
       "ah_accuracy": 1.0
     },
     {
+      "team": "South Korea",
+      "matches": 4,
+      "pred_goals_avg": 1.0,
+      "actual_goals_avg": 1.0,
+      "goal_bias": 0.0,
+      "ah_accuracy": 0.75
+    },
+    {
       "team": "Czechia",
       "matches": 3,
       "pred_goals_avg": 1.0,
@@ -1430,7 +1430,7 @@
       "pred_goals_avg": 1.0,
       "actual_goals_avg": 1.0,
       "goal_bias": 0.0,
-      "ah_accuracy": 0.5
+      "ah_accuracy": 0.75
     },
     {
       "team": "Ivory Coast",
@@ -1600,14 +1600,14 @@
       "actual_score": "2-0",
       "score_correct": false,
       "goal_total_error": 0,
-      "lambda_home": 1.461,
+      "lambda_home": 1.624,
       "lambda_away": 1.09,
       "ah_pred": "away",
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-17",
@@ -1658,7 +1658,7 @@
       "score_correct": false,
       "goal_total_error": 1,
       "lambda_home": 0.721,
-      "lambda_away": 0.872,
+      "lambda_away": 0.969,
       "ah_pred": "away",
       "actual_ah": "home",
       "ah_correct": false,
@@ -1676,14 +1676,14 @@
       "actual_score": "2-0",
       "score_correct": false,
       "goal_total_error": 0,
-      "lambda_home": 1.358,
-      "lambda_away": 1.258,
+      "lambda_home": 1.498,
+      "lambda_away": 1.398,
       "ah_pred": "away",
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-19",
@@ -1722,25 +1722,6 @@
       "ah_is_push": false,
       "ou_pred": "over",
       "ou_correct": true
-    },
-    {
-      "date": "2026-06-20",
-      "group": "D",
-      "round": 2,
-      "home": "Turkey",
-      "away": "Paraguay",
-      "predicted_score": "1-1",
-      "actual_score": "0-1",
-      "score_correct": false,
-      "goal_total_error": 1,
-      "lambda_home": 1.764,
-      "lambda_away": 1.135,
-      "ah_pred": "home",
-      "actual_ah": "away",
-      "ah_correct": false,
-      "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
     },
     {
       "date": "2026-06-21",

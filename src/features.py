@@ -35,6 +35,43 @@ _FORMATION_FACTORS: dict = {
     "5-4-1":   (0.85, 0.85),
 }
 
+# (home_style, away_style) → (h_atk_mult, a_atk_mult)
+# Encodes RELATIVE advantage from tactical matchup only — not absolute goal level.
+# Formation factors already capture each team's base style; this layer only shifts
+# who scores more within the match (h_sm × a_sm ≈ 1.0, preserving total goals).
+# Key signal: counter style exploits space left by attacking/possession teams.
+_STYLE_MATCHUP: dict = {
+    ("attacking",  "attacking"):  (1.00, 1.00),
+    ("attacking",  "possession"): (1.01, 0.99),
+    ("attacking",  "balanced"):   (1.01, 0.99),
+    ("attacking",  "counter"):    (0.98, 1.02),  # counter exploits space
+    ("attacking",  "defensive"):  (1.01, 0.99),
+
+    ("possession", "attacking"):  (0.99, 1.01),
+    ("possession", "possession"): (1.00, 1.00),
+    ("possession", "balanced"):   (1.00, 1.00),
+    ("possession", "counter"):    (0.97, 1.03),  # strongest signal: counter vs possession
+    ("possession", "defensive"):  (1.00, 1.00),
+
+    ("balanced",   "attacking"):  (0.99, 1.01),
+    ("balanced",   "possession"): (1.00, 1.00),
+    ("balanced",   "balanced"):   (1.00, 1.00),
+    ("balanced",   "counter"):    (0.99, 1.01),
+    ("balanced",   "defensive"):  (1.01, 0.99),
+
+    ("counter",    "attacking"):  (1.02, 0.98),  # counter thrives vs attacking
+    ("counter",    "possession"): (1.03, 0.97),  # counter thrives vs possession
+    ("counter",    "balanced"):   (1.01, 0.99),
+    ("counter",    "counter"):    (1.00, 1.00),
+    ("counter",    "defensive"):  (1.00, 1.00),
+
+    ("defensive",  "attacking"):  (0.99, 1.01),
+    ("defensive",  "possession"): (1.00, 1.00),
+    ("defensive",  "balanced"):   (0.99, 1.01),
+    ("defensive",  "counter"):    (1.00, 1.00),
+    ("defensive",  "defensive"):  (1.00, 1.00),
+}
+
 STYLE_ZH: dict = {
     "attacking":  "進攻型",
     "possession": "控球進攻",
@@ -222,6 +259,8 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
     formations = _load_formations()
     h_form = formations.get(home, {}).get("formation", "4-4-2")
     a_form = formations.get(away, {}).get("formation", "4-4-2")
+    h_style = formations.get(home, {}).get("style", "balanced")
+    a_style = formations.get(away, {}).get("style", "balanced")
     h_atk_m, h_def_m = _FORMATION_FACTORS.get(h_form, (1.0, 1.0))
     a_atk_m, a_def_m = _FORMATION_FACTORS.get(a_form, (1.0, 1.0))
     h_atk *= h_atk_m
@@ -242,12 +281,6 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
         h_def *= (2.0 - h_stam)
         a_def *= (2.0 - a_stam)
 
-    # ── Tactical conservation (積分管理) ────────────────────────────────────
-    if match_date:
-        _results_for_cons = _load_wc_results() if prior_results is None else prior_results
-        h_atk *= _conservation_factor(home, away, match_date, _results_for_cons)
-        a_atk *= _conservation_factor(away, home, match_date, _results_for_cons)
-
     # ── Home advantage (host nations only) ──────────────────────────────────
     _HOST_NATIONS = {"United States", "Canada", "Mexico"}
     home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
@@ -255,40 +288,6 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
     la = round(max(0.3, _WC_LEAGUE_AVG * a_atk * h_def), 3)
     ah_line = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
     return lh, la, ah_line, 2.5
-
-
-def _team_wc_points(team: str, match_date: str, results: list) -> int:
-    """Points earned by team in WC 2026 strictly before match_date."""
-    pts = 0
-    for r in results:
-        if r["date"] >= match_date:
-            continue
-        if r["home"] == team:
-            if r["home_goals"] > r["away_goals"]:
-                pts += 3
-            elif r["home_goals"] == r["away_goals"]:
-                pts += 1
-        elif r["away"] == team:
-            if r["away_goals"] > r["home_goals"]:
-                pts += 3
-            elif r["home_goals"] == r["away_goals"]:
-                pts += 1
-    return pts
-
-
-def _conservation_factor(team: str, opponent: str, match_date: str, results: list) -> float:
-    """
-    積分管理：team already has ≥3 WC pts and faces an evenly-matched opponent
-    (ELO diff ≤200) → reduce attacking lambda by 10% (safe-draw strategy).
-    """
-    if not match_date or not results:
-        return 1.0
-    if _team_wc_points(team, match_date, results) < 3:
-        return 1.0
-    elo = _load_elo()
-    if abs(elo.get(team, 1500) - elo.get(opponent, 1500)) <= 200:
-        return 0.90
-    return 1.0
 
 
 def _build_stats(results: list) -> dict:

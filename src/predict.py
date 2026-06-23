@@ -146,14 +146,35 @@ def _generate_reasoning(home: str, away: str, lh: float, la: float,
     if form_parts:
         lines.append("【近況】" + "；".join(form_parts))
 
-    # Formation + tactics
+    # Formation + tactics + style matchup insight
     if feature:
+        from src.features import _STYLE_MATCHUP
         h_form = feature.get("formation_home", "4-4-2")
         a_form = feature.get("formation_away", "4-4-2")
-        h_style = STYLE_ZH.get(feature.get("style_home", "balanced"), "均衡")
-        a_style = STYLE_ZH.get(feature.get("style_away", "balanced"), "均衡")
-        lines.append("【陣型戰術】%s %s（%s）vs %s %s（%s）" % (
-            h_zh, h_form, h_style, a_zh, a_form, a_style))
+        h_skey = feature.get("style_home", "balanced")
+        a_skey = feature.get("style_away", "balanced")
+        h_style = STYLE_ZH.get(h_skey, "均衡")
+        a_style = STYLE_ZH.get(a_skey, "均衡")
+        h_sm, a_sm = _STYLE_MATCHUP.get((h_skey, a_skey), (1.0, 1.0))
+
+        matchup_note = ""
+        if h_skey == "counter" and a_skey in ("attacking", "possession"):
+            matchup_note = "，客隊進攻留縫隙，主隊反擊空間大"
+        elif a_skey == "counter" and h_skey in ("attacking", "possession"):
+            matchup_note = "，主隊進攻留縫隙，客隊反擊空間大"
+        elif h_skey == "attacking" and a_skey == "defensive":
+            matchup_note = "，主隊難以打開密集防守"
+        elif a_skey == "attacking" and h_skey == "defensive":
+            matchup_note = "，客隊難以打開密集防守"
+        elif h_skey == "attacking" and a_skey == "attacking":
+            matchup_note = "，雙方均主動進攻，預計開放式打法"
+        elif h_skey == "possession" and a_skey == "counter":
+            matchup_note = "，控球被針對，反擊威脅大"
+        elif a_skey == "possession" and h_skey == "counter":
+            matchup_note = "，客隊控球被針對，反擊威脅大"
+
+        lines.append("【陣型戰術】%s %s（%s）vs %s %s（%s）%s" % (
+            h_zh, h_form, h_style, a_zh, a_form, a_style, matchup_note))
 
         # Stamina
         h_rest = feature.get("rest_days_home", 999)
