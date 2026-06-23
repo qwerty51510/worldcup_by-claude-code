@@ -787,20 +787,23 @@ def render_results(out_path: str = None) -> None:
                 "</div>"
             ) % (pred_score, actual_score)
 
+            date_short = r["date"][5:]  # strip year: "2026-06-22" → "06-22"
             rows += (
                 "<tr>"
-                "<td style='color:var(--muted);white-space:nowrap'>%s</td>"
-                "<td style='color:var(--muted)'>%s組</td>"
+                "<td style='color:var(--muted);white-space:nowrap;width:52px'>%s</td>"
+                "<td style='color:var(--muted);width:44px'>%s組</td>"
                 "<td><b>%s</b> vs <b>%s</b></td>"
-                "<td>%s</td>"
-                "<td>%s</td>"
-                "<td>%s</td>"
+                "<td style='width:110px'>%s</td>"
+                "<td style='width:140px'>%s</td>"
+                "<td style='width:130px'>%s</td>"
                 "</tr>"
-            ) % (r["date"], r["group"], home_zh, away_zh, score_cell, ah_result, ou_result)
+            ) % (date_short, r["group"], home_zh, away_zh, score_cell, ah_result, ou_result)
 
         tbl = (
             "<div class='tbl-wrap'><table><thead><tr>"
-            "<th>日期</th><th>組別</th><th>比賽</th><th>比分（預測／實際）</th><th>讓球盤預測</th><th>大小球預測</th>"
+            "<th style='width:52px'>日期</th><th style='width:44px'>組別</th>"
+            "<th>比賽</th><th style='width:110px'>比分</th>"
+            "<th style='width:140px'>讓球盤</th><th style='width:130px'>大小球</th>"
             "</tr></thead><tbody>%s</tbody></table></div>"
         ) % rows
     else:

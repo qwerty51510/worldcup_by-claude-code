@@ -40,7 +40,7 @@ def run(date: str) -> None:
         save_match_day(date, {"matches": matches, "odds": odds, "polymarket": polymarket})
 
     finished = [m for m in matches if m.get("status") == "FINISHED"]
-    upcoming = [m for m in matches if m.get("status") in ("TIMED", "SCHEDULED")]
+    upcoming = [m for m in matches if m.get("status") in ("TIMED", "SCHEDULED", "IN_PLAY", "PAUSED")]
     print(f"[pipeline] {len(upcoming)} upcoming, {len(finished)} finished")
 
     # ── 3. Predict upcoming matches ──────────────────────────────────────────
