@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-06-23T03:14:48Z",
+  "generated_at": "2026-06-23T03:18:56Z",
   "total_matches": 60,
   "summary": {
     "ah_accuracy": 0.727,
-    "ou_accuracy": 0.6,
+    "ou_accuracy": 0.617,
     "score_exact_match": 11,
     "avg_goal_total_error": 1.35
   },
@@ -24,8 +24,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-11",
@@ -43,7 +43,7 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -62,8 +62,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-12",
@@ -81,8 +81,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-12",
@@ -100,7 +100,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -119,8 +119,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-13",
@@ -138,8 +138,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-13",
@@ -157,8 +157,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-13",
@@ -176,8 +176,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-13",
@@ -195,7 +195,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -214,8 +214,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-14",
@@ -233,8 +233,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-14",
@@ -252,8 +252,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-14",
@@ -271,8 +271,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-14",
@@ -328,8 +328,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-15",
@@ -347,8 +347,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-15",
@@ -366,8 +366,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-15",
@@ -404,8 +404,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-16",
@@ -423,8 +423,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-16",
@@ -442,8 +442,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-16",
@@ -461,7 +461,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -480,8 +480,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-16",
@@ -499,7 +499,7 @@
       "actual_ah": "away",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -518,8 +518,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-17",
@@ -537,8 +537,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-17",
@@ -556,8 +556,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-17",
@@ -575,8 +575,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-17",
@@ -613,7 +613,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -632,8 +632,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-18",
@@ -670,8 +670,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-18",
@@ -689,8 +689,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-18",
@@ -727,7 +727,7 @@
       "actual_ah": "away",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -746,8 +746,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-19",
@@ -784,8 +784,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-19",
@@ -803,8 +803,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-19",
@@ -860,7 +860,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -898,8 +898,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-20",
@@ -917,7 +917,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -936,7 +936,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -955,8 +955,8 @@
       "actual_ah": "away",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-21",
@@ -974,8 +974,8 @@
       "actual_ah": null,
       "ah_correct": false,
       "ah_is_push": true,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-21",
@@ -993,8 +993,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-21",
@@ -1069,7 +1069,7 @@
       "actual_ah": "away",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -1088,7 +1088,7 @@
       "actual_ah": "away",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -1107,8 +1107,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-22",
@@ -1126,7 +1126,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -1145,7 +1145,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     }
   ],
@@ -1568,7 +1568,7 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -1587,8 +1587,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-14",
@@ -1606,8 +1606,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-14",
@@ -1625,8 +1625,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-14",
@@ -1701,8 +1701,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-19",
@@ -1720,8 +1720,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-19",
@@ -1739,8 +1739,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-20",
@@ -1758,8 +1758,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-21",
@@ -1777,8 +1777,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ]
 }

@@ -163,6 +163,10 @@ def _elo_to_strength(elo: float) -> float:
     return max(0.4, 2.0 ** ((elo - _ELO_BASE) / _ELO_SCALE))
 
 
+def _derive_ou_line(lh: float, la: float) -> float:
+    return max(1.5, round((lh + la) * 2) / 2)
+
+
 def compute_incentive_score(must_win: bool, safe_draw: bool, dead_rubber: bool) -> float:
     if dead_rubber:
         return 0.2
@@ -201,9 +205,7 @@ def _strengths_to_lambdas(home_str: float, away_str: float) -> tuple:
     lh = round(max(0.4, BASE_LAMBDA * math.sqrt(ratio) + 0.1), 3)   # +0.1 home advantage
     la = round(max(0.3, BASE_LAMBDA * math.sqrt(1.0 / ratio)), 3)
     implied_ah = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
-    # Use 2.5 as the WC standard OU line (WC 2026: 52% went over 2.5 goals)
-    # Varying the line by expected total was circular and led to all "under" predictions
-    implied_ou = 2.5
+    implied_ou = _derive_ou_line(lh, la)
     return lh, la, implied_ah, implied_ou
 
 
@@ -287,7 +289,7 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
     lh = round(max(0.3, _WC_LEAGUE_AVG * h_atk * a_def + home_bonus), 3)
     la = round(max(0.3, _WC_LEAGUE_AVG * a_atk * h_def), 3)
     ah_line = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
-    return lh, la, ah_line, 2.5
+    return lh, la, ah_line, _derive_ou_line(lh, la)
 
 
 def _build_stats(results: list) -> dict:
@@ -306,7 +308,7 @@ def _build_stats(results: list) -> dict:
 
 def _extract_ah_ou(bookmakers: list) -> tuple:
     ah_line = None  # None = no odds data
-    ou_line = 2.5
+    ou_line = None
     for bm in bookmakers:
         for market in bm.get("markets", []):
             if market["key"] in ("asian_handicap", "spreads"):
@@ -378,6 +380,10 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
         else:
             lambda_home, lambda_away, ah_line, ou_line = _lambda_from_rankings(home, away)
             data_source = "FIFA排名（推算盤口）"
+
+        # Bookmaker OU takes priority; fall back to model-derived line
+        if ou_line is None:
+            ou_line = _derive_ou_line(lambda_home, lambda_away)
 
         must_win_home = False
         must_win_away = False

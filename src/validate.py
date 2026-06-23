@@ -23,7 +23,7 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     """
     from src.features import (
         _load_elo, _elo_to_strength, _WC_LEAGUE_AVG, _round_ah,
-        _load_formations, _FORMATION_FACTORS, _stamina_factor,
+        _load_formations, _FORMATION_FACTORS, _stamina_factor, _derive_ou_line,
     )
 
     elo = _load_elo()
@@ -92,12 +92,13 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     lh = round(max(0.3, _WC_LEAGUE_AVG * h_atk * a_def + home_bonus), 3)
     la = round(max(0.3, _WC_LEAGUE_AVG * a_atk * h_def), 3)
     ah_line = _round_ah(-(lh - la) * AH_LINE_MULTIPLIER)
+    ou_line = _derive_ou_line(lh, la)
 
     played_home = stats.get(home, {}).get("played", 0)
     played_away = stats.get(away, {}).get("played", 0)
     method = "ELO+WC實績" if (played_home + played_away) > 0 else "ELO基準"
 
-    return lh, la, ah_line, 2.5, method
+    return lh, la, ah_line, ou_line, method
 
 
 def _predict_single(home: str, away: str, lh: float, la: float,
