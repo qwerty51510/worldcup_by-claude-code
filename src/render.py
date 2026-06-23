@@ -362,6 +362,29 @@ document.querySelectorAll('time.local-time').forEach(function(el) {{
 </html>"""
 
 
+def _fmt_ah_val(val: float) -> str:
+    """Convert AH line absolute value to Asian bookmaker notation.
+    0.25 → '0+50', 0.75 → '1-50', 1.25 → '1+50', 0.5 → '0.5', 1.0 → '1'
+    """
+    frac = round(val % 1, 2)
+    whole = int(val)
+    if frac == 0.25:
+        return "%d+50" % whole
+    if frac == 0.75:
+        return "%d-50" % (whole + 1)
+    if frac == 0:
+        return "%d" % whole
+    return "%.1f" % val
+
+
+def _fmt_ah_line(ah_line: float) -> str:
+    """Format AH line with direction label."""
+    if ah_line == 0:
+        return "平手盤"
+    val = _fmt_ah_val(abs(ah_line))
+    return ("主讓 %s" if ah_line < 0 else "主受讓 %s") % val
+
+
 def _conf_class(conf: int) -> str:
     if conf >= 55:
         return "conf-high"
@@ -407,12 +430,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
 
             ah_line_val = p.get("ah_line", 0) or 0
             ou_line_val = p.get("ou_line", 2.5) or 2.5
-            if ah_line_val == 0:
-                ah_line_label = "亞洲讓球盤（平手）"
-            elif ah_line_val < 0:
-                ah_line_label = "亞洲讓球盤（主讓 %g）" % abs(ah_line_val)
-            else:
-                ah_line_label = "亞洲讓球盤（主受讓 %g）" % ah_line_val
+            ah_line_label = "亞洲讓球盤（%s）" % _fmt_ah_line(ah_line_val)
             ou_line_label = "大小球（%g）" % ou_line_val
 
             kickoff = p.get("kickoff", "")
@@ -728,13 +746,7 @@ def render_results(out_path: str = None) -> None:
 
             ah_line_val = r.get("ah_line") or 0
             ou_line_val = r.get("ou_line") or 2.5
-
-            if ah_line_val == 0:
-                ah_line_str = "平手盤"
-            elif ah_line_val < 0:
-                ah_line_str = "主讓 %g" % abs(ah_line_val)
-            else:
-                ah_line_str = "主受讓 %g" % ah_line_val
+            ah_line_str = _fmt_ah_line(ah_line_val)
 
             if ah_is_push:
                 ah_result = (

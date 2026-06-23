@@ -280,6 +280,8 @@ def predict_match(feature: dict, calibration: dict) -> dict:
         "key_factors": key_factors,
         "lambda_home": round(lh, 3),
         "lambda_away": round(la, 3),
+        "ah_line": ah_line,
+        "ou_line": ou_line,
         "reasoning": reasoning,
         "injury_notes": injury_notes,
     }
