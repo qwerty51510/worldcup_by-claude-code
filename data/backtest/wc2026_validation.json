@@ -1,11 +1,11 @@
 {
-  "total_matches": 58,
-  "decisive_matches": 42,
+  "total_matches": 60,
+  "decisive_matches": 44,
   "push_matches": 16,
-  "ah_accuracy": 0.714,
-  "ou_accuracy": 0.586,
-  "ah_brier": 0.218,
-  "ou_brier": 0.334,
+  "ah_accuracy": 0.727,
+  "ou_accuracy": 0.6,
+  "ah_brier": 0.209,
+  "ou_brier": 0.351,
   "round1": {
     "matches": 34,
     "decisive_matches": 23,
@@ -14,11 +14,11 @@
     "ou_accuracy": 0.618
   },
   "round2": {
-    "matches": 24,
-    "decisive_matches": 19,
+    "matches": 26,
+    "decisive_matches": 21,
     "push_matches": 5,
-    "ah_accuracy": 0.684,
-    "ou_accuracy": 0.542
+    "ah_accuracy": 0.714,
+    "ou_accuracy": 0.577
   },
   "failures": [
     {
@@ -2173,6 +2173,56 @@
       "actual_ou": "under",
       "ou_correct": false,
       "ou_brier": 0.166,
+      "method": "ELO+WC實績"
+    },
+    {
+      "date": "2026-06-22",
+      "group": "I",
+      "round": 2,
+      "home": "France",
+      "away": "Iraq",
+      "predicted_score": "5-0",
+      "score": "3-0",
+      "lambda_home": 5.449,
+      "lambda_away": 0.816,
+      "ah_line": -1.5,
+      "ou_line": 2.5,
+      "ah_pred": "home",
+      "ah_prob": 0.88,
+      "actual_ah": "home",
+      "ah_is_push": false,
+      "ah_correct": true,
+      "ah_brier": 0.014,
+      "ou_pred": "over",
+      "ou_prob": 0.925,
+      "actual_ou": "over",
+      "ou_correct": true,
+      "ou_brier": 0.856,
+      "method": "ELO+WC實績"
+    },
+    {
+      "date": "2026-06-23",
+      "group": "I",
+      "round": 2,
+      "home": "Norway",
+      "away": "Senegal",
+      "predicted_score": "4-1",
+      "score": "3-2",
+      "lambda_home": 4.025,
+      "lambda_away": 1.204,
+      "ah_line": -0.75,
+      "ou_line": 2.5,
+      "ah_pred": "home",
+      "ah_prob": 0.848,
+      "actual_ah": "home",
+      "ah_is_push": false,
+      "ah_correct": true,
+      "ah_brier": 0.023,
+      "ou_pred": "over",
+      "ou_prob": 0.89,
+      "actual_ou": "over",
+      "ou_correct": true,
+      "ou_brier": 0.792,
       "method": "ELO+WC實績"
     }
   ]

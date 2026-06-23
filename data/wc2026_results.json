@@ -520,5 +520,23 @@
     "home_goals": 2,
     "away_goals": 0,
     "round": 2
+  },
+  {
+    "date": "2026-06-22",
+    "group": "I",
+    "home": "France",
+    "away": "Iraq",
+    "home_goals": 3,
+    "away_goals": 0,
+    "round": 2
+  },
+  {
+    "date": "2026-06-23",
+    "group": "I",
+    "home": "Norway",
+    "away": "Senegal",
+    "home_goals": 3,
+    "away_goals": 2,
+    "round": 2
   }
 ]

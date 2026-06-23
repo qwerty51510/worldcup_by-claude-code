@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-23T02:19:09Z",
-  "total_matches": 58,
+  "generated_at": "2026-06-23T02:19:46Z",
+  "total_matches": 60,
   "summary": {
-    "ah_accuracy": 0.714,
-    "ou_accuracy": 0.586,
+    "ah_accuracy": 0.727,
+    "ou_accuracy": 0.6,
     "score_exact_match": 11,
-    "avg_goal_total_error": 1.36
+    "avg_goal_total_error": 1.35
   },
   "matches": [
     {
@@ -1109,6 +1109,44 @@
       "ah_is_push": false,
       "ou_pred": "over",
       "ou_correct": false
+    },
+    {
+      "date": "2026-06-22",
+      "group": "I",
+      "round": 2,
+      "home": "France",
+      "away": "Iraq",
+      "predicted_score": "5-0",
+      "actual_score": "3-0",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 5.449,
+      "lambda_away": 0.816,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "over",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-06-23",
+      "group": "I",
+      "round": 2,
+      "home": "Norway",
+      "away": "Senegal",
+      "predicted_score": "4-1",
+      "actual_score": "3-2",
+      "score_correct": false,
+      "goal_total_error": 0,
+      "lambda_home": 4.025,
+      "lambda_away": 1.204,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "over",
+      "ou_correct": true
     }
   ],
   "team_analysis": [
@@ -1225,22 +1263,6 @@
       "ah_accuracy": null
     },
     {
-      "team": "France",
-      "matches": 1,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 3.0,
-      "goal_bias": -1.0,
-      "ah_accuracy": 1.0
-    },
-    {
-      "team": "Norway",
-      "matches": 2,
-      "pred_goals_avg": 3.0,
-      "actual_goals_avg": 4.0,
-      "goal_bias": -1.0,
-      "ah_accuracy": 1.0
-    },
-    {
       "team": "Austria",
       "matches": 2,
       "pred_goals_avg": 0.5,
@@ -1329,6 +1351,22 @@
       "ah_accuracy": null
     },
     {
+      "team": "France",
+      "matches": 2,
+      "pred_goals_avg": 3.5,
+      "actual_goals_avg": 3.0,
+      "goal_bias": 0.5,
+      "ah_accuracy": 1.0
+    },
+    {
+      "team": "Senegal",
+      "matches": 2,
+      "pred_goals_avg": 1.0,
+      "actual_goals_avg": 1.5,
+      "goal_bias": -0.5,
+      "ah_accuracy": 1.0
+    },
+    {
       "team": "Portugal",
       "matches": 2,
       "pred_goals_avg": 1.5,
@@ -1367,6 +1405,14 @@
       "actual_goals_avg": 1.33,
       "goal_bias": -0.33,
       "ah_accuracy": null
+    },
+    {
+      "team": "Norway",
+      "matches": 3,
+      "pred_goals_avg": 3.33,
+      "actual_goals_avg": 3.67,
+      "goal_bias": -0.33,
+      "ah_accuracy": 1.0
     },
     {
       "team": "Argentina",
@@ -1457,18 +1503,10 @@
       "ah_accuracy": 0.75
     },
     {
-      "team": "Senegal",
-      "matches": 1,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.0,
-      "goal_bias": 0.0,
-      "ah_accuracy": 1.0
-    },
-    {
       "team": "Iraq",
-      "matches": 2,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.0,
+      "matches": 3,
+      "pred_goals_avg": 0.67,
+      "actual_goals_avg": 0.67,
       "goal_bias": 0.0,
       "ah_accuracy": 1.0
     },
