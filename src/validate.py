@@ -149,14 +149,20 @@ def _predict_single(home: str, away: str, lh: float, la: float,
     }
 
 
-def _actual_ah_result(match: dict):
-    """Returns 'home'/'away' if decisive, None if draw (AH push — exclude from accuracy stats)."""
+def _actual_ah_result(match: dict, ah_line: float = 0.0):
+    """
+    Returns 'home'/'away' if decisive, None if push.
+    Applies the AH line to the actual score: home covers if hg + ah_line > ag.
+    For AH=0.0, a draw is a push (None).  For ±0.25/±0.75 (quarter-ball),
+    integer scores never produce a tie so the result is always decisive.
+    """
     hg, ag = match["home_goals"], match["away_goals"]
-    if hg > ag:
+    effective_h = hg + ah_line
+    if effective_h > ag:
         return "home"
-    if ag > hg:
+    if effective_h < ag:
         return "away"
-    return None  # draw = push on AH 0 line
+    return None  # push (only possible for whole/half-ball lines)
 
 
 def _actual_ou_result(match: dict, ou_line: float) -> str:
@@ -181,7 +187,7 @@ def run_validation(calibration: dict = None, rho: float = 0.0) -> dict:
         )
         pred = _predict_single(match["home"], match["away"], lh, la, ah_line, ou_line, calibration, rho=rho,
                                ou_lh=ou_lh, ou_la=ou_la)
-        actual_ah = _actual_ah_result(match)  # None if draw (push)
+        actual_ah = _actual_ah_result(match, ah_line)  # None if push
         actual_ou = _actual_ou_result(match, ou_line)
 
         # AH: None means push — exclude from accuracy but record the fact
