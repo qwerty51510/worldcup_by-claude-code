@@ -402,7 +402,7 @@ def _extract_ah_ou(bookmakers: list, home_team: str = "", away_team: str = "") -
                             break
                         except (TypeError, ValueError):
                             pass
-            if market["key"] == "totals":
+            if market["key"] == "totals" and ou_line is None:
                 for outcome in market.get("outcomes", []):
                     if outcome.get("point") is not None:
                         try:
@@ -410,7 +410,7 @@ def _extract_ah_ou(bookmakers: list, home_team: str = "", away_team: str = "") -
                             break
                         except (TypeError, ValueError):
                             pass
-            if market["key"] == "h2h":
+            if market["key"] == "h2h" and not h2h_prices:
                 for outcome in market.get("outcomes", []):
                     name = outcome.get("name", "")
                     try:

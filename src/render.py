@@ -6,7 +6,11 @@ from src.config import team_zh
 
 DOCS_DIR = Path(__file__).parent.parent / "docs"
 
-_AH_LABEL = {"home": "主隊讓球", "away": "客隊受讓"}
+def _ah_pred_label(ah_prediction: str, ah_line: float) -> str:
+    if ah_prediction == "home":
+        return "主讓球勝" if ah_line < 0 else "主受讓勝"
+    else:
+        return "客受讓勝" if ah_line < 0 else "客讓球勝"
 _OU_LABEL = {"over": "大球", "under": "小球"}
 _AH_COLOR = {"home": "#3b82f6", "away": "#f59e0b"}
 _OU_COLOR = {"over": "#10b981", "under": "#ef4444"}
@@ -382,7 +386,7 @@ def _fmt_ah_line(ah_line: float) -> str:
     if ah_line == 0:
         return "平手盤"
     val = _fmt_ah_val(abs(ah_line))
-    return ("主讓 %s" if ah_line < 0 else "主受讓 %s") % val
+    return ("主讓 %s" if ah_line < 0 else "客讓 %s") % val
 
 
 def _conf_class(conf: int) -> str:
@@ -407,7 +411,6 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
         for p in predictions:
             ah_dir = p["ah_prediction"]
             ou_dir = p["ou_prediction"]
-            ah_label = _AH_LABEL.get(ah_dir, ah_dir)
             ou_label = _OU_LABEL.get(ou_dir, ou_dir)
             ah_conf = p["ah_confidence"]
             ou_conf = p["ou_confidence"]
@@ -436,6 +439,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
                 ah_line_val = round(round(-(_lh - _la) * 4) / 4, 2) if (_lh and _la) else 0
             ah_line_val = ah_line_val or 0
             ou_line_val = p.get("ou_line", 2.5) or 2.5
+            ah_label = _ah_pred_label(ah_dir, ah_line_val)
             ah_line_label = "亞洲讓球盤（%s）" % _fmt_ah_line(ah_line_val)
             ou_line_label = "大小球（%g）" % ou_line_val
 
