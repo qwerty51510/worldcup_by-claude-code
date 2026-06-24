@@ -63,6 +63,11 @@ TEAM_NAMES_ZH: dict = {
     "Switzerland": "瑞士", "Tunisia": "突尼西亞", "Türkiye": "土耳其",
     "Turkey": "土耳其", "Ukraine": "烏克蘭", "United States": "美國",
     "Uruguay": "烏拉圭", "Uzbekistan": "烏茲別克",
+    "Bolivia": "玻利維亞", "Cameroon": "喀麥隆", "Costa Rica": "哥斯大黎加",
+    "El Salvador": "薩爾瓦多", "Honduras": "宏都拉斯", "Italy": "義大利",
+    "Jamaica": "牙買加", "Poland": "波蘭", "Tanzania": "坦尚尼亞",
+    "Uganda": "烏干達", "Venezuela": "委內瑞拉", "Zambia": "尚比亞",
+    "Zimbabwe": "辛巴威",
 }
 
 

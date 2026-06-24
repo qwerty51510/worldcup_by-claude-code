@@ -256,12 +256,13 @@ def predict_match(feature: dict, calibration: dict) -> dict:
     home = feature["home_team"]
     away = feature["away_team"]
 
+    from src.config import team_zh as _team_zh
     injuries = _load_injuries()
     injury_notes = []
     for team in [home, away]:
         team_injuries = injuries.get(team, [])
         if team_injuries:
-            injury_notes.append(f"{team}：" + "、".join(team_injuries))
+            injury_notes.append(f"{_team_zh(team)}：" + "、".join(team_injuries))
 
     reasoning = _generate_reasoning(
         home, away, lh, la,

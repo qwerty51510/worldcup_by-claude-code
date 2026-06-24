@@ -247,6 +247,7 @@ def run_validation(calibration: dict = None, rho: float = 0.0) -> dict:
 
 
 def print_report(report: dict) -> None:
+    from src.config import team_zh
     print(f"\n{'='*60}")
     print(f"  WC 2026 Walk-Forward 驗證報告（共 {report['total_matches']} 場）")
     print(f"  其中決出勝負：{report['decisive_matches']} 場  平局（push）：{report['push_matches']} 場")
@@ -259,12 +260,12 @@ def print_report(report: dict) -> None:
     print(f"\n{'─'*60}")
     print(f"  失準比賽（讓球盤預測錯誤，共 {len(report['failures'])} 場）：")
     for r in report["failures"]:
-        print(f"  [{r['date']} 組{r['group']}] {r['home']} vs {r['away']}  {r['score']}")
+        print(f"  [{r['date']} 組{r['group']}] {team_zh(r['home'])} vs {team_zh(r['away'])}  {r['score']}")
         print(f"    AH線={r['ah_line']}  預測={r['ah_pred']}({r['ah_prob']*100:.0f}%)  實際={r['actual_ah']}")
     if report["pushes"]:
         print(f"\n  平局場次（push，共 {len(report['pushes'])} 場）：")
         for r in report["pushes"]:
-            print(f"  [{r['date']} 組{r['group']}] {r['home']} vs {r['away']}  {r['score']}  AH線={r['ah_line']}")
+            print(f"  [{r['date']} 組{r['group']}] {team_zh(r['home'])} vs {team_zh(r['away'])}  {r['score']}  AH線={r['ah_line']}")
     print(f"{'='*60}\n")
 
 
