@@ -369,11 +369,12 @@ def _ah_from_1x2(p_home: float, p_away: float, ou_line: float) -> float:
     Derive implied AH line from 1X2 win probabilities + OU totals line.
     Standard betting-market technique: strength ratio from win probs × total goals.
     Exponent 0.7 calibrated against WC historical data.
+    ou_line=None is allowed; falls back to WC average of 2.5.
     """
-    if p_home <= 0 or p_away <= 0 or ou_line is None:
+    if p_home <= 0 or p_away <= 0:
         return 0.0
     r = max(0.05, min(50.0, (p_home / p_away) ** 0.7))
-    S = max(1.5, ou_line)
+    S = max(1.5, ou_line if ou_line is not None else 2.5)
     lh = S * r / (r + 1.0)
     la = S - lh
     return _round_ah(-(lh - la))
@@ -422,8 +423,9 @@ def _extract_ah_ou(bookmakers: list, home_team: str = "", away_team: str = "") -
     if native_ah is not None:
         return native_ah, ou_line, True
 
-    # Derive AH from h2h + totals when asian_handicap market unavailable
-    if ou_line is not None and h2h_prices:
+    # Derive AH from h2h odds when asian_handicap market unavailable.
+    # OU totals not required — use bookmaker OU if available, else default 2.5.
+    if h2h_prices:
         def _find_price(team: str) -> float:
             if team in h2h_prices:
                 return h2h_prices[team]
@@ -447,8 +449,9 @@ def _extract_ah_ou(bookmakers: list, home_team: str = "", away_team: str = "") -
             p_away_raw = 1.0 / pa_raw
             p_draw_raw = 1.0 / h2h_prices.get("Draw", 99)
             total = p_home_raw + p_away_raw + p_draw_raw
-            derived_ah = _ah_from_1x2(p_home_raw / total, p_away_raw / total, ou_line)
-            print(f"[features] h2h→AH: {home_team}({ph_raw}) vs {away_team}({pa_raw}) OU={ou_line} → {derived_ah}")
+            _ou = ou_line if ou_line is not None else 2.5
+            derived_ah = _ah_from_1x2(p_home_raw / total, p_away_raw / total, _ou)
+            print(f"[features] h2h→AH: {home_team}({ph_raw}) vs {away_team}({pa_raw}) OU={_ou} → {derived_ah}")
             return derived_ah, ou_line, False
 
     return None, ou_line, False

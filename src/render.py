@@ -428,7 +428,13 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
                 if "強度來源" in f:
                     source = f.replace("強度來源：", "")
 
-            ah_line_val = p.get("ah_line", 0) or 0
+            ah_line_val = p.get("ah_line")
+            if ah_line_val is None:
+                # Old prediction format without ah_line: derive from stored lambdas
+                _lh = float(p.get("lambda_home", 0) or 0)
+                _la = float(p.get("lambda_away", 0) or 0)
+                ah_line_val = round(round(-(_lh - _la) * 4) / 4, 2) if (_lh and _la) else 0
+            ah_line_val = ah_line_val or 0
             ou_line_val = p.get("ou_line", 2.5) or 2.5
             ah_line_label = "亞洲讓球盤（%s）" % _fmt_ah_line(ah_line_val)
             ou_line_label = "大小球（%g）" % ou_line_val
