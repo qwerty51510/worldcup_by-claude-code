@@ -208,6 +208,85 @@ def compute_incentive_score(must_win: bool, safe_draw: bool, dead_rubber: bool) 
     return 0.6
 
 
+def _compute_group_context(home: str, away: str, group: str, before_date: str) -> dict:
+    """Compute group standings + tournament motivation context before a given match date."""
+    if not group:
+        return {}
+    results_path = Path(__file__).parent.parent / "data" / "wc2026_results.json"
+    if not results_path.exists():
+        return {}
+    all_results = json.loads(results_path.read_text())
+
+    group_code = group.replace("GROUP_", "") if group.startswith("GROUP_") else group
+    group_results = [
+        r for r in all_results
+        if r.get("group") == group_code and r.get("date", "9999") < before_date
+    ]
+
+    from collections import defaultdict
+    st = defaultdict(lambda: {"pts": 0, "gf": 0, "ga": 0, "played": 0, "last": None})
+    for r in sorted(group_results, key=lambda x: x.get("date", "")):
+        h, a, hg, ag = r["home"], r["away"], r["home_goals"], r["away_goals"]
+        st[h]["played"] += 1; st[a]["played"] += 1
+        st[h]["gf"] += hg; st[h]["ga"] += ag
+        st[a]["gf"] += ag; st[a]["ga"] += hg
+        st[h]["last"] = {"opp": a, "hg": hg, "ag": ag, "home": True}
+        st[a]["last"] = {"opp": h, "hg": hg, "ag": ag, "home": False}
+        if hg > ag:
+            st[h]["pts"] += 3
+        elif hg == ag:
+            st[h]["pts"] += 1; st[a]["pts"] += 1
+        else:
+            st[a]["pts"] += 3
+
+    for t in st:
+        st[t]["gd"] = st[t]["gf"] - st[t]["ga"]
+
+    sorted_teams = sorted(st.keys(), key=lambda t: (-st[t]["pts"], -st[t]["gd"], -st[t]["gf"]))
+    other_teams = [t for t in sorted_teams if t not in (home, away)]
+
+    # Points other teams can still earn (1 match left for them if they haven't played MD3)
+    others_max_pts = [st[t]["pts"] + 3 for t in other_teams]
+    others_max_pts.sort(reverse=True)
+
+    def _can_finish_top2_if(team: str, team_pts_after: int, team_gd_after: int) -> bool:
+        # Check if team can finish in top 2 given their projected pts/GD
+        # Simplified: count teams that are guaranteed to beat them
+        sure_above = sum(
+            1 for t in other_teams
+            if st[t]["pts"] > team_pts_after or
+               (st[t]["pts"] == team_pts_after and st[t]["gd"] > team_gd_after)
+        )
+        return sure_above < 2
+
+    h_pts = st[home]["pts"] if home in st else 0
+    a_pts = st[away]["pts"] if away in st else 0
+    h_gd = st[home]["gd"] if home in st else 0
+    a_gd = st[away]["gd"] if away in st else 0
+
+    # Determine flags (from each team's perspective)
+    h_safe_draw = _can_finish_top2_if(home, h_pts + 1, h_gd)
+    a_safe_draw = _can_finish_top2_if(away, a_pts + 1, a_gd)
+    h_safe_loss = _can_finish_top2_if(home, h_pts, h_gd - 2)
+    a_safe_loss = _can_finish_top2_if(away, a_pts, a_gd - 2)
+    h_must_win = not _can_finish_top2_if(home, h_pts + 1, h_gd) and _can_finish_top2_if(home, h_pts + 3, h_gd + 2)
+    a_must_win = not _can_finish_top2_if(away, a_pts + 1, a_gd) and _can_finish_top2_if(away, a_pts + 3, a_gd + 2)
+    dead_rubber = h_safe_loss and a_safe_loss
+
+    return {
+        "group": group_code,
+        "standings": {t: dict(st[t]) for t in sorted_teams},
+        "home_standing": dict(st[home]) if home in st else {},
+        "away_standing": dict(st[away]) if away in st else {},
+        "sorted_teams": sorted_teams,
+        "must_win_home": h_must_win,
+        "must_win_away": a_must_win,
+        "safe_draw_home": h_safe_draw,
+        "safe_draw_away": a_safe_draw,
+        "dead_rubber": dead_rubber,
+    }
+
+
 def compute_sharp_signal(open_handicap: float, current_handicap: float) -> float:
     # positive = line moved toward away team; negative = toward home team
     return current_handicap - open_handicap
@@ -567,20 +646,29 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             if abs(gap) >= 0.5:
                 pm_ah_gap = gap  # positive = pm_ah > ah_line → PM values away more (match is closer)
 
-        must_win_home = False
-        must_win_away = False
-        safe_draw = False
-        dead_rubber = False
+        group_raw = match.get("group", "") or ""
+        group = group_raw.replace("GROUP_", "") if group_raw.startswith("GROUP_") else group_raw
+        group_ctx = _compute_group_context(home, away, group, match_date) if group else {}
 
-        incentive_home = compute_incentive_score(must_win_home, safe_draw, dead_rubber)
-        incentive_away = compute_incentive_score(must_win_away, safe_draw, dead_rubber)
-        incentive_score = max(incentive_home, incentive_away)
+        must_win_home = group_ctx.get("must_win_home", False)
+        must_win_away = group_ctx.get("must_win_away", False)
+        safe_draw_home = group_ctx.get("safe_draw_home", False)
+        safe_draw_away = group_ctx.get("safe_draw_away", False)
+        dead_rubber = group_ctx.get("dead_rubber", False)
 
         boost = calibration.get("incentive_boost", 0.15)
+        damp = calibration.get("dead_rubber_damp", 0.08)
         if must_win_home:
             lambda_home *= (1 + boost)
         if must_win_away:
             lambda_away *= (1 + boost)
+        if dead_rubber:
+            lambda_home *= (1 - damp)
+            lambda_away *= (1 - damp)
+
+        incentive_home = compute_incentive_score(must_win_home, safe_draw_home, dead_rubber)
+        incentive_away = compute_incentive_score(must_win_away, safe_draw_away, dead_rubber)
+        incentive_score = max(incentive_home, incentive_away)
 
         formations = _load_formations()
         h_form_info = formations.get(home, {"formation": "4-4-2", "style": "balanced"})
@@ -603,6 +691,10 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             "incentive_score": round(incentive_score, 3),
             "must_win_home": must_win_home,
             "must_win_away": must_win_away,
+            "safe_draw_home": safe_draw_home,
+            "safe_draw_away": safe_draw_away,
+            "dead_rubber": dead_rubber,
+            "group_context": group_ctx,
             "data_source": data_source,
             "pm_ah_gap": pm_ah_gap,
             "formation_home": h_form_info.get("formation", "4-4-2"),

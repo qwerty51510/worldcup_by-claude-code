@@ -138,11 +138,58 @@ def _generate_reasoning(home: str, away: str, lh: float, la: float,
 
     lines = ["【強度】%s（ELO %d）vs %s（ELO %d），%s" % (h_zh, h_elo, a_zh, a_elo, str_text)]
 
+    # Group context: standings + motivation
+    group_ctx = feature.get("group_context", {}) if feature else {}
+    if group_ctx:
+        grp = group_ctx.get("group", "")
+        h_st = group_ctx.get("home_standing", {})
+        a_st = group_ctx.get("away_standing", {})
+        dead_rubber = group_ctx.get("dead_rubber", False)
+        must_win_home = group_ctx.get("must_win_home", False)
+        must_win_away = group_ctx.get("must_win_away", False)
+        safe_draw_home = group_ctx.get("safe_draw_home", False)
+        safe_draw_away = group_ctx.get("safe_draw_away", False)
+
+        if h_st and a_st:
+            h_pts, h_gd = h_st.get("pts", 0), h_st.get("gd", 0)
+            a_pts, a_gd = a_st.get("pts", 0), a_st.get("gd", 0)
+            bg = "%s組第%d輪" % (grp, h_st.get("played", 0) + 1) if grp else ""
+            bg += "，%s（%d分 淨%+d）vs %s（%d分 淨%+d）" % (
+                h_zh, h_pts, h_gd, a_zh, a_pts, a_gd)
+            motives = []
+            if dead_rubber:
+                motives.append("雙方均已確保出線，可能輪換主力")
+            else:
+                if safe_draw_home and not must_win_home:
+                    motives.append("%s平局即可確保前2" % h_zh)
+                elif must_win_home:
+                    motives.append("%s必須取勝才有出線機會" % h_zh)
+                if safe_draw_away and not must_win_away:
+                    motives.append("%s平局即可確保前2" % a_zh)
+                elif must_win_away:
+                    motives.append("%s必須取勝才有出線機會" % a_zh)
+            if motives:
+                bg += "；" + "，".join(motives)
+            lines.insert(0, "【賽事背景】" + bg)
+
+    # Recent form: show last match score + overall stats
     form_parts = []
     for team, zh in [(home, h_zh), (away, a_zh)]:
         s = stats.get(team)
+        ctx_st = (group_ctx.get("home_standing") if team == home else group_ctx.get("away_standing")) or {}
+        last = ctx_st.get("last")
         if s and s["played"] > 0:
-            form_parts.append("%s %d場 進%d 失%d" % (zh, s["played"], s["scored"], s["conceded"]))
+            part = "%s %d場 進%d 失%d" % (zh, s["played"], s["scored"], s["conceded"])
+            if last:
+                opp_zh = team_zh(last["opp"])
+                if last["home"]:
+                    score_str = "%d-%d" % (last["hg"], last["ag"])
+                    result = "勝" if last["hg"] > last["ag"] else ("平" if last["hg"] == last["ag"] else "敗")
+                else:
+                    score_str = "%d-%d" % (last["ag"], last["hg"])
+                    result = "勝" if last["ag"] > last["hg"] else ("平" if last["ag"] == last["hg"] else "敗")
+                part += "（上場%s%s %s）" % (result, opp_zh, score_str)
+            form_parts.append(part)
     if form_parts:
         lines.append("【近況】" + "；".join(form_parts))
 
@@ -243,6 +290,8 @@ def predict_match(feature: dict, calibration: dict) -> dict:
         key_factors.append("主隊必贏場")
     if feature.get("must_win_away"):
         key_factors.append("客隊必贏場")
+    if feature.get("dead_rubber"):
+        key_factors.append("雙方已確保出線（輪換效應）")
     if abs(sharp) > 0.25:
         key_factors.append(f"盤口明顯移動 {sharp:+.2f}")
     pm_gap = feature.get("pm_ah_gap")
