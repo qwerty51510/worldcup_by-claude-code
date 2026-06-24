@@ -228,7 +228,10 @@ def predict_match(feature: dict, calibration: dict) -> dict:
     ah_prediction = "home" if ah_prob_home > 0.5 else "away"
     ah_confidence = _prob_to_confidence(ah_prob_home)
 
-    ou_prob_over = _poisson_ou_prob(lh, la, ou_line)
+    # Use OU-scaled lambdas when available (WC form paths have inflated league_avg)
+    ou_lh = feature.get("ou_lambda_home", lh)
+    ou_la = feature.get("ou_lambda_away", la)
+    ou_prob_over = _poisson_ou_prob(ou_lh, ou_la, ou_line)
     ou_prediction = "over" if ou_prob_over > 0.5 else "under"
     ou_confidence = _prob_to_confidence(ou_prob_over)
 

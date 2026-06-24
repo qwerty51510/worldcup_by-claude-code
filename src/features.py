@@ -195,7 +195,7 @@ def _elo_to_strength(elo: float) -> float:
 
 
 def _derive_ou_line(lh: float, la: float) -> float:
-    return max(1.5, round((lh + la) * 2) / 2)
+    return max(2.0, round((lh + la) * 2) / 2)
 
 
 def compute_incentive_score(must_win: bool, safe_draw: bool, dead_rubber: bool) -> float:
@@ -346,7 +346,8 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
     lh = round(max(0.3, league_avg * h_atk * a_def + home_bonus), 3)
     la = round(max(0.3, league_avg * a_atk * h_def), 3)
     ah_line = _round_ah(-(lh - la) * ah_mult)
-    return lh, la, ah_line, _derive_ou_line(lh, la)
+    ou_mult = tp.get("ou_line_multiplier", 1.0)
+    return lh, la, ah_line, _derive_ou_line(lh * ou_mult, la * ou_mult)
 
 
 def _build_stats(results: list) -> dict:
@@ -531,6 +532,16 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
         if ou_line is None:
             ou_line = _derive_ou_line(lambda_home, lambda_away)
 
+        # For WC-form paths, lambdas are inflated by tuned league_avg (1.8).
+        # ou_mult normalises them back to realistic goal totals for OU prob calculation.
+        _ou_mult = _load_tuned_params().get("ou_line_multiplier", 1.0)
+        if data_source in ("WC 2026 實戰數據", "盤口線（h2h推算）"):
+            ou_lambda_home = round(lambda_home * _ou_mult, 3)
+            ou_lambda_away = round(lambda_away * _ou_mult, 3)
+        else:
+            ou_lambda_home = lambda_home
+            ou_lambda_away = lambda_away
+
         # PM-implied AH line for comparison (detect large discrepancies)
         pm_ah_gap = None
         if pm_strengths and (home in pm_strengths or away in pm_strengths):
@@ -568,6 +579,8 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             "kickoff_utc": match.get("utcDate", ""),
             "lambda_home": lambda_home,
             "lambda_away": lambda_away,
+            "ou_lambda_home": ou_lambda_home,
+            "ou_lambda_away": ou_lambda_away,
             "ah_line": ah_line,
             "ou_line": ou_line,
             "sharp_signal": compute_sharp_signal(ah_line, ah_line),

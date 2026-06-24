@@ -34,6 +34,7 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     tp = _load_tuned_params()
     league_avg = tp.get("wc_league_avg", _WC_LEAGUE_AVG)
     ah_mult = tp.get("ah_line_multiplier", AH_LINE_MULTIPLIER)
+    ou_mult = tp.get("ou_line_multiplier", 1.0)
 
     PRIOR = 2.0
 
@@ -110,25 +111,29 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     lh = round(max(0.3, league_avg * h_atk * a_def + home_bonus), 3)
     la = round(max(0.3, league_avg * a_atk * h_def), 3)
     ah_line = _round_ah(-(lh - la) * ah_mult)
-    ou_line = _derive_ou_line(lh, la)
+    ou_line = _derive_ou_line(lh * ou_mult, la * ou_mult)
+    ou_lh = round(lh * ou_mult, 3)
+    ou_la = round(la * ou_mult, 3)
 
     played_home = stats.get(home, {}).get("played", 0)
     played_away = stats.get(away, {}).get("played", 0)
     method = "ELO+WC實績" if (played_home + played_away) > 0 else "ELO基準"
 
-    return lh, la, ah_line, ou_line, method
+    return lh, la, ah_line, ou_line, method, ou_lh, ou_la
 
 
 def _predict_single(home: str, away: str, lh: float, la: float,
                     ah_line: float, ou_line: float, calibration: dict,
-                    rho: float = 0.0) -> dict:
+                    rho: float = 0.0, ou_lh: float = None, ou_la: float = None) -> dict:
     """Run Poisson prediction for one match. rho=0 → plain Poisson; rho<0 → Dixon-Coles."""
     ah_prob_home = _poisson_ah_prob(lh, la, ah_line, rho=rho)
     ah_prob_home = min(0.95, max(0.05, ah_prob_home))
     ah_pred = "home" if ah_prob_home > 0.5 else "away"
     ah_conf = min(100, max(0, int(abs(ah_prob_home - 0.5) * 200)))
 
-    ou_prob_over = _poisson_ou_prob(lh, la, ou_line, rho=rho)
+    _ou_lh = ou_lh if ou_lh is not None else lh
+    _ou_la = ou_la if ou_la is not None else la
+    ou_prob_over = _poisson_ou_prob(_ou_lh, _ou_la, ou_line, rho=rho)
     ou_pred = "over" if ou_prob_over > 0.5 else "under"
     ou_conf = min(100, max(0, int(abs(ou_prob_over - 0.5) * 200)))
 
@@ -171,10 +176,11 @@ def run_validation(calibration: dict = None, rho: float = 0.0) -> dict:
     completed = []  # matches completed before current prediction
 
     for match in matches_by_date:
-        lh, la, ah_line, ou_line, method = _lambda_for_match(
+        lh, la, ah_line, ou_line, method, ou_lh, ou_la = _lambda_for_match(
             match["home"], match["away"], completed, match_date=match["date"]
         )
-        pred = _predict_single(match["home"], match["away"], lh, la, ah_line, ou_line, calibration, rho=rho)
+        pred = _predict_single(match["home"], match["away"], lh, la, ah_line, ou_line, calibration, rho=rho,
+                               ou_lh=ou_lh, ou_la=ou_la)
         actual_ah = _actual_ah_result(match)  # None if draw (push)
         actual_ou = _actual_ou_result(match, ou_line)
 
