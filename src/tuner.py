@@ -259,21 +259,25 @@ def tune_params() -> dict:
         f"AH Brier={best_params.get('ah_brier')}"
     )
 
-    # Step 2: tune ou_line_multiplier for OU Brier (given best league_avg)
+    # Step 2: derive ou_line_multiplier analytically (not via Brier grid search).
+    # Brier search is biased: inflated lines → always predict under → low Brier on small samples.
+    # Instead: ou_mult = actual WC avg goals / league_avg, so OU lines center on reality.
     best_la = best_params["wc_league_avg"]
     best_am = best_params["ah_line_multiplier"]
-    ou_mults = [0.60, 0.65, 0.70, 0.75, 0.80, 0.84, 0.88, 0.92, 1.0]
-    print(f"[tuner] OU grid search: {len(ou_mults)} ou_mults (league_avg={best_la})...")
-    best_ou_brier = float("inf")
-    best_ou_mult = 0.84  # sensible default: 1.51/1.8
-
-    for ou_mult in ou_mults:
-        b = _score_ou_params(best_la, best_am, ou_mult)
-        if b < best_ou_brier:
-            best_ou_brier = b
-            best_ou_mult = ou_mult
-
-    print(f"[tuner] OU best: ou_mult={best_ou_mult} → OU Brier={round(best_ou_brier, 4)}")
+    results_path = DATA_DIR / "wc2026_results.json"
+    if results_path.exists():
+        matches = json.loads(results_path.read_text())
+        totals = [m["home_goals"] + m["away_goals"] for m in matches
+                  if "home_goals" in m and "away_goals" in m]
+        actual_avg = sum(totals) / len(totals) if totals else 1.51
+    else:
+        actual_avg = 1.51
+    best_ou_mult = round(actual_avg / (2 * best_la), 3)
+    best_ou_brier = _score_ou_params(best_la, best_am, best_ou_mult)
+    print(
+        f"[tuner] OU analytic: actual_avg={round(actual_avg, 3)}, "
+        f"ou_mult={best_ou_mult} → OU Brier={round(best_ou_brier, 4)}"
+    )
     best_params["ou_line_multiplier"] = best_ou_mult
     best_params["ou_brier"] = round(best_ou_brier, 4)
 
