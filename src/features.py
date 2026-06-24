@@ -245,17 +245,13 @@ def _compute_group_context(home: str, away: str, group: str, before_date: str) -
     sorted_teams = sorted(st.keys(), key=lambda t: (-st[t]["pts"], -st[t]["gd"], -st[t]["gf"]))
     other_teams = [t for t in sorted_teams if t not in (home, away)]
 
-    # Points other teams can still earn (1 match left for them if they haven't played MD3)
-    others_max_pts = [st[t]["pts"] + 3 for t in other_teams]
-    others_max_pts.sort(reverse=True)
-
     def _can_finish_top2_if(team: str, team_pts_after: int, team_gd_after: int) -> bool:
-        # Check if team can finish in top 2 given their projected pts/GD
-        # Simplified: count teams that are guaranteed to beat them
+        # Use each other team's MAX reachable pts (current + 3 per remaining match)
+        # to avoid false safe_draw/must_win flags in MD1/MD2
         sure_above = sum(
             1 for t in other_teams
-            if st[t]["pts"] > team_pts_after or
-               (st[t]["pts"] == team_pts_after and st[t]["gd"] > team_gd_after)
+            if st[t]["pts"] + 3 * (3 - st[t]["played"]) > team_pts_after or
+               (st[t]["pts"] + 3 * (3 - st[t]["played"]) == team_pts_after and st[t]["gd"] > team_gd_after)
         )
         return sure_above < 2
 
