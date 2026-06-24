@@ -463,15 +463,18 @@ def _lambda_from_ah_line(ah_line: float) -> tuple:
 def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: dict = None) -> list:
     if pm_strengths is None:
         pm_strengths = {}
+    from src.fetch_data import _normalize_team
     results = []
     for match in matches:
         match_id = str(match.get("id", ""))
-        home = match["homeTeam"]["name"]
-        away = match["awayTeam"]["name"]
+        home = _normalize_team(match["homeTeam"]["name"])
+        away = _normalize_team(match["awayTeam"]["name"])
 
         odds_entry = None
         for entry in odds.values():
-            if entry.get("home_team") == home and entry.get("away_team") == away:
+            eh = _normalize_team(entry.get("home_team", ""))
+            ea = _normalize_team(entry.get("away_team", ""))
+            if eh == home and ea == away:
                 odds_entry = entry
                 break
 
