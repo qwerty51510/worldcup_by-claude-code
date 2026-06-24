@@ -548,14 +548,24 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             ou_lambda_home = lambda_home
             ou_lambda_away = lambda_away
 
-        # PM-implied AH line for comparison (detect large discrepancies)
+        # PM validation: compare derived AH against Polymarket-implied AH.
+        # If AH comes from a market source (bookmaker h2h / native AH), only flag the gap.
+        # If AH is model-derived (WC form / ELO / FIFA), adopt PM when gap >= 0.5.
         pm_ah_gap = None
         if pm_strengths and (home in pm_strengths or away in pm_strengths):
             lh_pm, la_pm, _, _ = _lambda_from_pm(home, away, pm_strengths)
             pm_ah = _round_ah(-(lh_pm - la_pm))
             gap = round(pm_ah - ah_line, 2)
-            if abs(gap) >= 0.75:
-                pm_ah_gap = gap  # positive = PM implies home stronger than our line
+
+            is_market_ah = data_source in ("盤口線（AH市場）", "盤口線（h2h推算）")
+            if not is_market_ah and abs(gap) >= 0.5:
+                # Model AH diverges from PM: trust PM (aggregates broader market intelligence)
+                print(f"[features] PM校驗: {home} vs {away} AH {ah_line}→{pm_ah} (差距{gap:+.2f})")
+                ah_line = pm_ah
+                data_source = data_source + "＋PM校驗"
+                gap = 0.0
+            if abs(gap) >= 0.5:
+                pm_ah_gap = gap  # positive = PM thinks home is stronger than our line
 
         must_win_home = False
         must_win_away = False
