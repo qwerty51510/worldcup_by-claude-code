@@ -247,7 +247,8 @@ def predict_match(feature: dict, calibration: dict) -> dict:
         key_factors.append(f"盤口明顯移動 {sharp:+.2f}")
     pm_gap = feature.get("pm_ah_gap")
     if pm_gap is not None:
-        direction = "主" if pm_gap > 0 else "客"
+        # gap = pm_ah - ah_line; gap > 0 → pm_ah less negative → PM values AWAY more
+        direction = "客" if pm_gap > 0 else "主"
         key_factors.append(f"⚠️ PM盤口落差 {pm_gap:+.2f}（PM偏向{direction}隊）")
     if not key_factors:
         key_factors.append("Poisson 標準預測")

@@ -565,7 +565,7 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
                 data_source = data_source + "＋PM校驗"
                 gap = 0.0
             if abs(gap) >= 0.5:
-                pm_ah_gap = gap  # positive = PM thinks home is stronger than our line
+                pm_ah_gap = gap  # positive = pm_ah > ah_line → PM values away more (match is closer)
 
         must_win_home = False
         must_win_away = False
