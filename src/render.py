@@ -6,11 +6,11 @@ from src.config import team_zh
 
 DOCS_DIR = Path(__file__).parent.parent / "docs"
 
-def _ah_pred_label(ah_prediction: str, ah_line: float) -> str:
+def _ah_pred_label(ah_prediction: str, ah_line: float, home: str = "主隊", away: str = "客隊") -> str:
     if ah_prediction == "home":
-        return "主讓球勝" if ah_line < 0 else "主受讓勝"
+        return f"{home}讓球勝" if ah_line < 0 else f"{home}受讓勝"
     else:
-        return "客受讓勝" if ah_line < 0 else "客讓球勝"
+        return f"{away}受讓勝" if ah_line < 0 else f"{away}讓球勝"
 _OU_LABEL = {"over": "大球", "under": "小球"}
 _AH_COLOR = {"home": "#3b82f6", "away": "#f59e0b"}
 _OU_COLOR = {"over": "#10b981", "under": "#ef4444"}
@@ -421,7 +421,9 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
             cc_ah = _conf_class(ah_conf)
             cc_ou = _conf_class(ou_conf)
 
-            score = p.get("predicted_score", "?-?")
+            lh_val = float(p.get("lambda_home") or 0)
+            la_val = float(p.get("lambda_away") or 0)
+            score = f"{lh_val:.1f}–{la_val:.1f}" if lh_val and la_val else p.get("predicted_score", "?-?")
             p_hw = int(p.get("p_home_win", 0) * 100)
             p_d = int(p.get("p_draw", 0) * 100)
             p_aw = int(p.get("p_away_win", 0) * 100)
@@ -439,7 +441,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
                 ah_line_val = round(round(-(_lh - _la) * 4) / 4, 2) if (_lh and _la) else 0
             ah_line_val = ah_line_val or 0
             ou_line_val = p.get("ou_line", 2.5) or 2.5
-            ah_label = _ah_pred_label(ah_dir, ah_line_val)
+            ah_label = _ah_pred_label(ah_dir, ah_line_val, home_zh, away_zh)
             ah_line_label = "亞洲讓球盤（%s）" % _fmt_ah_line(ah_line_val)
             ou_line_label = "大小球（%g）" % ou_line_val
 
@@ -472,7 +474,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
         <div class="team-strength">λ={p.get('lambda_home','?')}</div>
       </div>
       <div class="vs-block">
-        <div class="vs-label">預測比分</div>
+        <div class="vs-label">期望進球</div>
         <div class="predicted-score">{score}</div>
       </div>
       <div class="team away">
@@ -749,7 +751,7 @@ def render_results(out_path: str = None) -> None:
             home_zh = team_zh(r["home"])
             away_zh = team_zh(r["away"])
             ah_is_push = r.get("ah_is_push", False)
-            ah_pred_zh = _AH_PRED_ZH.get(r["ah_pred"], r["ah_pred"])
+            ah_pred_zh = _ah_pred_label(r["ah_pred"], r.get("ah_line") or 0, home_zh, away_zh)
             ou_pred_zh = _OU_PRED_ZH.get(r["ou_pred"], r["ou_pred"])
             ah_prob_pct = int(r["ah_prob"] * 100)
             ou_prob_pct = int(r["ou_prob"] * 100)
@@ -769,11 +771,12 @@ def render_results(out_path: str = None) -> None:
                     "<span class='correct'>✓ %s %d%%</span>"
                 ) % (ah_line_str, ah_pred_zh, ah_prob_pct)
             else:
-                actual_zh = _AH_PRED_ZH.get(r.get("actual_ah", ""), "")
+                actual_team = home_zh if r.get("actual_ah") == "home" else away_zh if r.get("actual_ah") == "away" else ""
+                actual_label = _ah_pred_label(r["actual_ah"], ah_line_val, home_zh, away_zh) if r.get("actual_ah") else ""
                 ah_result = (
                     "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
                     "<span class='wrong'>✗ 預測%s，實際%s</span>"
-                ) % (ah_line_str, ah_pred_zh, actual_zh)
+                ) % (ah_line_str, ah_pred_zh, actual_label)
 
             ou_line_str = "大小 %g" % ou_line_val
             if r["ou_correct"]:
