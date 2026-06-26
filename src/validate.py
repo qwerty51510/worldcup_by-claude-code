@@ -15,7 +15,8 @@ RESULTS_FILE = DATA_DIR / "wc2026_results.json"
 
 
 def _lambda_for_match(home: str, away: str, completed_before: list,
-                      match_date: str = "") -> tuple:
+                      match_date: str = "", player_alpha: float = 0.0,
+                      ou_player_alpha: float = 0.0) -> tuple:
     """
     Walk-forward lambda — mirrors features.py logic exactly (formation + stamina).
     Only uses data available before this match (no future leakage).
@@ -108,16 +109,40 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
 
     _HOST_NATIONS = {"United States", "Canada", "Mexico"}
     home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
-    lh = round(max(0.3, league_avg * h_atk * a_def + home_bonus), 3)
-    la = round(max(0.3, league_avg * a_atk * h_def), 3)
+    lh_elo = round(max(0.3, league_avg * h_atk * a_def + home_bonus), 3)
+    la_elo = round(max(0.3, league_avg * a_atk * h_def), 3)
+
+    # Optional player-strength blend
+    if player_alpha > 0:
+        from src.player_strength import player_lambdas
+        lh_pl, la_pl = player_lambdas(home, away, league_avg, home_bonus)
+        if lh_pl is not None and la_pl is not None:
+            lh = round((1 - player_alpha) * lh_elo + player_alpha * lh_pl, 3)
+            la = round((1 - player_alpha) * la_elo + player_alpha * la_pl, 3)
+        else:
+            lh, la = lh_elo, la_elo
+    else:
+        lh, la = lh_elo, la_elo
+
     ah_line = _round_ah(-(lh - la) * ah_mult)
-    ou_line = _derive_ou_line(lh * ou_mult, la * ou_mult)
     ou_lh = round(lh * ou_mult, 3)
     ou_la = round(la * ou_mult, 3)
+
+    # OU-only player blend (mirrors features.py _PLAYER_OU_ALPHA logic)
+    if ou_player_alpha > 0:
+        from src.player_strength import player_lambdas as _pl_lambdas
+        lh_pl_ou, la_pl_ou = _pl_lambdas(home, away, league_avg)
+        if lh_pl_ou is not None and la_pl_ou is not None:
+            ou_lh = round(((1 - ou_player_alpha) * lh + ou_player_alpha * lh_pl_ou) * ou_mult, 3)
+            ou_la = round(((1 - ou_player_alpha) * la + ou_player_alpha * la_pl_ou) * ou_mult, 3)
+
+    ou_line = _derive_ou_line(ou_lh, ou_la)
 
     played_home = stats.get(home, {}).get("played", 0)
     played_away = stats.get(away, {}).get("played", 0)
     method = "ELO+WC實績" if (played_home + played_away) > 0 else "ELO基準"
+    if player_alpha > 0:
+        method += f"+球員({player_alpha:.0%})"
 
     return lh, la, ah_line, ou_line, method, ou_lh, ou_la
 
@@ -170,10 +195,14 @@ def _actual_ou_result(match: dict, ou_line: float) -> str:
     return "over" if total > ou_line else "under"
 
 
-def run_validation(calibration: dict = None, rho: float = 0.0) -> dict:
+def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: float = 0.0) -> dict:
     """Run walk-forward validation on all 40 completed WC 2026 matches."""
     if calibration is None:
         calibration = dict(DEFAULT_CALIBRATION)
+
+    from src.features import _PLAYER_OU_ALPHA
+    from src.player_strength import build_team_strengths
+    build_team_strengths()  # pre-load once
 
     matches = json.loads(RESULTS_FILE.read_text())
     matches_by_date = sorted(matches, key=lambda m: m["date"])
@@ -183,7 +212,9 @@ def run_validation(calibration: dict = None, rho: float = 0.0) -> dict:
 
     for match in matches_by_date:
         lh, la, ah_line, ou_line, method, ou_lh, ou_la = _lambda_for_match(
-            match["home"], match["away"], completed, match_date=match["date"]
+            match["home"], match["away"], completed,
+            match_date=match["date"], player_alpha=player_alpha,
+            ou_player_alpha=_PLAYER_OU_ALPHA
         )
         pred = _predict_single(match["home"], match["away"], lh, la, ah_line, ou_line, calibration, rho=rho,
                                ou_lh=ou_lh, ou_la=ou_la)

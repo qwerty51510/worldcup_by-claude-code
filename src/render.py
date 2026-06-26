@@ -433,14 +433,17 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
                 if "強度來源" in f:
                     source = f.replace("強度來源：", "")
 
-            ah_line_val = p.get("ah_line")
+            home_zh = team_zh(p['home_team'])
+            away_zh = team_zh(p['away_team'])
+
+            ah_line_val = p.get("ah_line") or p.get("dk_ah_line")
             if ah_line_val is None:
                 # Old prediction format without ah_line: derive from stored lambdas
                 _lh = float(p.get("lambda_home", 0) or 0)
                 _la = float(p.get("lambda_away", 0) or 0)
                 ah_line_val = round(round(-(_lh - _la) * 4) / 4, 2) if (_lh and _la) else 0
             ah_line_val = ah_line_val or 0
-            ou_line_val = p.get("ou_line", 2.5) or 2.5
+            ou_line_val = p.get("ou_line") or p.get("dk_ou_line") or 2.5
             ah_label = _ah_pred_label(ah_dir, ah_line_val, home_zh, away_zh)
             ah_line_label = "亞洲讓球盤（%s）" % _fmt_ah_line(ah_line_val)
             ou_line_label = "大小球（%g）" % ou_line_val
@@ -460,9 +463,6 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
                 injury_html = f'<div class="injury-box"><div class="injury-title">傷兵報告</div>{items}</div>'
             else:
                 injury_html = '<div class="injury-box injury-none">傷兵狀況：暫無已知缺陣</div>'
-
-            home_zh = team_zh(p['home_team'])
-            away_zh = team_zh(p['away_team'])
 
             cards += f"""
 <div class="card">

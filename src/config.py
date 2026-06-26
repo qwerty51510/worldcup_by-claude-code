@@ -8,10 +8,11 @@ DEFAULT_CALIBRATION = {
     "ou_weight": 1.0,
     "sharp_money_multiplier": 0.85,
     "incentive_boost": 0.15,
+    "dead_rubber_damp": 0.20,
     "climate_penalty": 0.05,
     "age_decay_threshold": 29.5,
     "version": "1.0",
-    "last_updated": "2026-06-22",
+    "last_updated": "2026-06-26",
 }
 
 BRIER_RESET_THRESHOLD = 0.25

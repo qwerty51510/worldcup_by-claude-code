@@ -4,7 +4,7 @@ from datetime import date as dt_date
 from src.backtest import compute_brier_score, generate_postmortem, load_calibration, save_calibration, update_calibration
 from src.features import build_features
 from src.features import clear_caches
-from src.fetch_data import fetch_matches, fetch_odds, fetch_polymarket, save_match_day, update_wc_results, update_team_history
+from src.fetch_data import fetch_matches, fetch_odds, fetch_espn_odds, fetch_polymarket, save_match_day, update_wc_results, update_team_history, update_pm_actuals
 from src.predict import predict_all, save_predictions
 from src.render import render_all
 from src.tuner import tune_params, save_tuned_params
@@ -24,6 +24,7 @@ def run(date: str) -> None:
     new_results = update_wc_results()
     if new_results > 0:
         print(f"[pipeline] {new_results} new result(s) — refreshing walk-forward validation...")
+        update_pm_actuals()
         clear_caches()  # reset stale in-memory data after file update
         refresh_validation()
 
@@ -38,16 +39,24 @@ def run(date: str) -> None:
     matches = fetch_matches(date)
     print(f"[pipeline] Found {len(matches)} matches")
 
-    print("[pipeline] Fetching odds...")
+    print("[pipeline] Fetching odds (Odds API)...")
     odds = fetch_odds([str(m["id"]) for m in matches])
+
+    print("[pipeline] Fetching DraftKings lines (ESPN)...")
+    espn_odds = fetch_espn_odds(date)
 
     print("[pipeline] Fetching Polymarket...")
     polymarket = fetch_polymarket()
 
     # only persist match data when we actually fetched something — avoids
     # overwriting real data during local runs without API keys
-    if matches or odds or polymarket:
-        save_match_day(date, {"matches": matches, "odds": odds, "polymarket": polymarket})
+    if matches or odds or espn_odds or polymarket:
+        save_match_day(date, {
+            "matches": matches,
+            "odds": odds,
+            "espn_odds": {f"{k[0]}|{k[1]}": v for k, v in espn_odds.items()},
+            "polymarket": polymarket,
+        })
 
     finished = [m for m in matches if m.get("status") == "FINISHED"]
     upcoming = [m for m in matches if m.get("status") in ("TIMED", "SCHEDULED", "IN_PLAY", "PAUSED")]

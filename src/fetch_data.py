@@ -1,11 +1,15 @@
 import json
 import os
 import time
+from datetime import datetime, timedelta
 from pathlib import Path
 
 import requests
 
 from src.config import FOOTBALL_DATA_BASE, ODDS_API_BASE, POLYMARKET_BASE, WORLD_CUP_COMPETITION_ID
+
+ESPN_SCOREBOARD = "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard"
+_ESPN_HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 
@@ -122,6 +126,123 @@ def fetch_polymarket() -> dict:
         result[team] = yes_p
 
     print(f"[fetch_polymarket] Got WC winner probs for {len(result)} teams")
+    return result
+
+
+def fetch_espn_odds(local_date: str) -> dict:
+    """
+    Fetch DraftKings lines (AH, OU, 1X2) from ESPN API.
+    Queries both local_date and local_date-1 (ESPN uses US date; early-morning
+    local matches map to the previous US date). Returns merged dict keyed by
+    (canonical_home, canonical_away).
+    """
+    base_dt = datetime.strptime(local_date, "%Y-%m-%d")
+    dates_to_try = [base_dt, base_dt - timedelta(days=1)]
+    result: dict = {}
+
+    for dt in dates_to_try:
+        espn_date = dt.strftime("%Y%m%d")
+        try:
+            r = requests.get(ESPN_SCOREBOARD, headers=_ESPN_HEADERS,
+                             params={"dates": espn_date}, timeout=10)
+            r.raise_for_status()
+            events = r.json().get("events", [])
+        except Exception as e:
+            print(f"[fetch_espn_odds] {espn_date} failed: {e}")
+            continue
+
+        for event in events:
+            comp = event["competitions"][0]
+            competitors = comp.get("competitors", [])
+            home_c = next((c for c in competitors if c.get("homeAway") == "home"), {})
+            away_c = next((c for c in competitors if c.get("homeAway") == "away"), {})
+            ht = _normalize_team(home_c.get("team", {}).get("displayName", ""))
+            at = _normalize_team(away_c.get("team", {}).get("displayName", ""))
+            if not ht or not at:
+                continue
+
+            odds_list = comp.get("odds", [])
+            if not odds_list:
+                continue
+            o = odds_list[0]
+            if not o:
+                continue
+
+            record: dict = {}
+            ml = o.get("moneyline", {}) or {}
+            ps = o.get("pointSpread", {}) or {}
+            tot = o.get("total", {}) or {}
+
+            h_ml = (ml.get("home") or {}).get("close", {}).get("odds")
+            d_ml = (ml.get("draw") or {}).get("close", {}).get("odds")
+            a_ml = (ml.get("away") or {}).get("close", {}).get("odds")
+            if h_ml and d_ml and a_ml:
+                record["ml_home"] = h_ml
+                record["ml_draw"] = d_ml
+                record["ml_away"] = a_ml
+
+            ah_line = (ps.get("home") or {}).get("close", {}).get("line")
+            ah_odds = (ps.get("home") or {}).get("close", {}).get("odds")
+            if ah_line is not None:
+                record["ah_line"] = float(ah_line)
+                record["ah_odds"] = ah_odds
+
+            ou_line = o.get("overUnder")
+            over_odds = (tot.get("over") or {}).get("close", {}).get("odds")
+            under_odds = (tot.get("under") or {}).get("close", {}).get("odds")
+            if ou_line is not None:
+                record["ou_line"] = float(ou_line)
+                record["over_odds"] = over_odds
+                record["under_odds"] = under_odds
+
+            if record:
+                result[(ht, at)] = record
+
+    print(f"[fetch_espn_odds] Got DK lines for {len(result)} matches")
+    return result
+
+
+def fetch_pm_match_odds(home: str, away: str) -> dict:
+    """
+    Fetch Polymarket match-specific win probabilities for one match.
+    Returns {"home_win": float, "draw": float, "away_win": float} or {}.
+    """
+    query = f"{home} vs {away} 2026"
+    try:
+        r = requests.get(f"{POLYMARKET_BASE}/markets",
+                         params={"q": query, "limit": 20}, timeout=10)
+        r.raise_for_status()
+        markets = r.json() if isinstance(r.json(), list) else []
+    except Exception:
+        return {}
+
+    result: dict = {}
+    for m in markets:
+        q = (m.get("question") or "").lower()
+        # Look for binary home/draw/away markets
+        outs = m.get("outcomes", [])
+        if isinstance(outs, str):
+            try: outs = json.loads(outs)
+            except Exception: continue
+        prices = m.get("outcomePrices", [])
+        if isinstance(prices, str):
+            try: prices = json.loads(prices)
+            except Exception: continue
+        if outs != ["Yes", "No"] or not prices:
+            continue
+        try:
+            yes_p = float(prices[0])
+        except Exception:
+            continue
+
+        h_lower = home.lower(); a_lower = away.lower()
+        if h_lower in q and ("win" in q or "beat" in q):
+            result["home_win"] = yes_p
+        elif a_lower in q and ("win" in q or "beat" in q):
+            result["away_win"] = yes_p
+        elif "draw" in q or "tie" in q:
+            result["draw"] = yes_p
+
     return result
 
 
@@ -274,6 +395,80 @@ def update_wc_results() -> int:
         print("[update_wc_results] No new results")
 
     return len(new_records)
+
+
+def update_pm_actuals() -> int:
+    """
+    Backfill actual match results into data/backtest/pm_dk_discrepancies.json.
+    After each match finishes, adds: actual_result, actual_score, ah_actual, ou_actual.
+    Returns number of records updated.
+    """
+    tracker_path = DATA_DIR / "backtest" / "pm_dk_discrepancies.json"
+    if not tracker_path.exists():
+        return 0
+
+    results_path = DATA_DIR / "wc2026_results.json"
+    if not results_path.exists():
+        return 0
+
+    results = json.loads(results_path.read_text())
+    result_lookup = {(r["home"], r["away"]): r for r in results}
+    # Also index by reverse order
+    result_lookup.update({(r["away"], r["home"]): {**r, "home": r["away"], "away": r["home"],
+                           "home_goals": r["away_goals"], "away_goals": r["home_goals"]} for r in results})
+
+    tracker = json.loads(tracker_path.read_text())
+    updated = 0
+    for rec in tracker:
+        if rec.get("actual_result"):
+            continue
+        result = result_lookup.get((rec["home"], rec["away"]))
+        if not result:
+            continue
+        hg = result["home_goals"]
+        ag = result["away_goals"]
+        actual = "home" if hg > ag else ("away" if ag > hg else "draw")
+        rec["actual_score"] = f"{hg}-{ag}"
+        rec["actual_result"] = actual
+
+        # AH actual
+        ah_line = rec.get("ah_edge") and rec.get("ah_edge", 0)
+        # Find the DK AH line from predictions file
+        pred_path = DATA_DIR / "predictions" / f"{rec['date']}.json"
+        if pred_path.exists():
+            preds = json.loads(pred_path.read_text())
+            for pr in preds:
+                if pr.get("home_team") == rec["home"] and pr.get("away_team") == rec["away"]:
+                    dk_ah = pr.get("dk_ah_line")
+                    dk_ou = pr.get("dk_ou_line")
+                    if dk_ah is not None:
+                        diff = hg - ag
+                        cover = diff + dk_ah
+                        rec["dk_ah_line"] = dk_ah
+                        rec["ah_actual"] = "cover" if cover > 0 else ("push" if cover == 0 else "loss")
+                    if dk_ou is not None:
+                        total = hg + ag
+                        rec["dk_ou_line"] = dk_ou
+                        rec["ou_actual"] = "over" if total > dk_ou else ("push" if total == dk_ou else "under")
+                    break
+
+        # Was PM correct? (compare PM implied winner vs actual)
+        pm_h = rec.get("pm_home"); pm_a = rec.get("pm_away"); pm_d = rec.get("pm_draw")
+        if pm_h and pm_a and pm_d:
+            pm_pick = "home" if pm_h == max(pm_h, pm_d, pm_a) else ("away" if pm_a == max(pm_h, pm_d, pm_a) else "draw")
+            model_pick = "home" if rec["model_home"] == max(rec["model_home"], rec["model_draw"], rec["model_away"]) else \
+                         ("away" if rec["model_away"] == max(rec["model_home"], rec["model_draw"], rec["model_away"]) else "draw")
+            rec["pm_pick"] = pm_pick
+            rec["pm_correct"] = pm_pick == actual
+            rec["model_pick"] = model_pick
+            rec["model_correct"] = model_pick == actual
+
+        updated += 1
+
+    if updated:
+        tracker_path.write_text(json.dumps(tracker, ensure_ascii=False, indent=2))
+        print(f"[update_pm_actuals] Backfilled {updated} record(s)")
+    return updated
 
 
 def _fetch_wc_team_ids() -> dict:

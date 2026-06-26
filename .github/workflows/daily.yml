@@ -2,7 +2,7 @@ name: Daily Prediction Pipeline
 
 on:
   schedule:
-    - cron: '0 4 * * *'   # 04:00 UTC = 12:00 UTC+8 local time
+    - cron: '30 5 * * *'   # 05:30 UTC = 12:00 Myanmar time (UTC+6:30)
   workflow_dispatch:        # allow manual trigger
   push:
     branches: [main]
@@ -31,6 +31,7 @@ jobs:
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          TZ: Asia/Rangoon
         run: python -m src.pipeline
 
       - name: Commit updated data and HTML

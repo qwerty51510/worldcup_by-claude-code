@@ -1,0 +1,200 @@
+{
+  "matches": [],
+  "odds": {},
+  "espn_odds": {
+    "Croatia|Ghana": {
+      "ml_home": "-130",
+      "ml_draw": "+240",
+      "ml_away": "+450",
+      "ah_line": -0.5,
+      "ah_odds": "-135",
+      "ou_line": 2.5,
+      "over_odds": "+125",
+      "under_odds": "-155"
+    },
+    "Panama|England": {
+      "ml_home": "+1400",
+      "ml_draw": "+700",
+      "ml_away": "-575",
+      "ah_line": 2.5,
+      "ah_odds": "-155",
+      "ou_line": 3.5,
+      "over_odds": "+110",
+      "under_odds": "-140"
+    },
+    "Colombia|Portugal": {
+      "ml_home": "+310",
+      "ml_draw": "+275",
+      "ml_away": "-115",
+      "ah_line": 0.5,
+      "ah_odds": "-105",
+      "ou_line": 2.5,
+      "over_odds": "+100",
+      "under_odds": "-125"
+    },
+    "DR Congo|Uzbekistan": {
+      "ml_home": "-135",
+      "ml_draw": "+320",
+      "ml_away": "+340",
+      "ah_line": -0.5,
+      "ah_odds": "-145",
+      "ou_line": 2.5,
+      "over_odds": "-110",
+      "under_odds": "-110"
+    },
+    "Algeria|Austria": {
+      "ml_home": "+310",
+      "ml_draw": "+120",
+      "ml_away": "+190",
+      "ah_line": 0.5,
+      "ah_odds": "-230",
+      "ou_line": 1.5,
+      "over_odds": "-190",
+      "under_odds": "+150"
+    },
+    "Jordan|Argentina": {
+      "ml_home": "+1400",
+      "ml_draw": "+650",
+      "ml_away": "-550",
+      "ah_line": 1.5,
+      "ah_odds": "+135",
+      "ou_line": 2.5,
+      "over_odds": "-180",
+      "under_odds": "+145"
+    },
+    "Norway|France": {
+      "ml_home": "+400",
+      "ml_draw": "+360",
+      "ml_away": "-165",
+      "ah_line": 0.5,
+      "ah_odds": "+140",
+      "ou_line": 3.5,
+      "over_odds": "+125",
+      "under_odds": "-160"
+    },
+    "Senegal|Iraq": {
+      "ml_home": "-425",
+      "ml_draw": "+550",
+      "ml_away": "+1100",
+      "ah_line": -1.5,
+      "ah_odds": "-150",
+      "ou_line": 3.5,
+      "over_odds": "+130",
+      "under_odds": "-160"
+    },
+    "Cabo Verde|Saudi Arabia": {
+      "ml_home": "+165",
+      "ml_draw": "+230",
+      "ml_away": "+175",
+      "ah_line": -0.5,
+      "ah_odds": "+155",
+      "ou_line": 2.5,
+      "over_odds": "+115",
+      "under_odds": "-145"
+    },
+    "Uruguay|Spain": {
+      "ml_home": "+600",
+      "ml_draw": "+310",
+      "ml_away": "-190",
+      "ah_line": 0.5,
+      "ah_odds": "+155",
+      "ou_line": 2.5,
+      "over_odds": "+110",
+      "under_odds": "-140"
+    },
+    "Egypt|Iran": {
+      "ml_home": "+150",
+      "ml_draw": "+160",
+      "ml_away": "+280",
+      "ah_line": -0.5,
+      "ah_odds": "+145",
+      "ou_line": 1.5,
+      "over_odds": "-170",
+      "under_odds": "+140"
+    },
+    "New Zealand|Belgium": {
+      "ml_home": "+1500",
+      "ml_draw": "+750",
+      "ml_away": "-600",
+      "ah_line": 2.5,
+      "ah_odds": "-145",
+      "ou_line": 3.5,
+      "over_odds": "-105",
+      "under_odds": "-120"
+    }
+  },
+  "polymarket": {
+    "Spain": 0.1375,
+    "England": 0.0985,
+    "France": 0.1885,
+    "Brazil": 0.0555,
+    "Argentina": 0.1465,
+    "Germany": 0.0445,
+    "Portugal": 0.0805,
+    "Netherlands": 0.0585,
+    "USA": 0.0315,
+    "Uruguay": 0.0015,
+    "Mexico": 0.0125,
+    "Belgium": 0.0105,
+    "Colombia": 0.0145,
+    "Japan": 0.0115,
+    "Norway": 0.0305,
+    "Canada": 0.0025,
+    "Ecuador": 0.0055,
+    "Paraguay": 0.0015,
+    "New Zealand": 0.0005,
+    "Australia": 0.0015,
+    "Iran": 0.0005,
+    "Uzbekistan": 0.0005,
+    "South Korea": 0.0005,
+    "Morocco": 0.0145,
+    "South Africa": 0.0005,
+    "Senegal": 0.0025,
+    "Ivory Coast": 0.0025,
+    "Ghana": 0.0005,
+    "Egypt": 0.0025,
+    "Algeria": 0.0005,
+    "Cape Verde": 0.0015,
+    "Saudi Arabia": 0.0005,
+    "Scotland": 0.0005,
+    "Switzerland": 0.0085,
+    "Austria": 0.0025,
+    "Croatia": 0.0035,
+    "Sweden": 0.0015,
+    "Congo DR": 0.0005,
+    "Iraq": 0.0005,
+    "Bosnia-Herzegovina": 0.0015
+  },
+  "pm_match_odds": {
+    "Norway|France": {
+      "home": 0.195,
+      "draw": 0.195,
+      "away": 0.615,
+      "liq": 2745436.7094
+    },
+    "Senegal|Iraq": {
+      "home": 0.795,
+      "draw": 0.135,
+      "away": 0.075,
+      "liq": 1560615.5512
+    },
+    "Cabo Verde|Saudi Arabia": {
+      "home": 0.365,
+      "draw": 0.285,
+      "away": 0.355,
+      "liq": 1984944.5991
+    },
+    "Egypt|Iran": {
+      "home": 0.385,
+      "draw": 0.375,
+      "away": 0.245,
+      "liq": 1893826.0348
+    },
+    "New Zealand|Belgium": {
+      "home": 0.055,
+      "draw": 0.115,
+      "away": 0.835,
+      "liq": 1764769.9642
+    }
+  }
+}

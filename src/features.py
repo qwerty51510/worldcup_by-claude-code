@@ -9,6 +9,9 @@ from src.config import FIFA_RANKINGS, BASE_LAMBDA, RANK_DECAY, AH_LINE_MULTIPLIE
 _PM_LOG_A = 2.406
 _PM_LOG_B = 0.2508
 
+# Player data blend for OU only (AH uses pure ELO — grid search confirmed 0.4 is optimal)
+_PLAYER_OU_ALPHA = 0.4
+
 # ELO → strength: normalised around 1500 (average), compressed to 0.4–2.2 range
 _ELO_BASE = 1500.0
 _ELO_SCALE = 750.0  # 750 ELO points → 2x strength
@@ -267,7 +270,10 @@ def _compute_group_context(home: str, away: str, group: str, before_date: str) -
     a_safe_loss = _can_finish_top2_if(away, a_pts, a_gd - 2)
     h_must_win = not _can_finish_top2_if(home, h_pts + 1, h_gd) and _can_finish_top2_if(home, h_pts + 3, h_gd + 2)
     a_must_win = not _can_finish_top2_if(away, a_pts + 1, a_gd) and _can_finish_top2_if(away, a_pts + 3, a_gd + 2)
-    dead_rubber = h_safe_loss and a_safe_loss
+    # Dead rubber: both already qualified (safe even with a loss) OR both mathematically eliminated
+    h_eliminated = not _can_finish_top2_if(home, h_pts + 3, h_gd + 10)
+    a_eliminated = not _can_finish_top2_if(away, a_pts + 3, a_gd + 10)
+    dead_rubber = (h_safe_loss and a_safe_loss) or (h_eliminated and a_eliminated)
 
     return {
         "group": group_code,
@@ -279,6 +285,8 @@ def _compute_group_context(home: str, away: str, group: str, before_date: str) -
         "must_win_away": a_must_win,
         "safe_draw_home": h_safe_draw,
         "safe_draw_away": a_safe_draw,
+        "home_eliminated": h_eliminated,
+        "away_eliminated": a_eliminated,
         "dead_rubber": dead_rubber,
     }
 
@@ -560,6 +568,7 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
         odds_home = odds_entry.get("home_team", home) if odds_entry else home
         odds_away = odds_entry.get("away_team", away) if odds_entry else away
         ah_line, ou_line, ah_is_native = _extract_ah_ou(bookmakers, odds_home, odds_away)
+        ou_from_market = ou_line is not None
 
         match_date = (match.get("utcDate", "") or "")[:10]
         elo = _load_elo()
@@ -615,10 +624,23 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
 
         # For WC-form paths, lambdas are inflated by tuned league_avg (1.8).
         # ou_mult normalises them back to realistic goal totals for OU prob calculation.
+        # Player data (alpha=0.4) blended into OU only — grid search: AH stays 52.4%, OU 60.4%→68.8%.
         _ou_mult = _load_tuned_params().get("ou_line_multiplier", 1.0)
         if data_source in ("WC 2026 實戰數據", "盤口線（h2h推算）"):
-            ou_lambda_home = round(lambda_home * _ou_mult, 3)
-            ou_lambda_away = round(lambda_away * _ou_mult, 3)
+            from src.player_strength import player_lambdas as _pl_lambdas, build_team_strengths as _build_ps
+            _build_ps()
+            _league_avg_val = _load_tuned_params().get("wc_league_avg", _WC_LEAGUE_AVG)
+            lh_pl, la_pl = _pl_lambdas(home, away, _league_avg_val)
+            if lh_pl is not None and la_pl is not None:
+                blended_h = (1 - _PLAYER_OU_ALPHA) * lambda_home + _PLAYER_OU_ALPHA * lh_pl
+                blended_a = (1 - _PLAYER_OU_ALPHA) * lambda_away + _PLAYER_OU_ALPHA * la_pl
+                ou_lambda_home = round(blended_h * _ou_mult, 3)
+                ou_lambda_away = round(blended_a * _ou_mult, 3)
+                if not ou_from_market:
+                    ou_line = _derive_ou_line(ou_lambda_home, ou_lambda_away)
+            else:
+                ou_lambda_home = round(lambda_home * _ou_mult, 3)
+                ou_lambda_away = round(lambda_away * _ou_mult, 3)
         else:
             ou_lambda_home = lambda_home
             ou_lambda_away = lambda_away
