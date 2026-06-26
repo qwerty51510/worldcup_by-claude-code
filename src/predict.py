@@ -158,7 +158,16 @@ def _generate_reasoning(home: str, away: str, lh: float, la: float,
                 h_zh, h_pts, h_gd, a_zh, a_pts, a_gd)
             motives = []
             if dead_rubber:
-                motives.append("雙方均已確保出線，可能輪換主力")
+                home_elim = group_ctx.get("home_eliminated", False)
+                away_elim = group_ctx.get("away_eliminated", False)
+                if home_elim and away_elim:
+                    motives.append("雙方均已出局，可能輪換主力")
+                elif home_elim:
+                    motives.append("%s已出局，客隊保平可出線" % h_zh)
+                elif away_elim:
+                    motives.append("%s已出局，主隊保平可出線" % a_zh)
+                else:
+                    motives.append("雙方均已確保出線，可能輪換主力")
             else:
                 if safe_draw_home and not must_win_home:
                     motives.append("%s平局即可確保前2" % h_zh)
@@ -291,7 +300,13 @@ def predict_match(feature: dict, calibration: dict) -> dict:
     if feature.get("must_win_away"):
         key_factors.append("客隊必贏場")
     if feature.get("dead_rubber"):
-        key_factors.append("雙方已確保出線（輪換效應）")
+        _gctx = feature.get("group_context", {})
+        _h_elim = _gctx.get("home_eliminated", False)
+        _a_elim = _gctx.get("away_eliminated", False)
+        if _h_elim and _a_elim:
+            key_factors.append("雙方均已出局（死局場）")
+        else:
+            key_factors.append("雙方已確保出線（輪換效應）")
     if abs(sharp) > 0.25:
         key_factors.append(f"盤口明顯移動 {sharp:+.2f}")
     pm_gap = feature.get("pm_ah_gap")
