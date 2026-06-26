@@ -423,7 +423,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
 
             lh_val = float(p.get("lambda_home") or 0)
             la_val = float(p.get("lambda_away") or 0)
-            score = f"{lh_val:.1f}–{la_val:.1f}" if lh_val and la_val else p.get("predicted_score", "?-?")
+            score = p.get("predicted_score") or "?-?"
             p_hw = int(p.get("p_home_win", 0) * 100)
             p_d = int(p.get("p_draw", 0) * 100)
             p_aw = int(p.get("p_away_win", 0) * 100)
