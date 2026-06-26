@@ -64,7 +64,7 @@ def run(date: str) -> None:
 
     # ── 3. Predict upcoming matches ──────────────────────────────────────────
     print("[pipeline] Building features...")
-    features = build_features(upcoming, odds, calibration, pm_strengths=polymarket)
+    features = build_features(upcoming, odds, calibration, pm_strengths=polymarket, espn_odds=espn_odds)
 
     print("[pipeline] Predicting...")
     predictions = predict_all(features, calibration)

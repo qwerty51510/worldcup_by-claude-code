@@ -546,9 +546,12 @@ def _lambda_from_ah_line(ah_line: float) -> tuple:
     return max(0.5, home_base), max(0.3, away_base)
 
 
-def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: dict = None) -> list:
+def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: dict = None,
+                   espn_odds: dict = None) -> list:
     if pm_strengths is None:
         pm_strengths = {}
+    if espn_odds is None:
+        espn_odds = {}
     from src.fetch_data import _normalize_team
     results = []
     for match in matches:
@@ -564,10 +567,22 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
                 odds_entry = entry
                 break
 
+        # ESPN DraftKings lines take priority over Odds API h2h derivation
+        dk = espn_odds.get((home, away)) or espn_odds.get((away, home)) or {}
+        dk_ah = dk.get("ah_line")
+        dk_ou = dk.get("ou_line")
+
         bookmakers = odds_entry.get("bookmakers", []) if odds_entry else []
         odds_home = odds_entry.get("home_team", home) if odds_entry else home
         odds_away = odds_entry.get("away_team", away) if odds_entry else away
         ah_line, ou_line, ah_is_native = _extract_ah_ou(bookmakers, odds_home, odds_away)
+
+        # Override with DK real lines when available
+        if dk_ah is not None:
+            ah_line = dk_ah
+            ah_is_native = True
+        if dk_ou is not None:
+            ou_line = dk_ou
         ou_from_market = ou_line is not None
 
         match_date = (match.get("utcDate", "") or "")[:10]
@@ -575,9 +590,11 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
         wc_form = _lambda_from_wc_form(home, away, match_date)
 
         if ah_is_native:
-            # Native asian_handicap market: use market-implied lambdas + market AH line
-            lambda_home, lambda_away = _lambda_from_ah_line(ah_line)
-            data_source = "盤口線（AH市場）"
+            # Native AH line (from DK ESPN or AH market): use WC form lambdas + real AH line
+            lambda_home, lambda_away, _, ou_line_model = wc_form if wc_form else _lambda_from_ah_line(ah_line) + (None, None)
+            if ou_line is None:
+                ou_line = ou_line_model
+            data_source = "DraftKings盤口" if dk_ah is not None else "盤口線（AH市場）"
         elif ah_line is not None and wc_form is not None:
             # AH derived from h2h+totals: use our WC form lambdas (better signal)
             # but the market-derived AH line for display and probability calculation

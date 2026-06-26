@@ -760,6 +760,8 @@ def render_results(out_path: str = None) -> None:
             ou_line_val = r.get("ou_line") or 2.5
             ah_line_str = _fmt_ah_line(ah_line_val)
 
+            ah_cc = _conf_class(ah_prob_pct)
+            ou_cc = _conf_class(ou_prob_pct)
             if ah_is_push:
                 ah_result = (
                     "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
@@ -768,28 +770,34 @@ def render_results(out_path: str = None) -> None:
             elif r["ah_correct"]:
                 ah_result = (
                     "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
-                    "<span class='correct'>✓ %s %d%%</span>"
-                ) % (ah_line_str, ah_pred_zh, ah_prob_pct)
+                    "<span class='correct'>✓ %s</span>"
+                    "<span class='conf-badge %s' style='margin-left:4px'>信心 %d%%</span>"
+                ) % (ah_line_str, ah_pred_zh, ah_cc, ah_prob_pct)
             else:
                 actual_team = home_zh if r.get("actual_ah") == "home" else away_zh if r.get("actual_ah") == "away" else ""
                 actual_label = _ah_pred_label(r["actual_ah"], ah_line_val, home_zh, away_zh) if r.get("actual_ah") else ""
                 ah_result = (
                     "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
-                    "<span class='wrong'>✗ 預測%s，實際%s</span>"
-                ) % (ah_line_str, ah_pred_zh, actual_label)
+                    "<span class='wrong'>✗ 預測%s</span>"
+                    "<span class='conf-badge %s' style='margin-left:4px'>信心 %d%%</span>"
+                    "<div style='font-size:0.7rem;color:var(--muted)'>實際：%s</div>"
+                ) % (ah_line_str, ah_pred_zh, ah_cc, ah_prob_pct, actual_label)
 
             ou_line_str = "大小 %g" % ou_line_val
             if r["ou_correct"]:
                 ou_result = (
                     "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
-                    "<span class='correct'>✓ %s %d%%</span>"
-                ) % (ou_line_str, ou_pred_zh, ou_prob_pct)
+                    "<span class='correct'>✓ %s</span>"
+                    "<span class='conf-badge %s' style='margin-left:4px'>信心 %d%%</span>"
+                ) % (ou_line_str, ou_pred_zh, ou_cc, ou_prob_pct)
             else:
                 actual_ou_zh = _OU_PRED_ZH.get(r.get("actual_ou", ""), "")
                 ou_result = (
                     "<div style='font-size:0.7rem;color:var(--muted)'>%s</div>"
-                    "<span class='wrong'>✗ 預測%s，實際%s</span>"
-                ) % (ou_line_str, ou_pred_zh, actual_ou_zh)
+                    "<span class='wrong'>✗ 預測%s</span>"
+                    "<span class='conf-badge %s' style='margin-left:4px'>信心 %d%%</span>"
+                    "<div style='font-size:0.7rem;color:var(--muted)'>實際：%s</div>"
+                ) % (ou_line_str, ou_pred_zh, ou_cc, ou_prob_pct, actual_ou_zh)
 
             pred_score = r.get("predicted_score", "?-?")
             actual_score = r["score"]
