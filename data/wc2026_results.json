@@ -430,5 +430,113 @@
     "home_goals": 1,
     "away_goals": 0,
     "round": 2
+  },
+  {
+    "date": "2026-06-24",
+    "group": "B",
+    "home": "Switzerland",
+    "away": "Canada",
+    "home_goals": 2,
+    "away_goals": 1,
+    "round": 3
+  },
+  {
+    "date": "2026-06-24",
+    "group": "B",
+    "home": "Bosnia and Herzegovina",
+    "away": "Qatar",
+    "home_goals": 3,
+    "away_goals": 1,
+    "round": 3
+  },
+  {
+    "date": "2026-06-24",
+    "group": "C",
+    "home": "Morocco",
+    "away": "Haiti",
+    "home_goals": 4,
+    "away_goals": 2,
+    "round": 3
+  },
+  {
+    "date": "2026-06-24",
+    "group": "C",
+    "home": "Scotland",
+    "away": "Brazil",
+    "home_goals": 0,
+    "away_goals": 3,
+    "round": 3
+  },
+  {
+    "date": "2026-06-25",
+    "group": "A",
+    "home": "Czechia",
+    "away": "Mexico",
+    "home_goals": 0,
+    "away_goals": 3,
+    "round": 3
+  },
+  {
+    "date": "2026-06-25",
+    "group": "A",
+    "home": "South Africa",
+    "away": "South Korea",
+    "home_goals": 1,
+    "away_goals": 0,
+    "round": 3
+  },
+  {
+    "date": "2026-06-25",
+    "group": "E",
+    "home": "Ecuador",
+    "away": "Germany",
+    "home_goals": 2,
+    "away_goals": 1,
+    "round": 3
+  },
+  {
+    "date": "2026-06-25",
+    "group": "E",
+    "home": "Curaçao",
+    "away": "Ivory Coast",
+    "home_goals": 0,
+    "away_goals": 2,
+    "round": 3
+  },
+  {
+    "date": "2026-06-25",
+    "group": "F",
+    "home": "Tunisia",
+    "away": "Netherlands",
+    "home_goals": 1,
+    "away_goals": 3,
+    "round": 3
+  },
+  {
+    "date": "2026-06-25",
+    "group": "F",
+    "home": "Japan",
+    "away": "Sweden",
+    "home_goals": 1,
+    "away_goals": 1,
+    "round": 3
+  },
+  {
+    "date": "2026-06-26",
+    "group": "D",
+    "home": "Turkey",
+    "away": "United States",
+    "home_goals": 3,
+    "away_goals": 2,
+    "round": 3
+  },
+  {
+    "date": "2026-06-26",
+    "group": "D",
+    "home": "Paraguay",
+    "away": "Australia",
+    "home_goals": 0,
+    "away_goals": 0,
+    "round": 3
   }
 ]
