@@ -1,0 +1,1364 @@
+player_id,player_name,slug,country,country_code,position,club,age,rt_value_estimate_eur
+35,Craig Gordon,craig-gordon,Scotland,SCO,GK,Hearts,43,792000
+261,Junior Hoilett,d-hoilett,Canada,CAN,FW,Hibernian,36,993600
+268,Luka Modrić,l-modri,Croatia,CRO,MF,AC Milan,40,8208000
+323,Jordan Henderson,j-henderson,England,ENG,MF,Brentford,35,13392000
+580,Cristiano Ronaldo,c-ronaldo,Portugal,POR,FW,Al Nassr,41,1080000
+807,Grant Hanley,g-hanley,Scotland,SCO,DF,Hibernian,34,2232000
+871,Leandro Bacuna,leandro-bacuna,Curacao,CUW,MF,Iğdır FK,34,2232000
+914,Chris Wood,c-wood,New Zealand,NZL,FW,Nottingham Forest,34,6480000
+929,Memphis Depay,m-depay,Netherlands,NED,FW,Corinthians,32,1672000
+937,Nabil Bentaleb,n-bentaleb,Algeria,DZA,MF,LOSC Lille,31,16368000
+971,Riyad Mahrez,r-mahrez,Algeria,DZA,FW,Al Ahli,35,1080000
+982,John Stones,j-stones,England,ENG,DF,Manchester City,32,2236960
+995,Romelu Lukaku,r-lukaku-menama,Belgium,BEL,FW,Napoli,33,8208000
+997,Harry Kane,h-kane,England,ENG,FW,FC Bayern München,32,12144000
+1030,Idrissa Gueye,i-gueye,Senegal,SEN,MF,Everton,36,6480000
+1038,Jordan Ayew,j-ayew,Ghana,GHA,FW,Leicester City,34,1080000
+1078,Andrew Robertson,a-robertson,Scotland,SCO,DF,Liverpool,32,7920000
+1109,Patrick Agyemang,p-agyemang,United States,USA,FW,Derby County,25,2415000
+1139,Marko Arnautovic,m-arnautovi,Austria,AUT,FW,Crvena Zvezda,37,1258560
+1193,N'Golo Kanté,n-kante,France,FRA,MF,Fenerbahçe,35,4140000
+1232,Andrej Kramaric,a-kramari,Croatia,CRO,MF,TSG Hoffenheim,34,6480000
+1244,Enner Valencia,e-valencia-lastra,Ecuador,ECU,FW,Pachuca,36,993600
+1314,Thibaut Courtois,t-courtois,Belgium,BEL,GK,Real Madrid,34,11664000
+1343,Emiliano Martínez,d-martinez,Argentina,ARG,GK,Aston Villa,33,11664000
+1353,Kristoffer Nordfeldt,kristoffer-nordfeldt,Sweden,SWE,GK,Paide,36,1594080
+1358,Edin Džeko,e-deko,Bosnia and Herzegovina,BIH,FW,Schalke 04,40,13392000
+1371,Kevin De Bruyne,k-de-bruyne,Belgium,BEL,MF,Napoli,34,11664000
+1377,Chancel Mbemba,c-mbemba-mangulu,Congo DR,COD,DF,LOSC Lille,31,7286400
+1389,Sadio Mané,s-mane,Senegal,SEN,FW,Al Nassr,34,1523520
+1443,David Ospina,david-ospina,Colombia,COL,GK,Atlético Nacional,37,728640
+1592,Jarrod Bowen,j-bowen,England,ENG,FW,West Ham United,29,18600000
+1717,Marten de Roon,m-de-roon,Netherlands,NED,MF,Atalanta,35,9936000
+1743,Virgil van Dijk,v-van-dijk,Netherlands,NED,DF,Liverpool,34,13392000
+1822,Nicolás Otamendi,n-otamendi,Argentina,ARG,DF,Benfica,38,3420000
+1826,Jordan Pickford,j-pickford,England,ENG,GK,Everton,32,14256000
+1869,Nathan Aké,n-ake,Netherlands,NED,DF,Manchester City,31,7286400
+1878,Marcus Rashford,m-rashford,England,ENG,FW,FC Barcelona,28,9000000
+1887,Granit Xhaka,g-xhaka,Switzerland,SUI,MF,Sunderland,33,8208000
+1941,Arthur Masuaku,a-masuaku,Congo DR,COD,DF,Lens,32,14256000
+2069,Tommy Smith,tommy-smith,New Zealand,NZL,DF,Braintree Town,36,1368000
+2454,Tim Ream,t-ream,United States,USA,DF,Charlotte,38,1121760
+2683,Jason Steele,j-steele-2683,England,ENG,GK,Brighton & Hove Albion,35,649440
+2815,Dan Burn,d-burn,England,ENG,DF,Newcastle United,34,9936000
+2884,Harry Maguire,h-maguire,England,ENG,DF,Manchester United,33,13392000
+3130,David Raya,d-raya-martin,Spain,ESP,GK,Arsenal,30,14256000
+3259,Ben White,b-white,England,ENG,DF,Arsenal,28,8280000
+3385,Aaron Tshibola,a-tshibola,Congo DR,COD,MF,Kilmarnock,31,2236960
+3596,Ché Adams,c-adams,Scotland,SCO,FW,Torino,29,18600000
+3665,Gaël Kakuta,gael-kakuta,Congo DR,COD,MF,Sakaryaspor,34,1080000
+4125,Mohamed Salah,m-salah,Egypt,EGY,FW,Liverpool,33,9936000
+4203,Dominic Solanke,d-solanke,England,ENG,FW,Tottenham Hotspur,28,9000000
+4267,Abdul Rahman Baba,a-baba,Ghana,GHA,DF,PAOK,31,1538240
+4313,Heung-min Son,h-son,Korea Republic,KOR,FW,Los Angeles FC,33,1258560
+4341,Ivan Toney,i-toney,England,ENG,FW,Al Ahli,30,2024000
+4391,Axel Tuanzebe,a-tuanzebe,Congo DR,COD,DF,Burnley,28,10488000
+4449,Guillermo Varela,g-varela-olivera,Uruguay,URU,DF,Flamengo,33,1656000
+4569,Jindrich Stanek,j-stank,Czech Republic,CZE,GK,Slavia Praha,30,793760
+4640,Kenji Gorré,k-gorre,Curacao,CUW,FW,Maccabi Haifa,31,1672000
+4655,Fikayo Tomori,f-tomori,England,ENG,DF,AC Milan,28,9000000
+4666,Aiden O'Neill,a-oneill,Australia,AUS,MF,New York City,27,2484000
+4783,Leroy Sané,l-sane,Germany,GER,FW,Galatasaray,30,3300000
+5141,Dominic Calvert-Lewin,d-calvert-lewin,England,ENG,FW,Leeds United,29,16200000
+5252,Aaron Wan-Bissaka,a-wan-bissaka,Congo DR,COD,DF,West Ham United,28,16200000
+5273,Declan Rice,d-rice,England,ENG,MF,Arsenal,27,13800000
+5381,Dan Agyei,d-agyei,Ghana,GHA,FW,Kocaelispor,29,5750000
+5922,Cameron Burgess,c-burgess,Australia,AUS,DF,Swansea City,30,1320000
+6301,Seko Fofana,s-fofana,Côte d'Ivoire,CIV,MF,Porto,31,7920000
+6361,Ryan Mendes,ryan-mendes,Cape Verde Islands,CPV,FW,Kocaelispor,36,5580000
+6605,Jackson Irvine,j-irvine,Australia,AUS,MF,St. Pauli,33,8208000
+6612,Jack Hendry,j-hendry,Scotland,SCO,DF,Al Ettifaq,31,1672000
+7124,Ezri Konsa,e-konsa-ngoyo,England,ENG,DF,Aston Villa,28,9000000
+7577,George Hirst,g-hirst,Scotland,SCO,FW,Ipswich Town,27,3100000
+7643,Eberechi Eze,e-eze,England,ENG,MF,Arsenal,27,18600000
+9438,Aaron Ramsdale,a-ramsdale,England,ENG,GK,Newcastle United,28,14904000
+9543,Brandon Thomas-Asante,b-thomas-asante,Ghana,GHA,FW,Coventry City,27,1500000
+10601,Harvey Barnes,h-barnes,England,ENG,FW,Newcastle United,28,18600000
+11695,Max Crocombe,m-crocombe,New Zealand,NZL,GK,Millwall,32,1672000
+12145,Ollie Watkins,o-watkins,England,ENG,FW,Aston Villa,30,16368000
+12647,Dean Henderson,d-henderson,England,ENG,GK,Crystal Palace,29,16200000
+13489,Dominic Hyam,d-hyam,Scotland,SCO,DF,Wrexham,30,2024000
+24015,Stefan de Vrij,s-de-vrij,Netherlands,NED,DF,Inter,34,10730880
+24803,Jürgen Locadia,jrgen-locadia,Curacao,CUW,FW,,32,
+25081,Joshua Brenet,j-brenet,Curacao,CUW,DF,Kayserispor,32,3036000
+25120,Morten Thorsby,m-thorsby,Norway,NOR,MF,Cremonese,30,7286400
+25137,Santiago Arias,s-arias-naranjo,Colombia,COL,DF,Independiente,34,1944000
+25147,Alireza Jahanbakhsh,a-jahanbakhsh,Iran,IRN,FW,Dender,32,2236960
+25161,Ryan Thomas,r-thomas,New Zealand,NZL,MF,PEC Zwolle,31,6820000
+25317,Wout Weghorst,w-weghorst,Netherlands,NED,FW,Ajax,33,2700000
+25332,Derrick Luckassen,derrick-luckassen,Ghana,GHA,DF,Pafos FC,30,890560
+25333,Sergio Rochet,s-rochet-alvarez,Uruguay,URU,GK,Internacional,33,1594080
+25489,Sofyan Amrabat,s-amrabat,Morocco,MAR,MF,Real Betis,29,9000000
+25514,Alexander Sørloth,a-sorloth,Norway,NOR,FW,Atlético Madrid,30,7920000
+25515,Juninho Bacuna,j-bacuna,Curacao,CUW,MF,FC Volendam,28,1558000
+25588,Riechedly Bazoer,r-bazoer,Curacao,CUW,DF,Konyaspor,29,7130000
+25680,Brandley Kuwas,b-kuwas,Curacao,CUW,FW,FC Volendam,33,5580000
+25738,Ferdi Kadıoğlu,f-kadioglu,Türkiye,TUR,DF,Brighton & Hove Albion,26,9450000
+25945,Justin Bijlow,j-bijlow,Netherlands,NED,GK,Genoa,28,16200000
+26015,Guus Til,g-til,Netherlands,NED,MF,PSV,28,5750000
+26027,Denzel Dumfries,d-dumfries,Netherlands,NED,DF,Inter,30,14256000
+26073,Sherel Floranus,s-floranus,Curacao,CUW,DF,PEC Zwolle,27,6750000
+26294,Davinson Sánchez,d-sanchez-mina,Colombia,COL,DF,Galatasaray,29,3750000
+26433,Jamiro Monteiro,j-monteiro-alvarenga,Cape Verde Islands,CPV,MF,PEC Zwolle,32,4180000
+26536,Frenkie de Jong,f-de-jong,Netherlands,NED,MF,FC Barcelona,29,16200000
+26619,Deroy Duarte,d-duarte,Cape Verde Islands,CPV,MF,Ludogorets,26,1575000
+26786,Jerdy Schouten,j-schouten,Netherlands,NED,MF,PSV,29,5750000
+26803,Justin Kluivert,j-kluivert,Netherlands,NED,MF,AFC Bournemouth,27,11400000
+26823,Martin Ødegaard,m-odegaard-26823,Norway,NOR,MF,Arsenal,27,9000000
+26935,Ajdin Hrustic,a-hrustic,Australia,AUS,MF,Heracles Almelo,29,5750000
+27584,Garry Rodrigues,garry-rodrigues,Cape Verde Islands,CPV,FW,,35,
+28637,Laros Duarte,l-duarte,Cape Verde Islands,CPV,MF,Puskás,29,1558000
+28716,Noussair Mazraoui,n-mazraoui,Morocco,MAR,DF,Manchester United,28,11400000
+28854,Juriën Gaari,jurien-gaari,Curacao,CUW,DF,Abha,32,1672000
+29184,Teun Koopmeiners,t-koopmeiners,Netherlands,NED,MF,Juventus,28,9000000
+29444,Armando Obispo,a-obispo,Curacao,CUW,DF,PSV,27,4750000
+30062,Cody Gakpo,c-gakpo,Netherlands,NED,FW,Liverpool,27,16200000
+30642,Manuel Neuer,m-neuer,Germany,GER,GK,FC Bayern München,40,11664000
+30782,Godfried Roemeratoe,g-roemeratoe,Curacao,CUW,MF,RKC Waalwijk,26,1575000
+31002,Ivan Perišić,i-perii,Croatia,CRO,FW,PSV,37,5580000
+31146,Oliver Baumann,o-baumann,Germany,GER,GK,TSG Hoffenheim,36,11664000
+31288,David Alaba,d-olatukunbo-alaba,Austria,AUT,DF,Real Madrid,33,885600
+31293,Mathew Leckie,mathew-leckie,Australia,AUS,FW,Melbourne City,35,885600
+31439,Noa Lang,n-lang,Netherlands,NED,FW,Galatasaray,26,6520500
+31504,Pascal Groß,p-gross,Germany,GER,MF,Brighton & Hove Albion,34,9936000
+31653,Ricardo Rodríguez,r-rodriguez-araya,Switzerland,SUI,DF,Real Betis,33,13392000
+31661,Sead Kolasinac,s-kolainac,Bosnia and Herzegovina,BIH,DF,Atalanta,32,12144000
+31824,Leon Goretzka,l-goretzka,Germany,GER,MF,FC Bayern München,31,10032000
+31825,Hakan Çalhanoğlu,h-calhanoglu,Türkiye,TUR,MF,Inter,32,10032000
+31836,Jonathan Tah,j-tah,Germany,GER,DF,FC Bayern München,30,7920000
+31837,Antonio Rüdiger,a-rudiger,Germany,GER,DF,Real Madrid,33,8208000
+31878,Kaan Ayhan,k-ayhan,Türkiye,TUR,MF,Galatasaray,31,2236960
+31907,Rani Khedira,r-khedira,Tunisia,TUN,MF,FC Union Berlin,32,14256000
+32048,Vladimír Darida,vladimir-darida,Czech Republic,CZE,MF,Hradec Králové,35,1080000
+32361,Michael Gregoritsch,m-gregoritsch,Austria,AUT,FW,FC Augsburg,32,12144000
+32362,Joshua Kimmich,j-kimmich,Germany,GER,MF,FC Bayern München,31,14256000
+32378,Florian Grillitsch,f-grillitsch,Austria,AUT,MF,Sporting Braga,30,3036000
+32403,Ousmane Dembélé,o-dembele,France,FRA,FW,Paris Saint Germain,29,9000000
+32438,Christian Pulisic,c-pulisic,United States,USA,FW,AC Milan,27,18600000
+32471,Ørjan Nyland,o-haskjold-nyland,Norway,NOR,GK,Sevilla,35,9564480
+32525,Nico Elvedi,n-elvedi,Switzerland,SUI,DF,Borussia Mönchengladbach,29,16200000
+32538,Breel Embolo,b-embolo,Switzerland,SUI,FW,Rennes,29,13800000
+32549,Alessandro Schöpf,alessandro-schopf,Austria,AUT,MF,Wolfsberger AC,32,1082400
+32550,Alexander Nübel,a-nubel,Germany,GER,GK,VfB Stuttgart,29,16200000
+32574,Çağlar Söyüncü,c-soyuncu,Türkiye,TUR,DF,Fenerbahçe,30,1082400
+32582,Marcel Sabitzer,m-sabitzer,Austria,AUT,MF,Borussia Dortmund,32,14256000
+32585,Nadiem Amiri,n-amiri,Germany,GER,MF,FSV Mainz 05,29,18600000
+32612,Kai Havertz,k-havertz,Germany,GER,FW,Arsenal,27,17112000
+32614,Douglas Santos,d-dos-santos-justino-de-melo,Brazil,BRA,DF,Brazil,32,2185920
+32622,Salih Özcan,s-ozcan,Türkiye,TUR,MF,Borussia Dortmund,28,14904000
+32652,Jhon Córdoba,j-cordoba-copete,Colombia,COL,FW,Krasnodar,33,1121760
+32710,Mikel Merino,m-merino-zazon,Spain,ESP,MF,Arsenal,29,11400000
+32728,Waldemar Anton,w-anton,Germany,GER,DF,Borussia Dortmund,29,16200000
+32747,Dzenis Burnic,d-burnic,Bosnia and Herzegovina,BIH,MF,Karlsruher SC,28,18600000
+32769,Djibril Sow,d-sow,Switzerland,SUI,MF,Sevilla,29,18600000
+33079,Kevin Danso,k-danso,Austria,AUT,DF,Tottenham Hotspur,27,16200000
+33685,Dayot Upamecano,d-upamecano,France,FRA,DF,FC Bayern München,27,13800000
+33701,Marco Friedl,m-friedl,Austria,AUT,DF,Werder Bremen,28,11400000
+33770,Stefan Posch,s-posch,Austria,AUT,DF,FSV Mainz 05,29,13800000
+34053,Alexander Isak,a-isak,Sweden,SWE,FW,Liverpool,26,17967600
+34084,Gregor Kobel,g-kobel,Switzerland,SUI,GK,Borussia Dortmund,28,16200000
+34700,Ante Budimir,a-budimir,Croatia,CRO,FW,Osasuna,34,6480000
+34737,Mark Flekken,m-flekken,Netherlands,NED,GK,Bayer 04 Leverkusen,32,14256000
+35077,Milos Degenek,milos-degenek,Australia,AUS,DF,,32,
+35141,Phillipp Mwene,p-mwene,Austria,AUT,DF,FSV Mainz 05,32,16368000
+35322,E. Hajisafi,e-hajisafi,Iran,IRN,DF,Sepahan,36,1368000
+36119,David Raum,d-raum,Germany,GER,DF,RB Leipzig,28,9000000
+36681,Marin Pongracic,m-pongracic,Croatia,CRO,DF,Fiorentina,28,9000000
+41077,Deniz Undav,d-undav,Germany,GER,FW,VfB Stuttgart,29,16200000
+46092,Ermedin Demirovic,e-demirovi,Bosnia and Herzegovina,BIH,FW,VfB Stuttgart,28,13800000
+47589,Stjepan Radeljic,stjepan-radeljic,Bosnia and Herzegovina,BIH,DF,Rijeka,28,1900000
+52461,Osman Hadzikic,o-hadzikic,Bosnia and Herzegovina,BIH,GK,Slaven Koprivnica,30,2376000
+52573,Duje Caleta-Car,d-aleta-car,Croatia,CRO,DF,Real Sociedad,29,16200000
+52585,Konrad Laimer,k-laimer,Austria,AUT,DF,FC Bayern München,29,16200000
+52703,Alexander Schlager,a-schlager,Austria,AUT,GK,Salzburg,30,2376000
+52721,Lawrence Ati Zigi,l-ati-zigi,Ghana,GHA,GK,St. Gallen,29,2700000
+52867,Xaver Schlager,x-schlager,Austria,AUT,MF,RB Leipzig,28,16200000
+52868,Hee-chan Hwang,h-hwang,Korea Republic,KOR,FW,Wolverhampton Wanderers,30,16368000
+52873,Patrick Pentz,p-pentz,Austria,AUT,GK,Brøndby IF,29,6750000
+54065,Assim Madibo,a-al-haj-madibo,Qatar,QAT,MF,Al Wakrah,29,1380000
+54303,Gideon Mensah,g-mensah,Ghana,GHA,DF,Auxerre,27,11400000
+54304,Almoez Ali,a-abdulla,Qatar,QAT,FW,Al Duhail,29,1900000
+60270,Axel Witsel,a-witsel,Belgium,BEL,MF,Girona,37,6480000
+61517,Thomas Meunier,t-meunier,Belgium,BEL,DF,LOSC Lille,34,9936000
+61780,Leandro Trossard,l-trossard,Belgium,BEL,FW,Arsenal,31,16368000
+61806,Kalidou Koulibaly,k-koulibaly,Senegal,SEN,DF,Al Hilal,34,1258560
+61848,Brandon Mechele,b-mechele,Belgium,BEL,DF,Club Brugge,33,1080000
+62178,Zizo,a-sayed,Egypt,EGY,FW,Al Ahly,30,2509760
+62317,Mathew Ryan,m-ryan,Australia,AUS,GK,Levante,34,11664000
+62318,Hans Vanaken,h-vanaken,Belgium,BEL,MF,Club Brugge,33,1368000
+62324,Théo Bongonda,t-bongonda-mbulofeko-batombo,Congo DR,COD,FW,Spartak Moskva,30,1672000
+62337,Timothy Castagne,t-castagne,Belgium,BEL,DF,Fulham,30,14256000
+62342,Youri Tielemans,y-tielemans,Belgium,BEL,MF,Aston Villa,29,18600000
+62495,Karim Hafez Ramadan Seif El Din,k-ramadan-seif-el-din,Egypt,EGY,DF,Pyramids FC,30,1538240
+62502,Ramy Bensebaini,r-bensebaini,Algeria,DZA,DF,Borussia Dortmund,31,16368000
+62770,Edmílson Junior,e-da-silva-62770,Qatar,QAT,FW,Al Duhail,31,2728000
+62871,Dodi Lukébakio,d-lukebakio,Belgium,BEL,FW,Benfica,28,2542000
+62879,Mahmoud Trezeguet,m-hassan,Egypt,EGY,FW,Al Ahly,31,1862080
+64188,Cherif Ndiaye,p-ndiaye,Senegal,SEN,FW,Samsunspor,30,5940000
+64193,Sander Berge,s-berge,Norway,NOR,MF,Fulham,28,18600000
+64296,Hannes Delcroix,h-delcroix,Haiti,HTI,DF,Lugano,27,2116000
+65411,Akram Afif,a-afif,Qatar,QAT,FW,Al Sadd,29,1500000
+67948,Amir Hadziahmetovic,a-hadiahmetovi,Bosnia and Herzegovina,BIH,MF,Hull City,29,3100000
+68208,Nikola Vasilj,n-vasilj,Bosnia and Herzegovina,BIH,GK,St. Pauli,30,14256000
+73147,Mateo Kovacic,m-kovai,Croatia,CRO,MF,Manchester City,32,7920000
+73603,Mario Pašalić,m-paali,Croatia,CRO,MF,Atalanta,31,16368000
+73721,Dominik Livakovic,d-livakovi,Croatia,CRO,GK,Girona,31,14256000
+73906,Nikola Vlašić,n-vlai,Croatia,CRO,MF,Torino,28,11400000
+74060,Dani Olmo,d-olmo-carvajal,Spain,ESP,MF,FC Barcelona,28,13800000
+74109,Nikola Katic,n-kati,Bosnia and Herzegovina,BIH,DF,Schalke 04,29,13800000
+74121,Kristijan Jakic,k-jaki,Croatia,CRO,MF,FC Augsburg,29,11400000
+74124,Ivan Sunjic,ivan-sunjic,Bosnia and Herzegovina,BIH,MF,Pafos FC,29,1748000
+74223,Yoel Bárcenas,e-barcenas-herrera,Panama,PAN,FW,Mazatlán,32,2728000
+74250,Petar Musa,p-musa,Croatia,CRO,FW,Dallas,28,1558000
+74957,Nikola Moro,n-moro,Croatia,CRO,MF,Bologna,28,18600000
+75863,Deni Jurić,deni-juri,Australia,AUS,FW,Koper,28,1230000
+79540,Jaroslav Zelený,j-zeleny,Czech Republic,CZE,DF,Sparta Praha,33,1368000
+79972,Tomas Holes,t-hole,Czech Republic,CZE,DF,Slavia Praha,33,2232000
+80304,Vladimír Coufal,v-coufal,Czech Republic,CZE,DF,TSG Hoffenheim,33,9936000
+80655,Tomáš Souček,t-souek,Czech Republic,CZE,MF,West Ham United,31,12144000
+80675,Patrik Schick,p-schick,Czech Republic,CZE,FW,Bayer 04 Leverkusen,30,14256000
+80707,Tomas Chory,t-chory,Czech Republic,CZE,FW,Slavia Praha,31,1320000
+80902,Ladislav Krejci,l-kreji,Czech Republic,CZE,DF,Wolverhampton Wanderers,27,18600000
+80926,Jan Kuchta,j-kuchta,Czech Republic,CZE,FW,Sparta Praha,29,1500000
+83003,Lukas Provod,l-provod,Czech Republic,CZE,MF,Slavia Praha,29,1900000
+83974,Frans Putros,frans-putros,Iraq,IRQ,DF,Persib,32,890560
+84516,Gustaf Nilsson,g-nilsson,Sweden,SWE,FW,Club Brugge,29,3100000
+84558,Abdul Mumin,a-mumin,Ghana,GHA,DF,Rayo Vallecano,28,11400000
+84619,Awer Mabil,awer-mabil,Australia,AUS,FW,Castellón,30,2509760
+95174,Guillermo Ochoa,f-ochoa-magana,Mexico,MEX,GK,Mexico,40,792000
+95269,Cédric Bakambu,c-bakambu,Congo DR,COD,FW,Real Betis,35,6480000
+95368,Lucas Digne,l-digne,France,FRA,DF,Aston Villa,32,7920000
+95635,Aïssa Mandi,a-mandi,Algeria,DZA,DF,LOSC Lille,34,6480000
+95694,Adrien Rabiot,a-rabiot,France,FRA,MF,AC Milan,31,16368000
+95802,Lucas Mendes,l-mendes,Qatar,QAT,DF,Al Wakrah,35,1368000
+95896,Alexander Djiku,alexander-djiku,Ghana,GHA,DF,Spartak Moskva,31,2236960
+96024,Johny Placide,j-placide,Haiti,HTI,GK,Bastia,38,1368000
+96030,Brice Samba,b-samba,France,FRA,GK,Rennes,32,14256000
+96066,Luis Mejía,l-mejia-cajar,Panama,PAN,GK,Nacional,35,1788480
+96091,James Rodríguez,j-rodriguez-rubio,Colombia,COL,MF,Minnesota United,34,2053440
+96099,Fabinho,f-tavares,Brazil,BRA,MF,Al Ittihad,32,2376000
+96146,Steven Moreira,s-moreira,Cape Verde Islands,CPV,DF,Columbus Crew,31,1320000
+96208,Marquinhos,m-aoas-correa,Brazil,BRA,DF,Paris Saint Germain,32,7286400
+96227,Mike Maignan,m-maignan,France,FRA,GK,AC Milan,30,14256000
+96353,Bernardo Silva,b-silva,Portugal,POR,MF,Manchester City,31,10032000
+96364,Ellyes Skhiri,e-skhiri,Tunisia,TUN,MF,Eintracht Frankfurt,31,14256000
+96456,Anthony Mandréa,a-mandrea,Algeria,DZA,MF,Caen,,
+96518,Jean Michaël Seri,jean-michael-seri,Côte d'Ivoire,CIV,MF,Maribor,34,649440
+96611,Kylian Mbappé,k-mbappe,France,FRA,FW,Real Madrid,27,9000000
+96656,Nicolas Pépé,n-pepe,Côte d'Ivoire,CIV,FW,Villarreal,31,16368000
+96722,Ismaïla Sarr,i-sarr,Senegal,SEN,FW,Crystal Palace,28,11400000
+96723,Habib Diallo,h-diallo,Senegal,SEN,FW,Metz,30,7920000
+96798,Alban Lafont,a-lafont,Côte d'Ivoire,CIV,GK,Panathinaikos,27,2484000
+96799,Issa Diop,i-diop,Morocco,MAR,DF,Fulham,29,10488000
+96928,Yoane Wissa,y-wissa,Congo DR,COD,FW,Newcastle United,29,9000000
+96943,Ibrahim Sangaré,i-sangare,Côte d'Ivoire,CIV,MF,Nottingham Forest,28,11400000
+96950,Jean-Philippe Mateta,j-mateta,France,FRA,FW,Crystal Palace,28,18600000
+96959,Houssem Aouar,h-aouar,Algeria,DZA,MF,Al Ittihad,27,1380000
+97255,Juan Fernando Quintero,j-quintero-paniagua,Colombia,COL,MF,River Plate,33,1944000
+97319,Christopher Operi,c-operi,Côte d'Ivoire,CIV,DF,İstanbul Başakşehir,29,4750000
+97621,Carlens Arcus,c-arcus,Haiti,HTI,DF,Angers SCO,29,11400000
+97664,Giovani Lo Celso,g-lo-celso,Argentina,ARG,MF,Real Betis,30,14256000
+97692,Gonçalo Guedes,g-ganchinho-guedes,Portugal,POR,FW,Real Sociedad,29,11400000
+97707,Júnior Alonso,j-alonso-mujica,Paraguay,PRY,DF,Atlético Mineiro,33,1080000
+97811,Gabriel Magalhães,g-dos-santos-magalhaes,Brazil,BRA,DF,Arsenal,28,9000000
+98874,Moussa Niakhaté,m-niakhate,Senegal,SEN,DF,Olympique Lyonnais,30,10032000
+98934,Duckens Nazon,duckens-nazon,Haiti,HTI,FW,Esteghlal,32,1538240
+99000,Marcus Thuram,m-thuram,France,FRA,FW,Inter,28,13800000
+99039,Nuno Da Costa,n-da-costa-joia,Cape Verde Islands,CPV,FW,İstanbul Başakşehir,35,2700000
+99064,Dylan Bronn,d-bronn,Tunisia,TUN,DF,Servette,30,890560
+99076,Jean-Ricner Bellegarde,j-bellegarde,Haiti,HTI,MF,Wolverhampton Wanderers,27,11400000
+99137,Edouard Mendy,e-mendy,Senegal,SEN,GK,Al Ahli,34,1944000
+99157,Yehvann Diouf,y-diouf,Senegal,SEN,GK,Nice,26,17010000
+99173,Jean-Kévin Duverne,j-duverne,Haiti,HTI,DF,Gent,28,1380000
+99534,Evan Ndicka,o-ndicka,Côte d'Ivoire,CIV,DF,Roma,26,19530000
+99543,Simon Banza,simon-banza,Congo DR,COD,FW,Al Jazira,29,1748000
+100556,Ibrahima Konaté,i-konate,France,FRA,DF,Liverpool,27,9000000
+107911,Kosta Barbarouses,kosta-barbarouses,New Zealand,NZL,FW,Western Sydney Wanderers,36,2232000
+113633,Stopira,stopira,Cape Verde Islands,CPV,DF,Torreense,38,1121760
+113930,Aníbal Godoy,a-godoy,Panama,PAN,MF,San Diego,36,2053440
+120887,Roberto Lopes,roberto-lopes,Cape Verde Islands,CPV,DF,Shamrock Rovers,33,1258560
+128229,Fernando Muslera,n-muslera-micol,Uruguay,URU,GK,Estudiantes,39,1788480
+128854,Yuto Nagatomo,y-nagatomo,Japan,JPN,DF,Japan,39,1368000
+129419,Leandro Paredes,l-paredes,Argentina,ARG,MF,Boca Juniors,31,2236960
+129602,Bruno Fernandes,b-fernandes,Portugal,POR,MF,Manchester United,31,14256000
+129609,Silvan Widmer,s-widmer,Switzerland,SUI,DF,FSV Mainz 05,33,9936000
+129610,Paul Caddis,g-dos-santos-torres,Qatar,QAT,MF,Al Sadd,35,1121760
+129658,Rodrigo Aguirre,r-aguirre-soto,Uruguay,URU,FW,Tigres UANL,31,2728000
+129725,Alex Sandro,a-lobo-silva,Brazil,BRA,DF,Flamengo,35,1830240
+129798,Rodrigo De Paul,r-de-paul,Argentina,ARG,MF,Inter Miami,32,1659680
+129820,Alisson,a-becker,Brazil,BRA,GK,Liverpool,33,11664000
+129888,Gustavo Gómez,g-gomez-portillo,Paraguay,PRY,DF,Palmeiras,33,1788480
+129906,Franck Kessié,f-kessie,Côte d'Ivoire,CIV,MF,Al Ahli,29,2700000
+129941,Antonio Sanabria,a-sanabria-ayala,Paraguay,PRY,FW,Cremonese,30,7920000
+130145,Remo Freuler,r-freuler,Switzerland,SUI,MF,Bologna,34,6480000
+133712,Martin Erlić,martin-erli,Croatia,CRO,DF,FC Midtjylland,28,3450000
+133990,Andrés Cubas,a-cubas,Paraguay,PRY,MF,Vancouver Whitecaps,30,1214400
+151243,Patrick Berg,p-berg,Norway,NOR,MF,Bodø / Glimt,28,2484000
+151418,Kristoffer Ajer,k-vassbakk-ajer,Norway,NOR,DF,Brentford,28,13800000
+151444,Viljar Myhra,v-rosholt-myhra,Norway,NOR,GK,Odense BK,29,6750000
+151551,Fredrik Aursnes,f-aursnes,Norway,NOR,MF,Benfica,30,5060000
+151568,Fredrik Bjørkan,f-bjorkan,Norway,NOR,DF,Bodø / Glimt,27,1380000
+151628,Julian Ryerson,j-ryerson,Norway,NOR,DF,Borussia Dortmund,28,16200000
+151715,Jens Petter Hauge,j-hauge,Norway,NOR,FW,Bodø / Glimt,26,1575000
+153244,Abdoulaye Seck,a-seck,Senegal,SEN,DF,Maccabi Haifa,34,1368000
+153446,Egil Selvik,e-selvik,Norway,NOR,GK,Watford,28,2700000
+154421,Erling Haaland,e-haaland,Norway,NOR,FW,Manchester City,25,14490000
+159142,Ederson,e-santana-de-moraes,Brazil,BRA,GK,Fenerbahçe,32,5940000
+159208,Danilo,d-da-silva,Brazil,BRA,DF,Flamengo,34,2232000
+159287,Saleh Al-Shehri,s-al-shehri,Saudi Arabia,KSA,FW,Al Ittihad,32,1659680
+159382,Rui Silva,r-dantas-da-silva,Portugal,POR,GK,Sporting CP,32,5940000
+159483,José Sá,j-malheiro-de-sa,Portugal,POR,GK,Wolverhampton Wanderers,33,11664000
+159699,Rúben Neves,r-da-silva-neves,Portugal,POR,MF,Al Hilal,29,1500000
+159700,Casemiro,c-casimiro,Brazil,BRA,MF,Manchester United,34,11664000
+160046,Diney Borges,diney-borges,Cape Verde Islands,CPV,DF,Al Bataeh,31,2376000
+160110,Nélson Semedo,n-cabral-semedo,Portugal,POR,DF,Fenerbahçe,32,5060000
+160173,Joris Kayembe,j-kayembe-ditu,Congo DR,COD,DF,Genk,31,2024000
+160206,Victor Lindelöf,v-nilsson-lindelof,Sweden,SWE,DF,Aston Villa,31,16368000
+160208,Alejandro Grimaldo,a-grimaldo-garcia,Spain,ESP,DF,Bayer 04 Leverkusen,30,16368000
+160217,Raúl Jiménez,r-jimenez-rodriguez,Mexico,MEX,FW,Fulham,35,8208000
+160258,Raphinha,raphinha-160258,Brazil,BRA,FW,FC Barcelona,29,13800000
+160956,João Cancelo,j-cavaco-cancelo,Portugal,POR,DF,FC Barcelona,32,10032000
+161197,Ghislain Konan,g-konan,Côte d'Ivoire,CIV,DF,Gil Vicente,30,5060000
+162164,Mory Diaw,m-diaw,Senegal,SEN,GK,Le Havre,32,14256000
+162499,Ismael Díaz,i-diaz-de-leon,Panama,PAN,FW,León,29,3100000
+162525,Ramy Rabia,ramy-rabia,Egypt,EGY,DF,Al Ain,33,1080000
+162536,Rúben Dias,r-santos-gato-alves-dias,Portugal,POR,DF,Manchester City,29,11400000
+162877,Alan Benítez,a-benitez-dominguez,Paraguay,PRY,DF,Internacional,32,890560
+162887,Vozinha,j-evora-dias,Cape Verde Islands,CPV,GK,Chaves,40,
+163034,Jovane Cabral,j-borges-cabral,Cape Verde Islands,CPV,FW,Estrela Amadora,27,7750000
+163094,Diogo Costa,d-meireles-costa,Portugal,POR,GK,Porto,26,7087500
+163152,João Félix,j-sequeira,Portugal,POR,FW,Al Nassr,26,1575000
+163190,Francisco Trincão,f-machado-mota-de-castro-trincao,Portugal,POR,FW,Sporting CP,26,3937500
+164061,Diogo Dalot,j-dalot-teixeira,Portugal,POR,DF,Manchester United,27,16200000
+164069,Merih Demiral,m-demiral,Türkiye,TUR,DF,Al Ahli,28,3100000
+170468,Saeed Ezatolahi,saeed-ezatolahi,Iran,IRN,MF,Shabab Al Ahli Dubai,29,1380000
+170516,Milad Mohammadi,milad-mohammadi,Iran,IRN,DF,Persepolis,32,1672000
+172385,Kenny McLean,k-mclean,Scotland,SCO,MF,Norwich City,34,1080000
+172581,John Souttar,j-souttar,Scotland,SCO,DF,Rangers,29,3100000
+172611,John McGinn,j-mcginn,Scotland,SCO,MF,Aston Villa,31,16368000
+172752,Ryan Christie,r-christie,Scotland,SCO,MF,AFC Bournemouth,31,16368000
+172795,Martin Boyle,m-boyle,Australia,AUS,FW,Hibernian,33,2232000
+172938,Lawrence Shankland,l-shankland,Scotland,SCO,FW,Hearts,30,2728000
+172960,Kieran Tierney,k-tierney,Scotland,SCO,DF,Celtic,29,1500000
+173047,Scott McKenna,s-mckenna,Scotland,SCO,DF,Dinamo Zagreb,29,2300000
+173121,Harry Souttar,h-souttar,Australia,AUS,DF,Leicester City,27,1900000
+173129,Anthony Ralston,a-ralston,Scotland,SCO,DF,Celtic,27,1500000
+174066,Liam Kelly,l-kelly-174066,Scotland,SCO,GK,Rangers,30,1538240
+174296,Lyndon Dykes,l-dykes,Scotland,SCO,FW,Charlton Athletic,30,2024000
+175530,Ross Stewart,r-stewart,Scotland,SCO,FW,Southampton,29,1900000
+184798,Lionel Messi,l-messi,Argentina,ARG,FW,Inter Miami,38,2053440
+186299,Aymeric Laporte,a-laporte,Spain,ESP,DF,Athletic Club,32,16368000
+186320,Neymar,neymar,Brazil,BRA,MF,Santos,34,1656000
+186370,Thomas Partey,t-partey,Ghana,GHA,MF,Villarreal,32,16368000
+186418,Gerónimo Rulli,g-rulli,Argentina,ARG,GK,Olympique Marseille,34,11664000
+186437,Johan Mojica,j-mojica-palacio,Colombia,COL,DF,Mallorca,33,8208000
+186514,José María Giménez,j-gimenez-de-vargas,Uruguay,URU,DF,Atlético Madrid,31,10032000
+186591,Yassine Bounou,y-bounou,Morocco,MAR,GK,Al Hilal,35,1788480
+186735,Fabián Ruiz,f-ruiz-pena,Spain,ESP,MF,Paris Saint Germain,30,7920000
+186766,Jefferson Lerma,j-lerma-solis,Colombia,COL,MF,Crystal Palace,31,7920000
+186795,Marcos Llorente,m-llorente-moreno,Spain,ESP,DF,Atlético Madrid,31,16368000
+186797,Lucas Hernández,l-hernandez-pi,France,FRA,DF,Paris Saint Germain,30,16368000
+186801,Iñaki Williams,i-williams-arthuer,Ghana,GHA,FW,Athletic Club,31,16368000
+186815,Pablo Fornals,p-fornals-malla,Spain,ESP,MF,Real Betis,30,12144000
+186848,Philipp Lienhart,p-lienhart,Austria,AUT,DF,SC Freiburg,29,9000000
+186864,Borja Iglesias,b-iglesias-quintas,Spain,ESP,FW,Celta de Vigo,33,6480000
+186899,Rafael Borré,r-borre-maury,Colombia,COL,FW,Internacional,30,2236960
+186910,Rodri,rodri,Spain,ESP,MF,Manchester City,29,9000000
+186932,Mikel Oyarzabal,m-oyarzabal-ugarte,Spain,ESP,FW,Real Sociedad,29,18600000
+186968,Carlos Soler,c-soler-barragan,Spain,ESP,MF,Real Sociedad,29,9000000
+186995,Theo Hernández,t-hernandez,France,FRA,DF,Al Hilal,28,3100000
+187110,Álex Remiro,a-remiro-gargallo,Spain,ESP,GK,Real Sociedad,31,14256000
+187215,Unai Simón,u-simon-mendibil,Spain,ESP,GK,Athletic Club,29,16200000
+187260,Achraf Hakimi,a-hakimi-mouh,Morocco,MAR,DF,Paris Saint Germain,27,13800000
+187907,Alberto Quintero,alberto-quintero,Panama,PAN,FW,,38,
+187969,Pervis Estupiñán,p-estupinan-tenorio,Ecuador,ECU,DF,AC Milan,28,16200000
+188444,Nicolás Tagliafico,n-alejandro-tagliafico,Argentina,ARG,DF,Olympique Lyonnais,33,9936000
+188803,Munir El Kajoui,m-mohand-mohamedi,Morocco,MAR,GK,RSB Berkane,37,1121760
+189635,Jorge Carrascal,j-carrascal-guardo,Colombia,COL,MF,Flamengo,28,2484000
+190919,Carl Starfelt,c-starfelt,Sweden,SWE,DF,Celta de Vigo,31,10032000
+190972,Eric Smith,e-smith,Sweden,SWE,DF,St. Pauli,29,16200000
+191011,Jesper Karlström,j-karlstrom,Sweden,SWE,MF,Udinese,30,7920000
+191286,Saman Ghoddos,saman-ghoddos,Iran,IRN,MF,Kalba,32,2376000
+191301,Ken Sema,ken-sema,Sweden,SWE,FW,Pafos FC,32,890560
+191367,Mattias Svanberg,m-svanberg,Sweden,SWE,MF,VfL Wolfsburg,27,9000000
+192402,Dennis Hadzikadunic,dennis-hadzikadunic,Bosnia and Herzegovina,BIH,DF,Sampdoria,27,8280000
+192847,Viktor Johansson,v-johansson,Sweden,SWE,GK,Stoke City,27,1100000
+193196,Gabriel Gudmundsson,g-gudmundsson,Sweden,SWE,DF,Leeds United,27,13800000
+194167,Viktor Gyökeres,v-gyokeres,Sweden,SWE,FW,Arsenal,28,9000000
+197017,Amir Al-Ammari,a-al-ammari,Iraq,IRQ,MF,Cracovia Kraków,28,2300000
+197704,Yvon Mvogo,y-mvogo,Switzerland,SUI,GK,Lorient,32,14256000
+197836,Haris Tabakovic,h-tabakovic,Bosnia and Herzegovina,BIH,FW,Borussia Mönchengladbach,31,10032000
+198051,Denis Zakaria,d-zakaria-lako-lado,Switzerland,SUI,MF,Monaco,29,9000000
+198062,Manuel Akanji,m-akanji,Switzerland,SUI,DF,Inter,30,14256000
+198066,Cedric Itten,c-itten,Switzerland,SUI,FW,Fortuna Düsseldorf,29,17112000
+198139,Christian Fassnacht,c-fassnacht,Switzerland,SUI,MF,Young Boys,32,2728000
+198220,Michel Aebischer,m-aebischer,Switzerland,SUI,MF,Pisa,29,18600000
+198562,Eray Cömert,e-comert,Switzerland,SUI,DF,Valencia,28,11400000
+198739,Charles Pickel,c-pickel,Congo DR,COD,MF,Espanyol,29,9000000
+200715,Mert Günok,f-gunok,Türkiye,TUR,GK,Fenerbahçe,37,4471200
+200872,Miro Muheim,m-muheim,Switzerland,SUI,DF,Hamburger SV,28,9000000
+201370,Abdülkerim Bardakcı,a-bardakci,Türkiye,TUR,DF,Galatasaray,31,5940000
+201444,İrfan Can Kahveci,i-kahveci,Türkiye,TUR,FW,Kasımpaşa,30,4180000
+201467,Aziz Behich,a-behich,Australia,AUS,DF,Melbourne City,35,1368000
+201739,Uğurcan Çakır,u-cakir,Türkiye,TUR,GK,Galatasaray,30,5940000
+212976,Marcos Acuña,m-acuna,Argentina,ARG,DF,River Plate,34,1656000
+214255,Hernán Galíndez,h-galindez,Ecuador,ECU,GK,Huracán,39,1944000
+214459,Kaku,kaku,Paraguay,PRY,MF,Al Ain,31,1320000
+215030,Gabriel Ávalos,g-avalos-stumpfs,Paraguay,PRY,FW,Independiente,35,1368000
+215532,Nico González,n-gonzalez,Argentina,ARG,FW,Atlético Madrid,28,18600000
+216612,Alexis Mac Allister,a-mac-allister,Argentina,ARG,MF,Liverpool,27,16200000
+218295,Weverton,w-pereira-da-silva,Brazil,BRA,GK,Grêmio,38,1788480
+218871,Léo Pereira,l-pereira,Brazil,BRA,DF,Flamengo,30,1538240
+219418,Giorgian de Arrascaeta,g-de-arrascaeta-benedetti,Uruguay,URU,MF,Flamengo,32,2185920
+219591,Fabián Balbuena,f-balbuena-gonzalez,Paraguay,PRY,DF,Grêmio,34,1594080
+220040,Yerry Mina,y-mina-gonzalez,Colombia,COL,DF,Cagliari,31,12144000
+220052,Lucas Paquetá,l-tolentino-coelho-de-lima,Brazil,BRA,MF,Flamengo,28,3100000
+223782,Álvaro Montero,a-montero-perales,Colombia,COL,GK,Vélez Sarsfield,31,2376000
+235984,Camilo Vargas,c-vargas-gil,Colombia,COL,GK,Atlas,37,1944000
+237316,Deiver Machado,d-machado-mena,Colombia,COL,DF,Nantes,32,9229440
+237695,Jhon Lucumí,j-lucumi-bonilla,Colombia,COL,DF,Bologna,27,9000000
+240195,Cucho Hernández,j-hernandez-suarez,Colombia,COL,FW,Real Betis,27,9000000
+240244,Luis Suárez,l-suarez-charris,Colombia,COL,FW,Sporting CP,28,4750000
+240386,Juan Portilla,j-portilla-orozco,Colombia,COL,MF,Athletico PR,27,1748000
+241036,Luis Díaz,l-diaz-marulanda,Colombia,COL,FW,FC Bayern München,29,13800000
+244489,Janner Corozo,janner-corozo,Ecuador,ECU,FW,Barcelona Guayaquil,30,
+244493,Jordy Caicedo,j-caicedo-medina,Ecuador,ECU,FW,Huracán,28,1500000
+245193,Gonzalo Valle,gonzalo-valle,Ecuador,ECU,GK,Ecuador,30,
+253683,Orbelín Pineda,o-pineda-alvarado,Mexico,MEX,MF,Mexico,30,1538240
+253701,César Montes,c-montes-castro,Mexico,MEX,DF,Mexico,29,1230000
+253737,Jesús Gallardo,j-gallardo-vasconcelos,Mexico,MEX,DF,Toluca,31,1320000
+253753,Carlos Acevedo,c-acevedo-lopez,Mexico,MEX,GK,Mexico,30,2376000
+253754,Jorge Sánchez,j-sanchez-ramos,Mexico,MEX,DF,Mexico,28,1500000
+253833,Luis Chávez,l-chavez-magallon,Mexico,MEX,MF,Mexico,30,2024000
+253902,Guillermo Martínez Ayala,g-martinez-ayala,Mexico,MEX,FW,Pumas UNAM,31,2728000
+254021,Alexis Vega,e-vega-rojas,Mexico,MEX,FW,Toluca,28,1900000
+254052,Edson Álvarez,e-alvarez-velazquez,Mexico,MEX,MF,Fenerbahçe,28,4370000
+254057,Julián Quiñones,j-quinones-quinones,Mexico,MEX,FW,Al-Qadsiah,29,2300000
+254106,Roberto Alvarado,r-alvarado-hernandez,Mexico,MEX,FW,Mexico,27,1500000
+255002,Álex Zendejas,a-zendejas-saavedra,United States,USA,FW,América,28,3100000
+257663,Miguel Almirón,m-almiron-rejala,Paraguay,PRY,FW,Atlanta United,32,1659680
+258129,José Canale,j-canale-dominguez,Paraguay,PRY,DF,Lanús,29,1748000
+258137,Omar Alderete,o-alderete-fernandez,Paraguay,PRY,DF,Sunderland,29,13800000
+260862,Federico Valverde,f-valverde-dipetta,Uruguay,URU,MF,Real Madrid,27,9000000
+260880,Nicolás de la Cruz,d-de-la-cruz-arcosa,Uruguay,URU,MF,Flamengo,29,3100000
+260887,Agustín Canobbio,a-canobbio-graviz,Uruguay,URU,FW,Fluminense,27,2116000
+260891,Santiago Mele,s-mele-castanero,Uruguay,URU,GK,Monterrey,28,1900000
+260899,José Luis Rodríguez,j-rodriguez-bebanz,Uruguay,URU,DF,Vasco da Gama,29,2852000
+260904,Mathías Olivera,m-olivera-miramontes,Uruguay,URU,DF,Napoli,28,18600000
+261737,Michael Boxall,m-boxall,New Zealand,NZL,DF,Minnesota United,37,
+261991,Jonathan Osorio,j-osorio,Canada,CAN,MF,Toronto,33,2053440
+262142,Maxime Crépeau,m-crepeau,Canada,CAN,GK,Orlando City,32,2185920
+262179,Cristian Roldán,c-roldan,United States,USA,MF,Seattle Sounders,31,2185920
+262216,Cyle Larin,c-larin,Canada,CAN,FW,Southampton,31,1082400
+262280,Auston Trusty,a-trusty,United States,USA,DF,Celtic,27,1500000
+262290,Richie Laryea,r-laryea,Canada,CAN,DF,Toronto,31,2185920
+262324,Tyler Adams,t-adams,United States,USA,MF,AFC Bournemouth,27,11400000
+262495,Cristian Martínez,cristian-martinez,Panama,PAN,MF,Ironi Kiryat Shmona,29,1900000
+262521,Derrick Etienne Jr.,d-etienne-jr,Haiti,HTI,FW,Toronto,29,2852000
+262551,Matt Turner,m-turner,United States,USA,GK,New England,31,1948320
+262644,Alphonso Davies,a-davies,Canada,CAN,DF,FC Bayern München,25,17967600
+263186,Haji Wright,h-wright,United States,USA,FW,Coventry City,28,1500000
+273373,Tim Payne,t-payne,New Zealand,NZL,DF,Wellington Phoenix,32,2185920
+281527,Mark McKenzie,m-mckenzie,United States,USA,DF,Toulouse,27,16200000
+287894,Ronwen Williams,r-williams-287894,South Africa,ZAF,GK,Mamelodi Sundowns,34,1944000
+288275,Themba Zwane,t-zwane,South Africa,ZAF,MF,Mamelodi Sundowns,36,1944000
+289096,Aubrey Modiba,m-modiba,South Africa,ZAF,DF,Mamelodi Sundowns,30,1672000
+289341,Teboho Mokoena,t-mokoena,South Africa,ZAF,MF,Mamelodi Sundowns,29,1380000
+289380,Ricardo Goss,r-goss,South Africa,ZAF,GK,Siwelele,32,2376000
+289600,Sipho Chaine,s-chaine,South Africa,ZAF,GK,Orlando Pirates,29,2700000
+289686,Nkosinathi Sibisi,n-sibisi,South Africa,ZAF,DF,Orlando Pirates,30,2376000
+293028,Mohamed El Shenawy,m-el-shenawy,Egypt,EGY,GK,Al Ahly,37,1368000
+293158,El Mahdi Soliman,a-soliman,Egypt,EGY,GK,Zamalek,39,1788480
+293709,Mohamed Hany,m-hany-eldemerdash,Egypt,EGY,DF,Al Ahly,30,2728000
+293894,Yasser Ibrahim,y-ibrahim-el-hanafi,Egypt,EGY,DF,Al Ahly,33,1788480
+293951,Mostafa Mohamed,m-abdallah,Egypt,EGY,FW,Nantes,28,18600000
+293978,Hamdy Fathy,h-fathi,Egypt,EGY,MF,Al Wakrah,31,1320000
+294000,Omar Marmoush,o-marmoush,Egypt,EGY,FW,Manchester City,27,9000000
+294018,Ahmed Fathi,a-fathi,Qatar,QAT,MF,Al-Arabi SC,33,
+295910,Shahriar Moghanlou,shahriar-moghanlou,Iran,IRN,FW,Kalba,31,1320000
+296300,Ramin Rezaeian,ramin-rezaeian,Iran,IRN,DF,Foolad,36,1121760
+296612,Shoja Khalilzadeh,shoja-khalilzadeh,Iran,IRN,DF,Tractor Sazi,37,1368000
+297117,Roozbeh Cheshmi,roozbeh-cheshmi,Iran,IRN,MF,Esteghlal,32,968000
+297293,Ali Alipour,ali-alipour,Iran,IRN,FW,Persepolis,30,968000
+297330,Hossein Kanaani,hossein-kanaani,Iran,IRN,DF,Persepolis,32,1672000
+297336,Mehdi Torabi,mehdi-torabi,Iran,IRN,FW,Tractor Sazi,31,968000
+297354,Mehdi Taremi,mehdi-taremi,Iran,IRN,FW,Olympiacos F.C.,33,1080000
+297357,Alireza Beiranvand,alireza-beiranvand,Iran,IRN,GK,Tractor Sazi,33,1368000
+297396,Hadi Habibinejad,hadi-habibinejad,Iran,IRN,MF,Chadormalu SC,30,968000
+297496,Seyed Hossein Hosseini,seyed-hossein-hosseini,Iran,IRN,GK,Sepahan,33,792000
+297840,Omid Noorafkan,omid-noorafkan,Iran,IRN,MF,Sepahan,29,1900000
+301062,Sebastian Soria,a-soria-quintana,Qatar,QAT,FW,Qatar SC,42,1121760
+301073,Hasan Al-Haydos,h-al-heidos,Qatar,QAT,MF,Al Sadd,35,2232000
+301237,Abdulaziz Hatim,a-abdullah,Qatar,QAT,MF,Al Rayyan,35,2232000
+301352,Boualem Khoukhi,b-khoukhi,Qatar,QAT,DF,Al Sadd,35,2232000
+301365,Ismail Mohamad,i-mohammad,Qatar,QAT,FW,Al Duhail,36,728640
+301393,Abdelkarim Hassan,a-al-haj-fadlalla,Qatar,QAT,DF,Al Wakrah,32,890560
+301403,Karim Boudiaf,k-boudiaf,Qatar,QAT,MF,Al Duhail,35,1258560
+301507,Pedro Miguel,p-correia,Qatar,QAT,DF,Al Sadd,35,1944000
+301560,Murad Naji,m-kamal-hussein,Qatar,QAT,DF,Al Rayyan,34,1121760
+301745,Mohammed Muntari,m-muntari,Qatar,QAT,FW,Al Gharafa,32,793760
+301887,Almahdi Ali,a-mukhtar,Qatar,QAT,DF,Al Wakrah,34,1258560
+302082,Ahmed Alaaeldin,a-abdelmotaal,Qatar,QAT,FW,Al Rayyan,33,1080000
+302695,Sultan Al-Brake,s-al-braik,Qatar,QAT,DF,Al Duhail,30,1672000
+302766,Youssef Ayman,y-ayman-hafez,Qatar,QAT,DF,Al Duhail,27,1012000
+302768,Ahmed Al-Kassar,a-al-kassar,Saudi Arabia,KSA,GK,Al-Qadsiah,35,728640
+302989,Salman Al-Faraj,s-al-faraj,Saudi Arabia,KSA,MF,NEOM SC,36,1258560
+303276,Hassan Kadesh,h-kadesh,Saudi Arabia,KSA,DF,Al Ittihad,33,1080000
+303410,Salem Al-Dawsari,s-al-dawsari,Saudi Arabia,KSA,FW,Al Hilal,34,1080000
+303634,Mohammed Waad,m-abdulwahhab-al-bayati,Qatar,QAT,MF,Al Shamal SC,26,1635900
+303699,Mohamed Kanno,m-kanno,Saudi Arabia,KSA,MF,Al Hilal,31,2376000
+303865,Hazem Shehata,h-shehata,Qatar,QAT,DF,Al Rayyan,28,1900000
+303869,Amro Abdelfatah Surag,a-ali-surag,Qatar,QAT,FW,Al Gharafa,28,1900000
+304104,Ali bin Mohammed bin Ali Lajami,a-lajami,Saudi Arabia,KSA,DF,Al Hilal,30,1672000
+304117,Sultan Mandash,s-madash,Saudi Arabia,KSA,FW,Al Hilal,31,2509760
+304255,Alaa Hejji,a-hejji,Saudi Arabia,KSA,MF,NEOM SC,30,1320000
+305358,Ali Abdi,a-abdi,Tunisia,TUN,DF,Nice,32,10032000
+305729,Abdullah Al-Khaibari,a-alkhaibari,Saudi Arabia,KSA,MF,Al Nassr,29,1900000
+305950,Mortadha Ben Ouanes,m-ben-ouannes,Tunisia,TUN,FW,Kasımpaşa,31,5060000
+309344,Wataru Endo,w-endo,Japan,JPN,MF,Liverpool,33,4752000
+309844,Shogo Taniguchi,s-taniguchi,Japan,JPN,DF,Japan,34,1944000
+310131,Daichi Kamada,d-kamada,Japan,JPN,MF,Crystal Palace,29,16200000
+310132,Ko Itakura,k-itakura,Japan,JPN,DF,Ajax,29,4370000
+310145,Seung-gyu Kim,s-kim,Korea Republic,KOR,GK,FC Tokyo,35,1258560
+310217,Junya Ito,j-ito,Japan,JPN,FW,Japan,33,1944000
+310288,Takehiro Tomiyasu,t-tomiyasu,Japan,JPN,DF,Ajax,27,4750000
+310486,Ritsu Doan,r-doan,Japan,JPN,FW,Eintracht Frankfurt,27,11400000
+312118,Koki Ogawa,k-ogawa-312118,Japan,JPN,FW,Japan,28,3100000
+313828,Igor Sergeev,igor-sergeev,Uzbekistan,UZB,FW,Pakhtakor,33,1121760
+319282,Daizen Maeda,d-maeda,Japan,JPN,FW,Celtic,28,3100000
+320838,Jae-sung Lee,j-lee-320838,Korea Republic,KOR,MF,FSV Mainz 05,33,6480000
+320844,Hyeon-woo Jo,h-cho,Korea Republic,KOR,GK,Ulsan HD,34,1944000
+320953,Jin-gyu Kim,j-kim-320953,Korea Republic,KOR,MF,Jeonbuk Motors,29,3100000
+321093,In-beom Hwang,i-hwang,Korea Republic,KOR,MF,Feyenoord,29,4750000
+322964,Min-jae Kim,m-kim,Korea Republic,KOR,DF,FC Bayern München,29,16200000
+323990,Francis de Vries,francis-de-vries,New Zealand,NZL,DF,Auckland,31,1320000
+324327,Alex Rufer,a-rufer,New Zealand,NZL,MF,Wellington Phoenix,29,1500000
+324518,Joe Bell,j-bell,New Zealand,NZL,MF,Viking,,1558000
+324539,Sarpreet Singh,sarpreet-singh,New Zealand,NZL,MF,,27,
+324712,Liberato Cacace,l-cacace,New Zealand,NZL,DF,Wrexham,25,1062600
+324785,Michael Woud,michael-woud,New Zealand,NZL,GK,Auckland,27,2700000
+329509,Paul Izzo,p-izzo,Australia,AUS,GK,Randers FC,31,5940000
+330546,Jason Geria,j-geria,Australia,AUS,DF,Albirex Niigata,33,1368000
+330559,Jaloliddin Masharipov,jaloliddin-masharipov,Uzbekistan,UZB,FW,Esteghlal,32,968000
+330582,Eldor Shomurodov,e-shomurodov,Uzbekistan,UZB,FW,İstanbul Başakşehir,30,4180000
+330622,Odildzhon Khamrobekov,odildzhon-khamrobekov,Uzbekistan,UZB,MF,Tractor Sazi,30,1672000
+330632,Utkir Yusupov,utkir-yusupov,Uzbekistan,UZB,GK,Foolad,35,792000
+330673,Rustam Ashurmatov,rustam-ashurmatov,Uzbekistan,UZB,DF,Esteghlal,29,1748000
+330674,Otabek Shukurov,otabek-shukurov,Uzbekistan,UZB,MF,Bani Yas,29,1380000
+330702,Aziz Ganiev,aziz-ganiev,Uzbekistan,UZB,MF,Al Bataeh,28,2300000
+331066,Rajaei Ayed,rajaei-ayed,Jordan,JOR,MF,Al Hussein,32,793760
+332047,Elliot Anderson,e-anderson,England,ENG,MF,Nottingham Forest,23,14490000
+333594,Lautaro Martínez,l-martinez,Argentina,ARG,FW,Inter,28,13800000
+333616,Juan Musso,j-musso,Argentina,ARG,GK,Atlético Madrid,32,11689920
+333731,Cristian Romero,c-romero,Argentina,ARG,DF,Tottenham Hotspur,28,18600000
+333781,Gonzalo Montiel,g-montiel,Argentina,ARG,DF,River Plate,29,2700000
+333797,Rodrigo Bentancur,r-bentancur-colman,Uruguay,URU,MF,Tottenham Hotspur,28,9000000
+333989,Marcos Senesi,m-senesi,Argentina,ARG,DF,AFC Bournemouth,29,11400000
+334237,Gabriel Rojas,g-rojas,Argentina,ARG,DF,Racing Club,28,2116000
+334576,Lucas Martínez Quarta,l-martinez-quarta,Argentina,ARG,DF,River Plate,30,2728000
+334896,Jalal Hassan,jalal-hassan,Iraq,IRQ,GK,Al Zawra'a,35,728640
+335521,Facundo Medina,f-medina-335521,Argentina,ARG,DF,Olympique Marseille,27,13800000
+335673,Exequiel Palacios,e-palacios,Argentina,ARG,MF,Bayer 04 Leverkusen,27,13800000
+336067,Angus Gunn,a-gunn,Scotland,SCO,GK,Nottingham Forest,30,9229440
+336133,Phil Foden,p-foden,England,ENG,MF,Manchester City,26,17010000
+337394,Jules Koundé,j-kounde,France,FRA,DF,FC Barcelona,27,9000000
+340342,Brahim Díaz,b-abdelkader-diaz,Morocco,MAR,FW,Real Madrid,26,19530000
+371386,Stephen Eustaquio,s-antunes-eustaquio,Canada,CAN,MF,Los Angeles FC,29,2542000
+380841,Abdullah Al-Ahrak,a-alahrak,Qatar,QAT,MF,Qatar SC,29,1900000
+390543,Samet Akaydin,s-akaydin,Türkiye,TUR,DF,Rizespor,32,4180000
+409137,Joel Waterman,j-waterman,Canada,CAN,DF,Chicago Fire,30,1862080
+410458,Mohammad Al Daoud,mohammad-al-daoud,Jordan,JOR,MF,Al Hussein,44,
+410849,Yazeed Abulaila,yazeed-abulaila,Jordan,JOR,GK,Al Hussein,33,1594080
+411989,Ali Yousif,ali-yousif,Iraq,IRQ,FW,Al Shorta,30,
+411996,Ahmed Basil Fadhil,ahmed-basil-fadhil,Iraq,IRQ,GK,Al Shorta,29,1558000
+418401,Dennis Eckert Ayensa,d-eckert-ayensa,Iran,IRN,FW,Standard Liège,29,1500000
+430355,Montassar Talbi,m-talbi,Tunisia,TUN,DF,Lorient,28,13800000
+430403,Krépin Diatta,k-diatta,Senegal,SEN,FW,Monaco,27,9000000
+432720,Dylan Batubinsika,d-batubinsika,Congo DR,COD,DF,Saint-Étienne,30,2376000
+432782,Samuel Moutoussamy,samuel-moutoussamy,Congo DR,COD,MF,Sivasspor,29,1900000
+433075,Elisha Owusu,e-owusu-433075,Ghana,GHA,MF,Auxerre,28,9000000
+433169,Pape Gueye,p-gueye,Senegal,SEN,MF,Villarreal,27,9000000
+433194,Yahia Fofana,y-fofana-433194,Côte d'Ivoire,CIV,GK,Rizespor,25,7087500
+433380,Gédéon Kalulu,gedeon-kalulu,Congo DR,COD,DF,Aris Limassol,28,6600000
+433458,Amine Gouiri,a-gouiri,Algeria,DZA,FW,Olympique Marseille,26,9450000
+433483,Samir Chergui,s-chergui,Algeria,DZA,DF,Paris,27,11400000
+435539,Lionel Mpasi-Nzau,l-mpasi-nzau,Congo DR,COD,GK,Le Havre,31,1371040
+438751,Altay Bayındır,a-bayindir,Türkiye,TUR,GK,Manchester United,28,5412000
+446377,Tarek Salman,t-salman,Qatar,QAT,DF,Al Sadd,28,1900000
+447092,Álvaro Fidalgo,a-fidalgo-fernandez,Mexico,MEX,MF,Real Betis,29,10488000
+447104,Luca Zidane,l-zidane,Algeria,DZA,GK,Granada,28,14904000
+448389,Ferran Torres,f-torres-garcia,Spain,ESP,FW,FC Barcelona,26,19530000
+448422,Seung-ho Paik,s-paik,Korea Republic,KOR,MF,Birmingham City,29,3100000
+448448,Marc Cucurella,m-cucurella,Spain,ESP,DF,Chelsea,27,11400000
+450031,Zeki Çelik,m-celik,Türkiye,TUR,DF,Roma,29,18600000
+453075,Saleem Obaid,saleem-obaid,Jordan,JOR,DF,Al Hussein,34,1121760
+453084,Mahmoud Al-Mardi,mahmoud-al-mardi,Jordan,JOR,FW,Al Hussein,32,1538240
+455376,Scott McTominay,s-mctominay,Scotland,SCO,MF,Napoli,29,11400000
+455748,Félix Torres,f-torres-caicedo,Ecuador,ECU,DF,Internacional,29,1380000
+455797,Felix Horn Myhre,f-horn-myhre,Norway,NOR,MF,Brann,27,2484000
+455900,Nahuel Molina,n-molina-lucero,Argentina,ARG,DF,Atlético Madrid,28,11400000
+456276,Matías Viña,m-vina-susperreguy,Uruguay,URU,DF,River Plate,28,3100000
+458518,David Cabezas,david-cabezas,Ecuador,ECU,GK,Ecuador,30,
+458682,Jørgen Strand Larsen,j-strand-larsen,Norway,NOR,FW,Crystal Palace,26,19530000
+459145,Bruno Guimarães,b-guimaraes-rodriguez-moura,Brazil,BRA,MF,Newcastle United,28,11400000
+459480,Hjalmar Ekdal,h-ekdal,Sweden,SWE,DF,Burnley,27,18600000
+459653,Santiago Bueno,s-bueno-sciutto,Uruguay,URU,DF,Wolverhampton Wanderers,27,11400000
+459660,Romano Schmid,r-schmid,Austria,AUT,MF,Werder Bremen,26,14490000
+461027,Ao Tanaka,a-tanaka,Japan,JPN,MF,Leeds United,27,9000000
+461496,Frantzdy Pierrot,f-pierrot,Haiti,HTI,FW,Rizespor,31,1214400
+461522,Ahmed Fatouh,a-aboel-fettoh,Egypt,EGY,DF,Zamalek,28,2300000
+461590,Jin-seob Park,j-park-461590,Korea Republic,KOR,MF,Jeonbuk Motors,30,2728000
+464990,Muteb Al-Mufarrij,m-al-mufarrij,Saudi Arabia,KSA,DF,Al Taawoun,29,1500000
+465580,Hiroki Ito,h-ito,Japan,JPN,DF,FC Bayern München,27,18600000
+466063,Joaquín Piquerez,j-piquerez-moreira,Uruguay,URU,DF,Palmeiras,27,1558000
+466999,Mohamed Amine Ben Hamida,mohamed-amine-ben-hamida,Tunisia,TUN,DF,ES Tunis,30,2185920
+467005,Firas Chaouat,firas-chaouat,Tunisia,TUN,FW,,30,
+467567,Roger Ibañez,r-ibanez-da-silva,Brazil,BRA,DF,Al Ahli,27,3100000
+468327,Jáminton Campaz,j-campaz,Colombia,COL,FW,Rosario Central,26,1449000
+469717,Ronald Araujo,r-araujo-da-silva,Uruguay,URU,DF,FC Barcelona,27,18600000
+471304,Alan Franco,a-franco-palma,Ecuador,ECU,MF,Atlético Mineiro,27,1500000
+471485,Keisuke Osako,k-osako,Japan,JPN,GK,Japan,26,1995000
+474354,Mousa Tamari,m-al-tamari,Jordan,JOR,FW,Rennes,29,18600000
+474356,Ehsan Haddad,ehsan-haddad,Jordan,JOR,DF,Al Hussein,32,1371040
+496775,Pedro Neto,p-lomba-neto,Portugal,POR,FW,Chelsea,26,19530000
+512165,Orlando Mosquera,o-mosquera,Panama,PAN,GK,Al-Fayha,31,2376000
+512560,Amir Murillo,m-murillo-bermudez,Panama,PAN,DF,Beşiktaş,30,4180000
+512743,Adalberto Carrasquilla,a-carrasquilla-alcazar,Panama,PAN,MF,Pumas UNAM,27,1900000
+512882,César Yanis,cesar-yanis,Panama,PAN,FW,Cobresal,30,
+512926,José Luis Rodríguez,j-rodriguez-francis,Panama,PAN,FW,Juárez,27,1500000
+512975,César Blackman,c-blackman,Panama,PAN,DF,Slovan Bratislava,28,1558000
+513103,Andrés Andrade,andres-andrade,Panama,PAN,DF,LASK Linz,27,1500000
+513105,Jiovany Ramos,jiovany-ramos,Panama,PAN,DF,Academia Puerto Cabello,29,1886000
+513107,Tomás Rodríguez,tomas-rodriguez,Panama,PAN,FW,Deportivo Recoleta,27,902000
+515685,Umar Eshmurodov,umar-eshmurodov,Uzbekistan,UZB,DF,Nasaf,33,649440
+516245,Meschack Elia,m-elia,Congo DR,COD,FW,Alanyaspor,28,7750000
+516291,Nayef Aguerd,n-aguerd,Morocco,MAR,DF,Olympique Marseille,30,5808000
+522646,Firas Al-Buraikan,f-albirakan,Saudi Arabia,KSA,FW,Al Ahli,26,2415000
+523999,Shehab Ellethy,s-ellethy,Qatar,QAT,GK,Al Shahaniya,26,2835000
+524045,Daniel Muñoz,d-munoz-mejia,Colombia,COL,DF,Crystal Palace,30,10032000
+524309,Leo Østigård,l-skiri-oestigaard,Norway,NOR,DF,Genoa,26,17010000
+525790,Takefusa Kubo,t-kubo-525790,Japan,JPN,FW,Real Sociedad,25,9450000
+529879,Leverton Pierre,leverton-pierre,Haiti,HTI,MF,Vizela,28,1100000
+530762,Martín Zubimendi,m-zubimendi-ibanez,Spain,ESP,MF,Arsenal,27,11400000
+534383,Kerem Aktürkoğlu,m-akturkoglu,Türkiye,TUR,FW,Fenerbahçe,27,7750000
+537320,Francis Amuzu,f-amuzu,Ghana,GHA,FW,Grêmio,26,2415000
+537332,Timothy Weah,t-weah,United States,USA,FW,Olympique Marseille,26,9450000
+537758,Donyell Malen,d-malen,Netherlands,NED,FW,Roma,27,1558000
+538449,Torbjørn Heggem,t-heggem,Norway,NOR,DF,Bologna,27,11400000
+538861,Alexis Saelemaekers,a-saelemaekers,Belgium,BEL,MF,AC Milan,26,14490000
+540162,Dominik Kotarski,d-kotarski,Croatia,CRO,GK,FC København,26,7087500
+540251,Rafael Leão,r-conceicao-leao,Portugal,POR,FW,AC Milan,27,9000000
+540615,Yassin Fortuné,yassin-fortune,Haiti,HTI,FW,Vizela,27,1012000
+540711,Josip Sutalo,j-utalo,Croatia,CRO,DF,Ajax,26,4987500
+545244,Éderson,e-dos-santos-lourenco-da-silva,Brazil,BRA,MF,Atalanta,26,14490000
+581043,Yan Valery,y-valery,Tunisia,TUN,DF,Sheffield Wednesday,27,1900000
+581045,Alfie Jones,a-jones,Canada,CAN,DF,Middlesbrough,28,1100000
+581067,Antonee Robinson,a-robinson,United States,USA,DF,Fulham,28,16200000
+581220,Reece James,r-james,England,ENG,DF,Chelsea,26,9450000
+586846,Derek Cornelius,d-cornelius-586846,Canada,CAN,DF,Olympique Marseille,28,11400000
+600687,Vinicius Junior,vinicius,Brazil,BRA,FW,Real Madrid,25,17010000
+600694,Aymen Dahmen,aymen-dahmen,Tunisia,TUN,GK,,29,
+608189,Weston McKennie,w-mckennie,United States,USA,MF,Juventus,27,16200000
+608242,Miles Robinson,m-robinson-608242,United States,USA,DF,Cincinnati,29,2116000
+608280,Moon-hwan Kim,m-kim-608280,Korea Republic,KOR,DF,Daejeon Citizen,30,2024000
+689021,Isak Hien,i-hien,Sweden,SWE,DF,Atalanta,27,16200000
+749527,Riley McGree,r-mcgree,Australia,AUS,MF,Middlesbrough,27,2300000
+750014,Kye Rowles,k-rowles,Australia,AUS,DF,DC United,27,1748000
+766687,Ayumu Seko,a-seko,Japan,JPN,MF,Le Havre,26,19530000
+785373,Jhon Arias,j-arias-andrade,Colombia,COL,FW,Palmeiras,28,2852000
+785896,Matt Freese,f-matthew,United States,USA,GK,New York City,27,2700000
+786813,Willer Ditta,w-ditta-perez,Colombia,COL,DF,Cruz Azul,29,3100000
+788936,Oston Urunov,oston-urunov,Uzbekistan,UZB,FW,Persepolis,25,1995000
+893705,Manuel Ugarte,m-ugarte-ribeiro,Uruguay,URU,MF,Manchester United,25,14490000
+893767,Jackson Porozo,j-porozo-vernaza,Ecuador,ECU,DF,Tijuana,25,2835000
+896368,Ibrahim Bayesh,i-bayesh,Iraq,IRQ,MF,Al Riyadh,26,1449000
+1076941,Bassam Al-Rawi,b-al-rawi,Qatar,QAT,DF,Al Duhail,28,1100000
+1167415,Bremer,g-bremer-silva-nascimento,Brazil,BRA,DF,Juventus,29,18600000
+1193792,Martin Zlomislic,martin-zlomislic,Bosnia and Herzegovina,BIH,GK,Rijeka,27,2700000
+1356266,Nihad Mujakic,n-mujaki,Bosnia and Herzegovina,BIH,DF,Gaziantep F.K.,28,3750000
+1452400,Ahmed Reda Tagnaouti,a-tagnaouti,Morocco,MAR,GK,FAR Rabat,30,2185920
+1478864,Rubén Vargas,r-vargas,Switzerland,SUI,FW,Sevilla,27,11400000
+1479316,Álex Arce,a-arce-barrios,Paraguay,PRY,FW,Independiente Rivadavia,30,2509760
+1479663,Payam Niazmand,payam-niazmand,Iran,IRN,GK,Persepolis,31,968000
+1482476,Azizbek Amanov,azizbek-amanov,Uzbekistan,UZB,FW,Nasaf,28,1012000
+1488819,Callan Elliot,callan-elliot,New Zealand,NZL,DF,Auckland,26,2835000
+1491407,Michael Svoboda,m-svoboda,Austria,AUT,DF,Venezia,27,2300000
+1491791,Ricardo Velho,m-silva-velho,Portugal,POR,GK,Gençlerbirliği,27,6750000
+1494236,Tahith Chong,t-chong,Curacao,CUW,MF,Sheffield United,26,2415000
+1494704,Jerome Opoku,j-opoku,Ghana,GHA,DF,İstanbul Başakşehir,27,6750000
+1498038,Yannick Semedo,j-semedo-monteiro,Cape Verde Islands,CPV,MF,Farense,30,
+1504475,Iqraam Rayners,i-rayners,South Africa,ZAF,FW,Mamelodi Sundowns,30,1082400
+1504516,Khuliso Mudau,k-mudau,South Africa,ZAF,DF,Mamelodi Sundowns,31,2509760
+1525233,Derrick Köhn,d-kohn,Ghana,GHA,DF,FC Union Berlin,27,9000000
+1525361,Luis Romo,l-romo-barron,Mexico,MEX,MF,Mexico,31,2728000
+1525399,Johan Vásquez,j-vasquez-ibarra,Mexico,MEX,DF,Genoa,27,11400000
+1548028,Sasa Kalajdzic,s-kalajdzic,Austria,AUT,FW,Wolverhampton Wanderers,28,15252000
+1548527,Nasser Al-Dawsari,n-al-dawsari,Saudi Arabia,KSA,MF,Al Hilal,27,3100000
+1846739,Matheus Cunha,m-carneiro-da-cunha,Brazil,BRA,FW,Manchester United,27,16200000
+1854954,José Fajardo,jose-fajardo,Panama,PAN,FW,Universidad Católica,32,1371040
+2158212,Nicolas Raskin,n-raskin,Belgium,BEL,MF,Rangers,25,1995000
+2206665,Lisandro Martínez,l-martinez-2206665,Argentina,ARG,DF,Manchester United,28,11400000
+2206688,Boulaye Dia,b-dia,Senegal,SEN,FW,Lazio,29,18600000
+2503729,Santiago Gimenez,s-gimenez,Mexico,MEX,FW,AC Milan,25,19530000
+2510388,Mert Müldür,m-muldur,Türkiye,TUR,DF,Fenerbahçe,27,4370000
+2511096,Pathé Ciss,p-ciss,Senegal,SEN,MF,Rayo Vallecano,32,16368000
+2816023,Mehdi Ghayedi,mehdi-ghayedi,Iran,IRN,FW,Al Nasr,27,1900000
+2823329,Juan Manuel Sanabria,j-sanabria-magole,Uruguay,URU,DF,Real Salt Lake,26,2994600
+3156873,Tijjani Reijnders,t-reijnders,Netherlands,NED,MF,Manchester City,27,18600000
+3188035,Willy Semedo,w-semedo-johnson,Cape Verde Islands,CPV,FW,Omonia Nicosia,32,1538240
+3219352,Trevor Doornbusch,t-doornbusch,Curacao,CUW,GK,VVV-Venlo,26,2656500
+3526183,Connor Metcalfe,c-metcalfe,Australia,AUS,MF,St. Pauli,26,17010000
+3533201,Ali Nemati,ali-nemati,Iran,IRN,DF,Foolad,30,1672000
+3533334,Gustaf Lagerbielke,g-lagerbielke,Sweden,SWE,DF,Sporting Braga,26,6037500
+3568504,Kevin Felida,k-felida,Curacao,CUW,MF,FC Den Bosch,26,1635900
+3861304,Ismail Jakobs,i-jakobs,Senegal,SEN,DF,Galatasaray,26,7087500
+3861539,Patric Pfeiffer,p-pfeiffer,Ghana,GHA,DF,Darmstadt 98,26,8694000
+3861724,John Yeboah,j-zamora,Ecuador,ECU,MF,Venezia,25,3255000
+3862352,Nico Schlotterbeck,n-schlotterbeck,Germany,GER,DF,Borussia Dortmund,26,19530000
+3862426,Josip Stanisic,j-stanisic,Croatia,CRO,DF,FC Bayern München,26,19530000
+3862681,Marco Pašalić,m-pasalic,Croatia,CRO,FW,Orlando City,25,1449000
+3862700,Christoph Baumgartner,c-baumgartner,Austria,AUT,MF,RB Leipzig,26,9450000
+3872642,Márcio Rosa,m-salomao-brazao-rosa,Cape Verde Islands,CPV,GK,Montana,29,2700000
+3876966,Nabil Dunga,n-emad,Egypt,EGY,MF,Al Najma,30,2509760
+3876968,Mohanad Lasheen,m-lasheen,Egypt,EGY,MF,Pyramids FC,30,1320000
+4192141,Yazan Alarab,y-alarab,Jordan,JOR,DF,Seoul,30,2185920
+4192142,Noor Al-Rawabdeh,noor-al-rawabdeh,Jordan,JOR,MF,Selangor,29,1558000
+4243070,Lyle Foster,l-foster,South Africa,ZAF,FW,Burnley,25,9450000
+4243131,Barış Alper Yılmaz,b-yilmaz,Türkiye,TUR,FW,Galatasaray,26,8137500
+4536500,Marc Guéhi,m-guehi,England,ENG,DF,Manchester City,25,14490000
+4536524,James Garner,j-garner,England,ENG,MF,Everton,25,19530000
+4536529,Noah Okafor,n-okafor,Switzerland,SUI,FW,Leeds United,26,19530000
+4536572,Angelo Stiller,a-stiller,Germany,GER,MF,VfB Stuttgart,25,9450000
+4545376,Orkun Kökçü,o-kokcu,Türkiye,TUR,MF,Beşiktaş,25,6037500
+4545389,Eric García,e-garcia,Spain,ESP,DF,FC Barcelona,25,11970000
+4545430,Vitinha,v-machado-ferreira,Portugal,POR,MF,Paris Saint Germain,26,17010000
+4545516,Liam Millar,l-millar,Canada,CAN,FW,Hull City,26,1575000
+4552689,Brenden Aaronson,b-aaronson,United States,USA,MF,Leeds United,25,11970000
+4591900,Abdulelah Al-Amri,a-al-amri,Saudi Arabia,KSA,DF,Al Nassr,29,1900000
+4592198,Morgan Rogers,m-rogers,England,ENG,MF,Aston Villa,23,19530000
+4598752,Lutsharel Geertruida,l-geertruida,Netherlands,NED,DF,Sunderland,25,11970000
+4599015,Meshaal Barsham,m-barsham,Qatar,QAT,GK,Al Sadd,28,2700000
+4926025,David Doudera,d-doudra,Czech Republic,CZE,MF,Slavia Praha,28,3100000
+4969702,Folarin Balogun,f-balogun,United States,USA,FW,Monaco,24,11970000
+4969726,Kwasi Sibo,k-sibo,Ghana,GHA,MF,Real Oviedo,27,9000000
+4969805,Islam Issa,i-ateya,Egypt,EGY,FW,Ceramica Cleopatra,30,1672000
+5270371,Aurélien Tchouaméni,a-tchouameni,France,FRA,MF,Real Madrid,26,19530000
+5270462,Ryan Gravenberch,r-gravenberch,Netherlands,NED,MF,Liverpool,24,19530000
+5283883,Yaya Sithole,s-sithole-5283883,South Africa,ZAF,MF,Tondela,27,7750000
+5332150,Nasser Mansy,n-el-mansi,Egypt,EGY,FW,Zamalek,28,1500000
+5640817,Ozan Kabak,o-kabak,Türkiye,TUR,DF,TSG Hoffenheim,26,9450000
+5640825,Yunus Akgün,y-akgun,Türkiye,TUR,FW,Galatasaray,25,3937500
+5640849,Mohammed Kudus,m-kudus,Ghana,GHA,FW,Tottenham Hotspur,25,6930000
+5640874,CJ dos Santos,c-dos-santos-5640874,Cape Verde Islands,CPV,GK,San Diego,25,
+5640878,Sergiño Dest,s-dest,United States,USA,DF,PSV,25,3937500
+5640904,Elijah Just,e-just,New Zealand,NZL,FW,Motherwell,26,1575000
+5640945,Braian Ojeda,b-ojeda-rodriguez,Paraguay,PRY,MF,Orlando City,25,2835000
+5641074,Amirhossein Hosseinzadeh,amirhossein-hosseinzadeh,Iran,IRN,FW,Tractor Sazi,25,1155000
+5666458,Maxence Lacroix,m-lacroix,France,FRA,DF,Crystal Palace,26,11970000
+5666460,Wilson Isidor,w-isidor,Haiti,HTI,FW,Sunderland,25,19530000
+5666477,Zion Suzuki,z-suzuki,Japan,JPN,GK,Parma,23,17010000
+5666480,Yukinari Sugawara,y-sugawara,Japan,JPN,DF,Werder Bremen,25,17010000
+5666491,Keito Nakamura,k-nakamura,Japan,JPN,FW,Japan,25,3255000
+5666528,César Huerta,c-huerta-valera,Mexico,MEX,FW,Mexico,25,1575000
+5956430,Kevin Lenini,k-goncalves-pereira-de-pina,Cape Verde Islands,CPV,MF,Krasnodar,29,1380000
+5967839,Callum McCowatt,c-mccowatt,New Zealand,NZL,MF,Silkeborg IF,27,7750000
+6006074,Jacob Italiano,jacob-italiano,Australia,AUS,DF,Grazer AK,24,2415000
+6013424,Darwin Núñez,d-nunez-ribeiro,Uruguay,URU,FW,Al Hilal,26,1995000
+6013440,Abduvokhid Nematov,abduvokhid-nematov,Uzbekistan,UZB,GK,Nasaf,25,1635900
+6306068,Quinten Timber,q-timber,Netherlands,NED,MF,Olympique Marseille,24,9450000
+6306127,Felix Nmecha,f-nmecha,Germany,GER,MF,Borussia Dortmund,25,9450000
+6599973,Billy Gilmour,b-gilmour,Scotland,SCO,MF,Napoli,25,19530000
+6642434,Florian Wiegele,florian-wiegele,Austria,AUT,GK,Viktoria Plzeň,25,2835000
+6648042,Lewis Ferguson,l-ferguson,Scotland,SCO,MF,Bologna,26,11970000
+7026573,Djed Spence,d-spence-7026573,England,ENG,DF,Tottenham Hotspur,25,9450000
+7330507,Brian Brobbey,b-brobbey,Netherlands,NED,FW,Sunderland,24,14490000
+7698436,Álex Baena,a-rodriguez,Spain,ESP,FW,Atlético Madrid,24,9450000
+8055893,Turki Al-Ammar,t-al-ammar,Saudi Arabia,KSA,FW,Al-Qadsiah,26,1995000
+8056703,Ahmed Suhail,a-al-hamawende,Qatar,QAT,DF,Al Sadd,27,902000
+8101006,Adam Hlozek,a-hloek,Czech Republic,CZE,FW,TSG Hoffenheim,23,11970000
+8403182,Jeremie Frimpong,j-frimpong,Netherlands,NED,DF,Liverpool,25,9450000
+8456257,Pedro Porro,p-porro-sauceda,Spain,ESP,DF,Tottenham Hotspur,26,17010000
+9274009,Hassan Tambakti,h-al-tambakti,Saudi Arabia,KSA,DF,Al Hilal,27,2300000
+9611543,Anthony Gordon,a-gordon-9611543,England,ENG,FW,Newcastle United,25,19530000
+9939197,Shurandy Sambo,s-sambo,Curacao,CUW,DF,Sparta Rotterdam,24,7087500
+9939203,Crysencio Summerville,c-summerville,Netherlands,NED,FW,West Ham United,24,11970000
+9964067,Edo Kayembe,e-kayembe,Congo DR,COD,MF,Watford,28,1900000
+9967153,Kang-in Lee,k-lee-9967153,Korea Republic,KOR,MF,Paris Saint Germain,25,14490000
+10269843,Ali Majrashi,a-majrashi,Saudi Arabia,KSA,DF,Al Ahli,26,1575000
+10274950,Mohanad Ali,mohanad-ali,Iraq,IRQ,FW,Dibba Al Fujairah,25,1575000
+10275906,Ben Waine,ben-waine,New Zealand,NZL,FW,Port Vale,25,3255000
+10310744,Hicham Boudaoui,h-boudaoui,Algeria,DZA,MF,Nice,26,17010000
+10626586,Odin Luras Bjortuft,o-bjortuft,Norway,NOR,DF,Bodø / Glimt,27,2852000
+10631219,Ayoub El Kaabi,a-el-kaabi,Morocco,MAR,FW,Olympiacos F.C.,32,1320000
+10959356,Gabriel Martinelli,g-martinelli-silva,Brazil,BRA,FW,Arsenal,24,19530000
+10966375,Khalid Mohammed,k-mohammed,Qatar,QAT,MF,Al-Ahli Doha,26,1155000
+10967396,Oğuz Aydın,o-aydin,Türkiye,TUR,FW,Fenerbahçe,25,8137500
+10990572,Kai Trewin,k-trewin,Australia,AUS,MF,New York City,25,1575000
+10990678,Antoine Semenyo,a-semenyo,Ghana,GHA,FW,Manchester City,26,14490000
+11322034,Akmal Mozgovoy,akmal-mozgovoy,Uzbekistan,UZB,MF,Nasaf,27,1748000
+11658217,Moisés Ramírez,moises-ramirez,Ecuador,ECU,GK,Kifisia,25,2835000
+11705427,Johan Carbonero,j-carbonero-balanta,Colombia,COL,FW,Internacional,26,3255000
+11711899,Bum-keun Song,b-song,Korea Republic,KOR,GK,Jeonbuk Motors,28,2700000
+12016844,Kristian Thorstvedt,k-thorstvedt,Norway,NOR,MF,Sassuolo,27,9000000
+12393393,Angelo Preciado,a-preciado-quinonez,Ecuador,ECU,DF,Atlético Mineiro,28,2852000
+12393396,Gonzalo Plata,g-plata-jimenez,Ecuador,ECU,FW,Flamengo,25,1835400
+12393419,Willian Pacho,w-pacho-tenorio,Ecuador,ECU,DF,Paris Saint Germain,24,9450000
+12393438,Emiliano Martínez,e-martinez-toranza,Uruguay,URU,MF,Palmeiras,26,3255000
+12394069,Logan Costa,l-costa,Cape Verde Islands,CPV,DF,Villarreal,25,11970000
+12426453,Jamie Leweling,j-leweling,Germany,GER,FW,VfB Stuttgart,25,11970000
+12759176,Matej Kovar,m-kova,Czech Republic,CZE,GK,PSV,26,7087500
+12790692,Roshon van Eijma,r-van-eijma,Curacao,CUW,DF,RKC Waalwijk,28,1500000
+12867773,Brian Rodríguez,p-rodriguez-bravo,Uruguay,URU,FW,América,26,2835000
+13171226,Jovo Lukic,jovo-lukic,Bosnia and Herzegovina,BIH,FW,Universitatea Cluj,27,1500000
+13171232,Martin Expérience,martin-experience,Haiti,HTI,DF,Nancy,27,2300000
+13186102,Yu-Min Cho,yu-min-cho,Korea Republic,KOR,DF,Korea Republic,29,1500000
+13186239,Dong-gyeong Lee,d-lee-13186239,Korea Republic,KOR,MF,Ulsan HD,28,2116000
+13225178,Josué Casimir,j-casimir,Haiti,HTI,FW,Auxerre,24,9450000
+13590962,Rayan Aït-Nouri,r-ait-nouri,Algeria,DZA,DF,Manchester City,25,11970000
+13633475,Jordy Alcívar,jordy-alcivar,Ecuador,ECU,MF,León,26,1835400
+13649139,Maxi Araújo,m-araujo-vilches,Uruguay,URU,DF,Sporting CP,26,7087500
+13653174,Sebastián Cáceres,s-caceres-ramos,Uruguay,URU,DF,América,26,2835000
+14004542,Amine Adli,a-adli,Morocco,MAR,FW,AFC Bournemouth,26,9450000
+15076349,Joseph Anang,joseph-anang,Ghana,GHA,GK,St Patrick's,26,947100
+15169863,Sebastian Tounekti,sebastian-tounekti,Tunisia,TUN,FW,Celtic,23,1575000
+15395119,Alexandre Pierre,a-pierre,Haiti,HTI,GK,Sochaux,25,
+15745936,Federico Viñas,f-vinas-barboza,Uruguay,URU,FW,Real Oviedo,27,9000000
+16475841,Joan García,j-pons,Spain,ESP,GK,FC Barcelona,25,17010000
+16488492,Homam Al-Amin,h-ahmed,Qatar,QAT,DF,Al Duhail,26,2324700
+16546879,Marcus Pedersen,m-pedersen,Norway,NOR,DF,Torino,25,9450000
+16827155,Bukayo Saka,b-saka,England,ENG,FW,Arsenal,24,14490000
+16827175,Jonathan David,j-david,Canada,CAN,FW,Juventus,26,9450000
+17158438,Joe Scally,j-scally,United States,USA,DF,Borussia Mönchengladbach,23,17010000
+17158444,Kamal Miller,k-miller,Canada,CAN,DF,Portland Timbers,29,1380000
+17526122,Kevin Yakob,kevin-yakob,Iraq,IRQ,MF,AGF,25,6037500
+17544737,William Saliba,w-saliba,France,FRA,DF,Arsenal,25,11970000
+18218609,Chris Richards,c-richards,United States,USA,DF,Crystal Palace,26,11970000
+18226586,Facundo Torres,f-torres-perez,Uruguay,URU,FW,Austin,26,1575000
+18575194,Jacob Widell Zetterström,j-widell-zetterstrom,Sweden,SWE,GK,Derby County,27,2700000
+18584306,Haissem Hassan,h-hassan-18584306,Egypt,EGY,FW,Real Oviedo,24,9450000
+19272375,Herman Johansson,h-johansson,Sweden,SWE,MF,Dallas,28,2116000
+19616116,Alexander Bernhardsson,a-bernhardsson,Sweden,SWE,FW,Holstein Kiel,27,18600000
+19960396,Nicolás Fonseca,n-fonseca,Uruguay,URU,MF,Real Oviedo,27,9000000
+19978623,Dan Ndoye,d-ndoye,Switzerland,SUI,FW,Nottingham Forest,25,19530000
+19979885,Benjamin Nygren,b-nygren,Sweden,SWE,FW,Celtic,24,1575000
+19996814,Thiago Almada,t-almada,Argentina,ARG,FW,Atlético Madrid,25,19530000
+20316497,Soufiane Rahimi,soufiane-rahimi,Morocco,MAR,FW,Al Ain,30,2728000
+20326040,Zineddine Belaid,zineddine-belaid,Algeria,DZA,DF,JS Kabylie,27,1558000
+20326041,Mohamed Amine Tougai,mohamed-amine-tougai,Algeria,DZA,DF,ES Tunis,26,1635900
+20326101,Mathieu Choinière,m-choiniere,Canada,CAN,MF,Los Angeles FC,27,2300000
+20335123,Patrick Schulte,p-schulte,United States,USA,GK,Columbus Crew,25,2835000
+20335333,Khaled Sobhi,k-sobhy,Egypt,EGY,DF,Al Masry,31,2728000
+20355429,Ivor Pandur,i-pandur,Croatia,CRO,GK,Hull City,26,2835000
+20673398,Facundo Pellistri,f-pellistri-rebollo,Uruguay,URU,FW,Panathinaikos,24,2415000
+20673452,Tsuyoshi Watanabe,t-watanabe,Japan,JPN,DF,Feyenoord,29,6750000
+20708316,Cammy Devlin,c-devlin,Australia,AUS,MF,Hearts,28,1500000
+21045321,Érik Lira,e-lira-mendez,Mexico,MEX,MF,Mexico,26,1575000
+21072805,Rayan Cherki,m-cherki,France,FRA,MF,Manchester City,22,9450000
+21072839,Emam Ashour,e-ashour,Egypt,EGY,MF,Al Ahly,28,1748000
+21394947,Julián Alvarez,j-alvarez,Argentina,ARG,FW,Atlético Madrid,26,17010000
+21413511,Elias Achouri,m-achouri,Tunisia,TUN,FW,FC København,27,7750000
+21414391,Omar Rekik,omar-rekik,Tunisia,TUN,DF,Maribor,24,1835400
+21437431,Sherzod Nasrullaev,sherzod-nasrullaev,Uzbekistan,UZB,DF,Nasaf,27,1558000
+21762215,Bradley Cross,b-cross,South Africa,ZAF,DF,Kaizer Chiefs,25,1575000
+21762216,Malick Thiaw,m-thiaw,Germany,GER,DF,Newcastle United,24,17010000
+21772171,Mohammed Al-Yami,m-al-yami,Saudi Arabia,KSA,GK,Al Hilal,28,1012000
+21773355,Ayase Ueda,a-ueda,Japan,JPN,FW,Feyenoord,27,4750000
+21781428,Matheus Nunes,m-nunes,Portugal,POR,DF,Manchester City,27,9000000
+21782219,Evann Guessand,e-guessand,Côte d'Ivoire,CIV,FW,Crystal Palace,24,8694000
+21803033,Azzedine Ounahi,a-ounahi,Morocco,MAR,MF,Girona,26,17010000
+21803060,Neil El Aynaoui,n-el-aynaoui,Morocco,MAR,MF,Roma,24,17010000
+22126556,Rodrigo Zalazar,r-zalazar-martinez,Uruguay,URU,MF,Sporting Braga,26,3937500
+22136685,Nathanaël Mbuku,n-mbuku,Congo DR,COD,FW,Montpellier,24,3255000
+22493645,Amar Dedić,a-dedi,Bosnia and Herzegovina,BIH,DF,Benfica,23,4987500
+22528446,Luka Sucic,l-sui,Croatia,CRO,MF,Real Sociedad,23,11970000
+22528506,İsmail Yüksek,i-yuksek,Türkiye,TUR,MF,Fenerbahçe,27,5750000
+22536228,João Paulo,j-moreira-fernandes,Cape Verde Islands,CPV,MF,Otelul,28,3100000
+22878573,Amadou Onana,a-mvom-onana,Belgium,BEL,MF,Aston Villa,24,17010000
+23269649,Adil Aouchiche,a-aouchiche,Algeria,DZA,MF,Schalke 04,23,17967600
+23269659,Maxim De Cuyper,m-de-cuyper,Belgium,BEL,DF,Brighton & Hove Albion,25,9450000
+23269660,Charles De Ketelaere,c-de-ketelaere,Belgium,BEL,MF,Atalanta,25,9450000
+23269665,Ruben Providence,r-providence,Haiti,HTI,FW,Almere City,24,1575000
+23269670,Senne Lammens,s-lammens,Belgium,BEL,GK,Manchester United,23,2324700
+23277869,Malik Tillman,m-tillman,United States,USA,MF,Bayer 04 Leverkusen,24,19530000
+23277923,Maximilian Beier,m-beier,Germany,GER,FW,Borussia Dortmund,23,14490000
+23278580,Sontje Hansen,s-hansen,Curacao,CUW,FW,Middlesbrough,24,1291500
+23278610,Gonçalo Ramos,g-ramos,Portugal,POR,FW,Paris Saint Germain,24,9450000
+23661272,Iliman Ndiaye,i-ndiaye,Senegal,SEN,FW,Everton,26,9450000
+23661347,Anass Salah-Eddine,a-salah-eddine,Morocco,MAR,DF,PSV,24,3937500
+23697916,David Zima,d-zima,Czech Republic,CZE,DF,Slavia Praha,25,1995000
+23697990,Jérémy Doku,j-doku,Belgium,BEL,FW,Manchester City,24,14490000
+23707377,Ransford Königsdörffer,r-konigsdorffer,Ghana,GHA,FW,Hamburger SV,24,9450000
+23715953,Hussein Ali,hussein-ali-23715953,Iraq,IRQ,DF,Pogoń Szczecin,24,1575000
+23717807,Nando Pijnaker,nando-pijnaker,New Zealand,NZL,DF,Auckland,27,1500000
+23738800,Manu Koné,k-kone,France,FRA,MF,Roma,25,14490000
+23738861,Carlos Harvey,c-harvey-cesneros,Panama,PAN,MF,Minnesota United,26,
+24065379,Tomás Araújo,t-araujo,Portugal,POR,DF,Benfica,24,3937500
+24082492,Mustafa Mashaal,m-mashaal,Qatar,QAT,MF,Al Sadd,25,947100
+24082563,Mats Wieffer,m-wieffer,Netherlands,NED,MF,Brighton & Hove Albion,26,9450000
+24444649,Abdallah Al-Fakhouri,abdallah-al-fakhouri,Jordan,JOR,GK,Al Wihdat,26,947100
+24444656,Yousef Abu Al-Jazar,yousef-abu-al-jazar,Jordan,JOR,DF,Al Hussein,26,1635900
+24444658,Nizar Al-Rashdan,n-al-rashdan,Jordan,JOR,MF,Qatar SC,27,1748000
+24445509,Saud Abdulhamid,s-abdul-hamid,Saudi Arabia,KSA,DF,Lens,26,9450000
+24445516,Khalid Al-Ghannam,k-al-ghannam,Saudi Arabia,KSA,FW,Al Ettifaq,25,1995000
+24446326,Salah Zakaria,s-zakaria-hassan,Qatar,QAT,GK,Al Duhail,27,1748000
+24446328,Ahmed Al Ganehi,a-alganehi,Qatar,QAT,FW,Al Gharafa,25,1835400
+24468970,Yéremy Pino,y-jesus-pino-santos,Spain,ESP,FW,Crystal Palace,23,19530000
+24469041,Alex Paulsen,alex-paulsen,New Zealand,NZL,GK,Lechia Gdańsk,23,2835000
+24469059,Matthew Garbett,matthew-garbett,New Zealand,NZL,MF,NAC Breda,24,2835000
+24469159,Robin Hranac,r-hrana,Czech Republic,CZE,DF,TSG Hoffenheim,26,17010000
+24469162,Pavel Sulc,p-ulc,Czech Republic,CZE,MF,Olympique Lyonnais,25,17010000
+24799911,Tino Livramento,v-livramento,England,ENG,DF,Newcastle United,23,17010000
+24799984,Michael Olise,m-olise,France,FRA,FW,FC Bayern München,24,14490000
+24816824,Lukas Hornicek,l-horniek,Czech Republic,CZE,GK,Sporting Braga,23,7087500
+24816996,Sander Tangvik,s-tangvik,Norway,NOR,GK,Hamburger SV,23,5682600
+24817439,Fabian Rieder,f-rieder,Switzerland,SUI,MF,FC Augsburg,24,17010000
+24818803,Jan Paul van Hecke,j-van-hecke-24818803,Netherlands,NED,DF,Brighton & Hove Albion,26,17010000
+24837496,José Córdoba,j-cordoba-chambers,Panama,PAN,DF,Norwich City,25,2835000
+24838191,Josko Gvardiol,j-gvardiol,Croatia,CRO,DF,Manchester City,24,11970000
+25217662,Noni Madueke,c-madueke,England,ENG,FW,Arsenal,24,19530000
+25217663,Jeremy Antonisse,jeremy-antonisse,Curacao,CUW,FW,Kifisia,24,1575000
+25548700,Aidan Morris,a-morris,United States,USA,MF,Middlesbrough,24,1995000
+25591317,Lenny Joseph,l-joseph,Haiti,HTI,FW,Ferencvárosi,25,1835400
+25922235,Arthur Theate,a-theate,Belgium,BEL,DF,Eintracht Frankfurt,26,11970000
+26313942,Mojmír Chytil,m-chytil,Czech Republic,CZE,FW,Slavia Praha,27,3100000
+27067062,Kevin Schade,k-schade,Germany,GER,FW,Brentford,24,9450000
+27081112,Tanner Tessmann,t-tessmann,United States,USA,MF,Olympique Lyonnais,24,19530000
+27440826,Aaron Hickey,a-hickey,Scotland,SCO,DF,Brentford,24,17010000
+27440827,Ander Barrenetxea,a-barrenetxea-muguruza,Spain,ESP,FW,Real Sociedad,24,11970000
+27911903,Orlando Gill,o-gill,Paraguay,PRY,GK,San Lorenzo,26,2835000
+28543793,Jordan Bos,j-bos,Australia,AUS,DF,Feyenoord,23,3937500
+28572704,Danley Jean Jacques,d-jean-jacques,Haiti,HTI,MF,Philadelphia Union,26,2669100
+28575686,James Trafford,j-trafford,England,ENG,GK,Manchester City,23,2324700
+28575866,Ali Al-Hamadi,a-al-hamadi,Iraq,IRQ,FW,Luton Town,24,1291500
+28912747,Cole Palmer,c-palmer,England,ENG,MF,Chelsea,24,9450000
+28912759,Alex Robertson,alex-robertson,Australia,AUS,MF,Cardiff City,23,2835000
+28912805,Anthony Elanga,a-elanga,Sweden,SWE,FW,Newcastle United,24,9450000
+28931601,Mahmoud Abunada,m-abunad,Qatar,QAT,GK,Al Rayyan,26,2835000
+28931733,Odilon Kossounou,k-odilon,Côte d'Ivoire,CIV,DF,Atalanta,25,13330800
+29419594,Julio Enciso,j-enciso,Paraguay,PRY,MF,Strasbourg,22,19530000
+29674861,Isidro Pitta,i-pitta-saldivar,Paraguay,PRY,FW,Bragantino,26,3255000
+29709995,Enzo Fernández,e-fernandez,Argentina,ARG,MF,Chelsea,25,9450000
+29735915,Hyeon-gyu Oh,h-oh,Korea Republic,KOR,FW,Beşiktaş,25,3622500
+29763086,Kim Tae-Hyeon,t-kim-29763086,Korea Republic,KOR,DF,Kashima Antlers,25,1995000
+30105910,Abdullah Al-Hamdan,a-al-hamdan,Saudi Arabia,KSA,FW,Al Nassr,26,1291500
+31216826,Jacob Shaffelburg,j-shaffelburg,Canada,CAN,FW,Los Angeles FC,26,2835000
+31226528,Eren Elmalı,e-elmali,Türkiye,TUR,DF,Galatasaray,25,8137500
+31237395,Nicolas Seiwald,n-seiwald,Austria,AUT,MF,RB Leipzig,25,14490000
+31238688,Kaishu Sano,k-sano,Japan,JPN,MF,FSV Mainz 05,25,19530000
+31238822,Tajon Buchanan,t-buchanan,Canada,CAN,FW,Villarreal,27,9000000
+31255673,Léo Realpe,l-realpe-montano,Ecuador,ECU,DF,Famalicão,25,3937500
+31625208,Jahkeele Marshall-Rutty,j-marshall-rutty,Canada,CAN,DF,New York RB,21,3194240
+31625210,Ralph Priso,r-priso-mbongue,Canada,CAN,MF,Vancouver Whitecaps,23,2669100
+31626002,Alexander Prass,a-prass,Austria,AUT,DF,TSG Hoffenheim,25,9450000
+31626482,Gue-sung Cho,k-cho,Korea Republic,KOR,FW,FC Midtjylland,28,7130000
+31626713,Carney Chukwuemeka,c-chukwuemeka,Austria,AUT,MF,Borussia Dortmund,22,9450000
+31627620,Dayne St. Clair,d-st-clair,Canada,CAN,GK,Inter Miami,29,2484000
+31640130,Wilfried Singo,w-singo,Côte d'Ivoire,CIV,DF,Galatasaray,25,1291500
+32012833,Mohammad Abualnadi,mohammad-abualnadi,Jordan,JOR,DF,Selangor,25,1635900
+32387131,Elye Wahi,s-wahi,Côte d'Ivoire,CIV,FW,Nice,23,11012400
+32777402,Yusuf Abdurisag,y-youssef,Qatar,QAT,FW,Al Wakrah,26,1995000
+32777430,Nick Woltemade,n-woltemade,Germany,GER,FW,Newcastle United,24,11970000
+32819178,Armin Gigovic,armin-gigovic,Bosnia and Herzegovina,BIH,MF,Holstein Kiel,24,19530000
+33166012,David Møller Wolfe,d-wolfe,Norway,NOR,DF,Wolverhampton Wanderers,24,9450000
+33186829,Jamal Musiala,j-musiala,Germany,GER,MF,FC Bayern München,23,11970000
+33187441,Ricardo Pepi,r-pepi,United States,USA,FW,PSV,23,6037500
+34392107,Aimar Sher,a-sher,Iraq,IRQ,MF,Sarpsborg 08,23,1449000
+34432365,Giovanni Reyna,g-reyna,United States,USA,MF,Borussia Mönchengladbach,23,19530000
+34432414,B. Hlongwane,b-hlongwane,South Africa,ZAF,FW,Minnesota United,25,
+34455263,Oufa Shobeir,m-shobeir,Egypt,EGY,GK,Al Ahly,26,2608200
+34455847,Jesurun Rak-Sakyi,j-rak-sakyi,Ghana,GHA,FW,Crystal Palace,23,1575000
+34862786,Tyrick Bodak,t-bodak,Curacao,CUW,GK,Telstar,24,
+34872776,Jacen Russell-Rowe,j-russell-rowe,Canada,CAN,FW,Toulouse,23,17967600
+35659846,Alistair Johnston,a-johnston,Canada,CAN,DF,Celtic,27,2214000
+35671501,Wilguens Paugain,w-paugain,Haiti,HTI,DF,Zulte-Waregem,24,1995000
+35709049,Mohamed Belhadj Mahmoud,mohamed-belhadj-mahmoud,Tunisia,TUN,MF,Lugano,26,1575000
+36084791,Oswin Appollis,o-appollis,South Africa,ZAF,FW,Orlando Pirates,24,3255000
+36085414,José Andrés Hurtado,j-hurtado-cheme,Ecuador,ECU,DF,Bragantino,24,2221800
+36105897,Mahmoud Saber,m-saber,Egypt,EGY,MF,ZED FC,24,2415000
+36470086,Ibrahim Adel,ibrahim-adel,Egypt,EGY,FW,Al Jazira,25,2994600
+36481539,Marvin Senaya,m-senaya,Ghana,GHA,DF,Auxerre,25,17010000
+36481676,Samú Costa,s-costa,Portugal,POR,MF,Mallorca,25,19530000
+36864344,Shararh,m-abu-zrayq,Jordan,JOR,FW,Raja Casablanca,28,1380000
+36873516,Mauricio,m-magalhaes-prado,Paraguay,PRY,MF,Palmeiras,24,2415000
+37251788,Taha Ali,t-ali,Sweden,SWE,FW,Malmö FF,27,2542000
+37253495,Israel Reyes,i-reyes-romero,Mexico,MEX,DF,América,26,3255000
+37255818,Ramiz Zerrouki,r-zerrouki,Algeria,DZA,MF,FC Twente,28,5750000
+37255840,Jude Bellingham,j-bellingham,England,ENG,MF,Real Madrid,22,9450000
+37257596,Bart Verbruggen,b-verbruggen,Netherlands,NED,GK,Brighton & Hove Albion,23,17010000
+37257612,Souffian El Karouani,s-elkarouani,Morocco,MAR,DF,FC Utrecht,25,6037500
+37259163,Jarell Quansah,j-quansah,England,ENG,DF,Bayer 04 Leverkusen,23,17010000
+37259638,David Affengruber,d-affengruber,Austria,AUT,DF,Elche,25,11970000
+37259654,Patrick Wimmer,p-wimmer,Austria,AUT,FW,VfL Wolfsburg,25,9450000
+37259859,Ahmad Assaf,ahmad-assaf,Jordan,JOR,DF,Al Hussein,26,
+37259977,David Jurásek,d-jurasek,Czech Republic,CZE,DF,Slavia Praha,25,3622500
+37259996,Louicius Deedson,l-deedson,Haiti,HTI,FW,Dallas,25,
+37260638,Nathan Patterson,n-patterson,Scotland,SCO,DF,Everton,24,1635900
+37261082,Elliot Stroud,e-stroud,Sweden,SWE,MF,Mjällby,,
+37261099,Marvin Keller,m-keller,Switzerland,SUI,GK,Young Boys,23,2835000
+37261110,Zeki Amdouni,m-amdouni,Switzerland,SUI,FW,Burnley,25,9450000
+37261342,Johnny Cardoso,j-de-souza-cardoso,United States,USA,MF,Atlético Madrid,24,8694000
+37261430,Juan Cabal,j-cabal-murillo,Colombia,COL,DF,Juventus,25,947100
+37261496,Piero Hincapié,p-hincapie-reyna,Ecuador,ECU,DF,Arsenal,24,9450000
+37261500,Moisés Caicedo,m-caicedo-corozo,Ecuador,ECU,MF,Chelsea,24,19530000
+37261676,Gustavo Caballero,g-caballero,Paraguay,PRY,FW,Portsmouth,24,2994600
+37261879,Mohammad Mohebi,mohammad-mohebi,Iran,IRN,FW,Rostov,27,2214000
+37261923,Emmanuel Agbadou,e-agbadou,Côte d'Ivoire,CIV,DF,Beşiktaş,28,5290000
+37262099,Nuno Mendes,n-mendes,Portugal,POR,DF,Paris Saint Germain,23,11970000
+37264438,Aribim Pepple,aribim-pepple,Canada,CAN,FW,Plymouth Argyle,23,2415000
+37286732,Oscar Bobb,o-bobb,Norway,NOR,FW,Fulham,22,17967600
+37288001,Pedri,p-lopez,Spain,ESP,MF,FC Barcelona,23,14490000
+37288401,Mohamed Emad Aiash,m-emad-37288401,Qatar,QAT,DF,Qatar SC,25,1635900
+37288420,Nawaf Boushal,n-boushal,Saudi Arabia,KSA,DF,Al Nassr,26,1995000
+37289235,Clément Akpa,c-akpa,Côte d'Ivoire,CIV,DF,Auxerre,24,11970000
+37296248,Micky van de Ven,m-van-de-ven,Netherlands,NED,DF,Tottenham Hotspur,25,11970000
+37297124,Abde Ezzalzouli,a-ezzalzouli,Morocco,MAR,FW,Real Betis,24,11970000
+37297544,Nico Williams,n-williams-arthuer,Spain,ESP,FW,Athletic Club,23,19530000
+37308648,El Mehdi Benabid,m-benabid,Morocco,MAR,GK,Wydad Casablanca,28,2700000
+37308650,Mohamed Rabie Hrimat,m-hrimat,Morocco,MAR,MF,FAR Rabat,31,2509760
+37316349,Lukas Cerv,lukas-cerv,Czech Republic,CZE,MF,Viktoria Plzeň,25,3255000
+37316363,Denis Visinsky,denis-visinsky,Czech Republic,CZE,MF,Viktoria Plzeň,23,3255000
+37316487,Ayman Yahya,a-yahya-37316487,Saudi Arabia,KSA,DF,Al Nassr,25,1995000
+37316600,Guela Doué,g-doue,Côte d'Ivoire,CIV,DF,Strasbourg,23,11970000
+37316858,Hannibal,h-mejbri,Tunisia,TUN,MF,Burnley,23,19530000
+37316934,Koni De Winter,k-de-winter,Belgium,BEL,DF,AC Milan,23,17010000
+37317015,Amad Diallo,a-traore,Côte d'Ivoire,CIV,FW,Manchester United,23,19530000
+37317062,Youssef Belammari,y-belammari,Morocco,MAR,DF,Al Ahly,27,1748000
+37317367,Malo Gusto,m-gusto,France,FRA,DF,Chelsea,23,11970000
+37317369,Bradley Barcola,b-barcola,France,FRA,FW,Paris Saint Germain,23,11970000
+37317392,Xavi Simons,x-simons,Netherlands,NED,MF,Tottenham Hotspur,23,14490000
+37317434,Ismael Saibari,i-saibari-ben-el-basra,Morocco,MAR,MF,PSV,25,6037500
+37324825,Saleh Hardani,saleh-hardani,Iran,IRN,DF,Esteghlal,27,1100000
+37326087,Marcelo Flores,m-flores,Canada,CAN,FW,Tigres UANL,22,1575000
+37328006,Francisco Conceição,f-conceicao,Portugal,POR,FW,Juventus,23,19530000
+37328095,Aurèle Amenda,a-amenda,Switzerland,SUI,DF,Eintracht Frankfurt,22,11970000
+37336786,Besfort Zeneli,b-zeneli,Sweden,SWE,MF,Union Saint-Gilloise,23,3255000
+37336960,Ivan Basic,ivan-basic,Bosnia and Herzegovina,BIH,MF,Astana,24,1635900
+37336994,Ar'jany Martha,arjany-martha,Curacao,CUW,FW,Rotherham United,22,1575000
+37341835,Ben Old,b-old,New Zealand,NZL,FW,Saint-Étienne,23,1575000
+37341836,Marko Stamenić,m-stamenic,New Zealand,NZL,MF,Swansea City,24,1575000
+37341839,Jesse Randall,jesse-randall,New Zealand,NZL,FW,Auckland,23,1575000
+37341905,John Mercado,john-mercado,Ecuador,ECU,FW,Sparta Praha,24,3255000
+37341910,Pedro Vite,p-vite-uca,Ecuador,ECU,MF,Pumas UNAM,24,1575000
+37342694,Pape Matar Sarr,p-sarr,Senegal,SEN,MF,Tottenham Hotspur,23,19530000
+37342718,Han-beom Lee,h-lee,Korea Republic,KOR,DF,FC Midtjylland,23,7087500
+37342720,Tae-seok Lee,t-lee-37342720,Korea Republic,KOR,DF,Pohang Steelers,23,2415000
+37342723,Ji-sung Eom,j-eom,Korea Republic,KOR,FW,Swansea City,24,3255000
+37350663,Finn Surman,f-surman,New Zealand,NZL,DF,Portland Timbers,22,1449000
+37350704,Adam Wharton,a-wharton,England,ENG,MF,Crystal Palace,22,19530000
+37352773,Ahmed Qasem,a-qasem,Iraq,IRQ,FW,Nashville SC,22,1449000
+37354634,Khalid Ali Sabah,k-sabah,Qatar,QAT,FW,Al Sailiya,24,2994600
+37356289,Henrik Falchener,h-falchener,Norway,NOR,MF,Viking,,1886000
+37356526,Dominique Celidor Simon,dominique-celidor-simon,Haiti,HTI,MF,Dinamo Tbilisi,25,1155000
+37357411,Anis Slimane,a-slimane,Tunisia,TUN,MF,Norwich City,25,1449000
+37359724,Nishan Velupillay,n-velupillay,Australia,AUS,FW,Melbourne Victory,25,1995000
+37359803,Mohamed Touré,m-toure-37359803,Australia,AUS,FW,Norwich City,22,1995000
+37361402,Alessandro Circati,a-circati,Australia,AUS,DF,Parma,22,17010000
+37361490,Sohaib Naïr,s-nair,Algeria,DZA,DF,Guingamp,24,3255000
+37365874,Zidane Iqbal,z-iqbal,Iraq,IRQ,MF,FC Utrecht,23,2669100
+37368045,Fiston Mayele,f-kalala-mayele,Congo DR,COD,FW,Pyramids FC,31,2728000
+37388628,Marwan Ateya,m-attia,Egypt,EGY,MF,Al Ahly,27,1380000
+37389528,Jassem Gaber,j-abdulsallam,Qatar,QAT,MF,Al Rayyan,24,1449000
+37389556,Saed Al-Rosan,saed-al-rosan,Jordan,JOR,DF,Al Hussein,29,1558000
+37391576,Thelo Aasgaard,t-aasgaard,Norway,NOR,MF,Rangers,24,1995000
+37391641,Daniel Jebbison,d-jebbison,Canada,CAN,FW,Preston North End,22,1575000
+37392896,Thalente Mbatha,t-mbatha,South Africa,ZAF,MF,Orlando Pirates,26,3255000
+37395343,Nawaf Al-Aqidi,n-alaqidi,Saudi Arabia,KSA,GK,Al Nassr,26,1062600
+37397144,Robin Roefs,r-roefs,Netherlands,NED,GK,Sunderland,23,17010000
+37397347,Damián Bobadilla,d-bobadilla,Paraguay,PRY,MF,São Paulo,24,2608200
+37400393,Dailon Livramento,d-rocha-livramento-do-rosario,Cape Verde Islands,CPV,FW,Casa Pia,25,8137500
+37400484,Yerson Mosquera,y-mosquera,Colombia,COL,DF,Wolverhampton Wanderers,25,17010000
+37400489,Jearl Margaritha,j-margaritha,Curacao,CUW,FW,SK Beveren,26,1575000
+37402303,Ramón Sosa,r-sosa,Paraguay,PRY,FW,Palmeiras,26,3255000
+37402349,Richard Ríos,r-rios,Colombia,COL,MF,Benfica,26,8137500
+37407204,Igor Thiago,thiago-37407204,Brazil,BRA,FW,Brentford,24,11970000
+37407279,Sebastian Berhalter,s-berhalter,United States,USA,MF,Vancouver Whitecaps,25,1449000
+37407284,Alidu Seidu,a-seidu,Ghana,GHA,DF,Rennes,26,9450000
+37407422,Daniel Svensson,d-svensson,Sweden,SWE,DF,Borussia Dortmund,24,9450000
+37410398,Juan José Cáceres,j-caceres,Paraguay,PRY,DF,Dinamo Moskva,26,1291500
+37412415,Mohamed Abdelmonem,m-abdelmonem,Egypt,EGY,DF,Nice,27,10488000
+37417027,Igor Matanovic,i-matanovic,Croatia,CRO,FW,SC Freiburg,23,17010000
+37420363,Young-woo Seol,seol-young-woo,Korea Republic,KOR,DF,Crvena Zvezda,27,1748000
+37422888,Amer Jamous,amer-jamous,Jordan,JOR,MF,Al Wihdat,23,1635900
+37422928,Yuito Suzuki,y-suzuki,Japan,JPN,FW,SC Freiburg,24,19530000
+37423161,Anthony Valencia,a-valencia,Ecuador,ECU,FW,Antwerp,22,1995000
+37429017,Steve Kapuadi,s-kapuadi,Congo DR,COD,DF,Legia Warszawa,28,2300000
+37429246,Florian Wirtz,f-wirtz,Germany,GER,MF,Liverpool,23,9450000
+37430769,Mohamed Amoura,m-amoura,Algeria,DZA,FW,VfL Wolfsburg,26,9450000
+37438632,Evidence Makgopa,e-makgopa,South Africa,ZAF,FW,Orlando Pirates,26,3255000
+37438667,Kamaldeen Sulemana,k-sulemana,Ghana,GHA,FW,Atalanta,24,9450000
+37447182,Moteb Al-Harbi,moteb-al-harbi,Saudi Arabia,KSA,DF,Al Hilal,26,1575000
+37451396,Brian Gutiérrez,b-gutierrez,Mexico,MEX,MF,Guadalajara,22,3255000
+37452955,Tyrese Noslin,t-noslin-37452955,Curacao,CUW,MF,Telstar,23,4987500
+37459030,Gavi,pablo-gaviria,Spain,ESP,MF,FC Barcelona,21,14219520
+37459056,Nathan Ngoy,n-ngoy,Belgium,BEL,DF,LOSC Lille,23,11970000
+37459060,Zeno Debast,z-debast,Belgium,BEL,DF,Sporting CP,22,7087500
+37459072,Lewis Hall,l-hall,England,ENG,DF,Newcastle United,21,12768000
+37508678,Parfait Guiagon,p-guiagon,Côte d'Ivoire,CIV,FW,Sporting Charleroi,25,1575000
+37509454,Abbosbek Fayzullaev,a-fayzullayev,Uzbekistan,UZB,MF,İstanbul Başakşehir,22,4987500
+37514124,Benjamin Tahirović,b-tahirovic,Bosnia and Herzegovina,BIH,MF,Brøndby IF,23,1980300
+37514185,Marko Farji,marko-farji,Iraq,IRQ,FW,Venezia,22,1995000
+37515551,Khusayin Norchaev,khusayin-norchaev,Uzbekistan,UZB,FW,Nasaf,24,947100
+37521190,Sondre Langås,s-langas,Norway,NOR,DF,Derby County,25,3255000
+37521581,Ardon Jashari,a-jasari,Switzerland,SUI,MF,AC Milan,23,15649200
+37522757,Telmo Arcanjo,t-gomes-arcanjo,Cape Verde Islands,CPV,FW,Vitória Guimarães,24,3937500
+37522785,Gonçalo Inácio,g-inacio,Portugal,POR,DF,Sporting CP,24,3937500
+37526008,Luiz Henrique,l-rosa-da-silva,Brazil,BRA,FW,Brazil,25,2669100
+37526157,Yasin Ayari,y-ayari,Sweden,SWE,MF,Brighton & Hove Albion,22,19530000
+37526506,Merchas Doski,merchas-doski,Iraq,IRQ,DF,Viktoria Plzeň,26,1575000
+37527137,Chris Brady,c-brady,United States,USA,GK,Chicago Fire,22,2608200
+37528713,Hossam Abdelmaguid,h-abdelmaguid,Egypt,EGY,DF,Zamalek,25,3255000
+37528761,Jens Castrop,j-castrop,Korea Republic,KOR,MF,Borussia Mönchengladbach,22,11970000
+37528875,Jayden Adams,j-adams,South Africa,ZAF,MF,Mamelodi Sundowns,25,3255000
+37528964,Ziyad Al-Johani,z-aljohani,Saudi Arabia,KSA,MF,Al Ahli,24,3255000
+37529350,Patrick Yazbek,p-yazbek,Australia,AUS,MF,Nashville SC,24,1449000
+37529525,Tarik Muharemović,t-muharemovic,Bosnia and Herzegovina,BIH,DF,Sassuolo,23,11970000
+37530277,Raúl Rangel,j-rangel-aguilar,Mexico,MEX,GK,Mexico,26,2835000
+37530791,Jaouen Hadjam,j-hadjam,Algeria,DZA,DF,Young Boys,23,2835000
+37530901,Maghnes Akliouche,m-akliouche,France,FRA,FW,France,24,9450000
+37532344,Mamadou Sarr,m-sarr,Senegal,SEN,DF,Chelsea,20,18144000
+37533413,Danilo,d-dos-santos-de-oliveira,Brazil,BRA,MF,Botafogo,25,2324700
+37533560,Ange-Yoan Bonny,a-bonny,Côte d'Ivoire,CIV,FW,Inter,22,9450000
+37536482,Farès Chaïbi,f-chaibi,Algeria,DZA,MF,Eintracht Frankfurt,23,14490000
+37537131,Mohamed Koné,m-kone-37537131,Côte d'Ivoire,CIV,GK,Sporting Charleroi,24,2835000
+37537580,Agustín Álvarez,a-alvarez-martinez,Uruguay,URU,FW,Sassuolo,25,9450000
+37537859,Owen Goodman,owen-goodman,Canada,CAN,GK,Barnsley,22,2835000
+37537937,Chadi Riad,c-riad,Morocco,MAR,DF,Crystal Palace,22,17967600
+37538035,Nathaniel Brown,n-brown,Germany,GER,DF,Eintracht Frankfurt,22,17010000
+37538779,Alan Minda,a-minda-garcia,Ecuador,ECU,FW,Atlético Mineiro,23,1575000
+37540234,Kobbie Mainoo,k-mainoo,England,ENG,MF,Manchester United,21,18144000
+37540621,Nicolas Jackson,n-jackson,Senegal,SEN,FW,FC Bayern München,24,11970000
+37540713,Mohamed Al-Mannai,m-almanai,Qatar,QAT,MF,Al Shamal SC,22,2415000
+37540758,Brian Cipenga,brian-cipenga,Congo DR,COD,FW,Castellón,28,1500000
+37540780,Zakaria El Ouahdi,z-el-ouahdi,Morocco,MAR,DF,Genk,24,3255000
+37541130,Youssef Amyn,y-amyn,Iraq,IRQ,FW,AEK Larnaca,22,1995000
+37541437,Oussama Targhalline,o-targhalline,Morocco,MAR,MF,Feyenoord,24,8137500
+37541438,Bamba Dieng,bamba-dieng,Senegal,SEN,FW,Lorient,26,9450000
+37543226,Toni Fruk,toni-fruk,Croatia,CRO,MF,Rijeka,25,2835000
+37543437,Mehdi Dorval,e-dorval,Algeria,DZA,DF,Bari 1908,25,3255000
+37545384,Máximo Perrone,m-perrone,Argentina,ARG,MF,Como,23,9450000
+37546144,Kevin Castaño,k-castano-gil,Colombia,COL,MF,River Plate,25,
+37547164,Hélio Varela,h-oliveira-alves-varela,Cape Verde Islands,CPV,FW,Gent,24,3255000
+37547355,Renaldo Leaner,r-leaner,South Africa,ZAF,GK,Sekhukhune United,28,2700000
+37547467,Arda Güler,a-guler,Türkiye,TUR,MF,Real Madrid,21,15456000
+37547842,Armando González,a-gonzalez-alba,Mexico,MEX,FW,Mexico,23,1575000
+37548017,Ahmed Kouka,a-ashour,Egypt,EGY,MF,Al Ahly,24,1835400
+37548268,Azarias Londoño,azarias-londono,Panama,PAN,FW,Universidad Católica,24,1062600
+37548285,El Mehdi Al Harrar,m-harrar,Morocco,MAR,GK,Raja Casablanca,25,2835000
+37548535,Nadhir Benbouali,nadhir-benbouali,Algeria,DZA,FW,Győri ETO,26,1635900
+37550680,Martin Baturina,m-baturina,Croatia,CRO,MF,Como,23,19530000
+37550882,Manaf Younis,manaf-younis,Iraq,IRQ,DF,Al Shorta,29,902000
+37551076,Nathan-Dylan Saliba,n-saliba,Canada,CAN,MF,Anderlecht,22,3255000
+37551089,Marc Pubill,m-pubill-pages,Spain,ESP,DF,Atlético Madrid,22,13330800
+37551389,Tshepang Moremi,t-moremi,South Africa,ZAF,FW,Orlando Pirates,25,1995000
+37551591,Abdalla Yousif,a-yousif,Qatar,QAT,DF,Al Rayyan,24,1995000
+37552296,José Manuel López,j-lopez,Argentina,ARG,FW,Palmeiras,25,3255000
+37552408,Tete Yengi,t-yengi,Australia,AUS,FW,Machida Zelvia,25,1995000
+37554638,T. Hayakawa,t-hayakawa,Japan,JPN,GK,Japan,27,1100000
+37555815,Andreas Schjelderup,a-schjelderup,Norway,NOR,FW,Benfica,22,7087500
+37555816,Simon Adingra,s-adingra,Côte d'Ivoire,CIV,FW,Monaco,24,13330800
+37559109,Bilal El Khannouss,b-el-khannous,Morocco,MAR,MF,VfB Stuttgart,22,9450000
+37559224,Mohamed Surag,m-surag,Qatar,QAT,FW,Al Rayyan,23,1835400
+37559583,Sidny Cabral,s-lopes-cabral,Cape Verde Islands,CPV,DF,Benfica,23,4987500
+37560881,Rafik Belghali,r-belghali,Algeria,DZA,DF,Hellas Verona,24,17010000
+37560897,Issahaku Fatawu,a-issahaku,Ghana,GHA,FW,Leicester City,22,1575000
+37561373,Jehad Thakri,j-abdullatif-ahm,Saudi Arabia,KSA,DF,Al-Qadsiah,24,1995000
+37561621,Gi-hyuk Lee,g-lee-37561621,Korea Republic,KOR,DF,Gangwon,25,1449000
+37562127,Matías Galarza Fonda,m-galarza-fonda,Paraguay,PRY,MF,Atlanta United,24,1835400
+37562153,Musab Al-Juwayr,m-aljuwayr,Saudi Arabia,KSA,MF,Al-Qadsiah,22,1575000
+37562487,Nico O'Reilly,n-oreilly,England,ENG,DF,Manchester City,21,10080000
+37563550,Hyun-jun Yang,h-yang,Korea Republic,KOR,FW,Celtic,24,3255000
+37563842,Agustín Giay,a-giay,Argentina,ARG,DF,Palmeiras,22,1575000
+37563876,Diego Gómez,d-gomez-amarilla,Paraguay,PRY,MF,Brighton & Hove Albion,23,9450000
+37563897,Yaimar Medina,y-medina-ortiz,Ecuador,ECU,DF,Genk,21,3472000
+37564774,Benchimol,benchimol,Cape Verde Islands,CPV,FW,Akron,24,1291500
+37565351,Livano Comenencia,livano-comenencia,Curacao,CUW,DF,Zürich,22,1575000
+37566137,Ismaël Gharbi,i-gharbi,Tunisia,TUN,FW,FC Augsburg,22,11970000
+37566820,Mohannad Abu Taha,mohannad-abu-taha,Jordan,JOR,DF,,23,
+37567008,Abdallah Nasib,abdallah-nasib,Jordan,JOR,DF,Al Zawra'a,32,1371040
+37567350,Nilson Angulo,n-angulo-ramirez,Ecuador,ECU,FW,Sunderland,22,11970000
+37568064,Ruslanbek Jiyanov,ruslanbek-jiyanov,Uzbekistan,UZB,FW,FK Nizjni Novgorod,25,
+37568172,Tomás Palacios,t-palacios,Argentina,ARG,DF,Estudiantes,23,1449000
+37569271,Antoine Mendy,a-mendy,Senegal,SEN,DF,Nice,22,11970000
+37569331,Obed Vargas,o-vaargas,Mexico,MEX,MF,Atlético Madrid,20,16692480
+37569765,Promise David,p-akinpelu,Canada,CAN,FW,Union Saint-Gilloise,24,1995000
+37570133,Luciano Valente,l-valente,Netherlands,NED,MF,Feyenoord,22,3937500
+37570289,Samed Bazdar,samed-bazdar,Bosnia and Herzegovina,BIH,FW,Real Zaragoza,22,1575000
+37570379,Antonio Nusa,a-nordby-nusa,Norway,NOR,FW,RB Leipzig,21,20832000
+37571435,Ante Suto,a-uto,Australia,AUS,FW,Hibernian,25,1575000
+37576529,Amar Memic,amar-memic,Bosnia and Herzegovina,BIH,MF,Viktoria Plzeň,25,2835000
+37577657,Giuliano Simeone,g-simeone,Argentina,ARG,FW,Atlético Madrid,23,11970000
+37577727,Valentín Barco,v-barco,Argentina,ARG,MF,Strasbourg,21,12768000
+37578441,Gustavo Puerta,gustavo-puerta,Colombia,COL,MF,Racing Santander,22,1575000
+37579270,Amirhossein Mahmoudi,amirhossein-mahmoudi,Iran,IRN,FW,Persepolis,27,
+37579757,Elias Saad,e-saad,Tunisia,TUN,FW,Hannover 96,26,17967600
+37579972,Anis Hadj Moussa,a-hadj-moussa,Algeria,DZA,FW,Feyenoord,24,8137500
+37581338,Yassine Titraoui,y-titraoui,Algeria,DZA,MF,Sporting Charleroi,22,2415000
+37581522,Rayan Hamed,r-hamidou,Saudi Arabia,KSA,DF,Al Ahli,24,1995000
+37581727,Luc De Fougerolles,l-de-fougerolles,Canada,CAN,DF,Dender,20,2576000
+37581992,Habib Diarra,m-diarra,Senegal,SEN,MF,Sunderland,22,19530000
+37582044,Aleksandar Pavlovic,a-pavlovi,Germany,GER,MF,FC Bayern München,22,19530000
+37582045,Paul Wanner,p-wanner,Austria,AUT,MF,PSV,20,6955200
+37582178,Ismaël Koné,i-kone,Canada,CAN,MF,Sassuolo,23,9450000
+37582479,Edgardo Fariña,edgardo-farina,Panama,PAN,DF,FK Nizjni Novgorod,24,2994600
+37582638,Umarali Rakhmonaliev,umarali-rakhmonaliev,Uzbekistan,UZB,MF,Sabah,22,1062600
+37582883,Redouane Halhal,r-halhal,Morocco,MAR,DF,Mechelen,23,1995000
+37583299,Adil Boulbina,a-boulebina,Algeria,DZA,FW,Al Duhail,23,1575000
+37583696,Esmir Bajraktarevic,e-bajraktarevic,Bosnia and Herzegovina,BIH,FW,PSV,21,8680000
+37583966,Thabang Matuludi,t-matuludi,South Africa,ZAF,DF,Polokwane City,27,2300000
+37585365,Prince Adu,prince-adu,Ghana,GHA,FW,Viktoria Plzeň,22,1575000
+37586867,Wagner Pina,w-cardoso-pina,Cape Verde Islands,CPV,DF,Trabzonspor,23,7087500
+37588483,Ayoube Amaimouni-Echghouyab,a-amaimouni-echghouyab,Morocco,MAR,FW,Eintracht Frankfurt,21,10080000
+37589293,Ermin Mahmic,e-mahmi,Bosnia and Herzegovina,BIH,MF,Slovan Liberec,21,1680000
+37590621,Mike Penders,m-penders,Belgium,BEL,GK,Strasbourg,20,18144000
+37590634,Chemsdine Talbi,c-talbi,Morocco,MAR,FW,Sunderland,21,10080000
+37590938,Désiré Doué,d-doue,France,FRA,FW,Paris Saint Germain,21,10080000
+37591823,Farès Ghedjemis,fares-ghedjemis,Algeria,DZA,FW,Frosinone,23,3255000
+37592142,Ahmed Al-Rawi,a-al-rawi,Qatar,QAT,FW,Qatar SC,22,2221800
+37592228,Cristhian Mosquera,c-mosquera,Spain,ESP,DF,Arsenal,21,12768000
+37592729,João Neves,j-goncalves-neves,Portugal,POR,MF,Paris Saint Germain,21,15456000
+37592734,Diego Moreira,d-da-silva-moreira,Belgium,BEL,MF,Strasbourg,21,15456000
+37592951,Oumar Diakité,o-diakite,Côte d'Ivoire,CIV,FW,Cercle Brugge,22,3255000
+37593154,Renato Veiga,r-palma-veiga,Portugal,POR,DF,Villarreal,22,9450000
+37593237,Warren Zaïre-Emery,w-zaire-emery,France,FRA,MF,Paris Saint Germain,20,15456000
+37594329,Augustine Boakye,a-boakye,Ghana,GHA,FW,Saint-Étienne,25,1575000
+37594544,Stepan Chaloupek,chaloupek,Czech Republic,CZE,DF,Slavia Praha,23,1575000
+37594798,Nestory Irankunda,n-irankunda,Australia,AUS,FW,Watford,20,1680000
+37595363,Denil Castillo,d-castillo,Ecuador,ECU,MF,FC Midtjylland,22,4987500
+37595819,Víctor Muñoz,v-munoz-villanueva,Spain,ESP,FW,Osasuna,22,11970000
+37596363,Fermín López,f-lopez-marin,Spain,ESP,MF,FC Barcelona,23,9450000
+37596384,Nico Paz,n-paz-martinez,Argentina,ARG,MF,Como,21,15456000
+37598258,Abdelrahman Moustafa,a-moustafa,Qatar,QAT,FW,Al-Ahli Doha,29,1748000
+37598601,Al-Hashmi Al-Hussain,e-el-hussain-mohi-aldin,Qatar,QAT,DF,Al-Arabi SC,22,
+37598617,Nabil Irfan,n-irfan,Qatar,QAT,DF,Al Wakrah,22,1995000
+37598725,Kenan Yıldız,k-yildiz,Türkiye,TUR,FW,Juventus,21,10080000
+37598726,Can Uzun,c-uzun,Türkiye,TUR,MF,Eintracht Frankfurt,20,10080000
+37599458,Cristian Volpato,c-volpato,Australia,AUS,MF,Sassuolo,22,14490000
+37600243,Jorrel Hato,j-hato,Netherlands,NED,DF,Chelsea,20,15456000
+37600244,Mohammad Ghorbani,mohammad-ghorbani,Iran,IRN,MF,Al Wahda,25,3255000
+37601811,Arya Yousefi,arya-yousefi,Iran,IRN,DF,Sepahan,24,1995000
+37602125,Ben Gannon-Doak,b-doak,Scotland,SCO,FW,AFC Bournemouth,20,18144000
+37603157,Hazem Mastouri,hazem-mastouri,Tunisia,TUN,FW,Dynamo Makhachkala,28,1500000
+37607151,Lucas Bergvall,l-bergvall,Sweden,SWE,MF,Tottenham Hotspur,20,10080000
+37608935,Robin Risser,r-risser,France,FRA,GK,Lens,21,16692480
+37608995,Wesley,w-franca-lima,Brazil,BRA,DF,Roma,22,17010000
+37609471,Luca Jaquez,l-jaquez,Switzerland,SUI,DF,VfB Stuttgart,23,17967600
+37611555,Andrés Gómez,a-gomez,Colombia,COL,FW,Vasco da Gama,23,1995000
+37611899,Paul Okon-Engstler,paul-okon-engstler,Australia,AUS,MF,Sydney,21,1680000
+37611902,Joaquin Seys,j-seys,Belgium,BEL,DF,Club Brugge,21,2576000
+37612035,Kees Smit,k-smit,Netherlands,NED,MF,AZ,20,6440000
+37612542,Dean Huijsen,d-huijsen,Spain,ESP,DF,Real Madrid,21,10080000
+37614052,Ernest Nuamah,e-appiah-nuamah,Ghana,GHA,FW,Olympique Lyonnais,22,11970000
+37614088,Jeremy Arévalo,j-arevalo-mera,Ecuador,ECU,FW,VfB Stuttgart,21,10080000
+37614807,Tani Oluwaseyi,t-oluwaseyi,Canada,CAN,FW,Villarreal,26,19530000
+37616125,Ibrahim Sulemana,i-sulemana,Ghana,GHA,MF,Cagliari,23,19530000
+37616318,Junnosuke Suzuki,j-suzuki-37616318,Japan,JPN,DF,FC København,22,3228750
+37618295,Deveron Fonville,d-fonville,Curacao,CUW,DF,NEC Nijmegen,23,6037500
+37618320,Patrick Beach,p-beach,Australia,AUS,GK,Melbourne City,22,2835000
+37618415,Joel Ordóñez,j-ordonez-guerrero,Ecuador,ECU,DF,Club Brugge,22,3255000
+37618570,Ousmane Diomande,o-diomande,Côte d'Ivoire,CIV,DF,Sporting CP,22,3937500
+37618713,Thapelo Maseko,thapelo-maseko,South Africa,ZAF,FW,Mamelodi Sundowns,22,1635900
+37620568,Bryan Ramírez,b-ramirez-leon,Ecuador,ECU,FW,Cincinnati,25,2994600
+37621326,Jun-ho Bae,j-bae,Korea Republic,KOR,MF,Stoke City,22,1575000
+37622054,Wi-je Cho,w-cho,Korea Republic,KOR,DF,Jeonbuk Motors,24,1449000
+37622162,Nobel Mendy,n-mendy-37622162,Senegal,SEN,DF,Rayo Vallecano,21,18144000
+37622976,K. Sebelebele,k-sebelebele,South Africa,ZAF,FW,Orlando Pirates,23,1575000
+37623379,Alex Freeman,a-freeman,United States,USA,DF,Villarreal,21,10080000
+37623459,Abdukodir Khusanov,a-khusanov,Uzbekistan,UZB,DF,Manchester City,22,17010000
+37625540,Diyor Ortikboev,diyor-ortikboev,Uzbekistan,UZB,DF,Pakhtakor,,
+37625767,Gianluca Prestianni,g-prestianni-gross,Argentina,ARG,FW,Benfica,20,6440000
+37625843,Max Arfsten,m-arfsten,United States,USA,FW,Columbus Crew,25,1575000
+37625846,Ali Ahmed,a-ahmed,Canada,CAN,MF,Norwich City,25,3255000
+37626887,Sherzod Esanov,sherzod-esanov,Uzbekistan,UZB,MF,Dinamo Brest,23,947100
+37627691,Kevin Rodríguez,k-rodriguez-cortez,Ecuador,ECU,FW,Union Saint-Gilloise,26,2415000
+37630179,Noah Sadiki,n-sadiki,Congo DR,COD,MF,Sunderland,21,12768000
+37633249,Jonas Adjetey,j-adjei-adjetey,Ghana,GHA,DF,VfL Wolfsburg,22,11970000
+37633774,Gessime Yassine,g-yassine,Morocco,MAR,FW,Strasbourg,20,9273600
+37636090,Issa Laye,g-laye,Qatar,QAT,DF,Al-Arabi SC,28,2484000
+37642676,Lamine Camara,l-camara,Senegal,SEN,MF,Monaco,22,11970000
+37644701,Keisuke Goto,k-goto,Japan,JPN,FW,Japan,21,1680000
+37645043,Assan Ouédraogo,f-ouedraogo,Germany,GER,MF,RB Leipzig,20,12768000
+37645189,Yousef Qashi,yousef-qashi,Jordan,JOR,MF,Al Hussein,21,
+37645233,Ibrahim Maza,i-maza,Algeria,DZA,MF,Bayer 04 Leverkusen,20,12768000
+37646561,Mohamed Khaled Gouda,m-gouda,Qatar,QAT,FW,Al-Arabi SC,21,2576000
+37646932,Ayoub Al-Oui,a-al-oui,Qatar,QAT,DF,Al Gharafa,21,2576000
+37647009,Endrick,e-moreira-de-sousa,Brazil,BRA,FW,Olympique Lyonnais,19,15456000
+37648771,Marwan Alsahafi,m-al-sahafi,Saudi Arabia,KSA,FW,Antwerp,22,1575000
+37649990,Kerim Alajbegovic,k-alajbegovi,Bosnia and Herzegovina,BIH,FW,Salzburg,18,1680000
+37652750,Matías Fernández-Pardo,m-fernandez-pardo-37652750,Belgium,BEL,FW,LOSC Lille,21,10080000
+37652796,Amin Chiakha,amin-chiakha,Algeria,DZA,FW,Vejle Boldklub,20,7985600
+37656175,Alexandr Sojka,alexandr-sojka,Czech Republic,CZE,MF,Hradec Králové,23,2835000
+37656179,Lamine Yamal,l-yamal-nasraoui-ebana,Spain,ESP,FW,FC Barcelona,18,15456000
+37656322,Mamadou Diakhon,m-diakhon,Senegal,SEN,FW,Club Brugge,20,1680000
+37656475,Rayane Bounida,r-bounida,Morocco,MAR,MF,Ajax,20,7985600
+37656790,Pau Cubarsí,p-cubarsi-paredes,Spain,ESP,DF,FC Barcelona,19,18144000
+37657032,Findlay Curtis,findlay-curtis,Scotland,SCO,FW,Rangers,19,3194240
+37657587,Luka Vuskovic,l-vukovi,Croatia,CRO,DF,Hamburger SV,19,20832000
+37658280,Bazoumana Touré,b-toure,Côte d'Ivoire,CIV,FW,TSG Hoffenheim,20,20832000
+37661377,Deniz Gül,d-gul,Türkiye,TUR,FW,Porto,21,6440000
+37661731,Mateo Chávez,m-chavez-garcia,Mexico,MEX,DF,AZ,22,3937500
+37664151,Olwethu Makhanya,o-makhanya,South Africa,ZAF,DF,Philadelphia Union,22,1835400
+37664964,Lucas Herrington,l-herrington,Australia,AUS,DF,Colorado Rapids,18,2576000
+37667172,Mostafa Mohamed Zaki Abdelraouf,m-zaki-abdelraouf,Egypt,EGY,FW,Pyramids FC,29,3100000
+37667492,Adem Arous,a-arous,Tunisia,TUN,DF,Kasımpaşa,21,7560000
+37668561,Mladen Jurkas,mladen-jurkas,Bosnia and Herzegovina,BIH,GK,Borac Banja Luka,18,
+37668563,Nidal Celik,n-elik,Bosnia and Herzegovina,BIH,DF,Lens,19,11746560
+37668735,Ismaël Baouf,i-baouf,Morocco,MAR,DF,SC Cambuur,19,1680000
+37669542,Raed Chikhaoui,raed-chikhaoui,Tunisia,TUN,DF,US Monastir,,
+37673329,Mohammed Abu Al-Shamat,m-al-shamat,Saudi Arabia,KSA,DF,Al-Qadsiah,23,1995000
+37673330,Naif Masoud,n-masoud,Saudi Arabia,KSA,MF,Al Fateh,25,3255000
+37674290,Assane Diao,a-diao-diaoune,Senegal,SEN,FW,Como,20,10080000
+37676891,Ngal'ayel Mukau,n-mukau,Congo DR,COD,MF,LOSC Lille,21,20832000
+37678433,Kojo Peprah Oppong,k-peprah-oppong,Ghana,GHA,DF,Nice,22,11970000
+37678829,T. Fletcher,t-fletcher,Scotland,SCO,MF,Manchester United,19,
+37679567,Rayan,r-rocha,Brazil,BRA,FW,AFC Bournemouth,19,20832000
+37680617,Lachlan Bayliss,l-bayliss,New Zealand,NZL,MF,Newcastle Jets,23,2835000
+37681576,Johan Manzambi,j-manzambi,Switzerland,SUI,MF,SC Freiburg,20,20832000
+37681890,Ime Okon,i-okon,South Africa,ZAF,DF,Hannover 96,22,19530000
+37682244,Kendry Páez,r-paez-andrade,Ecuador,ECU,MF,River Plate,19,2479680
+37682250,Martín Krug,m-krug,Panama,PAN,DF,Levante,19,
+37682671,Moïse Bombito,m-bombito,Canada,CAN,DF,Nice,26,6930000
+37683059,Petar Sučić,p-sui,Croatia,CRO,MF,Inter,22,11970000
+37684630,Ali Jasim,a-al-tameemi,Iraq,IRQ,FW,Al Najma,22,2835000
+37684682,Ali Al-Azaizeh,a-azaizeh,Jordan,JOR,FW,Al Shabab,22,3255000
+37684728,Mohammad Khalifeh,mohammad-khalife,Iran,IRN,GK,Aluminium Arak,21,1232000
+37684730,Danial Eiri,d-iri,Iran,IRN,DF,Malavan,22,1155000
+37685630,El Hadji Malick Diouf,e-diouf,Senegal,SEN,DF,West Ham United,21,10080000
+37687848,Christopher Bonsu Baah,c-baah,Ghana,GHA,FW,Al-Qadsiah,21,2576000
+37690743,Relebohile Mofokeng,r-ratomo,South Africa,ZAF,FW,Orlando Pirates,21,1680000
+37692095,Samir El Mourabet,s-el-mourabet,Morocco,MAR,MF,Strasbourg,20,15456000
+37694071,Niko Sigur,n-sigur,Canada,CAN,MF,Hajduk Split,22,2994600
+37694961,Abdelhamid Ait Boudlal,abdelhamid-ait-boudlal,Morocco,MAR,DF,Rennes,20,15456000
+37699370,Kento Shiogai,k-shiogai,Japan,JPN,FW,VfL Wolfsburg,21,9273600
+37700573,Amirmohammad Razzaghinia,amirmohammad-razzaghinia,Iran,IRN,MF,Esteghlal,20,2128000
+37700579,Kasra Taheri,kasra-taheri,Iran,IRN,FW,Paykan,19,1010240
+37700629,Tahsin Mohammed Jamshid,t-jamshid,Qatar,QAT,FW,Al Duhail,19,
+37703723,Mustafa Saadoon,mustafa-saadoon,Iraq,IRQ,DF,Al Shorta,25,1635900
+37707615,Samukelo Kabini,s-kabini,South Africa,ZAF,MF,Molde,,
+37708644,Tyler Bindon,t-bindon,New Zealand,NZL,DF,Sheffield United,21,1680000
+37709599,Said El Mala,s-el-mala,Germany,GER,FW,FC Köln,19,12768000
+37710344,Ibrahim Sabra,i-abdallah-sabra,Jordan,JOR,FW,Göztepe,20,5924800
+37712012,Emmanuel Agyei,emmanuel-agyei,Ghana,GHA,MF,Ashdod,21,1545600
+37717176,Ayyoub Bouaddi,a-bouaddi,Morocco,MAR,MF,LOSC Lille,18,12768000
+37721019,Murad Al-Hawsawi,m-al-hawsawi,Saudi Arabia,KSA,MF,Al Hilal,25,1835400
+37726575,Ibrahim Mbaye,i-mbaye,Senegal,SEN,FW,Paris Saint Germain,18,20832000
+37727448,Tarek Alaa,t-alaa,Egypt,EGY,DF,ZED FC,24,1155000
+37729623,Franco Mastantuono,f-mastantuono,Argentina,ARG,FW,Real Madrid,18,10080000
+37734713,Benjamin Asare,benjamin-asare,Ghana,GHA,GK,Ghana,33,
+37734969,Akam Hashem,akam-hashem,Iraq,IRQ,DF,Al Zawra'a,27,1748000
+37739178,Yassir Zabiri,m-zabiri,Morocco,MAR,FW,Rennes,21,9273600
+37739232,Gilberto Mora,g-mora-zambrano,Mexico,MEX,MF,Mexico,17,2576000
+37740949,Abdulla Abdullaev,abdulla-abdullaev-37740949,Uzbekistan,UZB,MF,Pakhtakor,28,
+37758643,Rayan Elloumi,r-elloumi,Tunisia,TUN,FW,Vancouver Whitecaps,18,
+37760511,Khulumani Ndamane,k-ndamase,South Africa,ZAF,DF,Mamelodi Sundowns,22,1449000
+37761103,Christ Inao Oulaï,c-inao-oulai,Côte d'Ivoire,CIV,MF,Trabzonspor,20,4200000
+37762150,Caleb Yirenkyi,c-yirenkyi,Ghana,GHA,MF,Nordsjælland,20,5320000
+37778425,Sardorbek Bakhromov,sardorbek-bakhromov,Uzbekistan,UZB,FW,Nasaf,21,1010240
+37778700,Odeh Fakhouri,o-shehade-fakhoury,Jordan,JOR,FW,Pyramids FC,20,
+37785698,Mohamed Alaa,m-alaa,Egypt,EGY,GK,El Gounah,26,2835000
+37910690,Mbekezeli Mbokazi,m-mbokazi,South Africa,ZAF,DF,Chicago Fire,20,3194240
+37913575,Hamza Abdelkarim,h-abdel-karim,Egypt,EGY,FW,Al Ahly,18,
+37919162,Manu Duah,m-duah,Ghana,GHA,DF,San Diego,21,1545600
+37922937,Yan Diomande,y-diomande,Côte d'Ivoire,CIV,FW,RB Leipzig,19,10080000
+38200201,Kadir Barria,k-barria,Panama,PAN,FW,Botafogo,18,
+38206798,Elías Legendre Quiñónez,elias-legendre,Ecuador,ECU,FW,Rennes,18,
