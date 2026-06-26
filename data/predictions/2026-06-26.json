@@ -195,7 +195,8 @@
     "p_draw": 0.281,
     "p_away_win": 0.404,
     "key_factors": [
-      "強度來源：盤口線（h2h推算）"
+      "強度來源：盤口線（h2h推算）",
+      "⚠️ PM盤口落差 -0.50（PM偏向主隊）"
     ],
     "lambda_home": 1.07,
     "lambda_away": 1.252,
