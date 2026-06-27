@@ -20,7 +20,13 @@
     "ah_edge": 0.036,
     "ou_edge": -0.005,
     "note": "",
-    "max_3way_diff": 0.049
+    "max_3way_diff": 0.049,
+    "actual_score": "1-4",
+    "actual_result": "away",
+    "pm_pick": "away",
+    "pm_correct": true,
+    "model_pick": "away",
+    "model_correct": true
   },
   {
     "date": "2026-06-27",
@@ -43,7 +49,13 @@
     "ah_edge": -0.166,
     "ou_edge": 0.048,
     "note": "",
-    "max_3way_diff": 0.142
+    "max_3way_diff": 0.142,
+    "actual_score": "5-0",
+    "actual_result": "home",
+    "pm_pick": "home",
+    "pm_correct": true,
+    "model_pick": "home",
+    "model_correct": true
   },
   {
     "date": "2026-06-27",

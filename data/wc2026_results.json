@@ -540,6 +540,24 @@
     "round": 3
   },
   {
+    "date": "2026-06-26",
+    "group": "I",
+    "home": "Norway",
+    "away": "France",
+    "home_goals": 1,
+    "away_goals": 4,
+    "round": 3
+  },
+  {
+    "date": "2026-06-26",
+    "group": "I",
+    "home": "Senegal",
+    "away": "Iraq",
+    "home_goals": 5,
+    "away_goals": 0,
+    "round": 3
+  },
+  {
     "date": "2026-06-27",
     "group": "H",
     "home": "Uruguay",

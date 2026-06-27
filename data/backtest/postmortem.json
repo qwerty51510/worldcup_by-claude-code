@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-27T07:17:12Z",
-  "total_matches": 64,
+  "generated_at": "2026-06-27T07:23:01Z",
+  "total_matches": 66,
   "summary": {
-    "ah_accuracy": 0.533,
-    "ou_accuracy": 0.578,
+    "ah_accuracy": 0.548,
+    "ou_accuracy": 0.545,
     "score_exact_match": 8,
-    "avg_goal_total_error": 1.55
+    "avg_goal_total_error": 1.56
   },
   "matches": [
     {
@@ -499,8 +499,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-18",
@@ -784,8 +784,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-22",
@@ -822,8 +822,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-23",
@@ -1149,6 +1149,44 @@
       "ou_correct": true
     },
     {
+      "date": "2026-06-26",
+      "group": "I",
+      "round": 3,
+      "home": "Norway",
+      "away": "France",
+      "predicted_score": "1-2",
+      "actual_score": "1-4",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 1.629,
+      "lambda_away": 2.606,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-26",
+      "group": "I",
+      "round": 3,
+      "home": "Senegal",
+      "away": "Iraq",
+      "predicted_score": "2-1",
+      "actual_score": "5-0",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 2.998,
+      "lambda_away": 1.464,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
       "date": "2026-06-27",
       "group": "H",
       "round": 3,
@@ -1243,6 +1281,14 @@
       "ah_accuracy": 0.667
     },
     {
+      "team": "Senegal",
+      "matches": 3,
+      "pred_goals_avg": 1.33,
+      "actual_goals_avg": 2.67,
+      "goal_bias": -1.33,
+      "ah_accuracy": 0.667
+    },
+    {
       "team": "Mexico",
       "matches": 3,
       "pred_goals_avg": 1.0,
@@ -1281,6 +1327,14 @@
       "actual_goals_avg": 2.33,
       "goal_bias": -1.0,
       "ah_accuracy": 0.0
+    },
+    {
+      "team": "France",
+      "matches": 3,
+      "pred_goals_avg": 2.33,
+      "actual_goals_avg": 3.33,
+      "goal_bias": -1.0,
+      "ah_accuracy": 0.667
     },
     {
       "team": "Portugal",
@@ -1339,35 +1393,11 @@
       "ah_accuracy": 0.333
     },
     {
-      "team": "France",
-      "matches": 2,
-      "pred_goals_avg": 2.5,
-      "actual_goals_avg": 3.0,
-      "goal_bias": -0.5,
-      "ah_accuracy": 0.5
-    },
-    {
-      "team": "Senegal",
-      "matches": 2,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.5,
-      "goal_bias": -0.5,
-      "ah_accuracy": 0.5
-    },
-    {
-      "team": "Norway",
-      "matches": 2,
-      "pred_goals_avg": 3.0,
-      "actual_goals_avg": 3.5,
-      "goal_bias": -0.5,
-      "ah_accuracy": 1.0
-    },
-    {
       "team": "Iraq",
-      "matches": 2,
+      "matches": 3,
       "pred_goals_avg": 1.0,
-      "actual_goals_avg": 0.5,
-      "goal_bias": 0.5,
+      "actual_goals_avg": 0.33,
+      "goal_bias": 0.67,
       "ah_accuracy": 1.0
     },
     {
@@ -1513,6 +1543,14 @@
       "actual_goals_avg": 1.0,
       "goal_bias": -0.33,
       "ah_accuracy": 0.5
+    },
+    {
+      "team": "Norway",
+      "matches": 3,
+      "pred_goals_avg": 2.33,
+      "actual_goals_avg": 2.67,
+      "goal_bias": -0.33,
+      "ah_accuracy": 1.0
     },
     {
       "team": "South Africa",
@@ -1894,8 +1932,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-19",
