@@ -137,7 +137,9 @@ def fetch_espn_odds(local_date: str) -> dict:
     (canonical_home, canonical_away).
     """
     base_dt = datetime.strptime(local_date, "%Y-%m-%d")
-    dates_to_try = [base_dt, base_dt - timedelta(days=1)]
+    # Query yesterday, today, tomorrow — matches fetch_matches() 2-day window
+    # so late-UTC matches (e.g. 21:00 UTC = next ESPN date) are never missed
+    dates_to_try = [base_dt - timedelta(days=1), base_dt, base_dt + timedelta(days=1)]
     result: dict = {}
 
     for dt in dates_to_try:
