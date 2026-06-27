@@ -1,7 +1,7 @@
 {
   "wc_league_avg": 1.8,
   "ah_line_multiplier": 0.28,
-  "ah_brier": 0.2018,
-  "ou_line_multiplier": 0.819,
-  "ou_brier": 0.2812
+  "ah_brier": 0.2149,
+  "ou_line_multiplier": 0.812,
+  "ou_brier": 0.2664
 }

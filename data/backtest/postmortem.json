@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-26T06:48:28Z",
-  "total_matches": 60,
+  "generated_at": "2026-06-27T07:17:12Z",
+  "total_matches": 64,
   "summary": {
-    "ah_accuracy": 0.519,
-    "ou_accuracy": 0.65,
+    "ah_accuracy": 0.533,
+    "ou_accuracy": 0.578,
     "score_exact_match": 8,
-    "avg_goal_total_error": 1.53
+    "avg_goal_total_error": 1.55
   },
   "matches": [
     {
@@ -24,8 +24,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-11",
@@ -116,9 +116,9 @@
       "lambda_home": 1.248,
       "lambda_away": 1.811,
       "ah_pred": "away",
-      "actual_ah": null,
+      "actual_ah": "home",
       "ah_correct": false,
-      "ah_is_push": true,
+      "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
     },
@@ -347,8 +347,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-16",
@@ -477,9 +477,9 @@
       "lambda_home": 1.796,
       "lambda_away": 1.289,
       "ah_pred": "away",
-      "actual_ah": null,
-      "ah_correct": false,
-      "ah_is_push": true,
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
     },
@@ -499,8 +499,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-18",
@@ -537,8 +537,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-19",
@@ -575,8 +575,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-19",
@@ -689,8 +689,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-21",
@@ -822,8 +822,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": false
+      "ou_pred": "over",
+      "ou_correct": true
     },
     {
       "date": "2026-06-23",
@@ -1147,6 +1147,82 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "group": "H",
+      "round": 3,
+      "home": "Uruguay",
+      "away": "Spain",
+      "predicted_score": "0-2",
+      "actual_score": "0-1",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 0.598,
+      "lambda_away": 2.07,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "group": "H",
+      "round": 3,
+      "home": "Cabo Verde",
+      "away": "Saudi Arabia",
+      "predicted_score": "1-0",
+      "actual_score": "0-0",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.293,
+      "lambda_away": 0.685,
+      "ah_pred": "home",
+      "actual_ah": "away",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "group": "G",
+      "round": 3,
+      "home": "New Zealand",
+      "away": "Belgium",
+      "predicted_score": "1-1",
+      "actual_score": "1-5",
+      "score_correct": false,
+      "goal_total_error": 4,
+      "lambda_home": 1.037,
+      "lambda_away": 1.957,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-27",
+      "group": "G",
+      "round": 3,
+      "home": "Egypt",
+      "away": "Iran",
+      "predicted_score": "1-1",
+      "actual_score": "1-2",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.241,
+      "lambda_away": 1.063,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
     }
   ],
   "team_analysis": [
@@ -1156,7 +1232,7 @@
       "pred_goals_avg": 1.0,
       "actual_goals_avg": 2.33,
       "goal_bias": -1.33,
-      "ah_accuracy": 1.0
+      "ah_accuracy": 0.667
     },
     {
       "team": "Germany",
@@ -1196,29 +1272,13 @@
       "pred_goals_avg": 1.0,
       "actual_goals_avg": 2.0,
       "goal_bias": -1.0,
-      "ah_accuracy": 1.0
+      "ah_accuracy": 0.667
     },
     {
       "team": "Sweden",
       "matches": 3,
       "pred_goals_avg": 1.33,
       "actual_goals_avg": 2.33,
-      "goal_bias": -1.0,
-      "ah_accuracy": 0.0
-    },
-    {
-      "team": "Belgium",
-      "matches": 2,
-      "pred_goals_avg": 1.5,
-      "actual_goals_avg": 0.5,
-      "goal_bias": 1.0,
-      "ah_accuracy": 0.0
-    },
-    {
-      "team": "Egypt",
-      "matches": 2,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 2.0,
       "goal_bias": -1.0,
       "ah_accuracy": 0.0
     },
@@ -1263,44 +1323,20 @@
       "ah_accuracy": 0.5
     },
     {
-      "team": "Iran",
-      "matches": 2,
-      "pred_goals_avg": 1.5,
-      "actual_goals_avg": 1.0,
-      "goal_bias": 0.5,
-      "ah_accuracy": null
-    },
-    {
-      "team": "New Zealand",
-      "matches": 2,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.5,
-      "goal_bias": -0.5,
-      "ah_accuracy": 0.0
-    },
-    {
-      "team": "Cabo Verde",
-      "matches": 2,
-      "pred_goals_avg": 0.5,
-      "actual_goals_avg": 1.0,
-      "goal_bias": -0.5,
-      "ah_accuracy": 0.0
-    },
-    {
-      "team": "Saudi Arabia",
-      "matches": 2,
-      "pred_goals_avg": 0.0,
-      "actual_goals_avg": 0.5,
-      "goal_bias": -0.5,
+      "team": "Belgium",
+      "matches": 3,
+      "pred_goals_avg": 1.33,
+      "actual_goals_avg": 2.0,
+      "goal_bias": -0.67,
       "ah_accuracy": 0.5
     },
     {
-      "team": "Uruguay",
-      "matches": 2,
+      "team": "Egypt",
+      "matches": 3,
       "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.5,
-      "goal_bias": -0.5,
-      "ah_accuracy": 0.0
+      "actual_goals_avg": 1.67,
+      "goal_bias": -0.67,
+      "ah_accuracy": 0.333
     },
     {
       "team": "France",
@@ -1447,12 +1483,44 @@
       "ah_accuracy": 0.5
     },
     {
+      "team": "New Zealand",
+      "matches": 3,
+      "pred_goals_avg": 1.0,
+      "actual_goals_avg": 1.33,
+      "goal_bias": -0.33,
+      "ah_accuracy": 0.5
+    },
+    {
+      "team": "Spain",
+      "matches": 3,
+      "pred_goals_avg": 2.0,
+      "actual_goals_avg": 1.67,
+      "goal_bias": 0.33,
+      "ah_accuracy": 0.667
+    },
+    {
+      "team": "Saudi Arabia",
+      "matches": 3,
+      "pred_goals_avg": 0.0,
+      "actual_goals_avg": 0.33,
+      "goal_bias": -0.33,
+      "ah_accuracy": 0.333
+    },
+    {
+      "team": "Uruguay",
+      "matches": 3,
+      "pred_goals_avg": 0.67,
+      "actual_goals_avg": 1.0,
+      "goal_bias": -0.33,
+      "ah_accuracy": 0.5
+    },
+    {
       "team": "South Africa",
       "matches": 3,
       "pred_goals_avg": 0.67,
       "actual_goals_avg": 0.67,
       "goal_bias": 0.0,
-      "ah_accuracy": 0.0
+      "ah_accuracy": 0.333
     },
     {
       "team": "Czechia",
@@ -1460,7 +1528,7 @@
       "pred_goals_avg": 0.67,
       "actual_goals_avg": 0.67,
       "goal_bias": 0.0,
-      "ah_accuracy": 0.5
+      "ah_accuracy": 0.667
     },
     {
       "team": "Paraguay",
@@ -1495,12 +1563,20 @@
       "ah_accuracy": 0.667
     },
     {
-      "team": "Spain",
-      "matches": 2,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.0,
+      "team": "Iran",
+      "matches": 3,
+      "pred_goals_avg": 1.33,
+      "actual_goals_avg": 1.33,
       "goal_bias": 0.0,
-      "ah_accuracy": 0.5
+      "ah_accuracy": 1.0
+    },
+    {
+      "team": "Cabo Verde",
+      "matches": 3,
+      "pred_goals_avg": 0.67,
+      "actual_goals_avg": 0.67,
+      "goal_bias": 0.0,
+      "ah_accuracy": 0.0
     },
     {
       "team": "Algeria",
@@ -1552,8 +1628,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-11",
@@ -1605,6 +1681,25 @@
       "goal_total_error": 2,
       "lambda_home": 1.737,
       "lambda_away": 3.039,
+      "ah_pred": "away",
+      "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-06-13",
+      "group": "C",
+      "round": 1,
+      "home": "Brazil",
+      "away": "Morocco",
+      "predicted_score": "1-1",
+      "actual_score": "1-1",
+      "score_correct": true,
+      "goal_total_error": 0,
+      "lambda_home": 1.248,
+      "lambda_away": 1.811,
       "ah_pred": "away",
       "actual_ah": "home",
       "ah_correct": false,
@@ -1799,8 +1894,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-19",
@@ -2025,6 +2120,25 @@
       "lambda_away": 1.651,
       "ah_pred": "away",
       "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "group": "H",
+      "round": 3,
+      "home": "Cabo Verde",
+      "away": "Saudi Arabia",
+      "predicted_score": "1-0",
+      "actual_score": "0-0",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.293,
+      "lambda_away": 0.685,
+      "ah_pred": "home",
+      "actual_ah": "away",
       "ah_correct": false,
       "ah_is_push": false,
       "ou_pred": "under",
