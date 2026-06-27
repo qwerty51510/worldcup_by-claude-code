@@ -66,7 +66,17 @@
     "ah_edge": 0.173,
     "ou_edge": -0.095,
     "note": "",
-    "max_3way_diff": 0.204
+    "max_3way_diff": 0.204,
+    "actual_score": "0-0",
+    "actual_result": "draw",
+    "dk_ah_line": -0.5,
+    "ah_actual": "loss",
+    "dk_ou_line": 2.5,
+    "ou_actual": "under",
+    "pm_pick": "home",
+    "pm_correct": false,
+    "model_pick": "home",
+    "model_correct": false
   },
   {
     "date": "2026-06-27",
@@ -89,7 +99,17 @@
     "ah_edge": -0.04,
     "ou_edge": 0.075,
     "note": "",
-    "max_3way_diff": 0.017
+    "max_3way_diff": 0.017,
+    "actual_score": "1-2",
+    "actual_result": "away",
+    "dk_ah_line": -0.5,
+    "ah_actual": "loss",
+    "dk_ou_line": 1.5,
+    "ou_actual": "over",
+    "pm_pick": "home",
+    "pm_correct": false,
+    "model_pick": "home",
+    "model_correct": false
   },
   {
     "date": "2026-06-27",
@@ -112,6 +132,16 @@
     "ah_edge": 0.183,
     "ou_edge": -0.095,
     "note": "",
-    "max_3way_diff": 0.107
+    "max_3way_diff": 0.107,
+    "actual_score": "1-5",
+    "actual_result": "away",
+    "dk_ah_line": 2.5,
+    "ah_actual": "loss",
+    "dk_ou_line": 3.5,
+    "ou_actual": "over",
+    "pm_pick": "away",
+    "pm_correct": true,
+    "model_pick": "away",
+    "model_correct": true
   }
 ]
