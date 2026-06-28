@@ -45,6 +45,8 @@ def kelly_size(our_prob: float, market_price: float, bankroll: float) -> float:
     ev = _ev(our_prob, market_price)
     if ev <= 0:
         return 0.0
+    if market_price <= 0 or market_price >= 1:
+        return 0.0
     b = (1.0 / market_price) - 1.0
     q = 1.0 - our_prob
     kelly = (our_prob * b - q) / b

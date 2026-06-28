@@ -19,6 +19,7 @@ pm_ev_scanner.py  —  Polymarket World Cup EV Scanner
 
 import argparse
 import json
+import os
 import statistics
 import subprocess
 import time
@@ -442,8 +443,8 @@ def save_state(opps: list[Opportunity]) -> None:
 # ── 通知 ─────────────────────────────────────────────────────────────────────
 
 ALERT_LOG = Path(__file__).parent.parent / "data" / "backtest" / "pm_ev_alerts.log"
-TG_TOKEN   = "8542040709:AAGG_thtHtwPiLIgyYS3mby3sQEuZ-Q9Pjk"
-TG_CHAT_ID = "-1003850051729"
+TG_TOKEN   = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+TG_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "")
 
 def _payout_lines(p_to: float, suggested: float) -> list[str]:
     """生成對賭賠率說明（以 100 元為例）。"""

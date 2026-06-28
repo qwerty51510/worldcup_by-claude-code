@@ -5,7 +5,7 @@ set -e
 export $(grep -v '^#' .env | xargs)
 
 echo "=== Polymarket Trading Bot ==="
-echo "Wallet: $WALLET_ADDRESS"
+echo "Wallet: ${WALLET_ADDRESS:0:6}...${WALLET_ADDRESS: -4}"
 echo "Bankroll: $BANKROLL"
 echo ""
 

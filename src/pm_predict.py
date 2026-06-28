@@ -79,6 +79,8 @@ def run_once() -> None:
     ts = datetime.now(timezone.utc).isoformat()
     fixtures = _upcoming_fixtures()
     match_probs: dict = {}
+    data = portfolio.load()
+    cal = data["calibration"]["factor"]
     for m in fixtures[:20]:
         home = m.get("homeTeam", {}).get("name", "")
         away = m.get("awayTeam", {}).get("name", "")
@@ -86,7 +88,6 @@ def run_once() -> None:
         if not home or not away:
             continue
         ph, pd, pa = match_win_probs(home, away)
-        cal = portfolio.load()["calibration"]["factor"]
         ph = min(0.99, ph * cal)
         pa = min(0.99, pa * cal)
         pd = max(0.01, 1.0 - ph - pa)
@@ -96,7 +97,6 @@ def run_once() -> None:
             "p_draw": round(pd, 4),
             "p_away_win": round(pa, 4),
         }
-    data = portfolio.load()
     data["match_probs"] = match_probs
     data["model_probs_updated_at"] = ts
     portfolio.save(data)
