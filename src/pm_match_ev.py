@@ -82,9 +82,12 @@ def _fetch_fixtures() -> list:
 
 def _fetch_match_market(home: str, away: str, date_str: str):
     """
-    date_str = "2026-06-28"
-    回傳 {"home_win": 0.58, "draw": 0.26, "away_win": 0.16} 或 None
+    回傳 {
+      "home_win": 0.58, "draw": 0.26, "away_win": 0.16,
+      "token_ids": {"home_win": "0x...", "draw": "0x...", "away_win": "0x..."}
+    } 或 None
     """
+    import json as _json
     h = TEAM_CODES.get(home, "")
     a = TEAM_CODES.get(away, "")
     if not h or not a:
@@ -101,36 +104,44 @@ def _fetch_match_market(home: str, away: str, date_str: str):
         return None
 
     prices = {}
-    import json
+    token_ids = {}
     for m in markets:
         q = m.get("question", "").lower()
         try:
-            outcomes = json.loads(m.get("outcomes", "[]"))
-            raw_prices = json.loads(m.get("outcomePrices", "[]"))
+            raw_prices = _json.loads(m.get("outcomePrices", "[]"))
             yes_price = float(raw_prices[0]) if raw_prices else 0.0
+            clob_ids = _json.loads(m.get("clobTokenIds", "[]"))
+            yes_token = clob_ids[0] if clob_ids else ""
         except Exception:
             continue
 
         if "draw" in q:
             prices["draw"] = yes_price
+            token_ids["draw"] = yes_token
         elif home.lower().split()[0] in q or h in q:
             prices["home_win"] = yes_price
+            token_ids["home_win"] = yes_token
         elif away.lower().split()[0] in q or a in q:
             prices["away_win"] = yes_price
+            token_ids["away_win"] = yes_token
 
     if len(prices) < 3:
-        # fallback: assign by order if question matching failed
-        ordered = []
+        ordered_prices, ordered_tokens = [], []
         for m in markets:
             try:
-                raw = json.loads(m.get("outcomePrices", "[]"))
-                ordered.append(float(raw[0]) if raw else 0.0)
+                raw = _json.loads(m.get("outcomePrices", "[]"))
+                tok = _json.loads(m.get("clobTokenIds", "[]"))
+                ordered_prices.append(float(raw[0]) if raw else 0.0)
+                ordered_tokens.append(tok[0] if tok else "")
             except Exception:
                 pass
-        if len(ordered) == 3:
-            prices = {"home_win": ordered[0], "draw": ordered[1], "away_win": ordered[2]}
+        if len(ordered_prices) == 3:
+            prices = {"home_win": ordered_prices[0], "draw": ordered_prices[1], "away_win": ordered_prices[2]}
+            token_ids = {"home_win": ordered_tokens[0], "draw": ordered_tokens[1], "away_win": ordered_tokens[2]}
 
-    return prices if len(prices) == 3 else None
+    if len(prices) < 3:
+        return None
+    return {**prices, "token_ids": token_ids}
 
 
 def scan(min_ev: float = 0.03) -> list:
@@ -157,11 +168,13 @@ def scan(min_ev: float = 0.03) -> list:
         ev_draw = pd - market["draw"]
         ev_away = pa - market["away_win"]
 
+        token_ids = market.get("token_ids", {})
         entry = {
             "date": date_str,
             "home": home,
             "away": away,
-            "market": market,
+            "market": {k: v for k, v in market.items() if k != "token_ids"},
+            "token_ids": token_ids,
             "model": {"home_win": round(ph, 3), "draw": round(pd, 3), "away_win": round(pa, 3)},
             "ev": {
                 "home_win": round(ev_home, 3),
