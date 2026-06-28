@@ -42,3 +42,17 @@ def test_find_opportunities_falls_back_to_peer_median(tmp_path, monkeypatch):
     matrix = build_matrix(SAMPLE_STAGE_DATA)
     opps = find_opportunities(matrix, min_ev=0.0)
     assert len(opps) > 0
+
+
+def test_find_opportunities_extracts_token_id(tmp_path, monkeypatch):
+    import src.pm_portfolio as pf
+    import src.pm_ev_scanner as scanner
+    monkeypatch.setattr(pf, "PORTFOLIO_PATH", tmp_path / "portfolio.json")
+    # Inject a known token_id into the global cache for Switzerland sf
+    monkeypatch.setitem(scanner._TOKEN_IDS, "sf", {"Switzerland": "tok-abc-123"})
+
+    matrix = build_matrix(SAMPLE_STAGE_DATA)
+    opps = find_opportunities(matrix, min_ev=0.0)
+    swiss_sf = next((o for o in opps if o.team == "Switzerland" and o.to_stage == "sf"), None)
+    assert swiss_sf is not None
+    assert swiss_sf.token_id == "tok-abc-123"

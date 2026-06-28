@@ -268,7 +268,8 @@ def _read_model_prob(team: str, stage: str):
     try:
         import src.pm_portfolio as pf
         return pf.load().get("model_probs", {}).get(team, {}).get(stage)
-    except Exception:
+    except Exception as e:
+        print(f"[pm_ev_scanner] _read_model_prob({team}, {stage}) failed: {e}")
         return None
 
 
@@ -286,7 +287,11 @@ def find_opportunities(matrix: dict, min_ev: float = 0.03) -> list[Opportunity]:
 
             actual_conv  = row["conv"][key]
             peer_med     = _peer_median(matrix, from_s, key, p_from)
-            # 優先用我們的獨立模型機率；無資料時 fallback 到 peer_median
+            # fair_value 有兩種模式（語意不同，需知悉）：
+            #   有 model_probs → fair_value = 獨立 Poisson 模型的無條件晉級概率
+            #   無 model_probs → fair_value = p_from × peer_median（條件概率積估算）
+            # EV = fair_value - p_to 在兩種模式下皆以「市場定價 vs 我方估算」為核心，
+            # 但有 model_probs 時語意更精確（直接比對同一晉級概率空間）。
             _mp = _read_model_prob(team, to_s)
             fair_value   = _mp if _mp is not None else p_from * peer_med
             ev           = fair_value - p_to
