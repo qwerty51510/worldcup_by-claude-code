@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="60">
+<title>交易儀表板</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #080c14;
+  --surface: #0e1523;
+  --card: #131d2e;
+  --border: #1e2d45;
+  --accent: #3b82f6;
+  --gold: #f59e0b;
+  --green: #10b981;
+  --red: #ef4444;
+  --text: #e2e8f0;
+  --muted: #64748b;
+  --radius: 12px;
+}
+body {
+  font-family: "Inter", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { font-size: 1.5rem; }
+.logo-text { font-size: 1.1rem; font-weight: 700; color: var(--text); letter-spacing: -0.3px; }
+.logo-sub { font-size: 0.72rem; color: var(--muted); margin-top: 1px; }
+nav { display: flex; gap: 2px; }
+nav a {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: all 0.15s;
+}
+nav a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+nav a.active { color: var(--accent); background: rgba(59,130,246,0.1); }
+main { max-width: 1200px; margin: 0 auto; padding: 32px 20px; }
+.page-header { margin-bottom: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.page-title { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+.updated-chip {
+  font-size: 0.75rem; color: var(--muted);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 20px; padding: 4px 12px;
+}
+.status-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.75rem; font-weight: 700;
+  padding: 4px 12px; border-radius: 20px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.status-badge.active { background: rgba(16,185,129,0.15); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+.status-badge.halted { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; }
+.active .status-dot { background: var(--green); box-shadow: 0 0 6px var(--green); animation: pulse 2s infinite; }
+.halted .status-dot { background: var(--red); }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+/* ── stat cards ── */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+.stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+.stat-value { font-size: 1.8rem; font-weight: 800; color: var(--text); }
+.stat-value.profit { color: var(--green); }
+.stat-value.loss { color: var(--red); }
+.stat-value.neutral { color: var(--text); }
+/* ── section ── */
+.section { margin-bottom: 28px; }
+.section-title {
+  font-size: 0.85rem; font-weight: 700;
+  color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px;
+  margin-bottom: 12px;
+}
+/* ── table ── */
+.table-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+table { width: 100%; border-collapse: collapse; }
+th {
+  background: var(--surface);
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-bottom: 1px solid var(--border);
+}
+td {
+  padding: 12px 16px;
+  font-size: 0.85rem;
+  border-bottom: 1px solid rgba(30,45,69,0.5);
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,0.02); }
+.empty-row { text-align: center; color: var(--muted); padding: 24px; }
+.team-cell { font-weight: 600; }
+.muted { color: var(--muted); }
+.profit { color: var(--green); font-weight: 600; }
+.loss { color: var(--red); font-weight: 600; }
+.neutral { color: var(--muted); }
+.stage-badge {
+  display: inline-block;
+  background: rgba(59,130,246,0.12);
+  color: var(--accent);
+  border: 1px solid rgba(59,130,246,0.25);
+  border-radius: 6px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.buy-badge {
+  display: inline-block;
+  background: rgba(16,185,129,0.12);
+  color: var(--green);
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: 6px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.sell-badge {
+  display: inline-block;
+  background: rgba(239,68,68,0.12);
+  color: var(--red);
+  border: 1px solid rgba(239,68,68,0.25);
+  border-radius: 6px;
+  padding: 1px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.calib-info {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  font-size: 0.85rem;
+}
+.calib-item { display: flex; flex-direction: column; gap: 2px; }
+.calib-key { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.calib-val { font-weight: 700; color: var(--text); }
+@media (max-width: 600px) {
+  header { padding: 0 14px; height: auto; min-height: 56px; flex-wrap: wrap; gap: 6px; padding-top: 8px; padding-bottom: 8px; }
+  .logo-sub { display: none; }
+  nav a { padding: 6px 9px; font-size: 0.75rem; }
+  main { padding: 20px 14px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .stat-value { font-size: 1.4rem; }
+  td, th { padding: 8px 10px; font-size: 0.78rem; }
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">
+    <span class="logo-icon">&#127942;</span>
+    <div>
+      <div class="logo-text">WC 2026 Model</div>
+      <div class="logo-sub">Polymarket Auto-Trader</div>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html">&#128197; 今日預測</a>
+    <a href="results.html">&#128202; 歷史結果</a>
+    <a href="postmortem.html">&#128269; 復盤</a>
+    <a href="trading.html" class="active">&#128200; 交易</a>
+  </nav>
+</header>
+
+<main>
+  <div class="page-header">
+    <div>
+      <div class="page-title">交易儀表板</div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+      <span class="status-badge active">
+        <span class="status-dot"></span>
+        ACTIVE
+      </span>
+      <span class="updated-chip">頁面每 60 秒自動刷新 &bull; 生成於 2026-06-28 14:46:09 UTC</span>
+    </div>
+  </div>
+
+  <!-- ── 關鍵指標 ── -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-label">本金餘額</div>
+      <div class="stat-value">$500.00</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">今日損益</div>
+      <div class="stat-value neutral">$0.00</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">累計損益</div>
+      <div class="stat-value neutral">$0.00</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">持倉數 / 上限</div>
+      <div class="stat-value">0 / 4</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">已曝險金額</div>
+      <div class="stat-value">$0.00</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">已結算勝率</div>
+      <div class="stat-value">—</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">已結算筆數</div>
+      <div class="stat-value">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">模型校準係數</div>
+      <div class="stat-value">1.000</div>
+    </div>
+  </div>
+
+  <!-- ── 持倉 ── -->
+  <div class="section">
+    <div class="section-title">目前持倉</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>球隊</th><th>賽段</th><th>投注金額</th>
+          <th>進場價</th><th>模型機率</th><th>當前 EV</th><th>進場時間</th>
+        </tr></thead>
+        <tbody>
+          <tr><td colspan="7" class="empty-row">目前無持倉</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── 交易紀錄 ── -->
+  <div class="section">
+    <div class="section-title">交易紀錄（最近 50 筆）</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>球隊</th><th>賽段</th><th>動作</th>
+          <th>金額</th><th>價格</th><th>損益</th><th>時間</th>
+        </tr></thead>
+        <tbody>
+          <tr><td colspan="7" class="empty-row">尚無交易紀錄</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── 模型機率：晉級 ── -->
+  <div class="section">
+    <div class="section-title">
+      模型機率：晉級
+      <span style="font-size:0.72rem;color:var(--muted);margin-left:8px;">更新於 2026-06-28 14:39:03 UTC</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>球隊</th><th>八強</th><th>四強</th><th>決賽</th><th>奪冠</th>
+        </tr></thead>
+        <tbody>
+          <tr><td colspan="5" class="empty-row">尚無模型機率（等待 pm_predict 首次運行）</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── 模型機率：場次 ── -->
+  <div class="section">
+    <div class="section-title">模型機率：場次</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>主隊</th><th></th><th>客隊</th><th>主勝 / 平 / 客勝</th><th>賽事 ID</th>
+        </tr></thead>
+        <tbody>
+          <tr><td colspan="5" class="empty-row">—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── 模型校準 ── -->
+  <div class="section">
+    <div class="section-title">模型校準</div>
+    <div class="calib-info">
+      <div class="calib-item">
+        <span class="calib-key">已結算筆數</span>
+        <span class="calib-val">0</span>
+      </div>
+      <div class="calib-item">
+        <span class="calib-key">當前係數</span>
+        <span class="calib-val">1.0000</span>
+      </div>
+      <div class="calib-item">
+        <span class="calib-key">下次更新</span>
+        <span class="calib-val">再結算 10 筆</span>
+      </div>
+      <div class="calib-item">
+        <span class="calib-key">係數說明</span>
+        <span class="calib-val" style="color:var(--muted)">
+          準確
+        </span>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>時間</th><th>已結算筆數</th><th>校準係數</th><th>方向</th>
+        </tr></thead>
+        <tbody>
+          <tr><td colspan="4" class="empty-row">尚無校準紀錄</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+</body>
+</html>
