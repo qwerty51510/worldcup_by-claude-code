@@ -129,3 +129,51 @@ def log_trade(entry):
     data = load()
     data["trade_log"].append(entry)
     save(data)
+
+
+def record_settled_trade(predicted_prob: float, actual_outcome: int) -> None:
+    """Record a settled trade for calibration.
+
+    Args:
+        predicted_prob: The predicted probability (0.0 to 1.0)
+        actual_outcome: 1=won, 0=lost
+    """
+    data = load()
+    cal = data["calibration"]
+    cal["history"].append({"pred": predicted_prob, "actual": actual_outcome})
+    cal["n_settled"] += 1
+    if cal["n_settled"] % 10 == 0:
+        _refit_calibration(data)
+    else:
+        save(data)
+
+
+def _refit_calibration(data: dict) -> None:
+    """Refit calibration factor using linear regression on prediction history."""
+    import numpy as np
+    history = data["calibration"]["history"]
+    if len(history) < 5:
+        save(data)
+        return
+    preds = np.array([h["pred"] for h in history])
+    actuals = np.array([h["actual"] for h in history], dtype=float)
+    pred_std = preds.std()
+
+    if pred_std < 1e-6:
+        # Low variance in predictions: use mean ratio instead
+        pred_mean = preds.mean()
+        actual_mean = actuals.mean()
+        if pred_mean > 1e-6:
+            slope = actual_mean / pred_mean
+        else:
+            slope = 1.0
+    else:
+        slope = float(np.cov(preds, actuals)[0, 1] / np.var(preds))
+
+    data["calibration"]["factor"] = round(max(0.5, min(1.5, slope)), 4)
+    save(data)
+
+
+def get_calibration_factor() -> float:
+    """Get the current calibration factor."""
+    return load()["calibration"]["factor"]

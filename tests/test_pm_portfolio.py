@@ -78,3 +78,17 @@ def test_schema_backfill_on_load(tmp_path, monkeypatch):
     data = pf.load()
     assert "calibration" in data
     assert data["bankroll"] == 450.0
+
+
+def test_calibration_factor_default_is_one(tmp_path, monkeypatch):
+    import src.pm_portfolio as pf2
+    monkeypatch.setattr(pf2, "PORTFOLIO_PATH", tmp_path / "p2.json")
+    assert pf2.get_calibration_factor() == pytest.approx(1.0)
+
+
+def test_calibration_updates_after_ten_trades(tmp_path, monkeypatch):
+    import src.pm_portfolio as pf2
+    monkeypatch.setattr(pf2, "PORTFOLIO_PATH", tmp_path / "p3.json")
+    for _ in range(10):
+        pf2.record_settled_trade(predicted_prob=0.7, actual_outcome=0)
+    assert pf2.get_calibration_factor() < 1.0
