@@ -76,10 +76,7 @@ def get_bankroll():
 
 def is_halted():
     data = load()
-    today = _today()
-    if data.get("daily_pnl_date") != today:
-        # New day — flush the stale halt flag to disk so other readers see it
-        update_pnl(0.0)
+    if data.get("daily_pnl_date") != _today():
         return False
     return data.get("trading_halted", False)
 

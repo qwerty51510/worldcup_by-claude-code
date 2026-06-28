@@ -54,6 +54,8 @@ def test_bankroll_persists_across_day_boundary(monkeypatch):
     # Simulate next day
     monkeypatch.setattr(pf, "_today", lambda: "2026-06-28")
     assert pf.is_halted() is False          # halt cleared for new day
+    # Explicitly reset daily state (would happen when first trade of the day is made)
+    pf.update_pnl(0.0)
     data = pf.load()
     assert data["bankroll"] == 420.0        # bankroll unchanged
     assert data["daily_pnl"] == 0.0        # only daily_pnl reset
