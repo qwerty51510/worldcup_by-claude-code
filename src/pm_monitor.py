@@ -35,14 +35,20 @@ def _fetch_live_espn() -> list:
         live = []
         for ev in events:
             status = ev.get("status", {}).get("type", {}).get("state", "")
-            if status == "in":
-                comp = ev["competitions"][0]
-                live.append({
-                    "id": ev["id"],
-                    "homeTeam": {"name": comp["competitors"][0]["team"]["displayName"]},
-                    "awayTeam": {"name": comp["competitors"][1]["team"]["displayName"]},
-                    "_source": "espn",
-                })
+            if status != "in":
+                continue
+            comps = ev.get("competitions") or []
+            if not comps:
+                continue
+            competitors = comps[0].get("competitors") or []
+            if len(competitors) < 2:
+                continue
+            live.append({
+                "id": ev["id"],
+                "homeTeam": {"name": competitors[0].get("team", {}).get("displayName", "")},
+                "awayTeam": {"name": competitors[1].get("team", {}).get("displayName", "")},
+                "_source": "espn",
+            })
         return live
     except Exception as e:
         print(f"[pm_monitor] ESPN fallback failed: {e}")
@@ -71,7 +77,10 @@ def _classify_event(event: dict) -> str:
     Handles both test-style events ({"type": "YELLOW_RED_CARD", ...}) and
     real football-data.org API events:
       - bookings: {"card": "RED_CARD"|"YELLOW_CARD"|"YELLOW_RED_CARD", ...}
-      - goals: {"team": {...}, "minute": ...} (no "card" key)
+      - goals: {"team": {...}, "minute": ...} (no "card" key, no "type" key)
+    The fallback to "GOAL" is safe because fetch_match_events only fetches
+    from the "bookings" and "goals" lists — any item with neither "type" nor
+    "card" must be a goal entry.
     """
     if "type" in event:
         return event["type"]
@@ -118,7 +127,9 @@ def run_once(positions: Optional[list] = None) -> None:
             continue
         events = fetch_match_events(fixture_id)
         our_team = pos.get("team", "")
-        trigger = detect_exit_triggers(events, our_team)
+        must_win = pos.get("must_win", False)
+        score = tuple(pos.get("score", [0, 0]))
+        trigger = detect_exit_triggers(events, our_team, must_win=must_win, score=score)
         if trigger:
             print(f"[{ts}] pm_monitor: EXIT signal {trigger} for {our_team}")
             portfolio.push_exit_signal(pos["market_id"], trigger)
