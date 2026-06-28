@@ -1,0 +1,74 @@
+[
+  {
+    "match_id": "537417",
+    "home_team": "South Africa",
+    "away_team": "Canada",
+    "kickoff": "06/29 03:00",
+    "kickoff_utc": "2026-06-28T19:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 21,
+    "ou_prediction": "under",
+    "ou_confidence": 16,
+    "predicted_score": "0-1",
+    "p_home_win": 0.152,
+    "p_draw": 0.24,
+    "p_away_win": 0.608,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 0.688,
+    "lambda_away": 1.66,
+    "ah_line": 0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】南非（ELO 1431）vs 加拿大（ELO 1680），實力有明顯優勢（ELO -249）\n【近況】南非 3場 進2 失3；加拿大 3場 進8 失3\n【陣型戰術】南非 4-4-2（防守反擊）vs 加拿大 4-4-2（均衡）\n【體力】南非 休息3天（疲態明顯）；加拿大 休息4天（略有疲態）\n【進球預期】主 0.7 + 客 1.7 = 2.3，傾向小球（信心 16%）\n【勝負】加拿大 略佔優（勝率 60%），平局機率 24%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537423",
+    "home_team": "Brazil",
+    "away_team": "Japan",
+    "kickoff": "06/30 01:00",
+    "kickoff_utc": "2026-06-29T17:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 3,
+    "ou_prediction": "under",
+    "ou_confidence": 4,
+    "predicted_score": "1-1",
+    "p_home_win": 0.482,
+    "p_draw": 0.256,
+    "p_away_win": 0.262,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 1.53,
+    "lambda_away": 1.057,
+    "ah_line": -0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】巴西（ELO 1921）vs 日本（ELO 1784），實力略佔優勢（ELO +137）\n【近況】巴西 3場 進7 失1；日本 3場 進7 失3\n【陣型戰術】巴西 4-2-3-1（控球進攻）vs 日本 4-2-3-1（均衡）\n【體力】巴西 休息5天（體力充足）；日本 休息4天（略有疲態）\n【進球預期】主 1.5 + 客 1.1 = 2.6，傾向小球（信心 4%）\n【勝負】雙方勢均力敵，平局機率 25% 不低",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537415",
+    "home_team": "Germany",
+    "away_team": "Paraguay",
+    "kickoff": "06/30 04:30",
+    "kickoff_utc": "2026-06-29T20:30:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 18,
+    "ou_prediction": "over",
+    "ou_confidence": 35,
+    "predicted_score": "2-0",
+    "p_home_win": 0.792,
+    "p_draw": 0.132,
+    "p_away_win": 0.074,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 2.749,
+    "lambda_away": 0.736,
+    "ah_line": -1.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】德國（ELO 1892）vs 巴拉圭（ELO 1534），實力有明顯優勢（ELO +358）\n【近況】德國 3場 進10 失4；巴拉圭 3場 進2 失4\n【陣型戰術】德國 4-2-3-1（控球進攻）vs 巴拉圭 4-4-2（防守反擊），主隊進攻留縫隙，客隊反擊空間大\n【體力】德國 休息4天（略有疲態）；巴拉圭 休息3天（疲態明顯）\n【進球預期】主 2.7 + 客 0.7 = 3.5，傾向大球（信心 35%）\n【勝負】德國 明顯佔優（勝率 79%），平局機率 13%",
+    "injury_notes": []
+  }
+]

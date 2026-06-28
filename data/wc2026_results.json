@@ -592,5 +592,59 @@
     "home_goals": 1,
     "away_goals": 2,
     "round": 3
+  },
+  {
+    "date": "2026-06-27",
+    "group": "L",
+    "home": "Panama",
+    "away": "England",
+    "home_goals": 0,
+    "away_goals": 2,
+    "round": 3
+  },
+  {
+    "date": "2026-06-27",
+    "group": "L",
+    "home": "Croatia",
+    "away": "Ghana",
+    "home_goals": 2,
+    "away_goals": 1,
+    "round": 3
+  },
+  {
+    "date": "2026-06-27",
+    "group": "K",
+    "home": "Colombia",
+    "away": "Portugal",
+    "home_goals": 0,
+    "away_goals": 0,
+    "round": 3
+  },
+  {
+    "date": "2026-06-27",
+    "group": "K",
+    "home": "DR Congo",
+    "away": "Uzbekistan",
+    "home_goals": 3,
+    "away_goals": 1,
+    "round": 3
+  },
+  {
+    "date": "2026-06-28",
+    "group": "J",
+    "home": "Jordan",
+    "away": "Argentina",
+    "home_goals": 1,
+    "away_goals": 3,
+    "round": 3
+  },
+  {
+    "date": "2026-06-28",
+    "group": "J",
+    "home": "Algeria",
+    "away": "Austria",
+    "home_goals": 3,
+    "away_goals": 3,
+    "round": 3
   }
 ]

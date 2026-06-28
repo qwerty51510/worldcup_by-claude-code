@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-27T07:23:01Z",
-  "total_matches": 66,
+  "generated_at": "2026-06-28T11:28:48Z",
+  "total_matches": 72,
   "summary": {
-    "ah_accuracy": 0.548,
-    "ou_accuracy": 0.545,
+    "ah_accuracy": 0.574,
+    "ou_accuracy": 0.542,
     "score_exact_match": 8,
-    "avg_goal_total_error": 1.56
+    "avg_goal_total_error": 1.6
   },
   "matches": [
     {
@@ -499,8 +499,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-18",
@@ -784,8 +784,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-22",
@@ -822,8 +822,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": false
+      "ou_pred": "over",
+      "ou_correct": true
     },
     {
       "date": "2026-06-23",
@@ -1261,6 +1261,120 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "group": "L",
+      "round": 3,
+      "home": "Panama",
+      "away": "England",
+      "predicted_score": "0-1",
+      "actual_score": "0-2",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 0.455,
+      "lambda_away": 1.745,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "group": "L",
+      "round": 3,
+      "home": "Croatia",
+      "away": "Ghana",
+      "predicted_score": "1-1",
+      "actual_score": "2-1",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.07,
+      "lambda_away": 1.252,
+      "ah_pred": "away",
+      "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-27",
+      "group": "K",
+      "round": 3,
+      "home": "Colombia",
+      "away": "Portugal",
+      "predicted_score": "1-1",
+      "actual_score": "0-0",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 1.246,
+      "lambda_away": 1.7,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "group": "K",
+      "round": 3,
+      "home": "DR Congo",
+      "away": "Uzbekistan",
+      "predicted_score": "1-0",
+      "actual_score": "3-1",
+      "score_correct": false,
+      "goal_total_error": 3,
+      "lambda_home": 1.732,
+      "lambda_away": 0.765,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-28",
+      "group": "J",
+      "round": 3,
+      "home": "Jordan",
+      "away": "Argentina",
+      "predicted_score": "0-3",
+      "actual_score": "1-3",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 0.341,
+      "lambda_away": 3.237,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-28",
+      "group": "J",
+      "round": 3,
+      "home": "Algeria",
+      "away": "Austria",
+      "predicted_score": "1-1",
+      "actual_score": "3-3",
+      "score_correct": false,
+      "goal_total_error": 4,
+      "lambda_home": 1.399,
+      "lambda_away": 1.93,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ],
   "team_analysis": [
@@ -1337,20 +1451,12 @@
       "ah_accuracy": 0.667
     },
     {
-      "team": "Portugal",
-      "matches": 2,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 3.0,
-      "goal_bias": -1.0,
-      "ah_accuracy": 0.5
-    },
-    {
-      "team": "Panama",
-      "matches": 2,
+      "team": "Austria",
+      "matches": 3,
       "pred_goals_avg": 1.0,
-      "actual_goals_avg": 0.0,
-      "goal_bias": 1.0,
-      "ah_accuracy": 0.5
+      "actual_goals_avg": 2.0,
+      "goal_bias": -1.0,
+      "ah_accuracy": 1.0
     },
     {
       "team": "South Korea",
@@ -1401,52 +1507,28 @@
       "ah_accuracy": 1.0
     },
     {
-      "team": "Argentina",
-      "matches": 2,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.5,
-      "goal_bias": -0.5,
-      "ah_accuracy": 1.0
-    },
-    {
-      "team": "Austria",
-      "matches": 2,
+      "team": "Algeria",
+      "matches": 3,
       "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.5,
-      "goal_bias": -0.5,
-      "ah_accuracy": 1.0
-    },
-    {
-      "team": "DR Congo",
-      "matches": 2,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 0.5,
-      "goal_bias": 0.5,
-      "ah_accuracy": 0.5
-    },
-    {
-      "team": "Uzbekistan",
-      "matches": 2,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 0.5,
-      "goal_bias": 0.5,
+      "actual_goals_avg": 1.67,
+      "goal_bias": -0.67,
       "ah_accuracy": 1.0
     },
     {
       "team": "Croatia",
-      "matches": 2,
+      "matches": 3,
       "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.5,
-      "goal_bias": -0.5,
-      "ah_accuracy": 1.0
+      "actual_goals_avg": 1.67,
+      "goal_bias": -0.67,
+      "ah_accuracy": 0.667
     },
     {
-      "team": "Ghana",
-      "matches": 2,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 0.5,
-      "goal_bias": 0.5,
-      "ah_accuracy": 0.0
+      "team": "Panama",
+      "matches": 3,
+      "pred_goals_avg": 0.67,
+      "actual_goals_avg": 0.0,
+      "goal_bias": 0.67,
+      "ah_accuracy": 0.667
     },
     {
       "team": "Bosnia and Herzegovina",
@@ -1553,6 +1635,62 @@
       "ah_accuracy": 1.0
     },
     {
+      "team": "Argentina",
+      "matches": 3,
+      "pred_goals_avg": 2.33,
+      "actual_goals_avg": 2.67,
+      "goal_bias": -0.33,
+      "ah_accuracy": 1.0
+    },
+    {
+      "team": "Jordan",
+      "matches": 3,
+      "pred_goals_avg": 0.67,
+      "actual_goals_avg": 1.0,
+      "goal_bias": -0.33,
+      "ah_accuracy": 1.0
+    },
+    {
+      "team": "Portugal",
+      "matches": 3,
+      "pred_goals_avg": 1.67,
+      "actual_goals_avg": 2.0,
+      "goal_bias": -0.33,
+      "ah_accuracy": 0.667
+    },
+    {
+      "team": "DR Congo",
+      "matches": 3,
+      "pred_goals_avg": 1.0,
+      "actual_goals_avg": 1.33,
+      "goal_bias": -0.33,
+      "ah_accuracy": 0.667
+    },
+    {
+      "team": "Colombia",
+      "matches": 3,
+      "pred_goals_avg": 1.67,
+      "actual_goals_avg": 1.33,
+      "goal_bias": 0.33,
+      "ah_accuracy": 1.0
+    },
+    {
+      "team": "England",
+      "matches": 3,
+      "pred_goals_avg": 1.67,
+      "actual_goals_avg": 2.0,
+      "goal_bias": -0.33,
+      "ah_accuracy": 0.667
+    },
+    {
+      "team": "Ghana",
+      "matches": 3,
+      "pred_goals_avg": 1.0,
+      "actual_goals_avg": 0.67,
+      "goal_bias": 0.33,
+      "ah_accuracy": 0.0
+    },
+    {
       "team": "South Africa",
       "matches": 3,
       "pred_goals_avg": 0.67,
@@ -1617,36 +1755,12 @@
       "ah_accuracy": 0.0
     },
     {
-      "team": "Algeria",
-      "matches": 2,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.0,
+      "team": "Uzbekistan",
+      "matches": 3,
+      "pred_goals_avg": 0.67,
+      "actual_goals_avg": 0.67,
       "goal_bias": 0.0,
       "ah_accuracy": 1.0
-    },
-    {
-      "team": "Jordan",
-      "matches": 2,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.0,
-      "goal_bias": 0.0,
-      "ah_accuracy": 1.0
-    },
-    {
-      "team": "Colombia",
-      "matches": 2,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.0,
-      "goal_bias": 0.0,
-      "ah_accuracy": 1.0
-    },
-    {
-      "team": "England",
-      "matches": 2,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.0,
-      "goal_bias": 0.0,
-      "ah_accuracy": 0.5
     }
   ],
   "missed_ah_matches": [
@@ -1932,8 +2046,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-19",
@@ -2181,6 +2295,25 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "group": "L",
+      "round": 3,
+      "home": "Croatia",
+      "away": "Ghana",
+      "predicted_score": "1-1",
+      "actual_score": "2-1",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.07,
+      "lambda_away": 1.252,
+      "ah_pred": "away",
+      "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ]
 }
