@@ -42,3 +42,37 @@ def test_exit_signals_push_pop():
     signals = pf.pop_exit_signals()
     assert signals[0]["market_id"] == "abc"
     assert pf.pop_exit_signals() == []
+
+
+def test_bankroll_persists_across_day_boundary(monkeypatch):
+    """Bankroll reflects cumulative P&L; daily_pnl resets on a new date."""
+    monkeypatch.setattr(pf, "_today", lambda: "2026-06-27")
+    pf.update_pnl(-80.0)
+    assert pf.load()["bankroll"] == 420.0
+    assert pf.load()["trading_halted"] is True
+
+    # Simulate next day
+    monkeypatch.setattr(pf, "_today", lambda: "2026-06-28")
+    assert pf.is_halted() is False          # halt cleared for new day
+    data = pf.load()
+    assert data["bankroll"] == 420.0        # bankroll unchanged
+    assert data["daily_pnl"] == 0.0        # only daily_pnl reset
+
+
+def test_load_default_no_shared_state_between_calls():
+    """Multiple load() calls when file absent must not share _DEFAULT references."""
+    d1 = pf.load()
+    d2 = pf.load()
+    d1["calibration"]["history"].append("x")
+    assert d2["calibration"]["history"] == [], "deepcopy failed: _DEFAULT was mutated"
+
+
+def test_schema_backfill_on_load(tmp_path, monkeypatch):
+    """Old portfolio.json missing new fields should be backfilled after load()."""
+    path = tmp_path / "portfolio.json"
+    monkeypatch.setattr(pf, "PORTFOLIO_PATH", path)
+    # Write a minimal portfolio without 'calibration'
+    path.write_text('{"bankroll": 450.0, "positions": [], "trading_halted": false}')
+    data = pf.load()
+    assert "calibration" in data
+    assert data["bankroll"] == 450.0

@@ -1,5 +1,7 @@
+import copy
 import fcntl
 import json
+import os
 from datetime import date
 from pathlib import Path
 
@@ -21,23 +23,51 @@ _DEFAULT = {
 }
 
 
+def _today():
+    """Return today's ISO date string. Extracted so tests can monkeypatch it."""
+    return date.today().isoformat()
+
+
+def _default_state():
+    return copy.deepcopy(_DEFAULT)
+
+
 def load():
     if not PORTFOLIO_PATH.exists():
-        return {k: (v.copy() if isinstance(v, (dict, list)) else v)
-                for k, v in _DEFAULT.items()}
+        return _default_state()
     with open(PORTFOLIO_PATH) as f:
         fcntl.flock(f.fileno(), fcntl.LOCK_SH)
         data = json.load(f)
         fcntl.flock(f.fileno(), fcntl.LOCK_UN)
+    # Backfill missing keys introduced by schema upgrades
+    defaults = _default_state()
+    for key, val in defaults.items():
+        if key not in data:
+            data[key] = val
     return data
 
 
 def save(data):
     PORTFOLIO_PATH.parent.mkdir(parents=True, exist_ok=True)
-    with open(PORTFOLIO_PATH, "w") as f:
-        fcntl.flock(f.fileno(), fcntl.LOCK_EX)
-        json.dump(data, f, indent=2, ensure_ascii=False)
-        fcntl.flock(f.fileno(), fcntl.LOCK_UN)
+    encoded = json.dumps(data, indent=2, ensure_ascii=False).encode()
+    # Open for read+write so the lock is taken before any truncation.
+    # If the file doesn't exist yet, create it cleanly (no race on creation).
+    if PORTFOLIO_PATH.exists():
+        fd = os.open(str(PORTFOLIO_PATH), os.O_RDWR)
+        try:
+            fcntl.flock(fd, fcntl.LOCK_EX)
+            os.ftruncate(fd, 0)
+            os.lseek(fd, 0, os.SEEK_SET)
+            os.write(fd, encoded)
+        finally:
+            fcntl.flock(fd, fcntl.LOCK_UN)
+            os.close(fd)
+    else:
+        # File absent: write atomically via a temp file + rename
+        tmp = str(PORTFOLIO_PATH) + ".tmp"
+        with open(tmp, "w") as f:
+            f.write(encoded.decode())
+        os.replace(tmp, str(PORTFOLIO_PATH))
 
 
 def get_bankroll():
@@ -46,8 +76,10 @@ def get_bankroll():
 
 def is_halted():
     data = load()
-    today = date.today().isoformat()
+    today = _today()
     if data.get("daily_pnl_date") != today:
+        # New day — flush the stale halt flag to disk so other readers see it
+        update_pnl(0.0)
         return False
     return data.get("trading_halted", False)
 
@@ -70,7 +102,7 @@ def remove_position(market_id):
 
 def update_pnl(delta):
     data = load()
-    today = date.today().isoformat()
+    today = _today()
     if data.get("daily_pnl_date") != today:
         data["daily_pnl"] = 0.0
         data["daily_pnl_date"] = today
