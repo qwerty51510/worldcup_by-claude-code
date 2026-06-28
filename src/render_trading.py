@@ -7,8 +7,10 @@ render_trading.py — 生成 docs/trading.html 交易儀表板
 """
 
 import json
+import os
 import time
 import argparse
+import requests
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -16,6 +18,39 @@ PORTFOLIO_PATH = Path(__file__).parent.parent / "data" / "portfolio.json"
 OUTPUT_PATH = Path(__file__).parent.parent / "docs" / "trading.html"
 
 STAGE_LABELS = {"qf": "八強", "sf": "四強", "final": "決賽", "winner": "奪冠"}
+
+POLYGON_RPC = "https://polygon-rpc.com"
+USDC_NATIVE  = "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
+USDC_BRIDGED = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+
+
+def _fetch_chain_balance() -> tuple:
+    """回傳 (usdc_total, matic) 鏈上真實餘額。失敗時回傳 (None, None)。"""
+    wallet = os.environ.get("WALLET_ADDRESS", "")
+    if not wallet:
+        return None, None
+    try:
+        def _call(token, addr):
+            padded = addr[2:].lower().zfill(64)
+            payload = {
+                "jsonrpc": "2.0", "method": "eth_call",
+                "params": [{"to": token, "data": "0x70a08231" + padded}, "latest"],
+                "id": 1,
+            }
+            r = requests.post(POLYGON_RPC, json=payload, timeout=8)
+            return int(r.json().get("result", "0x0"), 16) / 1e6
+
+        def _matic(addr):
+            payload = {"jsonrpc": "2.0", "method": "eth_getBalance",
+                       "params": [addr, "latest"], "id": 1}
+            r = requests.post(POLYGON_RPC, json=payload, timeout=8)
+            return int(r.json().get("result", "0x0"), 16) / 1e18
+
+        usdc = _call(USDC_NATIVE, wallet) + _call(USDC_BRIDGED, wallet)
+        matic = _matic(wallet)
+        return round(usdc, 2), round(matic, 4)
+    except Exception:
+        return None, None
 
 
 def _load() -> dict:
@@ -158,8 +193,7 @@ def _calibration_rows(history: list) -> str:
     return "\n".join(rows)
 
 
-def render(data: dict) -> str:
-    bankroll = data.get("bankroll", 500.0)
+def render(data: dict, chain_usdc: float = None, chain_matic: float = None) -> str:
     daily_pnl = data.get("daily_pnl", 0.0)
     halted = data.get("trading_halted", False)
     positions = data.get("positions", [])
@@ -173,6 +207,11 @@ def render(data: dict) -> str:
     updated_at = data.get("model_probs_updated_at", "")
     if updated_at:
         updated_at = updated_at[:19].replace("T", " ") + " UTC"
+
+    # 優先顯示鏈上真實餘額
+    bankroll = chain_usdc if chain_usdc is not None else data.get("bankroll", 500.0)
+    matic_str = f"{chain_matic:.4f} MATIC" if chain_matic is not None else "—"
+    chain_ok = chain_usdc is not None
 
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     status_cls = "halted" if halted else "active"
@@ -410,9 +449,16 @@ tr:hover td {{ background: rgba(255,255,255,0.02); }}
 
   <!-- ── 關鍵指標 ── -->
   <div class="stats-grid">
+    <div class="stat-card" style="border-color:{'rgba(16,185,129,0.4)' if chain_ok else 'var(--border)'}">
+      <div class="stat-label">
+        USDC 餘額（鏈上）
+        {'<span style="color:var(--green);font-size:0.65rem;margin-left:4px;">● LIVE</span>' if chain_ok else '<span style="color:var(--muted);font-size:0.65rem;margin-left:4px;">離線</span>'}
+      </div>
+      <div class="stat-value {'profit' if bankroll > 0 else 'neutral'}">${bankroll:.2f}</div>
+    </div>
     <div class="stat-card">
-      <div class="stat-label">本金餘額</div>
-      <div class="stat-value">${bankroll:.2f}</div>
+      <div class="stat-label">Gas 費（MATIC）</div>
+      <div class="stat-value" style="font-size:1.3rem;">{matic_str}</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">今日損益</div>
@@ -433,10 +479,6 @@ tr:hover td {{ background: rgba(255,255,255,0.02); }}
     <div class="stat-card">
       <div class="stat-label">已結算勝率</div>
       <div class="stat-value">{win_rate}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">已結算筆數</div>
-      <div class="stat-value">{settled_total}</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">模型校準係數</div>
@@ -550,9 +592,11 @@ tr:hover td {{ background: rgba(255,255,255,0.02); }}
 
 def generate() -> None:
     data = _load()
-    html = render(data)
+    chain_usdc, chain_matic = _fetch_chain_balance()
+    html = render(data, chain_usdc=chain_usdc, chain_matic=chain_matic)
     OUTPUT_PATH.write_text(html, encoding="utf-8")
-    print(f"[render_trading] wrote {OUTPUT_PATH}")
+    bal_str = f"${chain_usdc:.2f} USDC" if chain_usdc is not None else "chain unavailable"
+    print(f"[render_trading] wrote {OUTPUT_PATH}  wallet={bal_str}")
 
 
 def watch(interval: int = 30) -> None:
