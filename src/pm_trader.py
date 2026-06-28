@@ -22,7 +22,23 @@ try:
 except ImportError:
     pass
 
+import requests
 import src.pm_portfolio as portfolio
+
+
+def _tg_notify(text: str) -> None:
+    token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID", "")
+    if not token or not chat_id:
+        return
+    try:
+        requests.post(
+            f"https://api.telegram.org/bot{token}/sendMessage",
+            json={"chat_id": chat_id, "text": text, "parse_mode": "HTML"},
+            timeout=8,
+        )
+    except Exception:
+        pass
 
 MAX_BET = 25.0
 MAX_POSITIONS = 4
@@ -141,6 +157,12 @@ def handle_exits(client) -> None:
                 "reason": sig["reason"],
                 "time": ts,
             })
+            _tg_notify(
+                f"🔴 <b>平倉</b>  {pos['team']}\n"
+                f"原因：{sig['reason']}\n"
+                f"倉位：${pos['size_usd']:.2f}  進場價：{pos['entry_price']:.3f}\n"
+                f"時間：{ts} UTC"
+            )
         except Exception as e:
             print(f"[{ts}] EXIT FAILED for {pos['team']}: {e}")
             portfolio.add_position(pos)  # 放回去
@@ -216,6 +238,13 @@ def scan_and_trade(client) -> None:
             portfolio.add_position(pos)
             portfolio.log_trade({"type": "BUY", **pos})
             existing_keys.add((opp.team, opp.to_stage))
+            _tg_notify(
+                f"🟢 <b>開倉</b>  {opp.team}  [{opp.label}]\n"
+                f"限價：{limit_price:.3f}  倉位：${size:.2f}\n"
+                f"我方機率：{opp.fair_value*100:.1f}%  市場：{opp.p_to*100:.1f}%  "
+                f"EV：+{opp.ev*100:.1f}¢\n"
+                f"時間：{ts} UTC"
+            )
             # 重新讀取以取得最新持倉數量
             data = portfolio.load()
         except Exception as e:
@@ -227,7 +256,9 @@ def run_daemon(interval: int = 300) -> None:
     定時循環：每隔 interval 秒執行一次 handle_exits + scan_and_trade。
     """
     print(f"[pm_trader] daemon started, interval={interval}s")
+    _tg_notify("🤖 <b>交易機器人啟動</b>\n本金：$500 USDC  半Kelly  最大單筆 $25")
     client = _build_client()
+    _last_halted = False
     while True:
         ts = datetime.now(timezone.utc).strftime("%H:%M:%S")
         try:
@@ -235,7 +266,21 @@ def run_daemon(interval: int = 300) -> None:
             scan_and_trade(client)
         except Exception as e:
             print(f"[{ts}] pm_trader loop error: {e}")
-        print(f"[{ts}] bankroll=${portfolio.get_bankroll():.2f}  next check in {interval}s")
+
+        data = portfolio.load()
+        bankroll = data["bankroll"]
+        daily_pnl = data.get("daily_pnl", 0.0)
+        halted = data.get("trading_halted", False)
+        n_pos = len(data.get("positions", []))
+
+        if halted and not _last_halted:
+            _tg_notify(
+                f"🚨 <b>交易暫停</b> — 日損達上限\n"
+                f"今日 PnL：${daily_pnl:.2f}  本金：${bankroll:.2f}"
+            )
+        _last_halted = halted
+
+        print(f"[{ts}] bankroll=${bankroll:.2f}  daily={daily_pnl:+.2f}  pos={n_pos}  next in {interval}s")
         time.sleep(interval)
 
 
