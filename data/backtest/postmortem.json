@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-28T11:28:48Z",
-  "total_matches": 72,
+  "generated_at": "2026-06-29T16:47:46Z",
+  "total_matches": 73,
   "summary": {
-    "ah_accuracy": 0.574,
-    "ou_accuracy": 0.542,
-    "score_exact_match": 8,
-    "avg_goal_total_error": 1.6
+    "ah_accuracy": 0.58,
+    "ou_accuracy": 0.548,
+    "score_exact_match": 9,
+    "avg_goal_total_error": 1.58
   },
   "matches": [
     {
@@ -24,8 +24,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-11",
@@ -822,8 +822,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-23",
@@ -1375,6 +1375,25 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": false
+    },
+    {
+      "date": "2026-06-28",
+      "group": "",
+      "round": 0,
+      "home": "South Africa",
+      "away": "Canada",
+      "predicted_score": "0-1",
+      "actual_score": "0-1",
+      "score_correct": true,
+      "goal_total_error": 0,
+      "lambda_home": 0.688,
+      "lambda_away": 1.66,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
     }
   ],
   "team_analysis": [
@@ -1407,14 +1426,6 @@
       "matches": 3,
       "pred_goals_avg": 1.0,
       "actual_goals_avg": 2.0,
-      "goal_bias": -1.0,
-      "ah_accuracy": 0.333
-    },
-    {
-      "team": "Canada",
-      "matches": 3,
-      "pred_goals_avg": 1.67,
-      "actual_goals_avg": 2.67,
       "goal_bias": -1.0,
       "ah_accuracy": 0.333
     },
@@ -1457,6 +1468,14 @@
       "actual_goals_avg": 2.0,
       "goal_bias": -1.0,
       "ah_accuracy": 1.0
+    },
+    {
+      "team": "Canada",
+      "matches": 4,
+      "pred_goals_avg": 1.5,
+      "actual_goals_avg": 2.25,
+      "goal_bias": -0.75,
+      "ah_accuracy": 0.5
     },
     {
       "team": "South Korea",
@@ -1692,11 +1711,11 @@
     },
     {
       "team": "South Africa",
-      "matches": 3,
-      "pred_goals_avg": 0.67,
-      "actual_goals_avg": 0.67,
+      "matches": 4,
+      "pred_goals_avg": 0.5,
+      "actual_goals_avg": 0.5,
       "goal_bias": 0.0,
-      "ah_accuracy": 0.333
+      "ah_accuracy": 0.5
     },
     {
       "team": "Czechia",
@@ -1780,8 +1799,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-11",

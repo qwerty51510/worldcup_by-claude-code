@@ -646,5 +646,14 @@
     "home_goals": 3,
     "away_goals": 3,
     "round": 3
+  },
+  {
+    "date": "2026-06-28",
+    "group": "",
+    "home": "South Africa",
+    "away": "Canada",
+    "home_goals": 0,
+    "away_goals": 1,
+    "round": 0
   }
 ]
