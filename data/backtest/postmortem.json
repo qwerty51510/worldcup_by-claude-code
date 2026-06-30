@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-06-29T16:47:46Z",
-  "total_matches": 73,
+  "generated_at": "2026-06-30T12:32:01Z",
+  "total_matches": 76,
   "summary": {
-    "ah_accuracy": 0.58,
-    "ou_accuracy": 0.548,
+    "ah_accuracy": 0.569,
+    "ou_accuracy": 0.526,
     "score_exact_match": 9,
-    "avg_goal_total_error": 1.58
+    "avg_goal_total_error": 1.68
   },
   "matches": [
     {
@@ -24,8 +24,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-11",
@@ -822,8 +822,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": false
+      "ou_pred": "over",
+      "ou_correct": true
     },
     {
       "date": "2026-06-23",
@@ -1394,24 +1394,81 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
+    },
+    {
+      "date": "2026-06-29",
+      "group": "",
+      "round": 0,
+      "home": "Brazil",
+      "away": "Japan",
+      "predicted_score": "1-1",
+      "actual_score": "2-1",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.53,
+      "lambda_away": 1.057,
+      "ah_pred": "away",
+      "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "group": "",
+      "round": 0,
+      "home": "Germany",
+      "away": "Paraguay",
+      "predicted_score": "2-0",
+      "actual_score": "4-5",
+      "score_correct": false,
+      "goal_total_error": 7,
+      "lambda_home": 2.749,
+      "lambda_away": 0.736,
+      "ah_pred": "home",
+      "actual_ah": "away",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-30",
+      "group": "",
+      "round": 0,
+      "home": "Netherlands",
+      "away": "Morocco",
+      "predicted_score": "1-1",
+      "actual_score": "3-4",
+      "score_correct": false,
+      "goal_total_error": 5,
+      "lambda_home": 1.658,
+      "lambda_away": 1.576,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ],
   "team_analysis": [
     {
-      "team": "Brazil",
-      "matches": 3,
+      "team": "Morocco",
+      "matches": 4,
       "pred_goals_avg": 1.0,
-      "actual_goals_avg": 2.33,
-      "goal_bias": -1.33,
-      "ah_accuracy": 0.667
+      "actual_goals_avg": 2.5,
+      "goal_bias": -1.5,
+      "ah_accuracy": 0.75
     },
     {
       "team": "Germany",
-      "matches": 3,
+      "matches": 4,
       "pred_goals_avg": 2.0,
-      "actual_goals_avg": 3.33,
-      "goal_bias": -1.33,
-      "ah_accuracy": 0.667
+      "actual_goals_avg": 3.5,
+      "goal_bias": -1.5,
+      "ah_accuracy": 0.5
     },
     {
       "team": "Senegal",
@@ -1420,6 +1477,22 @@
       "actual_goals_avg": 2.67,
       "goal_bias": -1.33,
       "ah_accuracy": 0.667
+    },
+    {
+      "team": "Paraguay",
+      "matches": 4,
+      "pred_goals_avg": 0.5,
+      "actual_goals_avg": 1.75,
+      "goal_bias": -1.25,
+      "ah_accuracy": 0.25
+    },
+    {
+      "team": "Brazil",
+      "matches": 4,
+      "pred_goals_avg": 1.0,
+      "actual_goals_avg": 2.25,
+      "goal_bias": -1.25,
+      "ah_accuracy": 0.5
     },
     {
       "team": "Mexico",
@@ -1436,14 +1509,6 @@
       "actual_goals_avg": 2.67,
       "goal_bias": -1.0,
       "ah_accuracy": 0.333
-    },
-    {
-      "team": "Morocco",
-      "matches": 3,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 2.0,
-      "goal_bias": -1.0,
-      "ah_accuracy": 0.667
     },
     {
       "team": "Sweden",
@@ -1478,6 +1543,14 @@
       "ah_accuracy": 0.5
     },
     {
+      "team": "Netherlands",
+      "matches": 4,
+      "pred_goals_avg": 2.5,
+      "actual_goals_avg": 3.25,
+      "goal_bias": -0.75,
+      "ah_accuracy": 0.667
+    },
+    {
       "team": "South Korea",
       "matches": 3,
       "pred_goals_avg": 1.33,
@@ -1492,14 +1565,6 @@
       "actual_goals_avg": 0.67,
       "goal_bias": 0.67,
       "ah_accuracy": 0.333
-    },
-    {
-      "team": "Japan",
-      "matches": 3,
-      "pred_goals_avg": 3.0,
-      "actual_goals_avg": 2.33,
-      "goal_bias": 0.67,
-      "ah_accuracy": 0.5
     },
     {
       "team": "Belgium",
@@ -1548,6 +1613,14 @@
       "actual_goals_avg": 0.0,
       "goal_bias": 0.67,
       "ah_accuracy": 0.667
+    },
+    {
+      "team": "Japan",
+      "matches": 4,
+      "pred_goals_avg": 2.5,
+      "actual_goals_avg": 2.0,
+      "goal_bias": 0.5,
+      "ah_accuracy": 0.333
     },
     {
       "team": "Bosnia and Herzegovina",
@@ -1604,14 +1677,6 @@
       "actual_goals_avg": 0.67,
       "goal_bias": 0.33,
       "ah_accuracy": 0.0
-    },
-    {
-      "team": "Netherlands",
-      "matches": 3,
-      "pred_goals_avg": 3.0,
-      "actual_goals_avg": 3.33,
-      "goal_bias": -0.33,
-      "ah_accuracy": 0.5
     },
     {
       "team": "New Zealand",
@@ -1726,14 +1791,6 @@
       "ah_accuracy": 0.667
     },
     {
-      "team": "Paraguay",
-      "matches": 3,
-      "pred_goals_avg": 0.67,
-      "actual_goals_avg": 0.67,
-      "goal_bias": 0.0,
-      "ah_accuracy": 0.333
-    },
-    {
       "team": "Turkey",
       "matches": 3,
       "pred_goals_avg": 1.0,
@@ -1799,8 +1856,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-11",
@@ -2329,6 +2386,44 @@
       "lambda_away": 1.252,
       "ah_pred": "away",
       "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "group": "",
+      "round": 0,
+      "home": "Brazil",
+      "away": "Japan",
+      "predicted_score": "1-1",
+      "actual_score": "2-1",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.53,
+      "lambda_away": 1.057,
+      "ah_pred": "away",
+      "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "group": "",
+      "round": 0,
+      "home": "Germany",
+      "away": "Paraguay",
+      "predicted_score": "2-0",
+      "actual_score": "4-5",
+      "score_correct": false,
+      "goal_total_error": 7,
+      "lambda_home": 2.749,
+      "lambda_away": 0.736,
+      "ah_pred": "home",
+      "actual_ah": "away",
       "ah_correct": false,
       "ah_is_push": false,
       "ou_pred": "under",
