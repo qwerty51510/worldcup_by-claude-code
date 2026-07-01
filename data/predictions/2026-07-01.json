@@ -1,0 +1,122 @@
+[
+  {
+    "match_id": "537426",
+    "home_team": "England",
+    "away_team": "DR Congo",
+    "kickoff": "07/02 00:00",
+    "kickoff_utc": "2026-07-01T16:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 38,
+    "ou_prediction": "under",
+    "ou_confidence": 18,
+    "predicted_score": "1-0",
+    "p_home_win": 0.571,
+    "p_draw": 0.253,
+    "p_away_win": 0.175,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 1.567,
+    "lambda_away": 0.739,
+    "ah_line": -1.0,
+    "ou_line": 2.5,
+    "reasoning": "【強度】英格蘭（ELO 1946）vs 剛果民主（ELO 1476），實力差距懸殊（ELO +470）\n【近況】英格蘭 3場 進6 失2；剛果民主 3場 進4 失3\n【陣型戰術】英格蘭 4-3-3（進攻型）vs 剛果民主 4-3-3（防守反擊），主隊進攻留縫隙，客隊反擊空間大\n【體力】英格蘭 休息4天（略有疲態）；剛果民主 休息4天（略有疲態）\n【進球預期】主 1.6 + 客 0.7 = 2.3，傾向小球（信心 18%）\n【勝負】英格蘭 略佔優（勝率 57%），平局機率 25%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537422",
+    "home_team": "Belgium",
+    "away_team": "Senegal",
+    "kickoff": "07/02 04:00",
+    "kickoff_utc": "2026-07-01T20:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 7,
+    "ou_prediction": "over",
+    "ou_confidence": 45,
+    "predicted_score": "2-1",
+    "p_home_win": 0.537,
+    "p_draw": 0.202,
+    "p_away_win": 0.26,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 2.239,
+    "lambda_away": 1.527,
+    "ah_line": -0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】比利時（ELO 1845）vs 塞內加爾（ELO 1647），實力略佔優勢（ELO +198）\n【近況】比利時 3場 進6 失2；塞內加爾 3場 進8 失6\n【陣型戰術】比利時 4-3-3（進攻型）vs 塞內加爾 4-3-3（均衡）\n【體力】比利時 休息4天（略有疲態）；塞內加爾 休息5天（體力充足）\n【進球預期】主 2.2 + 客 1.5 = 3.8，傾向大球（信心 45%）\n【勝負】比利時 略佔優（勝率 53%），平局機率 20%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537421",
+    "home_team": "United States",
+    "away_team": "Bosnia and Herzegovina",
+    "kickoff": "07/02 08:00",
+    "kickoff_utc": "2026-07-02T00:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 7,
+    "ou_prediction": "over",
+    "ou_confidence": 70,
+    "predicted_score": "3-1",
+    "p_home_win": 0.713,
+    "p_draw": 0.139,
+    "p_away_win": 0.141,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 3.271,
+    "lambda_away": 1.496,
+    "ah_line": -1.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】美國（ELO 1748）vs 波士尼亞（ELO 1298），實力差距懸殊（ELO +450）\n【近況】美國 3場 進8 失4；波士尼亞 3場 進5 失6\n【陣型戰術】美國 4-3-3（均衡）vs 波士尼亞 4-3-3（均衡）\n【體力】美國 休息6天（體力充足）；波士尼亞 休息8天（體力充足）\n【進球預期】主 3.3 + 客 1.5 = 4.8，傾向大球（信心 70%）\n【勝負】美國 明顯佔優（勝率 71%），平局機率 13%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537420",
+    "home_team": "Spain",
+    "away_team": "Austria",
+    "kickoff": "07/03 03:00",
+    "kickoff_utc": "2026-07-02T19:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 10,
+    "ou_prediction": "over",
+    "ou_confidence": 16,
+    "predicted_score": "2-0",
+    "p_home_win": 0.78,
+    "p_draw": 0.148,
+    "p_away_win": 0.071,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 2.437,
+    "lambda_away": 0.595,
+    "ah_line": -1.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】西班牙（ELO 1982）vs 奧地利（ELO 1597），實力有明顯優勢（ELO +385）\n【近況】西班牙 3場 進5 失0；奧地利 3場 進6 失6\n【陣型戰術】西班牙 4-3-3（控球進攻）vs 奧地利 4-4-2（均衡）\n【體力】西班牙 休息5天（體力充足）；奧地利 休息4天（略有疲態）\n【進球預期】主 2.4 + 客 0.6 = 3.0，傾向大球（信心 16%）\n【勝負】西班牙 明顯佔優（勝率 78%），平局機率 14%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537419",
+    "home_team": "Portugal",
+    "away_team": "Croatia",
+    "kickoff": "07/03 07:00",
+    "kickoff_utc": "2026-07-02T23:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 36,
+    "ou_prediction": "over",
+    "ou_confidence": 22,
+    "predicted_score": "2-0",
+    "p_home_win": 0.68,
+    "p_draw": 0.184,
+    "p_away_win": 0.135,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 2.264,
+    "lambda_away": 0.902,
+    "ah_line": -0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】葡萄牙（ELO 1887）vs 克羅埃西亞（ELO 1718），實力略佔優勢（ELO +169）\n【近況】葡萄牙 3場 進6 失1；克羅埃西亞 3場 進5 失5\n【陣型戰術】葡萄牙 4-3-3（進攻型）vs 克羅埃西亞 4-3-3（控球進攻）\n【體力】葡萄牙 休息5天（體力充足）；克羅埃西亞 休息5天（體力充足）\n【進球預期】主 2.3 + 客 0.9 = 3.2，傾向大球（信心 22%）\n【勝負】葡萄牙 明顯佔優（勝率 68%），平局機率 18%",
+    "injury_notes": []
+  }
+]

@@ -682,5 +682,32 @@
     "home_goals": 3,
     "away_goals": 4,
     "round": 0
+  },
+  {
+    "date": "2026-06-30",
+    "group": "",
+    "home": "Ivory Coast",
+    "away": "Norway",
+    "home_goals": 1,
+    "away_goals": 2,
+    "round": 0
+  },
+  {
+    "date": "2026-06-30",
+    "group": "",
+    "home": "France",
+    "away": "Sweden",
+    "home_goals": 3,
+    "away_goals": 0,
+    "round": 0
+  },
+  {
+    "date": "2026-07-01",
+    "group": "",
+    "home": "Mexico",
+    "away": "Ecuador",
+    "home_goals": 2,
+    "away_goals": 0,
+    "round": 0
   }
 ]
