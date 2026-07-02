@@ -1,17 +1,17 @@
 {
-  "total_matches": 79,
-  "decisive_matches": 75,
+  "total_matches": 82,
+  "decisive_matches": 78,
   "push_matches": 4,
-  "ah_accuracy": 0.573,
-  "ou_accuracy": 0.57,
-  "ah_brier": 0.254,
-  "ou_brier": 0.252,
+  "ah_accuracy": 0.59,
+  "ou_accuracy": 0.549,
+  "ah_brier": 0.25,
+  "ou_brier": 0.258,
   "round1": {
     "matches": 24,
     "decisive_matches": 22,
     "push_matches": 2,
     "ah_accuracy": 0.364,
-    "ou_accuracy": 0.542
+    "ou_accuracy": 0.625
   },
   "round2": {
     "matches": 24,
@@ -40,10 +40,10 @@
       "ah_correct": false,
       "ah_brier": 0.231,
       "ou_pred": "under",
-      "ou_prob": 0.321,
+      "ou_prob": 0.317,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.103,
+      "ou_brier": 0.1,
       "method": "ELO基準"
     },
     {
@@ -64,11 +64,11 @@
       "ah_is_push": false,
       "ah_correct": false,
       "ah_brier": 0.21,
-      "ou_pred": "over",
-      "ou_prob": 0.504,
+      "ou_pred": "under",
+      "ou_prob": 0.5,
       "actual_ou": "under",
-      "ou_correct": false,
-      "ou_brier": 0.246,
+      "ou_correct": true,
+      "ou_brier": 0.25,
       "method": "ELO基準"
     },
     {
@@ -90,10 +90,10 @@
       "ah_correct": false,
       "ah_brier": 0.433,
       "ou_pred": "under",
-      "ou_prob": 0.451,
+      "ou_prob": 0.447,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.203,
+      "ou_brier": 0.2,
       "method": "ELO基準"
     },
     {
@@ -115,10 +115,10 @@
       "ah_correct": false,
       "ah_brier": 0.13,
       "ou_pred": "under",
-      "ou_prob": 0.489,
+      "ou_prob": 0.485,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.239,
+      "ou_brier": 0.235,
       "method": "ELO基準"
     },
     {
@@ -140,10 +140,10 @@
       "ah_correct": false,
       "ah_brier": 0.244,
       "ou_pred": "under",
-      "ou_prob": 0.346,
+      "ou_prob": 0.342,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.12,
+      "ou_brier": 0.117,
       "method": "ELO基準"
     },
     {
@@ -165,10 +165,10 @@
       "ah_correct": false,
       "ah_brier": 0.245,
       "ou_pred": "over",
-      "ou_prob": 0.513,
+      "ou_prob": 0.509,
       "actual_ou": "under",
       "ou_correct": false,
-      "ou_brier": 0.237,
+      "ou_brier": 0.241,
       "method": "ELO基準"
     },
     {
@@ -190,10 +190,10 @@
       "ah_correct": false,
       "ah_brier": 0.176,
       "ou_pred": "over",
-      "ou_prob": 0.506,
+      "ou_prob": 0.502,
       "actual_ou": "under",
       "ou_correct": false,
-      "ou_brier": 0.244,
+      "ou_brier": 0.248,
       "method": "ELO基準"
     },
     {
@@ -215,10 +215,10 @@
       "ah_correct": false,
       "ah_brier": 0.144,
       "ou_pred": "under",
-      "ou_prob": 0.398,
+      "ou_prob": 0.394,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.362,
+      "ou_brier": 0.367,
       "method": "ELO基準"
     },
     {
@@ -240,10 +240,10 @@
       "ah_correct": false,
       "ah_brier": 0.298,
       "ou_pred": "under",
-      "ou_prob": 0.422,
+      "ou_prob": 0.418,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.178,
+      "ou_brier": 0.175,
       "method": "ELO基準"
     },
     {
@@ -265,10 +265,10 @@
       "ah_correct": false,
       "ah_brier": 0.608,
       "ou_pred": "under",
-      "ou_prob": 0.461,
+      "ou_prob": 0.457,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.213,
+      "ou_brier": 0.209,
       "method": "ELO基準"
     },
     {
@@ -290,10 +290,10 @@
       "ah_correct": false,
       "ah_brier": 0.239,
       "ou_pred": "under",
-      "ou_prob": 0.426,
+      "ou_prob": 0.423,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.181,
+      "ou_brier": 0.179,
       "method": "ELO基準"
     },
     {
@@ -315,10 +315,10 @@
       "ah_correct": false,
       "ah_brier": 0.169,
       "ou_pred": "under",
-      "ou_prob": 0.377,
+      "ou_prob": 0.373,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.388,
+      "ou_brier": 0.393,
       "method": "ELO基準"
     },
     {
@@ -340,10 +340,10 @@
       "ah_correct": false,
       "ah_brier": 0.318,
       "ou_pred": "under",
-      "ou_prob": 0.393,
+      "ou_prob": 0.389,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.154,
+      "ou_brier": 0.151,
       "method": "ELO基準"
     },
     {
@@ -365,10 +365,10 @@
       "ah_correct": false,
       "ah_brier": 0.198,
       "ou_pred": "under",
-      "ou_prob": 0.356,
+      "ou_prob": 0.352,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.127,
+      "ou_brier": 0.124,
       "method": "ELO基準"
     },
     {
@@ -390,10 +390,10 @@
       "ah_correct": false,
       "ah_brier": 0.247,
       "ou_pred": "under",
-      "ou_prob": 0.314,
+      "ou_prob": 0.311,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.099,
+      "ou_brier": 0.097,
       "method": "ELO+WC實績"
     },
     {
@@ -415,10 +415,10 @@
       "ah_correct": false,
       "ah_brier": 0.101,
       "ou_pred": "under",
-      "ou_prob": 0.35,
+      "ou_prob": 0.346,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.122,
+      "ou_brier": 0.12,
       "method": "ELO+WC實績"
     },
     {
@@ -440,10 +440,10 @@
       "ah_correct": false,
       "ah_brier": 0.24,
       "ou_pred": "under",
-      "ou_prob": 0.386,
+      "ou_prob": 0.382,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.149,
+      "ou_brier": 0.146,
       "method": "ELO+WC實績"
     },
     {
@@ -465,10 +465,10 @@
       "ah_correct": false,
       "ah_brier": 0.419,
       "ou_pred": "under",
-      "ou_prob": 0.354,
+      "ou_prob": 0.35,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.125,
+      "ou_brier": 0.122,
       "method": "ELO+WC實績"
     },
     {
@@ -490,10 +490,10 @@
       "ah_correct": false,
       "ah_brier": 0.119,
       "ou_pred": "under",
-      "ou_prob": 0.393,
+      "ou_prob": 0.389,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.368,
+      "ou_brier": 0.373,
       "method": "ELO+WC實績"
     },
     {
@@ -515,10 +515,10 @@
       "ah_correct": false,
       "ah_brier": 0.151,
       "ou_pred": "under",
-      "ou_prob": 0.363,
+      "ou_prob": 0.359,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.406,
+      "ou_brier": 0.411,
       "method": "ELO+WC實績"
     },
     {
@@ -540,10 +540,10 @@
       "ah_correct": false,
       "ah_brier": 0.342,
       "ou_pred": "under",
-      "ou_prob": 0.379,
+      "ou_prob": 0.375,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.144,
+      "ou_brier": 0.141,
       "method": "ELO+WC實績"
     },
     {
@@ -565,10 +565,10 @@
       "ah_correct": false,
       "ah_brier": 0.216,
       "ou_pred": "under",
-      "ou_prob": 0.38,
+      "ou_prob": 0.376,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.144,
+      "ou_brier": 0.141,
       "method": "ELO+WC實績"
     },
     {
@@ -590,10 +590,10 @@
       "ah_correct": false,
       "ah_brier": 0.238,
       "ou_pred": "under",
-      "ou_prob": 0.42,
+      "ou_prob": 0.417,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.176,
+      "ou_brier": 0.174,
       "method": "ELO+WC實績"
     },
     {
@@ -615,10 +615,10 @@
       "ah_correct": false,
       "ah_brier": 0.11,
       "ou_pred": "under",
-      "ou_prob": 0.426,
+      "ou_prob": 0.422,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.329,
+      "ou_brier": 0.334,
       "method": "ELO+WC實績"
     },
     {
@@ -640,10 +640,10 @@
       "ah_correct": false,
       "ah_brier": 0.645,
       "ou_pred": "under",
-      "ou_prob": 0.445,
+      "ou_prob": 0.44,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.198,
+      "ou_brier": 0.194,
       "method": "ELO+WC實績"
     },
     {
@@ -665,10 +665,10 @@
       "ah_correct": false,
       "ah_brier": 0.048,
       "ou_pred": "under",
-      "ou_prob": 0.346,
+      "ou_prob": 0.342,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.428,
+      "ou_brier": 0.433,
       "method": "ELO+WC實績"
     },
     {
@@ -690,10 +690,10 @@
       "ah_correct": false,
       "ah_brier": 0.184,
       "ou_pred": "under",
-      "ou_prob": 0.46,
+      "ou_prob": 0.456,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.212,
+      "ou_brier": 0.208,
       "method": "ELO+WC實績"
     },
     {
@@ -715,10 +715,10 @@
       "ah_correct": false,
       "ah_brier": 0.262,
       "ou_pred": "under",
-      "ou_prob": 0.353,
+      "ou_prob": 0.349,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.125,
+      "ou_brier": 0.122,
       "method": "ELO+WC實績"
     },
     {
@@ -740,10 +740,10 @@
       "ah_correct": false,
       "ah_brier": 0.099,
       "ou_pred": "under",
-      "ou_prob": 0.474,
+      "ou_prob": 0.47,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.277,
+      "ou_brier": 0.281,
       "method": "ELO+WC實績"
     },
     {
@@ -764,10 +764,10 @@
       "ah_is_push": false,
       "ah_correct": false,
       "ah_brier": 0.232,
-      "ou_pred": "over",
-      "ou_prob": 0.502,
+      "ou_pred": "under",
+      "ou_prob": 0.498,
       "actual_ou": "over",
-      "ou_correct": true,
+      "ou_correct": false,
       "ou_brier": 0.252,
       "method": "ELO+WC實績"
     },
@@ -790,10 +790,10 @@
       "ah_correct": false,
       "ah_brier": 0.63,
       "ou_pred": "under",
-      "ou_prob": 0.371,
+      "ou_prob": 0.367,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.396,
+      "ou_brier": 0.401,
       "method": "ELO+WC實績"
     },
     {
@@ -815,10 +815,10 @@
       "ah_correct": false,
       "ah_brier": 0.253,
       "ou_pred": "under",
-      "ou_prob": 0.393,
+      "ou_prob": 0.389,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.154,
+      "ou_brier": 0.151,
       "method": "ELO+WC實績"
     }
   ],
@@ -842,10 +842,10 @@
       "ah_correct": false,
       "ah_brier": null,
       "ou_pred": "under",
-      "ou_prob": 0.458,
+      "ou_prob": 0.454,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.294,
+      "ou_brier": 0.298,
       "method": "ELO基準"
     },
     {
@@ -867,10 +867,10 @@
       "ah_correct": false,
       "ah_brier": null,
       "ou_pred": "under",
-      "ou_prob": 0.378,
+      "ou_prob": 0.373,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.143,
+      "ou_brier": 0.139,
       "method": "ELO基準"
     },
     {
@@ -892,10 +892,10 @@
       "ah_correct": false,
       "ah_brier": null,
       "ou_pred": "under",
-      "ou_prob": 0.435,
+      "ou_prob": 0.43,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.189,
+      "ou_brier": 0.185,
       "method": "ELO+WC實績"
     },
     {
@@ -917,10 +917,10 @@
       "ah_correct": false,
       "ah_brier": null,
       "ou_pred": "under",
-      "ou_prob": 0.317,
+      "ou_prob": 0.314,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.466,
+      "ou_brier": 0.471,
       "method": "ELO+WC實績"
     }
   ],
@@ -944,10 +944,10 @@
       "ah_correct": false,
       "ah_brier": 0.231,
       "ou_pred": "under",
-      "ou_prob": 0.321,
+      "ou_prob": 0.317,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.103,
+      "ou_brier": 0.1,
       "method": "ELO基準"
     },
     {
@@ -968,11 +968,11 @@
       "ah_is_push": false,
       "ah_correct": false,
       "ah_brier": 0.21,
-      "ou_pred": "over",
-      "ou_prob": 0.504,
+      "ou_pred": "under",
+      "ou_prob": 0.5,
       "actual_ou": "under",
-      "ou_correct": false,
-      "ou_brier": 0.246,
+      "ou_correct": true,
+      "ou_brier": 0.25,
       "method": "ELO基準"
     },
     {
@@ -994,10 +994,10 @@
       "ah_correct": false,
       "ah_brier": 0.433,
       "ou_pred": "under",
-      "ou_prob": 0.451,
+      "ou_prob": 0.447,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.203,
+      "ou_brier": 0.2,
       "method": "ELO基準"
     },
     {
@@ -1019,10 +1019,10 @@
       "ah_correct": true,
       "ah_brier": 0.213,
       "ou_pred": "under",
-      "ou_prob": 0.398,
+      "ou_prob": 0.394,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.362,
+      "ou_brier": 0.367,
       "method": "ELO基準"
     },
     {
@@ -1044,10 +1044,10 @@
       "ah_correct": false,
       "ah_brier": 0.13,
       "ou_pred": "under",
-      "ou_prob": 0.489,
+      "ou_prob": 0.485,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.239,
+      "ou_brier": 0.235,
       "method": "ELO基準"
     },
     {
@@ -1069,10 +1069,10 @@
       "ah_correct": false,
       "ah_brier": 0.244,
       "ou_pred": "under",
-      "ou_prob": 0.346,
+      "ou_prob": 0.342,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.12,
+      "ou_brier": 0.117,
       "method": "ELO基準"
     },
     {
@@ -1094,10 +1094,10 @@
       "ah_correct": false,
       "ah_brier": 0.245,
       "ou_pred": "over",
-      "ou_prob": 0.513,
+      "ou_prob": 0.509,
       "actual_ou": "under",
       "ou_correct": false,
-      "ou_brier": 0.237,
+      "ou_brier": 0.241,
       "method": "ELO基準"
     },
     {
@@ -1119,10 +1119,10 @@
       "ah_correct": true,
       "ah_brier": 0.215,
       "ou_pred": "under",
-      "ou_prob": 0.447,
+      "ou_prob": 0.443,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.2,
+      "ou_brier": 0.196,
       "method": "ELO基準"
     },
     {
@@ -1144,10 +1144,10 @@
       "ah_correct": true,
       "ah_brier": 0.1,
       "ou_pred": "over",
-      "ou_prob": 0.507,
+      "ou_prob": 0.503,
       "actual_ou": "over",
       "ou_correct": true,
-      "ou_brier": 0.257,
+      "ou_brier": 0.253,
       "method": "ELO基準"
     },
     {
@@ -1169,10 +1169,10 @@
       "ah_correct": false,
       "ah_brier": 0.176,
       "ou_pred": "over",
-      "ou_prob": 0.506,
+      "ou_prob": 0.502,
       "actual_ou": "under",
       "ou_correct": false,
-      "ou_brier": 0.244,
+      "ou_brier": 0.248,
       "method": "ELO基準"
     },
     {
@@ -1194,10 +1194,10 @@
       "ah_correct": false,
       "ah_brier": null,
       "ou_pred": "under",
-      "ou_prob": 0.458,
+      "ou_prob": 0.454,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.294,
+      "ou_brier": 0.298,
       "method": "ELO基準"
     },
     {
@@ -1219,10 +1219,10 @@
       "ah_correct": false,
       "ah_brier": 0.144,
       "ou_pred": "under",
-      "ou_prob": 0.398,
+      "ou_prob": 0.394,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.362,
+      "ou_brier": 0.367,
       "method": "ELO基準"
     },
     {
@@ -1244,10 +1244,10 @@
       "ah_correct": false,
       "ah_brier": 0.298,
       "ou_pred": "under",
-      "ou_prob": 0.422,
+      "ou_prob": 0.418,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.178,
+      "ou_brier": 0.175,
       "method": "ELO基準"
     },
     {
@@ -1269,10 +1269,10 @@
       "ah_correct": false,
       "ah_brier": null,
       "ou_pred": "under",
-      "ou_prob": 0.378,
+      "ou_prob": 0.373,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.143,
+      "ou_brier": 0.139,
       "method": "ELO基準"
     },
     {
@@ -1294,10 +1294,10 @@
       "ah_correct": false,
       "ah_brier": 0.608,
       "ou_pred": "under",
-      "ou_prob": 0.461,
+      "ou_prob": 0.457,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.213,
+      "ou_brier": 0.209,
       "method": "ELO基準"
     },
     {
@@ -1319,10 +1319,10 @@
       "ah_correct": false,
       "ah_brier": 0.239,
       "ou_pred": "under",
-      "ou_prob": 0.426,
+      "ou_prob": 0.423,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.181,
+      "ou_brier": 0.179,
       "method": "ELO基準"
     },
     {
@@ -1344,10 +1344,10 @@
       "ah_correct": false,
       "ah_brier": 0.169,
       "ou_pred": "under",
-      "ou_prob": 0.377,
+      "ou_prob": 0.373,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.388,
+      "ou_brier": 0.393,
       "method": "ELO基準"
     },
     {
@@ -1361,18 +1361,18 @@
       "lambda_home": 3.071,
       "lambda_away": 1.454,
       "ah_line": -0.5,
-      "ou_line": 4.0,
+      "ou_line": 3.5,
       "ah_pred": "home",
       "ah_prob": 0.698,
       "actual_ah": "home",
       "ah_is_push": false,
       "ah_correct": true,
       "ah_brier": 0.091,
-      "ou_pred": "under",
-      "ou_prob": 0.324,
+      "ou_pred": "over",
+      "ou_prob": 0.513,
       "actual_ou": "over",
-      "ou_correct": false,
-      "ou_brier": 0.457,
+      "ou_correct": true,
+      "ou_brier": 0.263,
       "method": "ELO基準"
     },
     {
@@ -1394,10 +1394,10 @@
       "ah_correct": true,
       "ah_brier": 0.124,
       "ou_pred": "under",
-      "ou_prob": 0.407,
+      "ou_prob": 0.403,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.166,
+      "ou_brier": 0.162,
       "method": "ELO基準"
     },
     {
@@ -1419,10 +1419,10 @@
       "ah_correct": true,
       "ah_brier": 0.158,
       "ou_pred": "under",
-      "ou_prob": 0.425,
+      "ou_prob": 0.421,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.331,
+      "ou_brier": 0.335,
       "method": "ELO基準"
     },
     {
@@ -1444,10 +1444,10 @@
       "ah_correct": false,
       "ah_brier": 0.318,
       "ou_pred": "under",
-      "ou_prob": 0.393,
+      "ou_prob": 0.389,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.154,
+      "ou_brier": 0.151,
       "method": "ELO基準"
     },
     {
@@ -1469,10 +1469,10 @@
       "ah_correct": true,
       "ah_brier": 0.164,
       "ou_pred": "under",
-      "ou_prob": 0.391,
+      "ou_prob": 0.387,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.371,
+      "ou_brier": 0.376,
       "method": "ELO基準"
     },
     {
@@ -1494,10 +1494,10 @@
       "ah_correct": true,
       "ah_brier": 0.187,
       "ou_pred": "under",
-      "ou_prob": 0.44,
+      "ou_prob": 0.436,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.314,
+      "ou_brier": 0.318,
       "method": "ELO基準"
     },
     {
@@ -1519,10 +1519,10 @@
       "ah_correct": false,
       "ah_brier": 0.198,
       "ou_pred": "under",
-      "ou_prob": 0.356,
+      "ou_prob": 0.352,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.127,
+      "ou_brier": 0.124,
       "method": "ELO基準"
     },
     {
@@ -1544,10 +1544,10 @@
       "ah_correct": true,
       "ah_brier": 0.257,
       "ou_pred": "under",
-      "ou_prob": 0.497,
+      "ou_prob": 0.493,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.247,
+      "ou_brier": 0.243,
       "method": "ELO+WC實績"
     },
     {
@@ -1569,10 +1569,10 @@
       "ah_correct": false,
       "ah_brier": 0.247,
       "ou_pred": "under",
-      "ou_prob": 0.314,
+      "ou_prob": 0.311,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.099,
+      "ou_brier": 0.097,
       "method": "ELO+WC實績"
     },
     {
@@ -1594,10 +1594,10 @@
       "ah_correct": true,
       "ah_brier": 0.163,
       "ou_pred": "under",
-      "ou_prob": 0.357,
+      "ou_prob": 0.353,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.413,
+      "ou_brier": 0.419,
       "method": "ELO+WC實績"
     },
     {
@@ -1619,10 +1619,10 @@
       "ah_correct": true,
       "ah_brier": 0.239,
       "ou_pred": "under",
-      "ou_prob": 0.302,
+      "ou_prob": 0.298,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.487,
+      "ou_brier": 0.493,
       "method": "ELO+WC實績"
     },
     {
@@ -1644,10 +1644,10 @@
       "ah_correct": true,
       "ah_brier": 0.248,
       "ou_pred": "under",
-      "ou_prob": 0.462,
+      "ou_prob": 0.458,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.213,
+      "ou_brier": 0.21,
       "method": "ELO+WC實績"
     },
     {
@@ -1661,18 +1661,18 @@
       "lambda_home": 1.82,
       "lambda_away": 1.117,
       "ah_line": -0.25,
-      "ou_line": 3.0,
+      "ou_line": 2.5,
       "ah_pred": "home",
       "ah_prob": 0.538,
       "actual_ah": "home",
       "ah_is_push": false,
       "ah_correct": true,
       "ah_brier": 0.213,
-      "ou_pred": "under",
-      "ou_prob": 0.3,
-      "actual_ou": "under",
+      "ou_pred": "over",
+      "ou_prob": 0.518,
+      "actual_ou": "over",
       "ou_correct": true,
-      "ou_brier": 0.09,
+      "ou_brier": 0.268,
       "method": "ELO+WC實績"
     },
     {
@@ -1694,10 +1694,10 @@
       "ah_correct": false,
       "ah_brier": 0.101,
       "ou_pred": "under",
-      "ou_prob": 0.35,
+      "ou_prob": 0.346,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.122,
+      "ou_brier": 0.12,
       "method": "ELO+WC實績"
     },
     {
@@ -1719,10 +1719,10 @@
       "ah_correct": false,
       "ah_brier": 0.24,
       "ou_pred": "under",
-      "ou_prob": 0.386,
+      "ou_prob": 0.382,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.149,
+      "ou_brier": 0.146,
       "method": "ELO+WC實績"
     },
     {
@@ -1744,10 +1744,10 @@
       "ah_correct": true,
       "ah_brier": 0.175,
       "ou_pred": "under",
-      "ou_prob": 0.361,
+      "ou_prob": 0.357,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.13,
+      "ou_brier": 0.127,
       "method": "ELO+WC實績"
     },
     {
@@ -1769,10 +1769,10 @@
       "ah_correct": false,
       "ah_brier": 0.419,
       "ou_pred": "under",
-      "ou_prob": 0.354,
+      "ou_prob": 0.35,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.125,
+      "ou_brier": 0.122,
       "method": "ELO+WC實績"
     },
     {
@@ -1794,10 +1794,10 @@
       "ah_correct": false,
       "ah_brier": 0.119,
       "ou_pred": "under",
-      "ou_prob": 0.393,
+      "ou_prob": 0.389,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.368,
+      "ou_brier": 0.373,
       "method": "ELO+WC實績"
     },
     {
@@ -1811,18 +1811,18 @@
       "lambda_home": 3.616,
       "lambda_away": 1.122,
       "ah_line": -0.75,
-      "ou_line": 4.0,
+      "ou_line": 3.5,
       "ah_pred": "home",
       "ah_prob": 0.824,
       "actual_ah": "home",
       "ah_is_push": false,
       "ah_correct": true,
       "ah_brier": 0.031,
-      "ou_pred": "under",
-      "ou_prob": 0.324,
-      "actual_ou": "under",
+      "ou_pred": "over",
+      "ou_prob": 0.513,
+      "actual_ou": "over",
       "ou_correct": true,
-      "ou_brier": 0.105,
+      "ou_brier": 0.263,
       "method": "ELO+WC實績"
     },
     {
@@ -1844,10 +1844,10 @@
       "ah_correct": false,
       "ah_brier": null,
       "ou_pred": "under",
-      "ou_prob": 0.435,
+      "ou_prob": 0.43,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.189,
+      "ou_brier": 0.185,
       "method": "ELO+WC實績"
     },
     {
@@ -1869,10 +1869,10 @@
       "ah_correct": false,
       "ah_brier": 0.151,
       "ou_pred": "under",
-      "ou_prob": 0.363,
+      "ou_prob": 0.359,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.406,
+      "ou_brier": 0.411,
       "method": "ELO+WC實績"
     },
     {
@@ -1894,10 +1894,10 @@
       "ah_correct": true,
       "ah_brier": 0.151,
       "ou_pred": "under",
-      "ou_prob": 0.412,
+      "ou_prob": 0.408,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.346,
+      "ou_brier": 0.35,
       "method": "ELO+WC實績"
     },
     {
@@ -1919,10 +1919,10 @@
       "ah_correct": false,
       "ah_brier": null,
       "ou_pred": "under",
-      "ou_prob": 0.317,
+      "ou_prob": 0.314,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.466,
+      "ou_brier": 0.471,
       "method": "ELO+WC實績"
     },
     {
@@ -1944,10 +1944,10 @@
       "ah_correct": true,
       "ah_brier": 0.108,
       "ou_pred": "under",
-      "ou_prob": 0.333,
+      "ou_prob": 0.329,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.111,
+      "ou_brier": 0.108,
       "method": "ELO+WC實績"
     },
     {
@@ -1969,10 +1969,10 @@
       "ah_correct": true,
       "ah_brier": 0.059,
       "ou_pred": "under",
-      "ou_prob": 0.398,
+      "ou_prob": 0.393,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.158,
+      "ou_brier": 0.154,
       "method": "ELO+WC實績"
     },
     {
@@ -1994,10 +1994,10 @@
       "ah_correct": true,
       "ah_brier": 0.057,
       "ou_pred": "under",
-      "ou_prob": 0.349,
+      "ou_prob": 0.345,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.424,
+      "ou_brier": 0.429,
       "method": "ELO+WC實績"
     },
     {
@@ -2019,10 +2019,10 @@
       "ah_correct": true,
       "ah_brier": 0.437,
       "ou_pred": "under",
-      "ou_prob": 0.386,
+      "ou_prob": 0.382,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.149,
+      "ou_brier": 0.146,
       "method": "ELO+WC實績"
     },
     {
@@ -2044,10 +2044,10 @@
       "ah_correct": true,
       "ah_brier": 0.086,
       "ou_pred": "under",
-      "ou_prob": 0.415,
+      "ou_prob": 0.411,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.342,
+      "ou_brier": 0.347,
       "method": "ELO+WC實績"
     },
     {
@@ -2069,10 +2069,10 @@
       "ah_correct": false,
       "ah_brier": 0.342,
       "ou_pred": "under",
-      "ou_prob": 0.379,
+      "ou_prob": 0.375,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.144,
+      "ou_brier": 0.141,
       "method": "ELO+WC實績"
     },
     {
@@ -2094,10 +2094,10 @@
       "ah_correct": true,
       "ah_brier": 0.252,
       "ou_pred": "under",
-      "ou_prob": 0.344,
+      "ou_prob": 0.34,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.118,
+      "ou_brier": 0.116,
       "method": "ELO+WC實績"
     },
     {
@@ -2119,10 +2119,10 @@
       "ah_correct": true,
       "ah_brier": 0.172,
       "ou_pred": "over",
-      "ou_prob": 0.512,
+      "ou_prob": 0.508,
       "actual_ou": "under",
       "ou_correct": false,
-      "ou_brier": 0.238,
+      "ou_brier": 0.242,
       "method": "ELO+WC實績"
     },
     {
@@ -2144,10 +2144,10 @@
       "ah_correct": false,
       "ah_brier": 0.216,
       "ou_pred": "under",
-      "ou_prob": 0.38,
+      "ou_prob": 0.376,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.144,
+      "ou_brier": 0.141,
       "method": "ELO+WC實績"
     },
     {
@@ -2161,7 +2161,7 @@
       "lambda_home": 2.238,
       "lambda_away": 1.685,
       "ah_line": -0.25,
-      "ou_line": 3.5,
+      "ou_line": 3.0,
       "ah_pred": "home",
       "ah_prob": 0.505,
       "actual_ah": "home",
@@ -2169,10 +2169,10 @@
       "ah_correct": true,
       "ah_brier": 0.245,
       "ou_pred": "under",
-      "ou_prob": 0.41,
+      "ou_prob": 0.405,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.348,
+      "ou_brier": 0.354,
       "method": "ELO+WC實績"
     },
     {
@@ -2194,10 +2194,10 @@
       "ah_correct": true,
       "ah_brier": 0.088,
       "ou_pred": "under",
-      "ou_prob": 0.433,
+      "ou_prob": 0.43,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.321,
+      "ou_brier": 0.325,
       "method": "ELO+WC實績"
     },
     {
@@ -2219,10 +2219,10 @@
       "ah_correct": true,
       "ah_brier": 0.366,
       "ou_pred": "under",
-      "ou_prob": 0.47,
+      "ou_prob": 0.467,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.281,
+      "ou_brier": 0.284,
       "method": "ELO+WC實績"
     },
     {
@@ -2244,10 +2244,10 @@
       "ah_correct": true,
       "ah_brier": 0.387,
       "ou_pred": "under",
-      "ou_prob": 0.321,
+      "ou_prob": 0.318,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.461,
+      "ou_brier": 0.465,
       "method": "ELO+WC實績"
     },
     {
@@ -2269,10 +2269,10 @@
       "ah_correct": false,
       "ah_brier": 0.238,
       "ou_pred": "under",
-      "ou_prob": 0.42,
+      "ou_prob": 0.417,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.176,
+      "ou_brier": 0.174,
       "method": "ELO+WC實績"
     },
     {
@@ -2294,10 +2294,10 @@
       "ah_correct": false,
       "ah_brier": 0.11,
       "ou_pred": "under",
-      "ou_prob": 0.426,
+      "ou_prob": 0.422,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.329,
+      "ou_brier": 0.334,
       "method": "ELO+WC實績"
     },
     {
@@ -2319,10 +2319,10 @@
       "ah_correct": true,
       "ah_brier": 0.529,
       "ou_pred": "under",
-      "ou_prob": 0.387,
+      "ou_prob": 0.383,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.15,
+      "ou_brier": 0.147,
       "method": "ELO+WC實績"
     },
     {
@@ -2344,10 +2344,10 @@
       "ah_correct": true,
       "ah_brier": 0.78,
       "ou_pred": "under",
-      "ou_prob": 0.454,
+      "ou_prob": 0.449,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.206,
+      "ou_brier": 0.202,
       "method": "ELO+WC實績"
     },
     {
@@ -2369,10 +2369,10 @@
       "ah_correct": false,
       "ah_brier": 0.645,
       "ou_pred": "under",
-      "ou_prob": 0.445,
+      "ou_prob": 0.44,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.198,
+      "ou_brier": 0.194,
       "method": "ELO+WC實績"
     },
     {
@@ -2394,10 +2394,10 @@
       "ah_correct": false,
       "ah_brier": 0.048,
       "ou_pred": "under",
-      "ou_prob": 0.346,
+      "ou_prob": 0.342,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.428,
+      "ou_brier": 0.433,
       "method": "ELO+WC實績"
     },
     {
@@ -2419,10 +2419,10 @@
       "ah_correct": false,
       "ah_brier": 0.184,
       "ou_pred": "under",
-      "ou_prob": 0.46,
+      "ou_prob": 0.456,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.212,
+      "ou_brier": 0.208,
       "method": "ELO+WC實績"
     },
     {
@@ -2444,10 +2444,10 @@
       "ah_correct": true,
       "ah_brier": 0.345,
       "ou_pred": "under",
-      "ou_prob": 0.452,
+      "ou_prob": 0.448,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.3,
+      "ou_brier": 0.305,
       "method": "ELO+WC實績"
     },
     {
@@ -2468,11 +2468,11 @@
       "ah_is_push": false,
       "ah_correct": true,
       "ah_brier": 0.099,
-      "ou_pred": "over",
-      "ou_prob": 0.501,
+      "ou_pred": "under",
+      "ou_prob": 0.496,
       "actual_ou": "over",
-      "ou_correct": true,
-      "ou_brier": 0.251,
+      "ou_correct": false,
+      "ou_brier": 0.254,
       "method": "ELO+WC實績"
     },
     {
@@ -2494,10 +2494,10 @@
       "ah_correct": true,
       "ah_brier": 0.517,
       "ou_pred": "under",
-      "ou_prob": 0.458,
+      "ou_prob": 0.455,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.21,
+      "ou_brier": 0.207,
       "method": "ELO+WC實績"
     },
     {
@@ -2519,10 +2519,10 @@
       "ah_correct": false,
       "ah_brier": 0.262,
       "ou_pred": "under",
-      "ou_prob": 0.353,
+      "ou_prob": 0.349,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.125,
+      "ou_brier": 0.122,
       "method": "ELO+WC實績"
     },
     {
@@ -2544,10 +2544,10 @@
       "ah_correct": true,
       "ah_brier": 0.346,
       "ou_pred": "under",
-      "ou_prob": 0.338,
+      "ou_prob": 0.334,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.438,
+      "ou_brier": 0.444,
       "method": "ELO+WC實績"
     },
     {
@@ -2569,10 +2569,10 @@
       "ah_correct": true,
       "ah_brier": 0.356,
       "ou_pred": "under",
-      "ou_prob": 0.47,
+      "ou_prob": 0.465,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.221,
+      "ou_brier": 0.216,
       "method": "ELO+WC實績"
     },
     {
@@ -2594,10 +2594,10 @@
       "ah_correct": true,
       "ah_brier": 0.479,
       "ou_pred": "under",
-      "ou_prob": 0.425,
+      "ou_prob": 0.421,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.181,
+      "ou_brier": 0.177,
       "method": "ELO+WC實績"
     },
     {
@@ -2619,10 +2619,10 @@
       "ah_correct": false,
       "ah_brier": 0.099,
       "ou_pred": "under",
-      "ou_prob": 0.474,
+      "ou_prob": 0.47,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.277,
+      "ou_brier": 0.281,
       "method": "ELO+WC實績"
     },
     {
@@ -2644,10 +2644,10 @@
       "ah_correct": true,
       "ah_brier": 0.231,
       "ou_pred": "under",
-      "ou_prob": 0.493,
+      "ou_prob": 0.489,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.243,
+      "ou_brier": 0.239,
       "method": "ELO+WC實績"
     },
     {
@@ -2669,10 +2669,10 @@
       "ah_correct": true,
       "ah_brier": 0.156,
       "ou_pred": "under",
-      "ou_prob": 0.365,
+      "ou_prob": 0.362,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.403,
+      "ou_brier": 0.407,
       "method": "ELO+WC實績"
     },
     {
@@ -2694,10 +2694,10 @@
       "ah_correct": true,
       "ah_brier": 0.834,
       "ou_pred": "under",
-      "ou_prob": 0.402,
+      "ou_prob": 0.397,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.358,
+      "ou_brier": 0.364,
       "method": "ELO+WC實績"
     },
     {
@@ -2719,10 +2719,10 @@
       "ah_correct": true,
       "ah_brier": 0.25,
       "ou_pred": "under",
-      "ou_prob": 0.361,
+      "ou_prob": 0.357,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.408,
+      "ou_brier": 0.413,
       "method": "ELO+WC實績"
     },
     {
@@ -2744,10 +2744,10 @@
       "ah_correct": true,
       "ah_brier": 0.37,
       "ou_pred": "under",
-      "ou_prob": 0.449,
+      "ou_prob": 0.445,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.202,
+      "ou_brier": 0.198,
       "method": "ELO+WC實績"
     },
     {
@@ -2768,10 +2768,10 @@
       "ah_is_push": false,
       "ah_correct": false,
       "ah_brier": 0.232,
-      "ou_pred": "over",
-      "ou_prob": 0.502,
+      "ou_pred": "under",
+      "ou_prob": 0.498,
       "actual_ou": "over",
-      "ou_correct": true,
+      "ou_correct": false,
       "ou_brier": 0.252,
       "method": "ELO+WC實績"
     },
@@ -2794,10 +2794,10 @@
       "ah_correct": false,
       "ah_brier": 0.63,
       "ou_pred": "under",
-      "ou_prob": 0.371,
+      "ou_prob": 0.367,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.396,
+      "ou_brier": 0.401,
       "method": "ELO+WC實績"
     },
     {
@@ -2819,10 +2819,10 @@
       "ah_correct": true,
       "ah_brier": 0.359,
       "ou_pred": "under",
-      "ou_prob": 0.341,
+      "ou_prob": 0.337,
       "actual_ou": "over",
       "ou_correct": false,
-      "ou_brier": 0.434,
+      "ou_brier": 0.44,
       "method": "ELO+WC實績"
     },
     {
@@ -2844,10 +2844,10 @@
       "ah_correct": false,
       "ah_brier": 0.253,
       "ou_pred": "under",
-      "ou_prob": 0.393,
+      "ou_prob": 0.389,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.154,
+      "ou_brier": 0.151,
       "method": "ELO+WC實績"
     },
     {
@@ -2869,10 +2869,10 @@
       "ah_correct": true,
       "ah_brier": 0.032,
       "ou_pred": "under",
-      "ou_prob": 0.362,
+      "ou_prob": 0.358,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.131,
+      "ou_brier": 0.128,
       "method": "ELO+WC實績"
     },
     {
@@ -2894,10 +2894,85 @@
       "ah_correct": true,
       "ah_brier": 0.194,
       "ou_pred": "under",
-      "ou_prob": 0.323,
+      "ou_prob": 0.32,
       "actual_ou": "under",
       "ou_correct": true,
-      "ou_brier": 0.104,
+      "ou_brier": 0.102,
+      "method": "ELO+WC實績"
+    },
+    {
+      "date": "2026-07-01",
+      "group": "",
+      "round": 0,
+      "home": "England",
+      "away": "DR Congo",
+      "predicted_score": "1-0",
+      "score": "2-1",
+      "lambda_home": 1.567,
+      "lambda_away": 0.739,
+      "ah_line": -0.25,
+      "ou_line": 2.0,
+      "ah_pred": "home",
+      "ah_prob": 0.571,
+      "actual_ah": "home",
+      "ah_is_push": false,
+      "ah_correct": true,
+      "ah_brier": 0.184,
+      "ou_pred": "under",
+      "ou_prob": 0.317,
+      "actual_ou": "over",
+      "ou_correct": false,
+      "ou_brier": 0.466,
+      "method": "ELO+WC實績"
+    },
+    {
+      "date": "2026-07-01",
+      "group": "",
+      "round": 0,
+      "home": "Belgium",
+      "away": "Senegal",
+      "predicted_score": "2-1",
+      "score": "3-2",
+      "lambda_home": 2.239,
+      "lambda_away": 1.527,
+      "ah_line": -0.25,
+      "ou_line": 3.0,
+      "ah_pred": "home",
+      "ah_prob": 0.538,
+      "actual_ah": "home",
+      "ah_is_push": false,
+      "ah_correct": true,
+      "ah_brier": 0.213,
+      "ou_pred": "under",
+      "ou_prob": 0.373,
+      "actual_ou": "over",
+      "ou_correct": false,
+      "ou_brier": 0.393,
+      "method": "ELO+WC實績"
+    },
+    {
+      "date": "2026-07-02",
+      "group": "",
+      "round": 0,
+      "home": "United States",
+      "away": "Bosnia and Herzegovina",
+      "predicted_score": "3-1",
+      "score": "2-0",
+      "lambda_home": 3.271,
+      "lambda_away": 1.496,
+      "ah_line": -0.5,
+      "ou_line": 3.5,
+      "ah_pred": "home",
+      "ah_prob": 0.719,
+      "actual_ah": "home",
+      "ah_is_push": false,
+      "ah_correct": true,
+      "ah_brier": 0.079,
+      "ou_pred": "over",
+      "ou_prob": 0.512,
+      "actual_ou": "under",
+      "ou_correct": false,
+      "ou_brier": 0.238,
       "method": "ELO+WC實績"
     }
   ]

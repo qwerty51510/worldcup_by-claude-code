@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-01T13:54:41Z",
-  "total_matches": 79,
+  "generated_at": "2026-07-02T12:31:51Z",
+  "total_matches": 82,
   "summary": {
-    "ah_accuracy": 0.573,
-    "ou_accuracy": 0.57,
+    "ah_accuracy": 0.59,
+    "ou_accuracy": 0.549,
     "score_exact_match": 9,
-    "avg_goal_total_error": 1.65
+    "avg_goal_total_error": 1.66
   },
   "matches": [
     {
@@ -43,8 +43,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-12",
@@ -347,8 +347,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": false
+      "ou_pred": "over",
+      "ou_correct": true
     },
     {
       "date": "2026-06-16",
@@ -575,7 +575,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
+      "ou_pred": "over",
       "ou_correct": true
     },
     {
@@ -689,7 +689,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
+      "ou_pred": "over",
       "ou_correct": true
     },
     {
@@ -1183,8 +1183,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-27",
@@ -1411,8 +1411,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-29",
@@ -1508,6 +1508,63 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
+    },
+    {
+      "date": "2026-07-01",
+      "group": "",
+      "round": 0,
+      "home": "England",
+      "away": "DR Congo",
+      "predicted_score": "1-0",
+      "actual_score": "2-1",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 1.567,
+      "lambda_away": 0.739,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-07-01",
+      "group": "",
+      "round": 0,
+      "home": "Belgium",
+      "away": "Senegal",
+      "predicted_score": "2-1",
+      "actual_score": "3-2",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 2.239,
+      "lambda_away": 1.527,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-07-02",
+      "group": "",
+      "round": 0,
+      "home": "United States",
+      "away": "Bosnia and Herzegovina",
+      "predicted_score": "3-1",
+      "actual_score": "2-0",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 3.271,
+      "lambda_away": 1.496,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "over",
+      "ou_correct": false
     }
   ],
   "team_analysis": [
@@ -1528,14 +1585,6 @@
       "ah_accuracy": 0.5
     },
     {
-      "team": "Senegal",
-      "matches": 3,
-      "pred_goals_avg": 1.33,
-      "actual_goals_avg": 2.67,
-      "goal_bias": -1.33,
-      "ah_accuracy": 0.667
-    },
-    {
       "team": "Paraguay",
       "matches": 4,
       "pred_goals_avg": 0.5,
@@ -1552,20 +1601,20 @@
       "ah_accuracy": 0.5
     },
     {
+      "team": "Senegal",
+      "matches": 4,
+      "pred_goals_avg": 1.25,
+      "actual_goals_avg": 2.5,
+      "goal_bias": -1.25,
+      "ah_accuracy": 0.75
+    },
+    {
       "team": "Mexico",
       "matches": 4,
       "pred_goals_avg": 1.0,
       "actual_goals_avg": 2.0,
       "goal_bias": -1.0,
       "ah_accuracy": 0.5
-    },
-    {
-      "team": "United States",
-      "matches": 3,
-      "pred_goals_avg": 1.67,
-      "actual_goals_avg": 2.67,
-      "goal_bias": -1.0,
-      "ah_accuracy": 0.333
     },
     {
       "team": "Austria",
@@ -1592,6 +1641,14 @@
       "ah_accuracy": 0.667
     },
     {
+      "team": "Belgium",
+      "matches": 4,
+      "pred_goals_avg": 1.5,
+      "actual_goals_avg": 2.25,
+      "goal_bias": -0.75,
+      "ah_accuracy": 0.667
+    },
+    {
       "team": "France",
       "matches": 4,
       "pred_goals_avg": 2.5,
@@ -1614,14 +1671,6 @@
       "actual_goals_avg": 0.67,
       "goal_bias": 0.67,
       "ah_accuracy": 0.333
-    },
-    {
-      "team": "Belgium",
-      "matches": 3,
-      "pred_goals_avg": 1.33,
-      "actual_goals_avg": 2.0,
-      "goal_bias": -0.67,
-      "ah_accuracy": 0.5
     },
     {
       "team": "Egypt",
@@ -1664,6 +1713,14 @@
       "ah_accuracy": 0.667
     },
     {
+      "team": "United States",
+      "matches": 4,
+      "pred_goals_avg": 2.0,
+      "actual_goals_avg": 2.5,
+      "goal_bias": -0.5,
+      "ah_accuracy": 0.5
+    },
+    {
       "team": "Japan",
       "matches": 4,
       "pred_goals_avg": 2.5,
@@ -1688,12 +1745,20 @@
       "ah_accuracy": 0.75
     },
     {
-      "team": "Bosnia and Herzegovina",
-      "matches": 3,
-      "pred_goals_avg": 1.33,
-      "actual_goals_avg": 1.67,
-      "goal_bias": -0.33,
-      "ah_accuracy": 0.667
+      "team": "DR Congo",
+      "matches": 4,
+      "pred_goals_avg": 0.75,
+      "actual_goals_avg": 1.25,
+      "goal_bias": -0.5,
+      "ah_accuracy": 0.75
+    },
+    {
+      "team": "England",
+      "matches": 4,
+      "pred_goals_avg": 1.5,
+      "actual_goals_avg": 2.0,
+      "goal_bias": -0.5,
+      "ah_accuracy": 0.75
     },
     {
       "team": "Qatar",
@@ -1792,28 +1857,12 @@
       "ah_accuracy": 0.667
     },
     {
-      "team": "DR Congo",
-      "matches": 3,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.33,
-      "goal_bias": -0.33,
-      "ah_accuracy": 0.667
-    },
-    {
       "team": "Colombia",
       "matches": 3,
       "pred_goals_avg": 1.67,
       "actual_goals_avg": 1.33,
       "goal_bias": 0.33,
       "ah_accuracy": 1.0
-    },
-    {
-      "team": "England",
-      "matches": 3,
-      "pred_goals_avg": 1.67,
-      "actual_goals_avg": 2.0,
-      "goal_bias": -0.33,
-      "ah_accuracy": 0.667
     },
     {
       "team": "Ghana",
@@ -1854,6 +1903,14 @@
       "actual_goals_avg": 0.67,
       "goal_bias": 0.0,
       "ah_accuracy": 0.667
+    },
+    {
+      "team": "Bosnia and Herzegovina",
+      "matches": 4,
+      "pred_goals_avg": 1.25,
+      "actual_goals_avg": 1.25,
+      "goal_bias": 0.0,
+      "ah_accuracy": 0.75
     },
     {
       "team": "Turkey",
@@ -1932,8 +1989,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-12",
@@ -2464,8 +2521,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-29",
