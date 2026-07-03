@@ -1,0 +1,122 @@
+[
+  {
+    "match_id": "537428",
+    "home_team": "Australia",
+    "away_team": "Egypt",
+    "kickoff": "07/04 02:00",
+    "kickoff_utc": "2026-07-03T18:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 26,
+    "ou_prediction": "over",
+    "ou_confidence": 14,
+    "predicted_score": "1-0",
+    "p_home_win": 0.37,
+    "p_draw": 0.315,
+    "p_away_win": 0.315,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 1.014,
+    "lambda_away": 0.912,
+    "ah_line": 0.0,
+    "ou_line": 1.5,
+    "reasoning": "【強度】澳洲（ELO 1621）vs 埃及（ELO 1509），實力略佔優勢（ELO +112）\n【近況】澳洲 3場 進2 失2；埃及 3場 進5 失4\n【陣型戰術】澳洲 4-4-2（均衡）vs 埃及 4-2-3-1（防守反擊）\n【體力】澳洲 休息7天（體力充足）；埃及 休息6天（體力充足）\n【進球預期】主 1.0 + 客 0.9 = 1.9，傾向大球（信心 14%）\n【勝負】雙方勢均力敵，平局機率 31% 不低",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537427",
+    "home_team": "Argentina",
+    "away_team": "Cabo Verde",
+    "kickoff": "07/04 06:00",
+    "kickoff_utc": "2026-07-03T22:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 10,
+    "ou_prediction": "under",
+    "ou_confidence": 29,
+    "predicted_score": "1-0",
+    "p_home_win": 0.733,
+    "p_draw": 0.204,
+    "p_away_win": 0.063,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 1.778,
+    "lambda_away": 0.333,
+    "ah_line": -1.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】阿根廷（ELO 2031）vs 維德角（ELO 1317），實力差距懸殊（ELO +714）\n【近況】阿根廷 3場 進8 失1；維德角 3場 進2 失2\n【陣型戰術】阿根廷 4-3-3（進攻型）vs 維德角 4-4-2（防守反擊），主隊進攻留縫隙，客隊反擊空間大\n【體力】阿根廷 休息5天（體力充足）；維德角 休息6天（體力充足）\n【進球預期】主 1.8 + 客 0.3 = 2.1，傾向小球（信心 29%）\n【勝負】阿根廷 明顯佔優（勝率 73%），平局機率 20%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537430",
+    "home_team": "Colombia",
+    "away_team": "Ghana",
+    "kickoff": "07/04 09:30",
+    "kickoff_utc": "2026-07-04T01:30:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 49,
+    "ou_prediction": "under",
+    "ou_confidence": 49,
+    "predicted_score": "1-0",
+    "p_home_win": 0.543,
+    "p_draw": 0.303,
+    "p_away_win": 0.154,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 1.234,
+    "lambda_away": 0.512,
+    "ah_line": -1.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】哥倫比亞（ELO 1806）vs 迦納（ELO 1521），實力有明顯優勢（ELO +285）\n【近況】哥倫比亞 3場 進4 失1；迦納 3場 進2 失2\n【陣型戰術】哥倫比亞 4-3-3（進攻型）vs 迦納 4-2-3-1（均衡）\n【體力】哥倫比亞 休息7天（體力充足）；迦納 休息7天（體力充足）\n【進球預期】主 1.2 + 客 0.5 = 1.7，傾向小球（信心 49%）\n【勝負】哥倫比亞 略佔優（勝率 54%），平局機率 30%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537376",
+    "home_team": "Canada",
+    "away_team": "Morocco",
+    "kickoff": "07/05 01:00",
+    "kickoff_utc": "2026-07-04T17:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 43,
+    "ou_prediction": "over",
+    "ou_confidence": 1,
+    "predicted_score": "1-1",
+    "p_home_win": 0.465,
+    "p_draw": 0.252,
+    "p_away_win": 0.283,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 1.554,
+    "lambda_away": 1.156,
+    "ah_line": 0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】加拿大（ELO 1680）vs 摩洛哥（ELO 1762），實力略佔優勢（ELO -82）\n【近況】加拿大 4場 進9 失3；摩洛哥 4場 進10 失6\n【陣型戰術】加拿大 4-4-2（均衡）vs 摩洛哥 4-1-4-1（防守反擊）\n【體力】加拿大 休息6天（體力充足）；摩洛哥 休息4天（略有疲態）\n【進球預期】主 1.6 + 客 1.2 = 2.7，傾向大球（信心 1%）\n【勝負】雙方勢均力敵，平局機率 25% 不低",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537375",
+    "home_team": "Paraguay",
+    "away_team": "France",
+    "kickoff": "07/05 05:00",
+    "kickoff_utc": "2026-07-04T21:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 37,
+    "ou_prediction": "over",
+    "ou_confidence": 53,
+    "predicted_score": "0-3",
+    "p_home_win": 0.05,
+    "p_draw": 0.096,
+    "p_away_win": 0.847,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 0.745,
+    "lambda_away": 3.291,
+    "ah_line": 1.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】巴拉圭（ELO 1534）vs 法國（ELO 2005），實力差距懸殊（ELO -471）\n【近況】巴拉圭 4場 進7 失8；法國 4場 進13 失2\n【陣型戰術】巴拉圭 4-4-2（防守反擊）vs 法國 4-3-3（控球進攻），客隊進攻留縫隙，主隊反擊空間大\n【體力】巴拉圭 休息5天（體力充足）；法國 休息4天（略有疲態）\n【進球預期】主 0.7 + 客 3.3 = 4.0，傾向大球（信心 53%）\n【勝負】法國 明顯佔優（勝率 84%），平局機率 9%",
+    "injury_notes": []
+  }
+]

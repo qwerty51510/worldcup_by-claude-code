@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-02T12:31:51Z",
-  "total_matches": 82,
+  "generated_at": "2026-07-03T12:29:31Z",
+  "total_matches": 85,
   "summary": {
-    "ah_accuracy": 0.59,
-    "ou_accuracy": 0.549,
+    "ah_accuracy": 0.605,
+    "ou_accuracy": 0.553,
     "score_exact_match": 9,
-    "avg_goal_total_error": 1.66
+    "avg_goal_total_error": 1.64
   },
   "matches": [
     {
@@ -43,8 +43,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-12",
@@ -575,7 +575,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -1565,6 +1565,63 @@
       "ah_is_push": false,
       "ou_pred": "over",
       "ou_correct": false
+    },
+    {
+      "date": "2026-07-02",
+      "group": "",
+      "round": 0,
+      "home": "Spain",
+      "away": "Austria",
+      "predicted_score": "2-0",
+      "actual_score": "3-0",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 2.437,
+      "lambda_away": 0.595,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-07-02",
+      "group": "",
+      "round": 0,
+      "home": "Portugal",
+      "away": "Croatia",
+      "predicted_score": "2-0",
+      "actual_score": "2-1",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 2.264,
+      "lambda_away": 0.902,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-07-03",
+      "group": "",
+      "round": 0,
+      "home": "Switzerland",
+      "away": "Algeria",
+      "predicted_score": "2-1",
+      "actual_score": "2-0",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 2.829,
+      "lambda_away": 1.419,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
     }
   ],
   "team_analysis": [
@@ -1617,14 +1674,6 @@
       "ah_accuracy": 0.5
     },
     {
-      "team": "Austria",
-      "matches": 3,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 2.0,
-      "goal_bias": -1.0,
-      "ah_accuracy": 1.0
-    },
-    {
       "team": "Canada",
       "matches": 4,
       "pred_goals_avg": 1.5,
@@ -1653,6 +1702,22 @@
       "matches": 4,
       "pred_goals_avg": 2.5,
       "actual_goals_avg": 3.25,
+      "goal_bias": -0.75,
+      "ah_accuracy": 0.75
+    },
+    {
+      "team": "Austria",
+      "matches": 4,
+      "pred_goals_avg": 0.75,
+      "actual_goals_avg": 1.5,
+      "goal_bias": -0.75,
+      "ah_accuracy": 1.0
+    },
+    {
+      "team": "Croatia",
+      "matches": 4,
+      "pred_goals_avg": 0.75,
+      "actual_goals_avg": 1.5,
       "goal_bias": -0.75,
       "ah_accuracy": 0.75
     },
@@ -1687,22 +1752,6 @@
       "actual_goals_avg": 0.33,
       "goal_bias": 0.67,
       "ah_accuracy": 1.0
-    },
-    {
-      "team": "Algeria",
-      "matches": 3,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.67,
-      "goal_bias": -0.67,
-      "ah_accuracy": 1.0
-    },
-    {
-      "team": "Croatia",
-      "matches": 3,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.67,
-      "goal_bias": -0.67,
-      "ah_accuracy": 0.667
     },
     {
       "team": "Panama",
@@ -1769,14 +1818,6 @@
       "ah_accuracy": 0.667
     },
     {
-      "team": "Switzerland",
-      "matches": 3,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.33,
-      "goal_bias": -0.33,
-      "ah_accuracy": 0.333
-    },
-    {
       "team": "Scotland",
       "matches": 3,
       "pred_goals_avg": 0.67,
@@ -1807,14 +1848,6 @@
       "actual_goals_avg": 1.33,
       "goal_bias": -0.33,
       "ah_accuracy": 0.5
-    },
-    {
-      "team": "Spain",
-      "matches": 3,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 1.67,
-      "goal_bias": 0.33,
-      "ah_accuracy": 0.667
     },
     {
       "team": "Saudi Arabia",
@@ -1849,14 +1882,6 @@
       "ah_accuracy": 1.0
     },
     {
-      "team": "Portugal",
-      "matches": 3,
-      "pred_goals_avg": 1.67,
-      "actual_goals_avg": 2.0,
-      "goal_bias": -0.33,
-      "ah_accuracy": 0.667
-    },
-    {
       "team": "Colombia",
       "matches": 3,
       "pred_goals_avg": 1.67,
@@ -1873,6 +1898,14 @@
       "ah_accuracy": 0.0
     },
     {
+      "team": "Switzerland",
+      "matches": 4,
+      "pred_goals_avg": 2.0,
+      "actual_goals_avg": 2.25,
+      "goal_bias": -0.25,
+      "ah_accuracy": 0.5
+    },
+    {
       "team": "Ivory Coast",
       "matches": 4,
       "pred_goals_avg": 1.5,
@@ -1887,6 +1920,22 @@
       "actual_goals_avg": 0.5,
       "goal_bias": 0.25,
       "ah_accuracy": 0.25
+    },
+    {
+      "team": "Algeria",
+      "matches": 4,
+      "pred_goals_avg": 1.0,
+      "actual_goals_avg": 1.25,
+      "goal_bias": -0.25,
+      "ah_accuracy": 1.0
+    },
+    {
+      "team": "Portugal",
+      "matches": 4,
+      "pred_goals_avg": 1.75,
+      "actual_goals_avg": 2.0,
+      "goal_bias": -0.25,
+      "ah_accuracy": 0.75
     },
     {
       "team": "South Africa",
@@ -1935,6 +1984,14 @@
       "actual_goals_avg": 1.33,
       "goal_bias": 0.0,
       "ah_accuracy": 1.0
+    },
+    {
+      "team": "Spain",
+      "matches": 4,
+      "pred_goals_avg": 2.0,
+      "actual_goals_avg": 2.0,
+      "goal_bias": 0.0,
+      "ah_accuracy": 0.75
     },
     {
       "team": "Cabo Verde",
@@ -1989,8 +2046,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-12",

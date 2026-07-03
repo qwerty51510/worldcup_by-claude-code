@@ -736,5 +736,32 @@
     "home_goals": 2,
     "away_goals": 0,
     "round": 0
+  },
+  {
+    "date": "2026-07-02",
+    "group": "",
+    "home": "Spain",
+    "away": "Austria",
+    "home_goals": 3,
+    "away_goals": 0,
+    "round": 0
+  },
+  {
+    "date": "2026-07-02",
+    "group": "",
+    "home": "Portugal",
+    "away": "Croatia",
+    "home_goals": 2,
+    "away_goals": 1,
+    "round": 0
+  },
+  {
+    "date": "2026-07-03",
+    "group": "",
+    "home": "Switzerland",
+    "away": "Algeria",
+    "home_goals": 2,
+    "away_goals": 0,
+    "round": 0
   }
 ]
