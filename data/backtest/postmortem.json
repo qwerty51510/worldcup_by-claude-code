@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-03T12:29:31Z",
-  "total_matches": 85,
+  "generated_at": "2026-07-04T11:09:27Z",
+  "total_matches": 88,
   "summary": {
-    "ah_accuracy": 0.605,
-    "ou_accuracy": 0.553,
-    "score_exact_match": 9,
-    "avg_goal_total_error": 1.64
+    "ah_accuracy": 0.619,
+    "ou_accuracy": 0.568,
+    "score_exact_match": 10,
+    "avg_goal_total_error": 1.7
   },
   "matches": [
     {
@@ -43,8 +43,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-12",
@@ -537,8 +537,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": false
+      "ou_pred": "over",
+      "ou_correct": true
     },
     {
       "date": "2026-06-19",
@@ -575,7 +575,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
+      "ou_pred": "over",
       "ou_correct": true
     },
     {
@@ -1622,9 +1622,74 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
+    },
+    {
+      "date": "2026-07-03",
+      "group": "",
+      "round": 0,
+      "home": "Australia",
+      "away": "Egypt",
+      "predicted_score": "1-0",
+      "actual_score": "3-5",
+      "score_correct": false,
+      "goal_total_error": 7,
+      "lambda_home": 1.014,
+      "lambda_away": 0.912,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-07-03",
+      "group": "",
+      "round": 0,
+      "home": "Argentina",
+      "away": "Cabo Verde",
+      "predicted_score": "1-0",
+      "actual_score": "3-2",
+      "score_correct": false,
+      "goal_total_error": 4,
+      "lambda_home": 1.778,
+      "lambda_away": 0.333,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-07-04",
+      "group": "",
+      "round": 0,
+      "home": "Colombia",
+      "away": "Ghana",
+      "predicted_score": "1-0",
+      "actual_score": "1-0",
+      "score_correct": true,
+      "goal_total_error": 0,
+      "lambda_home": 1.234,
+      "lambda_away": 0.512,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
     }
   ],
   "team_analysis": [
+    {
+      "team": "Egypt",
+      "matches": 4,
+      "pred_goals_avg": 0.75,
+      "actual_goals_avg": 2.5,
+      "goal_bias": -1.75,
+      "ah_accuracy": 0.5
+    },
     {
       "team": "Morocco",
       "matches": 4,
@@ -1706,6 +1771,14 @@
       "ah_accuracy": 0.75
     },
     {
+      "team": "Argentina",
+      "matches": 4,
+      "pred_goals_avg": 2.0,
+      "actual_goals_avg": 2.75,
+      "goal_bias": -0.75,
+      "ah_accuracy": 1.0
+    },
+    {
       "team": "Austria",
       "matches": 4,
       "pred_goals_avg": 0.75,
@@ -1728,22 +1801,6 @@
       "actual_goals_avg": 0.67,
       "goal_bias": 0.67,
       "ah_accuracy": 0.0
-    },
-    {
-      "team": "Australia",
-      "matches": 3,
-      "pred_goals_avg": 1.33,
-      "actual_goals_avg": 0.67,
-      "goal_bias": 0.67,
-      "ah_accuracy": 0.333
-    },
-    {
-      "team": "Egypt",
-      "matches": 3,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 1.67,
-      "goal_bias": -0.67,
-      "ah_accuracy": 0.333
     },
     {
       "team": "Iraq",
@@ -1784,6 +1841,14 @@
       "actual_goals_avg": 1.75,
       "goal_bias": -0.5,
       "ah_accuracy": 0.25
+    },
+    {
+      "team": "Cabo Verde",
+      "matches": 4,
+      "pred_goals_avg": 0.5,
+      "actual_goals_avg": 1.0,
+      "goal_bias": -0.5,
+      "ah_accuracy": 0.333
     },
     {
       "team": "Norway",
@@ -1866,36 +1931,12 @@
       "ah_accuracy": 0.5
     },
     {
-      "team": "Argentina",
-      "matches": 3,
-      "pred_goals_avg": 2.33,
-      "actual_goals_avg": 2.67,
-      "goal_bias": -0.33,
-      "ah_accuracy": 1.0
-    },
-    {
       "team": "Jordan",
       "matches": 3,
       "pred_goals_avg": 0.67,
       "actual_goals_avg": 1.0,
       "goal_bias": -0.33,
       "ah_accuracy": 1.0
-    },
-    {
-      "team": "Colombia",
-      "matches": 3,
-      "pred_goals_avg": 1.67,
-      "actual_goals_avg": 1.33,
-      "goal_bias": 0.33,
-      "ah_accuracy": 1.0
-    },
-    {
-      "team": "Ghana",
-      "matches": 3,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 0.67,
-      "goal_bias": 0.33,
-      "ah_accuracy": 0.0
     },
     {
       "team": "Switzerland",
@@ -1938,6 +1979,22 @@
       "ah_accuracy": 0.75
     },
     {
+      "team": "Colombia",
+      "matches": 4,
+      "pred_goals_avg": 1.5,
+      "actual_goals_avg": 1.25,
+      "goal_bias": 0.25,
+      "ah_accuracy": 1.0
+    },
+    {
+      "team": "Ghana",
+      "matches": 4,
+      "pred_goals_avg": 0.75,
+      "actual_goals_avg": 0.5,
+      "goal_bias": 0.25,
+      "ah_accuracy": 0.25
+    },
+    {
       "team": "South Africa",
       "matches": 4,
       "pred_goals_avg": 0.5,
@@ -1960,6 +2017,14 @@
       "actual_goals_avg": 1.25,
       "goal_bias": 0.0,
       "ah_accuracy": 0.75
+    },
+    {
+      "team": "Australia",
+      "matches": 4,
+      "pred_goals_avg": 1.25,
+      "actual_goals_avg": 1.25,
+      "goal_bias": 0.0,
+      "ah_accuracy": 0.5
     },
     {
       "team": "Turkey",
@@ -1992,14 +2057,6 @@
       "actual_goals_avg": 2.0,
       "goal_bias": 0.0,
       "ah_accuracy": 0.75
-    },
-    {
-      "team": "Cabo Verde",
-      "matches": 3,
-      "pred_goals_avg": 0.67,
-      "actual_goals_avg": 0.67,
-      "goal_bias": 0.0,
-      "ah_accuracy": 0.0
     },
     {
       "team": "Uzbekistan",
@@ -2046,8 +2103,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-12",

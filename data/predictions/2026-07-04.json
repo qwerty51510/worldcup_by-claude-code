@@ -1,0 +1,98 @@
+[
+  {
+    "match_id": "537376",
+    "home_team": "Canada",
+    "away_team": "Morocco",
+    "kickoff": "07/05 01:00",
+    "kickoff_utc": "2026-07-04T17:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 43,
+    "ou_prediction": "over",
+    "ou_confidence": 1,
+    "predicted_score": "1-1",
+    "p_home_win": 0.465,
+    "p_draw": 0.252,
+    "p_away_win": 0.283,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 1.554,
+    "lambda_away": 1.156,
+    "ah_line": 0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】加拿大（ELO 1680）vs 摩洛哥（ELO 1762），實力略佔優勢（ELO -82）\n【近況】加拿大 4場 進9 失3；摩洛哥 4場 進10 失6\n【陣型戰術】加拿大 4-4-2（均衡）vs 摩洛哥 4-1-4-1（防守反擊）\n【體力】加拿大 休息6天（體力充足）；摩洛哥 休息4天（略有疲態）\n【進球預期】主 1.6 + 客 1.2 = 2.7，傾向大球（信心 1%）\n【勝負】雙方勢均力敵，平局機率 25% 不低",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537375",
+    "home_team": "Paraguay",
+    "away_team": "France",
+    "kickoff": "07/05 05:00",
+    "kickoff_utc": "2026-07-04T21:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 37,
+    "ou_prediction": "over",
+    "ou_confidence": 53,
+    "predicted_score": "0-3",
+    "p_home_win": 0.05,
+    "p_draw": 0.096,
+    "p_away_win": 0.847,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 0.745,
+    "lambda_away": 3.291,
+    "ah_line": 1.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】巴拉圭（ELO 1534）vs 法國（ELO 2005），實力差距懸殊（ELO -471）\n【近況】巴拉圭 4場 進7 失8；法國 4場 進13 失2\n【陣型戰術】巴拉圭 4-4-2（防守反擊）vs 法國 4-3-3（控球進攻），客隊進攻留縫隙，主隊反擊空間大\n【體力】巴拉圭 休息5天（體力充足）；法國 休息4天（略有疲態）\n【進球預期】主 0.7 + 客 3.3 = 4.0，傾向大球（信心 53%）\n【勝負】法國 明顯佔優（勝率 84%），平局機率 9%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537377",
+    "home_team": "Brazil",
+    "away_team": "Norway",
+    "kickoff": "07/06 04:00",
+    "kickoff_utc": "2026-07-05T20:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 30,
+    "ou_prediction": "over",
+    "ou_confidence": 44,
+    "predicted_score": "2-1",
+    "p_home_win": 0.653,
+    "p_draw": 0.177,
+    "p_away_win": 0.169,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 2.519,
+    "lambda_away": 1.23,
+    "ah_line": -0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】巴西（ELO 1921）vs 挪威（ELO 1731），實力略佔優勢（ELO +190）\n【近況】巴西 4場 進9 失2；挪威 4場 進10 失8\n【陣型戰術】巴西 4-2-3-1（控球進攻）vs 挪威 4-3-3（均衡）\n【體力】巴西 休息6天（體力充足）；挪威 休息5天（體力充足）\n【進球預期】主 2.5 + 客 1.2 = 3.7，傾向大球（信心 44%）\n【勝負】巴西 明顯佔優（勝率 65%），平局機率 17%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537378",
+    "home_team": "Mexico",
+    "away_team": "England",
+    "kickoff": "07/06 08:00",
+    "kickoff_utc": "2026-07-06T00:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 2,
+    "ou_prediction": "under",
+    "ou_confidence": 50,
+    "predicted_score": "1-0",
+    "p_home_win": 0.487,
+    "p_draw": 0.32,
+    "p_away_win": 0.194,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 1.13,
+    "lambda_away": 0.595,
+    "ah_line": 0.0,
+    "ou_line": 2.5,
+    "reasoning": "【強度】墨西哥（ELO 1718）vs 英格蘭（ELO 1946），實力有明顯優勢（ELO -228）\n【近況】墨西哥 4場 進8 失0；英格蘭 4場 進8 失3\n【陣型戰術】墨西哥 4-3-3（控球進攻）vs 英格蘭 4-3-3（進攻型）\n【體力】墨西哥 休息5天（體力充足）；英格蘭 休息5天（體力充足）\n【進球預期】主 1.1 + 客 0.6 = 1.7，傾向小球（信心 50%）\n【勝負】雙方勢均力敵，平局機率 32% 不低",
+    "injury_notes": []
+  }
+]

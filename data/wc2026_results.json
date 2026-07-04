@@ -763,5 +763,32 @@
     "home_goals": 2,
     "away_goals": 0,
     "round": 0
+  },
+  {
+    "date": "2026-07-03",
+    "group": "",
+    "home": "Australia",
+    "away": "Egypt",
+    "home_goals": 3,
+    "away_goals": 5,
+    "round": 0
+  },
+  {
+    "date": "2026-07-03",
+    "group": "",
+    "home": "Argentina",
+    "away": "Cabo Verde",
+    "home_goals": 3,
+    "away_goals": 2,
+    "round": 0
+  },
+  {
+    "date": "2026-07-04",
+    "group": "",
+    "home": "Colombia",
+    "away": "Ghana",
+    "home_goals": 1,
+    "away_goals": 0,
+    "round": 0
   }
 ]
