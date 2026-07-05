@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-04T11:09:27Z",
-  "total_matches": 88,
+  "generated_at": "2026-07-05T11:20:20Z",
+  "total_matches": 90,
   "summary": {
-    "ah_accuracy": 0.619,
-    "ou_accuracy": 0.568,
+    "ah_accuracy": 0.628,
+    "ou_accuracy": 0.578,
     "score_exact_match": 10,
     "avg_goal_total_error": 1.7
   },
@@ -43,8 +43,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-12",
@@ -138,8 +138,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-13",
@@ -347,8 +347,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-16",
@@ -480,8 +480,8 @@
       "actual_ah": "away",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-18",
@@ -537,8 +537,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": true
+      "ou_pred": "under",
+      "ou_correct": false
     },
     {
       "date": "2026-06-19",
@@ -575,7 +575,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -689,7 +689,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
+      "ou_pred": "under",
       "ou_correct": true
     },
     {
@@ -1183,8 +1183,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": false
+      "ou_pred": "over",
+      "ou_correct": true
     },
     {
       "date": "2026-06-27",
@@ -1411,8 +1411,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": false
+      "ou_pred": "over",
+      "ou_correct": true
     },
     {
       "date": "2026-06-29",
@@ -1563,8 +1563,8 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-07-02",
@@ -1679,6 +1679,44 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
+    },
+    {
+      "date": "2026-07-04",
+      "group": "",
+      "round": 0,
+      "home": "Canada",
+      "away": "Morocco",
+      "predicted_score": "1-1",
+      "actual_score": "0-3",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.554,
+      "lambda_away": 1.156,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-07-04",
+      "group": "",
+      "round": 0,
+      "home": "Paraguay",
+      "away": "France",
+      "predicted_score": "0-3",
+      "actual_score": "0-1",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 0.745,
+      "lambda_away": 3.291,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
     }
   ],
   "team_analysis": [
@@ -1692,11 +1730,11 @@
     },
     {
       "team": "Morocco",
-      "matches": 4,
+      "matches": 5,
       "pred_goals_avg": 1.0,
-      "actual_goals_avg": 2.5,
-      "goal_bias": -1.5,
-      "ah_accuracy": 0.75
+      "actual_goals_avg": 2.6,
+      "goal_bias": -1.6,
+      "ah_accuracy": 0.8
     },
     {
       "team": "Germany",
@@ -1705,14 +1743,6 @@
       "actual_goals_avg": 3.5,
       "goal_bias": -1.5,
       "ah_accuracy": 0.5
-    },
-    {
-      "team": "Paraguay",
-      "matches": 4,
-      "pred_goals_avg": 0.5,
-      "actual_goals_avg": 1.75,
-      "goal_bias": -1.25,
-      "ah_accuracy": 0.25
     },
     {
       "team": "Brazil",
@@ -1739,12 +1769,12 @@
       "ah_accuracy": 0.5
     },
     {
-      "team": "Canada",
-      "matches": 4,
-      "pred_goals_avg": 1.5,
-      "actual_goals_avg": 2.25,
-      "goal_bias": -0.75,
-      "ah_accuracy": 0.5
+      "team": "Paraguay",
+      "matches": 5,
+      "pred_goals_avg": 0.4,
+      "actual_goals_avg": 1.4,
+      "goal_bias": -1.0,
+      "ah_accuracy": 0.4
     },
     {
       "team": "Netherlands",
@@ -1761,14 +1791,6 @@
       "actual_goals_avg": 2.25,
       "goal_bias": -0.75,
       "ah_accuracy": 0.667
-    },
-    {
-      "team": "France",
-      "matches": 4,
-      "pred_goals_avg": 2.5,
-      "actual_goals_avg": 3.25,
-      "goal_bias": -0.75,
-      "ah_accuracy": 0.75
     },
     {
       "team": "Argentina",
@@ -1873,6 +1895,14 @@
       "actual_goals_avg": 2.0,
       "goal_bias": -0.5,
       "ah_accuracy": 0.75
+    },
+    {
+      "team": "Canada",
+      "matches": 5,
+      "pred_goals_avg": 1.4,
+      "actual_goals_avg": 1.8,
+      "goal_bias": -0.4,
+      "ah_accuracy": 0.6
     },
     {
       "team": "Qatar",
@@ -1995,6 +2025,14 @@
       "ah_accuracy": 0.25
     },
     {
+      "team": "France",
+      "matches": 5,
+      "pred_goals_avg": 2.6,
+      "actual_goals_avg": 2.8,
+      "goal_bias": -0.2,
+      "ah_accuracy": 0.8
+    },
+    {
       "team": "South Africa",
       "matches": 4,
       "pred_goals_avg": 0.5,
@@ -2103,8 +2141,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-12",
@@ -2179,8 +2217,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-14",
@@ -2635,8 +2673,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": false
+      "ou_pred": "over",
+      "ou_correct": true
     },
     {
       "date": "2026-06-29",
