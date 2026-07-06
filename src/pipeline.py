@@ -1,10 +1,16 @@
 import sys
 from datetime import date as dt_date
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 from src.backtest import compute_brier_score, generate_postmortem, load_calibration, save_calibration, update_calibration
 from src.features import build_features
 from src.features import clear_caches
-from src.fetch_data import fetch_matches, fetch_odds, fetch_espn_odds, fetch_polymarket, save_match_day, update_wc_results, update_team_history, update_pm_actuals
+from src.fetch_data import fetch_matches, fetch_odds, fetch_espn_odds, fetch_polymarket, fetch_goal_events, save_match_day, update_wc_results, update_team_history, update_pm_actuals, fetch_pre_kickoff_lineups, detect_and_notify_lineup_changes
 from src.predict import predict_all, save_predictions
 from src.render import render_all
 from src.tuner import tune_params, save_tuned_params
@@ -48,6 +54,11 @@ def run(date: str) -> None:
     print("[pipeline] Fetching Polymarket...")
     polymarket = fetch_polymarket()
 
+    print("[pipeline] Fetching goal events (ESPN)...")
+    goal_events = fetch_goal_events(date)
+    if goal_events:
+        print(f"[pipeline] Got goal events for {len(goal_events)} matches")
+
     # only persist match data when we actually fetched something — avoids
     # overwriting real data during local runs without API keys
     if matches or odds or espn_odds or polymarket:
@@ -56,11 +67,22 @@ def run(date: str) -> None:
             "odds": odds,
             "espn_odds": {f"{k[0]}|{k[1]}": v for k, v in espn_odds.items()},
             "polymarket": polymarket,
+            "goal_events": goal_events,
         })
 
     finished = [m for m in matches if m.get("status") == "FINISHED"]
     upcoming = [m for m in matches if m.get("status") in ("TIMED", "SCHEDULED", "IN_PLAY", "PAUSED")]
     print(f"[pipeline] {len(upcoming)} upcoming, {len(finished)} finished")
+
+    # ── 2b. Pre-kickoff lineup refresh (runs when match is ≤90 min away) ─────
+    if upcoming:
+        print("[pipeline] Checking pre-kickoff lineups...")
+        lineups = fetch_pre_kickoff_lineups(upcoming)
+        if lineups:
+            changes = detect_and_notify_lineup_changes(upcoming, lineups)
+            if changes:
+                clear_caches()  # reload updated injuries.json
+                print(f"[pipeline] {len(changes)} lineup change(s) detected — re-rendering")
 
     # ── 3. Predict upcoming matches ──────────────────────────────────────────
     print("[pipeline] Building features...")

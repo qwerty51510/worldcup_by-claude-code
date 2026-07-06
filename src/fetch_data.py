@@ -248,6 +248,157 @@ def fetch_pm_match_odds(home: str, away: str) -> dict:
     return result
 
 
+def _fetch_espn_summary(event_id: str) -> dict:
+    """Fetch ESPN summary for a single event (lineup, formation, subs, stats)."""
+    import urllib.request
+    url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/summary?event={event_id}"
+    try:
+        req = urllib.request.Request(url, headers=_ESPN_HEADERS)
+        with urllib.request.urlopen(req, timeout=10) as r:
+            return json.loads(r.read())
+    except Exception:
+        return {}
+
+
+def _parse_summary(summary: dict, home_short: str, away_short: str) -> dict:
+    """Extract formation, lineup, subs, stats, and key events from ESPN summary."""
+    result: dict = {"formations": {}, "lineups": {}, "substitutions": [], "stats": {}}
+
+    # Rosters: formation + starters + subs used
+    for roster in summary.get("rosters", []):
+        side = "home" if roster.get("homeAway") == "home" else "away"
+        team_name = home_short if side == "home" else away_short
+        formation = roster.get("formation", "")
+        athletes = roster.get("roster", [])
+        starters = [a["athlete"]["shortName"] for a in athletes if a.get("starter")]
+        subs_used = [a["athlete"]["shortName"] for a in athletes
+                     if not a.get("starter") and a.get("subbedIn")]
+        result["formations"][side] = formation
+        result["lineups"][side] = {"starters": starters, "subs_used": subs_used}
+
+    # Key events: goals, substitutions, cards
+    _SUB_TYPES = {"Substitution"}
+    _GOAL_TYPES = {t for t in ["Goal", "Goal - Header", "Goal - Left Foot",
+                               "Goal - Right Foot", "Penalty"]}
+    for ke in summary.get("keyEvents", []):
+        etype = ke.get("type", {}).get("text", "")
+        clock = ke.get("clock", {}).get("displayValue", "?")
+        team_name = ke.get("team", {}).get("shortDisplayName", "")
+        text = ke.get("text", "")
+        if etype in _SUB_TYPES:
+            result["substitutions"].append({
+                "minute": clock, "team": team_name, "text": text,
+            })
+
+    # Boxscore stats
+    for team_data in summary.get("boxscore", {}).get("teams", []):
+        tname = team_data.get("team", {}).get("shortDisplayName", "")
+        side = "home" if home_short.lower() in tname.lower() or tname.lower() in home_short.lower() else "away"
+        stats = {s["label"]: s.get("displayValue", "") for s in team_data.get("statistics", [])}
+        result["stats"][side] = stats
+
+    # Linescores: [H1, H2, ET1, ET2, Pens] from header competitors
+    header_comps = summary.get("header", {}).get("competitions", [{}])
+    if header_comps:
+        for c in header_comps[0].get("competitors", []):
+            tname = c.get("team", {}).get("shortDisplayName", "")
+            side = "home" if home_short.lower() in tname.lower() or tname.lower() in home_short.lower() else "away"
+            ls = [int(x.get("displayValue", 0) or 0) for x in c.get("linescores", [])]
+            result.setdefault("linescores", {})[side] = ls
+
+    # Penalty shootout: {home: [{player, scored}, ...], away: [...]}
+    shootout_raw = summary.get("shootout", [])
+    if shootout_raw and isinstance(shootout_raw, list) and isinstance(shootout_raw[0], dict):
+        pens: dict = {}
+        for team_entry in shootout_raw:
+            tname = team_entry.get("team", "")
+            side = "home" if home_short.lower() in tname.lower() or tname.lower() in home_short.lower() else "away"
+            shots = [{"player": s.get("player",""), "scored": s.get("didScore", False)}
+                     for s in team_entry.get("shots", [])]
+            pens[side] = shots
+        result["penalties"] = pens
+
+    # Determine match termination stage
+    ls_home = result.get("linescores", {}).get("home", [])
+    if len(ls_home) >= 5 and ls_home[4] > 0:
+        result["decided"] = "penalties"
+    elif len(ls_home) >= 4 and (ls_home[2] + ls_home[3]) > 0:
+        result["decided"] = "extra_time"
+    elif ls_home:
+        result["decided"] = "90min"
+
+    return result
+
+
+def fetch_goal_events(date: str) -> dict:
+    """Fetch goal times, lineups, formations, subs, and stats for all matches on a given date.
+
+    Returns dict keyed by "HomeTeam|AwayTeam" → {events, formations, lineups, substitutions, stats}
+    """
+    import urllib.request
+    result: dict = {}
+    prev_date = (datetime.strptime(date, "%Y-%m-%d") - timedelta(days=1)).strftime("%Y%m%d")
+    for date_str in [prev_date, date.replace("-", "")]:
+        url = f"{ESPN_SCOREBOARD}?dates={date_str}"
+        try:
+            req = urllib.request.Request(url, headers=_ESPN_HEADERS)
+            with urllib.request.urlopen(req, timeout=8) as r:
+                sched = json.loads(r.read())
+        except Exception:
+            continue
+        for ev in sched.get("events", []):
+            comp = ev.get("competitions", [{}])[0]
+            state = comp.get("status", {}).get("type", {}).get("state", "")
+            if state not in ("in", "post"):
+                continue
+            competitors = comp.get("competitors", [])
+            team_map = {c["team"]["id"]: c["team"].get("shortDisplayName", c["team"].get("displayName", "?"))
+                        for c in competitors}
+            home_short = competitors[0]["team"].get("shortDisplayName", "?") if competitors else "?"
+            away_short = competitors[1]["team"].get("shortDisplayName", "?") if len(competitors) > 1 else "?"
+            key = f"{home_short}|{away_short}"
+            if key in result:
+                continue
+
+            # Goal / card events from scoreboard details
+            events = []
+            for d in comp.get("details", []):
+                if not d.get("scoringPlay") and not d.get("yellowCard") and not d.get("redCard"):
+                    continue
+                minute = d.get("clock", {}).get("displayValue", "?")
+                team_id = d.get("team", {}).get("id", "")
+                team_name = team_map.get(team_id, "?")
+                athletes = d.get("athletesInvolved", [])
+                player = athletes[0].get("shortName", "") if athletes else ""
+                etype = d.get("type", {}).get("text", "")
+                events.append({
+                    "minute": minute, "team": team_name, "player": player, "type": etype,
+                    "is_goal": d.get("scoringPlay", False),
+                    "is_own_goal": d.get("ownGoal", False),
+                    "is_penalty": d.get("penaltyKick", False),
+                    "is_shootout": d.get("shootout", False),
+                    "yellow_card": d.get("yellowCard", False),
+                    "red_card": d.get("redCard", False),
+                })
+
+            # Detailed summary: lineup, formation, subs, stats
+            event_id = ev.get("id", "")
+            summary_data = _fetch_espn_summary(event_id) if event_id else {}
+            parsed = _parse_summary(summary_data, home_short, away_short)
+
+            result[key] = {
+                "events": events,
+                "formations": parsed["formations"],
+                "lineups": parsed["lineups"],
+                "substitutions": parsed["substitutions"],
+                "stats": parsed["stats"],
+                "linescores": parsed.get("linescores", {}),
+                "penalties": parsed.get("penalties", {}),
+                "decided": parsed.get("decided", "90min"),
+            }
+    return result
+
+
 def save_match_day(date: str, data: dict) -> None:
     out_dir = Path(DATA_DIR) / "matches"
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -336,20 +487,26 @@ def update_wc_results() -> int:
     results_path = DATA_DIR / "wc2026_results.json"
     existing = json.loads(results_path.read_text()) if results_path.exists() else []
 
-    # Pair-based key: catches swapped home/away and date mismatches
-    existing_keys = {
-        (tuple(sorted([r["home"], r["away"]])), r.get("round", 0))
-        for r in existing
-    }
+    # Pair-based key: use sorted team pair + date (avoids matchday/round mismatch)
+    def _r_pair(r):
+        h = r.get("home") or r.get("home_team", "")
+        a = r.get("away") or r.get("away_team", "")
+        return (tuple(sorted([h, a])), (r.get("date", "") or "")[:10])
+
+    existing_keys = {_r_pair(r) for r in existing}
 
     new_records = []
     for m in raw:
         home = _normalize_team(m.get("homeTeam", {}).get("name", ""))
         away = _normalize_team(m.get("awayTeam", {}).get("name", ""))
         date_str = (m.get("utcDate", "") or "")[:10]
-        score = m.get("score", {}).get("fullTime", {})
-        home_goals = score.get("home")
-        away_goals = score.get("away")
+        score_obj = m.get("score", {})
+        duration = score_obj.get("duration", "REGULAR")
+        ft = score_obj.get("fullTime", {})
+        et = score_obj.get("extraTime", {}) or {}
+        pens = score_obj.get("penalties", {}) or {}
+        home_goals = ft.get("home")
+        away_goals = ft.get("away")
         group_raw = m.get("group", "") or ""
         group = group_raw.replace("GROUP_", "") if group_raw.startswith("GROUP_") else ""
         matchday = m.get("matchday") or 0
@@ -357,7 +514,15 @@ def update_wc_results() -> int:
         if not home or not away or home_goals is None or away_goals is None:
             continue
 
-        pair_key = (tuple(sorted([home, away])), matchday)
+        # Derive 90-minute score: fullTime includes ET and penalty goals
+        et_h = et.get("home") or 0
+        et_a = et.get("away") or 0
+        pen_h = pens.get("home") or 0
+        pen_a = pens.get("away") or 0
+        home_goals_90 = int(home_goals) - et_h - pen_h
+        away_goals_90 = int(away_goals) - et_a - pen_a
+
+        pair_key = (tuple(sorted([home, away])), date_str)
         if pair_key in existing_keys:
             continue
 
@@ -371,8 +536,11 @@ def update_wc_results() -> int:
             "group": group,
             "home": home,
             "away": away,
-            "home_goals": int(home_goals),
-            "away_goals": int(away_goals),
+            "home_goals": home_goals_90,
+            "away_goals": away_goals_90,
+            "home_goals_final": int(home_goals),
+            "away_goals_final": int(away_goals),
+            "duration": duration,
             "round": int(matchday),
         })
         existing_keys.add(pair_key)
@@ -380,8 +548,10 @@ def update_wc_results() -> int:
     if new_records:
         merged = sorted(existing + new_records, key=lambda r: r["date"])
 
-        # Validate team count integrity
-        all_teams = {t for r in merged for t in (r["home"], r["away"])}
+        # Validate team count integrity (support both home/away and home_team/away_team schemas)
+        def _get_pair(r):
+            return (r.get("home") or r.get("home_team", ""), r.get("away") or r.get("away_team", ""))
+        all_teams = {t for r in merged for t in _get_pair(r)}
         unknown = all_teams - _WC2026_CANONICAL_TEAMS
         if unknown:
             print(f"[update_wc_results] WARNING: unrecognised teams in merged data: {unknown}")
@@ -541,6 +711,140 @@ def fetch_team_history() -> dict:
             print(f"[fetch_team_history] {team_name} ({team_id}): {e}")
 
     return history
+
+
+def fetch_pre_kickoff_lineups(matches: list) -> dict:
+    """
+    For matches kicking off within the next 90 minutes, fetch confirmed
+    ESPN lineups/rosters. Returns {match_id: {"home": [...], "away": [...]}}
+    where each list is confirmed starters by shortName.
+    """
+    from datetime import timezone
+    now_utc = datetime.now(timezone.utc)
+    result = {}
+    for m in matches:
+        kickoff_str = m.get("utcDate", "")
+        if not kickoff_str:
+            continue
+        try:
+            kickoff = datetime.fromisoformat(kickoff_str.replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        mins = (kickoff - now_utc).total_seconds() / 60
+        if not (-30 <= mins <= 90):   # only within 90 min before / 30 min after kickoff
+            continue
+        event_id = str(m.get("id", ""))
+        if not event_id:
+            continue
+        summary = _fetch_espn_summary(event_id)
+        rosters = summary.get("rosters", [])
+        if not rosters:
+            continue
+        lineups: dict = {}
+        for roster in rosters:
+            side = "home" if roster.get("homeAway") == "home" else "away"
+            athletes = roster.get("roster", [])
+            starters = [a["athlete"].get("shortName", a["athlete"].get("displayName", ""))
+                        for a in athletes if a.get("starter")]
+            if starters:
+                lineups[side] = starters
+        if lineups:
+            result[event_id] = lineups
+            print(f"[pre_kickoff] Got lineup for event {event_id}: "
+                  f"home={len(lineups.get('home',[]))} away={len(lineups.get('away',[]))} starters")
+    return result
+
+
+def detect_and_notify_lineup_changes(matches: list, lineups: dict) -> list:
+    """
+    From confirmed ESPN rosters, detect:
+      1. Players flagged with injury status in the roster
+      2. Notable players (from injuries.json watch list) absent from starters
+
+    Updates injuries.json notes and sends Telegram alert.
+    Returns list of change dicts.
+    """
+    from src.notify import alert_injury_update, send_telegram
+
+    inj_path = DATA_DIR / "injuries.json"
+    try:
+        injuries = json.loads(inj_path.read_text()) if inj_path.exists() else {}
+    except Exception:
+        injuries = {}
+
+    event_to_match = {str(m.get("id", "")): m for m in matches}
+    all_changes = []
+
+    for event_id, sides in lineups.items():
+        m = event_to_match.get(event_id, {})
+        home_name = m.get("homeTeam", {}).get("name", "")
+        away_name = m.get("awayTeam", {}).get("name", "")
+        match_label = f"{home_name} vs {away_name}"
+
+        changes_this_match = []
+
+        # Re-fetch full summary to get injury status per player
+        summary = _fetch_espn_summary(event_id)
+        for roster in summary.get("rosters", []):
+            side = "home" if roster.get("homeAway") == "home" else "away"
+            team_name = home_name if side == "home" else away_name
+            for athlete_entry in roster.get("roster", []):
+                athlete = athlete_entry.get("athlete", {})
+                inj_status = athlete.get("injuryStatus", "")  # e.g. "Questionable", "Out"
+                display_name = athlete.get("displayName", "")
+                is_starter = athlete_entry.get("starter", False)
+                is_active = athlete_entry.get("active", True)
+
+                # Flag players with injury status or marked inactive
+                if inj_status and inj_status.lower() not in ("active", "healthy", ""):
+                    severity = "確定缺陣" if inj_status.lower() in ("out", "injured") else f"疑問（{inj_status}）"
+                    changes_this_match.append({
+                        "team": team_name,
+                        "player": display_name,
+                        "status": severity,
+                        "impact": "ESPN 陣容標記",
+                    })
+                elif not is_active and not is_starter:
+                    # Check if this player was in our injuries watch list
+                    team_inj = injuries.get(team_name, {})
+                    watch = [n for n in team_inj.get("notes", [])
+                             if display_name.split()[-1].lower() in n.lower()]
+                    if watch:
+                        changes_this_match.append({
+                            "team": team_name,
+                            "player": display_name,
+                            "status": "未入選首發（傷兵關注名單）",
+                            "impact": "請確認是否缺陣",
+                        })
+
+        # Send lineup confirmation + changes to Telegram
+        home_starters = sides.get("home", [])
+        away_starters = sides.get("away", [])
+        lineup_msg = (
+            f"📋 <b>首發確認</b> [{match_label}]\n\n"
+            f"<b>{home_name}</b>: {', '.join(home_starters[:5])}...\n"
+            f"<b>{away_name}</b>: {', '.join(away_starters[:5])}..."
+        )
+        send_telegram(lineup_msg)
+
+        if changes_this_match:
+            all_changes.extend(changes_this_match)
+            # Append new notes to injuries.json
+            for c in changes_this_match:
+                team = c["team"]
+                note = f"{c['player']}（{c['status']}，ESPN自動偵測）"
+                if team not in injuries:
+                    injuries[team] = {"notes": [], "attack_mult": 1.0, "defense_mult": 1.0}
+                existing = injuries[team].get("notes", [])
+                if not any(c["player"].split()[-1] in n for n in existing):
+                    injuries[team]["notes"] = existing + [note]
+            alert_injury_update(match_label, changes_this_match)
+
+    if all_changes:
+        inj_path.write_text(json.dumps(injuries, ensure_ascii=False, indent=2))
+        print(f"[pre_kickoff] injuries.json updated with {len(all_changes)} change(s)")
+
+    return all_changes
 
 
 def update_team_history() -> bool:
