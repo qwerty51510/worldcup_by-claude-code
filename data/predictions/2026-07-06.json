@@ -1,0 +1,98 @@
+[
+  {
+    "match_id": "537379",
+    "home_team": "Portugal",
+    "away_team": "Spain",
+    "kickoff": "07/07 03:00",
+    "kickoff_utc": "2026-07-06T19:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 64,
+    "ou_prediction": "under",
+    "ou_confidence": 51,
+    "predicted_score": "0-1",
+    "p_home_win": 0.177,
+    "p_draw": 0.318,
+    "p_away_win": 0.505,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 0.552,
+    "lambda_away": 1.151,
+    "ah_line": 0.0,
+    "ou_line": 2.5,
+    "reasoning": "【強度】葡萄牙（ELO 1887）vs 西班牙（ELO 1982），實力略佔優勢（ELO -95）\n【近況】葡萄牙 4場 進8 失2；西班牙 4場 進8 失0\n【陣型戰術】葡萄牙 4-3-3（進攻型）vs 西班牙 4-3-3（控球進攻）\n【體力】葡萄牙 休息4天（略有疲態）；西班牙 休息4天（略有疲態）\n【進球預期】主 0.6 + 客 1.2 = 1.7，傾向小球（信心 51%）\n【勝負】西班牙 略佔優（勝率 50%），平局機率 31%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537380",
+    "home_team": "United States",
+    "away_team": "Belgium",
+    "kickoff": "07/07 08:00",
+    "kickoff_utc": "2026-07-07T00:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 23,
+    "ou_prediction": "over",
+    "ou_confidence": 37,
+    "predicted_score": "1-1",
+    "p_home_win": 0.38,
+    "p_draw": 0.221,
+    "p_away_win": 0.398,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 1.749,
+    "lambda_away": 1.793,
+    "ah_line": -0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】美國（ELO 1748）vs 比利時（ELO 1845），實力略佔優勢（ELO -97）\n【近況】美國 4場 進10 失4；比利時 4場 進9 失4\n【陣型戰術】美國 4-3-3（均衡）vs 比利時 4-3-3（進攻型）\n【體力】美國 休息5天（體力充足）；比利時 休息6天（體力充足）\n【進球預期】主 1.7 + 客 1.8 = 3.5，傾向大球（信心 37%）\n【勝負】雙方勢均力敵，平局機率 22% 不低",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537381",
+    "home_team": "Argentina",
+    "away_team": "Egypt",
+    "kickoff": "07/08 00:00",
+    "kickoff_utc": "2026-07-07T16:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 5,
+    "ou_prediction": "over",
+    "ou_confidence": 48,
+    "predicted_score": "2-1",
+    "p_home_win": 0.727,
+    "p_draw": 0.151,
+    "p_away_win": 0.12,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 2.783,
+    "lambda_away": 1.077,
+    "ah_line": -1.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】阿根廷（ELO 2031）vs 埃及（ELO 1509），實力差距懸殊（ELO +522）\n【近況】阿根廷 4場 進11 失3；埃及 4場 進10 失7\n【陣型戰術】阿根廷 4-3-3（進攻型）vs 埃及 4-2-3-1（防守反擊），主隊進攻留縫隙，客隊反擊空間大\n【體力】阿根廷 休息4天（略有疲態）；埃及 休息4天（略有疲態）\n【進球預期】主 2.8 + 客 1.1 = 3.9，傾向大球（信心 48%）\n【勝負】阿根廷 明顯佔優（勝率 72%），平局機率 15%",
+    "injury_notes": []
+  },
+  {
+    "match_id": "537382",
+    "home_team": "Switzerland",
+    "away_team": "Colombia",
+    "kickoff": "07/08 04:00",
+    "kickoff_utc": "2026-07-07T20:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 26,
+    "ou_prediction": "under",
+    "ou_confidence": 37,
+    "predicted_score": "0-1",
+    "p_home_win": 0.318,
+    "p_draw": 0.312,
+    "p_away_win": 0.369,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 0.928,
+    "lambda_away": 1.025,
+    "ah_line": 0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】瑞士（ELO 1695）vs 哥倫比亞（ELO 1806），實力略佔優勢（ELO -111）\n【近況】瑞士 4場 進9 失3；哥倫比亞 4場 進5 失1\n【陣型戰術】瑞士 3-4-3（均衡）vs 哥倫比亞 4-3-3（進攻型）\n【體力】瑞士 休息4天（略有疲態）；哥倫比亞 休息3天（疲態明顯）\n【進球預期】主 0.9 + 客 1.0 = 2.0，傾向小球（信心 37%）\n【勝負】雙方勢均力敵，平局機率 31% 不低",
+    "injury_notes": []
+  }
+]

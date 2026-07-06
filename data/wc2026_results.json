@@ -808,5 +808,23 @@
     "home_goals": 0,
     "away_goals": 1,
     "round": 0
+  },
+  {
+    "date": "2026-07-05",
+    "group": "",
+    "home": "Brazil",
+    "away": "Norway",
+    "home_goals": 1,
+    "away_goals": 2,
+    "round": 0
+  },
+  {
+    "date": "2026-07-06",
+    "group": "",
+    "home": "Mexico",
+    "away": "England",
+    "home_goals": 2,
+    "away_goals": 3,
+    "round": 0
   }
 ]
