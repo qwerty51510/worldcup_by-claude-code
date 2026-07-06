@@ -12,6 +12,66 @@ from src.config import FIFA_RANKINGS, RANK_DECAY, AH_LINE_MULTIPLIER, DEFAULT_CA
 
 DATA_DIR = Path(__file__).parent.parent / "data"
 RESULTS_FILE = DATA_DIR / "wc2026_results.json"
+PREDS_DIR = DATA_DIR / "predictions"
+
+
+def _load_stored_preds() -> dict:
+    """Load all stored daily predictions. Returns dict keyed by date → list of preds."""
+    result = {}
+    if not PREDS_DIR.exists():
+        return result
+    for f in sorted(PREDS_DIR.glob("*.json")):
+        date = f.stem  # YYYY-MM-DD
+        try:
+            result[date] = json.loads(f.read_text())
+        except Exception:
+            pass
+    return result
+
+
+def _find_stored_pred(stored_by_date: dict, date: str, home: str, away: str):
+    """Find stored prediction for a match by team names.
+    Searches the match date and up to 3 days before (pipeline often runs day-before).
+    """
+    from datetime import datetime, timedelta
+    hl, al = home.lower(), away.lower()
+
+    try:
+        match_dt = datetime.strptime(date, "%Y-%m-%d")
+    except ValueError:
+        return None
+
+    # Search match date first, then progressively earlier dates
+    for delta in range(0, 4):
+        search_date = (match_dt - timedelta(days=delta)).strftime("%Y-%m-%d")
+        for p in stored_by_date.get(search_date, []):
+            ph = p.get("home_team", "").lower()
+            pa = p.get("away_team", "").lower()
+            if (hl in ph or ph in hl) and (al in pa or pa in al):
+                return p
+    return None
+
+
+def _recover_pred(sp: dict) -> dict:
+    """Convert stored prediction format to validate internal format."""
+    ah_pred = sp.get("ah_prediction", "home")
+    ah_conf = sp.get("ah_confidence", 0)
+    ah_prob = round(0.5 + ah_conf / 200 if ah_pred == "home" else 0.5 - ah_conf / 200, 3)
+    ah_prob = min(0.95, max(0.05, ah_prob))
+
+    ou_pred = sp.get("ou_prediction", "over")
+    ou_conf = sp.get("ou_confidence", 0)
+    ou_prob = round(0.5 + ou_conf / 200 if ou_pred == "over" else 0.5 - ou_conf / 200, 3)
+    ou_prob = min(0.95, max(0.05, ou_prob))
+
+    return {
+        "ah_pred": ah_pred, "ah_prob": ah_prob,
+        "ou_pred": ou_pred, "ou_prob": ou_prob,
+        "ah_line": sp.get("ah_line", 0.0),
+        "ou_line": sp.get("ou_line", 2.5),
+        "predicted_score": sp.get("predicted_score", "?-?"),
+        "lambda_home": sp.get("lambda_home"), "lambda_away": sp.get("lambda_away"),
+    }
 
 
 def _lambda_for_match(home: str, away: str, completed_before: list,
@@ -38,17 +98,10 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     ou_mult = tp.get("ou_line_multiplier", 1.0)
 
     PRIOR = 2.0
+    recency_decay = tp.get("recency_decay", 1.0)
 
-    stats: dict = {}
-    for m in completed_before:
-        for team, sc, cn in [
-            (m["home"], m["home_goals"], m["away_goals"]),
-            (m["away"], m["away_goals"], m["home_goals"]),
-        ]:
-            s = stats.setdefault(team, {"scored": 0, "conceded": 0, "played": 0})
-            s["scored"] += sc
-            s["conceded"] += cn
-            s["played"] += 1
+    from src.features import _build_stats
+    stats = _build_stats(completed_before, recency_decay)
 
     def team_strength(team: str) -> float:
         if team in elo:
@@ -131,7 +184,7 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     # OU-only player blend (mirrors features.py _PLAYER_OU_ALPHA logic)
     if ou_player_alpha > 0:
         from src.player_strength import player_lambdas as _pl_lambdas
-        lh_pl_ou, la_pl_ou = _pl_lambdas(home, away, league_avg)
+        lh_pl_ou, la_pl_ou = _pl_lambdas(home, away, league_avg=league_avg)
         if lh_pl_ou is not None and la_pl_ou is not None:
             ou_lh = round(((1 - ou_player_alpha) * lh + ou_player_alpha * lh_pl_ou) * ou_mult, 3)
             ou_la = round(((1 - ou_player_alpha) * la + ou_player_alpha * la_pl_ou) * ou_mult, 3)
@@ -207,19 +260,29 @@ def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: flo
     matches = json.loads(RESULTS_FILE.read_text())
     matches_by_date = sorted(matches, key=lambda m: m["date"])
 
+    stored_by_date = _load_stored_preds()
+
     results = []
     completed = []  # matches completed before current prediction
 
     for match in matches_by_date:
-        lh, la, ah_line, ou_line, method, ou_lh, ou_la = _lambda_for_match(
-            match["home"], match["away"], completed,
-            match_date=match["date"], player_alpha=player_alpha,
-            ou_player_alpha=_PLAYER_OU_ALPHA
-        )
-        pred = _predict_single(match["home"], match["away"], lh, la, ah_line, ou_line, calibration, rho=rho,
-                               ou_lh=ou_lh, ou_la=ou_la)
-        actual_ah = _actual_ah_result(match, ah_line)  # None if push
-        actual_ou = _actual_ou_result(match, ou_line)
+        sp = _find_stored_pred(stored_by_date, match["date"], match["home"], match["away"])
+        if sp:
+            pred = _recover_pred(sp)
+            method = "stored"
+            lh = pred["lambda_home"] or 1.5
+            la = pred["lambda_away"] or 1.0
+        else:
+            lh, la, ah_line, ou_line, method, ou_lh, ou_la = _lambda_for_match(
+                match["home"], match["away"], completed,
+                match_date=match["date"], player_alpha=player_alpha,
+                ou_player_alpha=_PLAYER_OU_ALPHA
+            )
+            pred = _predict_single(match["home"], match["away"], lh, la, ah_line, ou_line, calibration, rho=rho,
+                                   ou_lh=ou_lh, ou_la=ou_la)
+
+        actual_ah = _actual_ah_result(match, pred["ah_line"])  # None if push
+        actual_ou = _actual_ou_result(match, pred["ou_line"])
 
         # AH: None means push — exclude from accuracy but record the fact
         ah_is_push = actual_ah is None
@@ -235,7 +298,7 @@ def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: flo
             "predicted_score": pred["predicted_score"],
             "score": "%d-%d" % (match["home_goals"], match["away_goals"]),
             "lambda_home": lh, "lambda_away": la,
-            "ah_line": ah_line, "ou_line": ou_line,
+            "ah_line": pred["ah_line"], "ou_line": pred["ou_line"],
             "ah_pred": pred["ah_pred"], "ah_prob": pred["ah_prob"],
             "actual_ah": actual_ah, "ah_is_push": ah_is_push,
             "ah_correct": ah_correct, "ah_brier": ah_brier,

@@ -1,8 +1,132 @@
 {
-  "_comment": "手動更新：team_name -> [\"球員A（傷）\", \"球員B（停賽）\"]",
-  "France": [],
-  "Argentina": [],
-  "Portugal": [],
-  "Norway": [],
-  "Germany": []
+  "_comment": "notes=顯示文字；attack_mult<1表示進攻削弱；defense_mult>1表示防守削弱（對手進球增加）。1.0=無影響，不加入即為預設1.0",
+
+  "Brazil": {
+    "notes": [
+      "Estêvão（傷出局整季）",
+      "Rodrygo（撕裂ACL，傷出局整季）",
+      "Raphinha（大腿後肌，確定缺陣）",
+      "Paquetá（禁賽整季）",
+      "Éder Militão（大腿後肌，傷出局整季）",
+      "Casemiro（肌肉傷，疑問）",
+      "Neymar（小腿，疑問）"
+    ],
+    "exclude_players": ["Raphinha", "Lucas Paquetá", "Casemiro", "Neymar"],
+    "attack_mult": 0.65,
+    "defense_mult": 1.10
+  },
+
+  "Norway": {
+    "notes": [
+      "Julian Ryerson（大腿，疑問）"
+    ],
+    "attack_mult": 1.0,
+    "defense_mult": 1.03
+  },
+
+  "United States": {
+    "notes": [
+      "Johnny Cardoso（踝關節高級扭傷，確定缺陣）",
+      "Patrick Agyemang（跟腱撕裂，確定缺陣）"
+    ],
+    "exclude_players": ["Johnny Cardoso", "Patrick Agyemang"],
+    "attack_mult": 0.95,
+    "defense_mult": 1.05
+  },
+
+  "Belgium": {
+    "notes": [
+      "Zeno Debast（腿傷，整屆缺陣，疑問）",
+      "Romelu Lukaku（火腿肌歷史傷，體能管理中）"
+    ],
+    "attack_mult": 1.0,
+    "defense_mult": 1.05
+  },
+
+  "Spain": {
+    "notes": [
+      "Fermín López（蹠骨骨折，傷出局整季）",
+      "Nico Williams（內收肌傷，R16疑問/可能缺陣）",
+      "Yeremy Pino（肩傷，R16疑問/可能缺陣）",
+      "Mikel Merino（足部應力性骨折復出，狀態存疑）"
+    ],
+    "exclude_players": ["Fermín López"],
+    "attack_mult": 0.87,
+    "defense_mult": 1.0
+  },
+
+  "Portugal": {
+    "notes": [
+      "Rúben Dias（受傷缺席首場，預計復出但狀態管理中）"
+    ],
+    "attack_mult": 1.0,
+    "defense_mult": 1.03
+  },
+
+  "Argentina": {
+    "notes": [
+      "Cristian Romero（MCL部分撕裂，疑問）",
+      "Nahuel Molina（大腿傷，疑問/可能復出）"
+    ],
+    "exclude_players": ["Cristian Romero"],
+    "attack_mult": 0.97,
+    "defense_mult": 1.05
+  },
+
+  "Egypt": {
+    "notes": [
+      "Mohamed Salah（大腿後肌拉傷，帶傷出賽，非全狀態）",
+      "Mohamed Abdelmonem（踝傷，確定缺陣）",
+      "Ahmed Fatouh（傷，確定缺陣）"
+    ],
+    "attack_mult": 0.88,
+    "defense_mult": 1.10
+  },
+
+  "England": {
+    "notes": [
+      "Tino Livramento（大腿傷，確定缺陣）",
+      "Reece James（大腿後肌，預計復出）",
+      "Declan Rice（大腿後肌，帶傷參賽）",
+      "Jarell Quansah（踝傷，疑問）"
+    ],
+    "attack_mult": 1.0,
+    "defense_mult": 1.12
+  },
+
+  "France": {
+    "notes": [
+      "Hugo Ekitiké（跟腱斷裂，傷出局整季）"
+    ],
+    "attack_mult": 0.97,
+    "defense_mult": 1.0
+  },
+
+  "Morocco": {
+    "notes": [],
+    "attack_mult": 1.0,
+    "defense_mult": 1.0
+  },
+
+  "Switzerland": {
+    "notes": [],
+    "attack_mult": 1.0,
+    "defense_mult": 1.0
+  },
+
+  "Colombia": {
+    "notes": [
+      "Jhon Córdoba（火腿肌撕裂，確定缺陣整屆）"
+    ],
+    "attack_mult": 0.87,
+    "defense_mult": 1.0
+  },
+
+  "Paraguay": {
+    "notes": [
+      "Almirón（R32停賽已服完，R16可上）"
+    ],
+    "attack_mult": 1.0,
+    "defense_mult": 1.0
+  }
 }

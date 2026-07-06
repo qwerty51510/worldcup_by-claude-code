@@ -22,6 +22,7 @@ _WC_RESULTS: list = []     # full results list for rest-days calculation
 _FORMATIONS: dict = {}
 _TEAM_HISTORY: dict = {}   # pre-tournament stats from team_history.json
 _TUNED_PARAMS: dict = {}   # params from tuner (wc_league_avg, ah_line_multiplier)     # team formation + style
+_VENUES: dict = {}         # venue metadata (altitude, weather)
 
 # WC 2026 league average: 121 goals / 40 matches / 2 teams per match = 1.51
 _WC_LEAGUE_AVG = 1.51
@@ -111,18 +112,10 @@ def _load_wc_team_stats() -> dict:
     global _WC_TEAM_STATS
     if _WC_TEAM_STATS:
         return _WC_TEAM_STATS
-    stats: dict = {}
-    for m in _load_wc_results():
-        for team, scored, conceded in [
-            (m["home"], m["home_goals"], m["away_goals"]),
-            (m["away"], m["away_goals"], m["home_goals"]),
-        ]:
-            s = stats.setdefault(team, {"scored": 0, "conceded": 0, "played": 0})
-            s["scored"] += scored
-            s["conceded"] += conceded
-            s["played"] += 1
-    _WC_TEAM_STATS = stats
-    return stats
+    tp = _load_tuned_params()
+    recency_decay = tp.get("recency_decay", 1.0)
+    _WC_TEAM_STATS = _build_stats(_load_wc_results(), recency_decay)
+    return _WC_TEAM_STATS
 
 
 def _load_formations() -> dict:
@@ -164,12 +157,162 @@ def _load_tuned_params() -> dict:
     return _TUNED_PARAMS
 
 
+def _load_venues() -> dict:
+    global _VENUES
+    if _VENUES:
+        return _VENUES
+    path = Path(__file__).parent.parent / "data" / "venues.json"
+    if path.exists():
+        try:
+            _VENUES = json.loads(path.read_text())
+        except Exception:
+            _VENUES = {}
+    return _VENUES
+
+
+def _load_injury_mults() -> dict:
+    path = Path(__file__).parent.parent / "data" / "injuries.json"
+    if not path.exists():
+        return {}
+    try:
+        raw = json.loads(path.read_text())
+    except Exception:
+        return {}
+    mults = {}
+    for team, val in raw.items():
+        if team.startswith("_"):
+            continue
+        if isinstance(val, dict) and ("attack_mult" in val or "defense_mult" in val):
+            mults[team] = {
+                "attack_mult": float(val.get("attack_mult", 1.0)),
+                "defense_mult": float(val.get("defense_mult", 1.0)),
+            }
+    return mults
+
+
+def load_team_discipline_stats() -> dict:
+    """Aggregate corner kicks and cards per team.
+
+    Returns {"wc": {team: {corners_pg, yellow_pg, red_pg, games}},
+             "hist": {team: {corners_pg, yellow_pg, red_pg, games}}}
+    WC stats come from match-day files (2026-06-22+).
+    Historical stats come from data/discipline_historical.json (pre-WC ESPN boxscores).
+    """
+    data_dir = Path(__file__).parent.parent / "data" / "matches"
+    WC_START = "2026-06-22"
+    totals: dict = {}
+
+    for f in sorted(data_dir.glob("*.json")):
+        if f.stem < WC_START:
+            continue
+        try:
+            day = json.loads(f.read_text())
+        except Exception:
+            continue
+        for match_key, md in day.get("goal_events", {}).items():
+            if not isinstance(md, dict):
+                continue
+            stats = md.get("stats", {})
+            for side in ("home", "away"):
+                s = stats.get(side, {})
+                if not s:
+                    continue
+                parts = match_key.split("|")
+                team = parts[0] if side == "home" else (parts[1] if len(parts) > 1 else "")
+                if not team:
+                    continue
+                t = totals.setdefault(team, {"corners": 0, "yellow_cards": 0, "red_cards": 0, "games": 0})
+                try:
+                    t["corners"] += int(s.get("Corner Kicks", 0) or 0)
+                    t["yellow_cards"] += int(s.get("Yellow Cards", 0) or 0)
+                    t["red_cards"] += int(s.get("Red Cards", 0) or 0)
+                    t["games"] += 1
+                except (ValueError, TypeError):
+                    pass
+
+    wc: dict = {}
+    for team, t in totals.items():
+        g = t["games"]
+        if g == 0:
+            continue
+        wc[team] = {
+            "corners_pg": round(t["corners"] / g, 1),
+            "yellow_pg": round(t["yellow_cards"] / g, 1),
+            "red_pg": round(t["red_cards"] / g, 1),
+            "games": g,
+        }
+
+    hist_path = Path(__file__).parent.parent / "data" / "discipline_historical.json"
+    try:
+        hist = json.loads(hist_path.read_text())
+    except Exception:
+        hist = {}
+
+    return {"wc": wc, "hist": hist}
+
+
+def _venue_lambda_factors(home: str, away: str, match: dict) -> tuple:
+    """Returns (home_mult, away_mult) based on altitude and weather at match venue."""
+    venues = _load_venues()
+    if not venues:
+        return 1.0, 1.0
+
+    stage = match.get("stage", "GROUP_STAGE")
+    round_key = {"LAST_32": "R32", "LAST_16": "R16"}.get(stage)
+    if not round_key:
+        return 1.0, 1.0
+
+    round_map = venues.get("match_venue", {}).get(round_key, {})
+    venue_name = round_map.get(f"{home} vs {away}") or round_map.get(f"{away} vs {home}")
+    if not venue_name:
+        return 1.0, 1.0
+
+    venue = venues.get("venues", {}).get(venue_name)
+    if not venue:
+        return 1.0, 1.0
+
+    alt_m = venue.get("altitude_m", 0)
+    temp_c = venue.get("july_temp_c", 25)
+    is_dome = venue.get("is_dome", False)
+    acclimatized = venues.get("altitude_acclimatized_teams", {})
+
+    home_home_alt = acclimatized.get(home, 0)
+    away_home_alt = acclimatized.get(away, 0)
+    home_acclim = home_home_alt >= alt_m * 0.5
+    away_acclim = away_home_alt >= alt_m * 0.5
+
+    h_mult = 1.0
+    a_mult = 1.0
+
+    if alt_m >= 500:
+        # ~1% attacking penalty per 100m above 500m for non-acclimatized teams
+        alt_penalty = min(0.15, (alt_m - 500) / 100 * 0.01)
+        if not home_acclim:
+            h_mult *= 1.0 - alt_penalty
+        if not away_acclim:
+            a_mult *= 1.0 - alt_penalty
+        # Acclimatized team vs non-acclimatized opponent: small edge
+        if home_acclim and not away_acclim:
+            h_mult *= 1.03
+        elif away_acclim and not home_acclim:
+            a_mult *= 1.03
+
+    # Outdoor heat above 30°C reduces both teams' attacking output
+    if not is_dome and temp_c > 30:
+        heat_penalty = min(0.06, (temp_c - 30) * 0.005)
+        h_mult *= 1.0 - heat_penalty
+        a_mult *= 1.0 - heat_penalty
+
+    return round(h_mult, 3), round(a_mult, 3)
+
+
 def clear_caches() -> None:
     """Reset in-memory caches after wc2026_results.json is updated."""
-    global _WC_TEAM_STATS, _WC_RESULTS, _TUNED_PARAMS
+    global _WC_TEAM_STATS, _WC_RESULTS, _TUNED_PARAMS, _VENUES
     _WC_TEAM_STATS = {}
     _WC_RESULTS = []
-    _TUNED_PARAMS = {}  # force reload of tuned params on next prediction
+    _TUNED_PARAMS = {}
+    _VENUES = {}
 
 
 def _rest_days(team: str, match_date: str, results: list = None) -> int:
@@ -353,14 +496,15 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
                    (used by validate.py walk-forward to avoid leaking future data).
     Tuned params (wc_league_avg, ah_line_multiplier) loaded from tuning.json if available.
     """
-    stats = _load_wc_team_stats() if prior_results is None else _build_stats(prior_results)
-    elo = _load_elo()
-    team_history = _load_team_history()
-
     # Load tuned params; fall back to config constants
     tp = _load_tuned_params()
     league_avg = tp.get("wc_league_avg", _WC_LEAGUE_AVG)
     ah_mult = tp.get("ah_line_multiplier", AH_LINE_MULTIPLIER)
+    recency_decay = tp.get("recency_decay", 1.0)
+
+    stats = _load_wc_team_stats() if prior_results is None else _build_stats(prior_results, recency_decay)
+    elo = _load_elo()
+    team_history = _load_team_history()
 
     PRIOR = 2.0
 
@@ -373,24 +517,56 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
     # Used to normalize historical rates to WC-level context
     _H2H_AVG = 1.31
 
+    # Player strength cache for prior substitution (built once per call)
+    try:
+        from src.player_strength import build_team_strengths as _bts
+        _ps_cache = _bts()
+    except Exception:
+        _ps_cache = {}
+
+    def _player_prior_rate(team: str, stat: str):
+        """Player per90-based prior rate (goals/game). None if data unavailable."""
+        ps = _ps_cache.get(team, {})
+        if not isinstance(ps, dict):
+            return None
+        atk = ps.get("attack", 0)
+        def_ = ps.get("defense", 0)
+        if atk == 0 and def_ == 0:
+            return None
+        if stat == "scored":
+            return atk * league_avg if atk > 0 else None
+        else:
+            return (1.0 / max(0.3, def_)) * league_avg if def_ > 0 else None
+
     def smooth_rate(team: str, stat: str) -> float:
         s = stats.get(team, {"scored": 0, "conceded": 0, "played": 0})
         strength = team_strength(team)
         elo_prior = (strength if stat == "scored" else 1.0 / strength) * league_avg
 
-        # Blend ELO prior with pre-tournament historical rate (if available).
-        # Normalize hist_rate by H2H dataset avg first so the blend stays in
-        # WC-context units (avoids pulling prior toward the lower H2H average).
         h = team_history.get(team, {"scored": 0, "conceded": 0, "played": 0})
         if h["played"] >= 3:
-            hist_strength = (h[stat] / h["played"]) / _H2H_AVG  # relative to H2H avg
-            hist_prior = hist_strength * league_avg               # scaled to WC context
+            # Historical pre-tournament data available: blend ELO + history
+            hist_strength = (h[stat] / h["played"]) / _H2H_AVG
+            hist_prior = hist_strength * league_avg
             blend = min(h["played"] / 10.0, 0.5)
             prior_rate = elo_prior * (1 - blend) + hist_prior * blend
         else:
-            prior_rate = elo_prior
+            # No historical data: blend ELO with player per90 prior.
+            # Player weight decays as WC data accumulates (0 games→60%, 5 games→20%).
+            pl_rate = _player_prior_rate(team, stat)
+            if pl_rate is not None:
+                wc_played = s["played"]
+                pl_w = max(0.15, 0.6 - wc_played * 0.08)
+                prior_rate = elo_prior * (1 - pl_w) + pl_rate * pl_w
+            else:
+                prior_rate = elo_prior
 
-        return (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / league_avg
+        raw = (s[stat] + PRIOR * prior_rate) / (s["played"] + PRIOR) / league_avg
+        # Floor defensive rate at 0.40 to prevent unrealistically low values from
+        # small samples (e.g. 0 goals conceded in 4 games overfits to near-zero).
+        if stat == "conceded":
+            raw = max(0.40, raw)
+        return raw
 
     h_atk = smooth_rate(home, "scored")
     h_def = smooth_rate(home, "conceded")
@@ -433,17 +609,29 @@ def _lambda_from_wc_form(home: str, away: str, match_date: str = "",
     return lh, la, ah_line, _derive_ou_line(lh * ou_mult, la * ou_mult)
 
 
-def _build_stats(results: list) -> dict:
-    stats: dict = {}
-    for m in results:
+def _build_stats(results: list, recency_decay: float = 1.0) -> dict:
+    # Group results per team newest-first; weight recent goals higher.
+    # played stays = actual game count so Bayesian prior balance is unchanged.
+    sorted_r = sorted(results, key=lambda m: m.get("date", ""))
+    team_games: dict = {}
+    for m in reversed(sorted_r):
         for team, scored, conceded in [
             (m["home"], m["home_goals"], m["away_goals"]),
             (m["away"], m["away_goals"], m["home_goals"]),
         ]:
-            s = stats.setdefault(team, {"scored": 0, "conceded": 0, "played": 0})
-            s["scored"] += scored
-            s["conceded"] += conceded
-            s["played"] += 1
+            team_games.setdefault(team, []).append((scored, conceded))
+
+    stats: dict = {}
+    for team, game_list in team_games.items():
+        n = len(game_list)
+        raw_w = sum(recency_decay ** i for i in range(n))
+        norm = n / raw_w if raw_w > 0 and recency_decay != 1.0 else 1.0
+        s_scored = s_conceded = 0.0
+        for idx, (sc, co) in enumerate(game_list):
+            w = (recency_decay ** idx) * norm
+            s_scored += sc * w
+            s_conceded += co * w
+        stats[team] = {"scored": s_scored, "conceded": s_conceded, "played": float(n)}
     return stats
 
 
@@ -556,8 +744,12 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
     results = []
     for match in matches:
         match_id = str(match.get("id", ""))
-        home = _normalize_team(match["homeTeam"]["name"])
-        away = _normalize_team(match["awayTeam"]["name"])
+        ht = match.get("homeTeam") or {}
+        at = match.get("awayTeam") or {}
+        home = _normalize_team(ht.get("name") or "")
+        away = _normalize_team(at.get("name") or "")
+        if not home or not away:
+            continue  # skip TBD matches
 
         odds_entry = None
         for entry in odds.values():
@@ -568,7 +760,12 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
                 break
 
         # ESPN DraftKings lines take priority over Odds API h2h derivation
-        dk = espn_odds.get((home, away)) or espn_odds.get((away, home)) or {}
+        # espn_odds keys are pipe-separated strings e.g. "Australia|Egypt"
+        dk = (espn_odds.get(f"{home}|{away}")
+              or espn_odds.get(f"{away}|{home}")
+              or espn_odds.get((home, away))
+              or espn_odds.get((away, home))
+              or {})
         dk_ah = dk.get("ah_line")
         dk_ou = dk.get("ou_line")
 
@@ -587,6 +784,7 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
 
         match_date = (match.get("utcDate", "") or "")[:10]
         elo = _load_elo()
+        tp = _load_tuned_params()
         wc_form = _lambda_from_wc_form(home, away, match_date)
 
         if ah_is_native:
@@ -643,24 +841,43 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
         # ou_mult normalises them back to realistic goal totals for OU prob calculation.
         # Player data (alpha=0.4) blended into OU only — grid search: AH stays 52.4%, OU 60.4%→68.8%.
         _ou_mult = _load_tuned_params().get("ou_line_multiplier", 1.0)
-        if data_source in ("WC 2026 實戰數據", "盤口線（h2h推算）"):
-            from src.player_strength import player_lambdas as _pl_lambdas, build_team_strengths as _build_ps
-            _build_ps()
-            _league_avg_val = _load_tuned_params().get("wc_league_avg", _WC_LEAGUE_AVG)
-            lh_pl, la_pl = _pl_lambdas(home, away, _league_avg_val)
-            if lh_pl is not None and la_pl is not None:
-                blended_h = (1 - _PLAYER_OU_ALPHA) * lambda_home + _PLAYER_OU_ALPHA * lh_pl
-                blended_a = (1 - _PLAYER_OU_ALPHA) * lambda_away + _PLAYER_OU_ALPHA * la_pl
-                ou_lambda_home = round(blended_h * _ou_mult, 3)
-                ou_lambda_away = round(blended_a * _ou_mult, 3)
-                if not ou_from_market:
-                    ou_line = _derive_ou_line(ou_lambda_home, ou_lambda_away)
-            else:
-                ou_lambda_home = round(lambda_home * _ou_mult, 3)
-                ou_lambda_away = round(lambda_away * _ou_mult, 3)
+        from src.player_strength import player_lambdas as _pl_lambdas, build_team_strengths as _build_ps
+        _ps_strengths = _build_ps()
+        _league_avg_val = _load_tuned_params().get("wc_league_avg", _WC_LEAGUE_AVG)
+        lh_pl, la_pl = _pl_lambdas(home, away, _ps_strengths, league_avg=_league_avg_val)
+
+        if lh_pl is not None and la_pl is not None:
+            # Blend player per90 data into AH lambda (35%) — captures current squad form
+            # Only when WC form data exists; ELO/PM paths already lack per-match context
+            if data_source in ("WC 2026 實戰數據", "盤口線（h2h推算）", "DraftKings盤口"):
+                _PLAYER_AH_ALPHA = 0.15  # grid search on 12 WC matches: 0-0.15 best
+                lambda_home = round((1 - _PLAYER_AH_ALPHA) * lambda_home + _PLAYER_AH_ALPHA * lh_pl, 3)
+                lambda_away = round((1 - _PLAYER_AH_ALPHA) * lambda_away + _PLAYER_AH_ALPHA * la_pl, 3)
+
+            # Blend into OU lambda (40%) for all paths
+            blended_h = (1 - _PLAYER_OU_ALPHA) * lambda_home + _PLAYER_OU_ALPHA * lh_pl
+            blended_a = (1 - _PLAYER_OU_ALPHA) * lambda_away + _PLAYER_OU_ALPHA * la_pl
+            ou_lambda_home = round(blended_h * _ou_mult, 3)
+            ou_lambda_away = round(blended_a * _ou_mult, 3)
         else:
-            ou_lambda_home = lambda_home
-            ou_lambda_away = lambda_away
+            ou_lambda_home = round(lambda_home * _ou_mult, 3)
+            ou_lambda_away = round(lambda_away * _ou_mult, 3)
+
+        if not ou_from_market:
+            ou_line = _derive_ou_line(ou_lambda_home, ou_lambda_away)
+
+        # Fix B: KO stage ELO floor — WC form can undervalue elite teams when
+        # strong group-stage opponents compress lambda (e.g. England λ=0.74 due to
+        # Mexico's low concede rate). One-directional floor: only pulls up, never down,
+        # so Norway-type overperformers are unaffected.
+        ko_elo_floor = tp.get("ko_elo_floor", 0.0)
+        _ko_stages = {"LAST_32", "LAST_16", "QUARTER_FINALS", "SEMI_FINALS", "FINAL"}
+        if ko_elo_floor > 0 and match.get("stage") in _ko_stages and data_source == "WC 2026 實戰數據":
+            lh_elo, la_elo, _, _ = _lambda_from_rankings(home, away)
+            lambda_home = max(lambda_home, round(lh_elo * ko_elo_floor, 3))
+            lambda_away = max(lambda_away, round(la_elo * ko_elo_floor, 3))
+            ou_lambda_home = max(ou_lambda_home, round(lh_elo * ko_elo_floor, 3))
+            ou_lambda_away = max(ou_lambda_away, round(la_elo * ko_elo_floor, 3))
 
         # PM validation: compare derived AH against Polymarket-implied AH.
         # If AH comes from a market source (bookmaker h2h / native AH), only flag the gap.
@@ -701,6 +918,37 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             lambda_home *= (1 - damp)
             lambda_away *= (1 - damp)
 
+        # Knockout stage: teams play more defensively → scale down lambdas
+        ko_stages = {"LAST_32", "LAST_16", "QUARTER_FINALS", "SEMI_FINALS", "FINAL"}
+        if match.get("stage", "") in ko_stages:
+            ko_scale = tp.get("knockout_lambda_scale", 1.0)
+            lambda_home = round(lambda_home * ko_scale, 3)
+            lambda_away = round(lambda_away * ko_scale, 3)
+
+        # Venue: altitude and weather adjustments (R32/R16 only — venue mappings available)
+        h_venue_m, a_venue_m = _venue_lambda_factors(home, away, match)
+        if h_venue_m != 1.0 or a_venue_m != 1.0:
+            lambda_home = round(lambda_home * h_venue_m, 3)
+            lambda_away = round(lambda_away * a_venue_m, 3)
+            ou_lambda_home = round(ou_lambda_home * h_venue_m, 3)
+            ou_lambda_away = round(ou_lambda_away * a_venue_m, 3)
+
+        # Injury/suspension multipliers: attack_mult reduces scorer's lambda;
+        # defense_mult > 1 means weaker defense → opponent scores more.
+        _inj = _load_injury_mults()
+        h_inj = _inj.get(home, {})
+        a_inj = _inj.get(away, {})
+        h_atk = h_inj.get("attack_mult", 1.0)
+        h_def = h_inj.get("defense_mult", 1.0)
+        a_atk = a_inj.get("attack_mult", 1.0)
+        a_def = a_inj.get("defense_mult", 1.0)
+        if h_atk != 1.0 or a_def != 1.0:
+            lambda_home = round(lambda_home * h_atk * a_def, 3)
+            ou_lambda_home = round(ou_lambda_home * h_atk * a_def, 3)
+        if a_atk != 1.0 or h_def != 1.0:
+            lambda_away = round(lambda_away * a_atk * h_def, 3)
+            ou_lambda_away = round(ou_lambda_away * a_atk * h_def, 3)
+
         incentive_home = compute_incentive_score(must_win_home, safe_draw_home, dead_rubber)
         incentive_away = compute_incentive_score(must_win_away, safe_draw_away, dead_rubber)
         incentive_score = max(incentive_home, incentive_away)
@@ -738,5 +986,9 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             "style_away": a_form_info.get("style", "balanced"),
             "rest_days_home": h_rest,
             "rest_days_away": a_rest,
+            "stage": match.get("stage", "GROUP_STAGE"),
+            "dk_ml_home": dk.get("ml_home"),
+            "dk_ml_draw": dk.get("ml_draw"),
+            "dk_ml_away": dk.get("ml_away"),
         })
     return results
