@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-06T16:46:28Z",
-  "total_matches": 92,
+  "generated_at": "2026-07-07T13:30:35Z",
+  "total_matches": 94,
   "summary": {
-    "ah_accuracy": 0.625,
-    "ou_accuracy": 0.576,
-    "score_exact_match": 10,
-    "avg_goal_total_error": 1.71
+    "ah_accuracy": 0.633,
+    "ou_accuracy": 0.574,
+    "score_exact_match": 11,
+    "avg_goal_total_error": 1.7
   },
   "matches": [
     {
@@ -138,8 +138,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-13",
@@ -480,8 +480,8 @@
       "actual_ah": "away",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-18",
@@ -1755,6 +1755,44 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": false
+    },
+    {
+      "date": "2026-07-06",
+      "group": "",
+      "round": 0,
+      "home": "Portugal",
+      "away": "Spain",
+      "predicted_score": "0-1",
+      "actual_score": "0-1",
+      "score_correct": true,
+      "goal_total_error": 0,
+      "lambda_home": 0.552,
+      "lambda_away": 1.151,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": true
+    },
+    {
+      "date": "2026-07-07",
+      "group": "",
+      "round": 0,
+      "home": "United States",
+      "away": "Belgium",
+      "predicted_score": "1-1",
+      "actual_score": "1-4",
+      "score_correct": false,
+      "goal_total_error": 3,
+      "lambda_home": 1.749,
+      "lambda_away": 1.793,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ],
   "team_analysis": [
@@ -1788,6 +1826,14 @@
       "pred_goals_avg": 1.25,
       "actual_goals_avg": 2.5,
       "goal_bias": -1.25,
+      "ah_accuracy": 0.75
+    },
+    {
+      "team": "Belgium",
+      "matches": 5,
+      "pred_goals_avg": 1.4,
+      "actual_goals_avg": 2.6,
+      "goal_bias": -1.2,
       "ah_accuracy": 0.75
     },
     {
@@ -1827,14 +1873,6 @@
       "matches": 4,
       "pred_goals_avg": 2.5,
       "actual_goals_avg": 3.25,
-      "goal_bias": -0.75,
-      "ah_accuracy": 0.667
-    },
-    {
-      "team": "Belgium",
-      "matches": 4,
-      "pred_goals_avg": 1.5,
-      "actual_goals_avg": 2.25,
       "goal_bias": -0.75,
       "ah_accuracy": 0.667
     },
@@ -1895,14 +1933,6 @@
       "ah_accuracy": 0.6
     },
     {
-      "team": "United States",
-      "matches": 4,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.5,
-      "goal_bias": -0.5,
-      "ah_accuracy": 0.5
-    },
-    {
       "team": "Japan",
       "matches": 4,
       "pred_goals_avg": 2.5,
@@ -1939,6 +1969,14 @@
       "matches": 5,
       "pred_goals_avg": 1.4,
       "actual_goals_avg": 1.8,
+      "goal_bias": -0.4,
+      "ah_accuracy": 0.6
+    },
+    {
+      "team": "United States",
+      "matches": 5,
+      "pred_goals_avg": 1.8,
+      "actual_goals_avg": 2.2,
       "goal_bias": -0.4,
       "ah_accuracy": 0.6
     },
@@ -2039,14 +2077,6 @@
       "ah_accuracy": 1.0
     },
     {
-      "team": "Portugal",
-      "matches": 4,
-      "pred_goals_avg": 1.75,
-      "actual_goals_avg": 2.0,
-      "goal_bias": -0.25,
-      "ah_accuracy": 0.75
-    },
-    {
       "team": "Colombia",
       "matches": 4,
       "pred_goals_avg": 1.5,
@@ -2067,6 +2097,14 @@
       "matches": 5,
       "pred_goals_avg": 2.6,
       "actual_goals_avg": 2.8,
+      "goal_bias": -0.2,
+      "ah_accuracy": 0.8
+    },
+    {
+      "team": "Portugal",
+      "matches": 5,
+      "pred_goals_avg": 1.4,
+      "actual_goals_avg": 1.6,
       "goal_bias": -0.2,
       "ah_accuracy": 0.8
     },
@@ -2128,11 +2166,11 @@
     },
     {
       "team": "Spain",
-      "matches": 4,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.0,
+      "matches": 5,
+      "pred_goals_avg": 1.8,
+      "actual_goals_avg": 1.8,
       "goal_bias": 0.0,
-      "ah_accuracy": 0.75
+      "ah_accuracy": 0.8
     },
     {
       "team": "Uzbekistan",
@@ -2255,8 +2293,8 @@
       "actual_ah": "home",
       "ah_correct": false,
       "ah_is_push": false,
-      "ou_pred": "over",
-      "ou_correct": false
+      "ou_pred": "under",
+      "ou_correct": true
     },
     {
       "date": "2026-06-14",
