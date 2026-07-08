@@ -844,5 +844,23 @@
     "home_goals": 1,
     "away_goals": 4,
     "round": 0
+  },
+  {
+    "date": "2026-07-07",
+    "group": "",
+    "home": "Argentina",
+    "away": "Egypt",
+    "home_goals": 3,
+    "away_goals": 2,
+    "round": 0
+  },
+  {
+    "date": "2026-07-07",
+    "group": "",
+    "home": "Switzerland",
+    "away": "Colombia",
+    "home_goals": 4,
+    "away_goals": 3,
+    "round": 0
   }
 ]

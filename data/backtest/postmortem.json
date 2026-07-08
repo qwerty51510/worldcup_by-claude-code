@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-07T13:30:35Z",
-  "total_matches": 94,
+  "generated_at": "2026-07-08T11:58:09Z",
+  "total_matches": 96,
   "summary": {
-    "ah_accuracy": 0.633,
-    "ou_accuracy": 0.574,
+    "ah_accuracy": 0.63,
+    "ou_accuracy": 0.562,
     "score_exact_match": 11,
-    "avg_goal_total_error": 1.7
+    "avg_goal_total_error": 1.75
   },
   "matches": [
     {
@@ -1793,17 +1793,47 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": false
+    },
+    {
+      "date": "2026-07-07",
+      "group": "",
+      "round": 0,
+      "home": "Argentina",
+      "away": "Egypt",
+      "predicted_score": "2-1",
+      "actual_score": "3-2",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 2.783,
+      "lambda_away": 1.077,
+      "ah_pred": "home",
+      "actual_ah": "home",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-07-07",
+      "group": "",
+      "round": 0,
+      "home": "Switzerland",
+      "away": "Colombia",
+      "predicted_score": "0-1",
+      "actual_score": "4-3",
+      "score_correct": false,
+      "goal_total_error": 6,
+      "lambda_home": 0.928,
+      "lambda_away": 1.025,
+      "ah_pred": "away",
+      "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ],
   "team_analysis": [
-    {
-      "team": "Egypt",
-      "matches": 4,
-      "pred_goals_avg": 0.75,
-      "actual_goals_avg": 2.5,
-      "goal_bias": -1.75,
-      "ah_accuracy": 0.5
-    },
     {
       "team": "Morocco",
       "matches": 5,
@@ -1811,6 +1841,14 @@
       "actual_goals_avg": 2.6,
       "goal_bias": -1.6,
       "ah_accuracy": 0.8
+    },
+    {
+      "team": "Egypt",
+      "matches": 5,
+      "pred_goals_avg": 0.8,
+      "actual_goals_avg": 2.4,
+      "goal_bias": -1.6,
+      "ah_accuracy": 0.6
     },
     {
       "team": "Germany",
@@ -1853,6 +1891,14 @@
       "ah_accuracy": 0.4
     },
     {
+      "team": "Switzerland",
+      "matches": 5,
+      "pred_goals_avg": 1.6,
+      "actual_goals_avg": 2.6,
+      "goal_bias": -1.0,
+      "ah_accuracy": 0.4
+    },
+    {
       "team": "England",
       "matches": 5,
       "pred_goals_avg": 1.2,
@@ -1869,20 +1915,20 @@
       "ah_accuracy": 0.4
     },
     {
+      "team": "Argentina",
+      "matches": 5,
+      "pred_goals_avg": 2.0,
+      "actual_goals_avg": 2.8,
+      "goal_bias": -0.8,
+      "ah_accuracy": 1.0
+    },
+    {
       "team": "Netherlands",
       "matches": 4,
       "pred_goals_avg": 2.5,
       "actual_goals_avg": 3.25,
       "goal_bias": -0.75,
       "ah_accuracy": 0.667
-    },
-    {
-      "team": "Argentina",
-      "matches": 4,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.75,
-      "goal_bias": -0.75,
-      "ah_accuracy": 1.0
     },
     {
       "team": "Austria",
@@ -2045,14 +2091,6 @@
       "ah_accuracy": 1.0
     },
     {
-      "team": "Switzerland",
-      "matches": 4,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.25,
-      "goal_bias": -0.25,
-      "ah_accuracy": 0.5
-    },
-    {
       "team": "Ivory Coast",
       "matches": 4,
       "pred_goals_avg": 1.5,
@@ -2077,14 +2115,6 @@
       "ah_accuracy": 1.0
     },
     {
-      "team": "Colombia",
-      "matches": 4,
-      "pred_goals_avg": 1.5,
-      "actual_goals_avg": 1.25,
-      "goal_bias": 0.25,
-      "ah_accuracy": 1.0
-    },
-    {
       "team": "Ghana",
       "matches": 4,
       "pred_goals_avg": 0.75,
@@ -2102,6 +2132,14 @@
     },
     {
       "team": "Portugal",
+      "matches": 5,
+      "pred_goals_avg": 1.4,
+      "actual_goals_avg": 1.6,
+      "goal_bias": -0.2,
+      "ah_accuracy": 0.8
+    },
+    {
+      "team": "Colombia",
       "matches": 5,
       "pred_goals_avg": 1.4,
       "actual_goals_avg": 1.6,
@@ -2808,6 +2846,25 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": true
+    },
+    {
+      "date": "2026-07-07",
+      "group": "",
+      "round": 0,
+      "home": "Switzerland",
+      "away": "Colombia",
+      "predicted_score": "0-1",
+      "actual_score": "4-3",
+      "score_correct": false,
+      "goal_total_error": 6,
+      "lambda_home": 0.928,
+      "lambda_away": 1.025,
+      "ah_pred": "away",
+      "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ]
 }
