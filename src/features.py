@@ -9,7 +9,7 @@ from src.config import FIFA_RANKINGS, BASE_LAMBDA, RANK_DECAY, AH_LINE_MULTIPLIE
 _PM_LOG_A = 2.406
 _PM_LOG_B = 0.2508
 
-# Player data blend for OU only (AH uses pure ELO — grid search confirmed 0.4 is optimal)
+# Player data blend: OU alpha=0.4 all paths; AH alpha=0.4 for ELO paths, 0.15 for WC-form paths
 _PLAYER_OU_ALPHA = 0.4
 
 # ELO → strength: normalised around 1500 (average), compressed to 0.4–2.2 range
@@ -190,6 +190,31 @@ def _load_injury_mults() -> dict:
     return mults
 
 
+def get_injury_mults(team: str, match_date: str, injury_scale: float = 1.0) -> tuple:
+    """Returns (attack_mult, defense_mult) scaled by injury_scale.
+
+    injury_scale=0.0 → no adjustment; =1.0 → full hand-coded effect; >1.0 → amplify.
+    Skips already_absent players (their absence is already baked into WC form data).
+    """
+    path = Path(__file__).parent.parent / "data" / "injuries.json"
+    try:
+        raw = json.loads(path.read_text())
+    except Exception:
+        return 1.0, 1.0
+    injuries = raw.get(team, {}).get("injuries", [])
+    atk, dfn = 1.0, 1.0
+    for inj in injuries:
+        if inj.get("already_absent", False):
+            continue  # absence pre-dates WC form data — already baked in, no double-count
+        if inj.get("known_from", "9999-99-99") <= match_date:
+            raw_atk = float(inj.get("attack_mult", 1.0))
+            raw_dfn = float(inj.get("defense_mult", 1.0))
+            # Scale the deviation from 1.0: scale=0 → mult=1.0, scale=1 → raw mult
+            atk *= 1.0 - (1.0 - raw_atk) * injury_scale
+            dfn *= 1.0 - (1.0 - raw_dfn) * injury_scale
+    return atk, dfn
+
+
 def load_team_discipline_stats() -> dict:
     """Aggregate corner kicks and cards per team.
 
@@ -199,8 +224,9 @@ def load_team_discipline_stats() -> dict:
     Historical stats come from data/discipline_historical.json (pre-WC ESPN boxscores).
     """
     data_dir = Path(__file__).parent.parent / "data" / "matches"
-    WC_START = "2026-06-22"
+    WC_START = "2026-06-15"
     totals: dict = {}
+    seen_matches: set = set()  # deduplicate matches appearing in multiple day files
 
     for f in sorted(data_dir.glob("*.json")):
         if f.stem < WC_START:
@@ -210,13 +236,22 @@ def load_team_discipline_stats() -> dict:
         except Exception:
             continue
         for match_key, md in day.get("goal_events", {}).items():
+            if match_key in seen_matches:
+                continue
             if not isinstance(md, dict):
+                # Old list format: count the game but no stats available
+                parts = match_key.split("|")
+                for side_idx, side in enumerate(("home", "away")):
+                    team = parts[side_idx] if side_idx < len(parts) else ""
+                    if not team:
+                        continue
+                    t = totals.setdefault(team, {"corners": 0, "yellow_cards": 0, "red_cards": 0, "games": 0})
+                    t["games"] += 1
+                seen_matches.add(match_key)
                 continue
             stats = md.get("stats", {})
             for side in ("home", "away"):
                 s = stats.get(side, {})
-                if not s:
-                    continue
                 parts = match_key.split("|")
                 team = parts[0] if side == "home" else (parts[1] if len(parts) > 1 else "")
                 if not team:
@@ -229,6 +264,7 @@ def load_team_discipline_stats() -> dict:
                     t["games"] += 1
                 except (ValueError, TypeError):
                     pass
+            seen_matches.add(match_key)
 
     wc: dict = {}
     for team, t in totals.items():
@@ -847,12 +883,15 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
         lh_pl, la_pl = _pl_lambdas(home, away, _ps_strengths, league_avg=_league_avg_val)
 
         if lh_pl is not None and la_pl is not None:
-            # Blend player per90 data into AH lambda (35%) — captures current squad form
-            # Only when WC form data exists; ELO/PM paths already lack per-match context
+            # Blend player per90 data into AH lambda — applied to all paths
+            # Grid search (94 WC matches): ELO-path alpha=0.4 optimal (+9.7% ROI vs -26.9% at alpha=0)
+            # WC-form path uses lower alpha since WC form is more current than per90 club stats
             if data_source in ("WC 2026 實戰數據", "盤口線（h2h推算）", "DraftKings盤口"):
-                _PLAYER_AH_ALPHA = 0.15  # grid search on 12 WC matches: 0-0.15 best
-                lambda_home = round((1 - _PLAYER_AH_ALPHA) * lambda_home + _PLAYER_AH_ALPHA * lh_pl, 3)
-                lambda_away = round((1 - _PLAYER_AH_ALPHA) * lambda_away + _PLAYER_AH_ALPHA * la_pl, 3)
+                _PLAYER_AH_ALPHA = 0.15
+            else:
+                _PLAYER_AH_ALPHA = 0.40  # ELO/FIFA/PM paths: player data carries more weight
+            lambda_home = round((1 - _PLAYER_AH_ALPHA) * lambda_home + _PLAYER_AH_ALPHA * lh_pl, 3)
+            lambda_away = round((1 - _PLAYER_AH_ALPHA) * lambda_away + _PLAYER_AH_ALPHA * la_pl, 3)
 
             # Blend into OU lambda (40%) for all paths
             blended_h = (1 - _PLAYER_OU_ALPHA) * lambda_home + _PLAYER_OU_ALPHA * lh_pl
@@ -933,15 +972,15 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             ou_lambda_home = round(ou_lambda_home * h_venue_m, 3)
             ou_lambda_away = round(ou_lambda_away * a_venue_m, 3)
 
-        # Injury/suspension multipliers: attack_mult reduces scorer's lambda;
-        # defense_mult > 1 means weaker defense → opponent scores more.
-        _inj = _load_injury_mults()
-        h_inj = _inj.get(home, {})
-        a_inj = _inj.get(away, {})
-        h_atk = h_inj.get("attack_mult", 1.0)
-        h_def = h_inj.get("defense_mult", 1.0)
-        a_atk = a_inj.get("attack_mult", 1.0)
-        a_def = a_inj.get("defense_mult", 1.0)
+        # Injury/suspension multipliers: date-aware (only injuries known before match_date).
+        _inj_scale = _load_tuned_params().get("injury_scale", 1.0)
+        # Unscaled (scale=1.0) mults saved for later retuning
+        h_atk_base, h_def_base = get_injury_mults(home, match_date, 1.0) if match_date else (1.0, 1.0)
+        a_atk_base, a_def_base = get_injury_mults(away, match_date, 1.0) if match_date else (1.0, 1.0)
+        h_atk, h_def = get_injury_mults(home, match_date, _inj_scale) if match_date else (1.0, 1.0)
+        a_atk, a_def = get_injury_mults(away, match_date, _inj_scale) if match_date else (1.0, 1.0)
+        lambda_home_base = lambda_home
+        lambda_away_base = lambda_away
         if h_atk != 1.0 or a_def != 1.0:
             lambda_home = round(lambda_home * h_atk * a_def, 3)
             ou_lambda_home = round(ou_lambda_home * h_atk * a_def, 3)
@@ -987,6 +1026,12 @@ def build_features(matches: list, odds: dict, calibration: dict, pm_strengths: d
             "rest_days_home": h_rest,
             "rest_days_away": a_rest,
             "stage": match.get("stage", "GROUP_STAGE"),
+            "lambda_home_base": round(lambda_home_base, 3),
+            "lambda_away_base": round(lambda_away_base, 3),
+            "injury_h_atk_base": round(h_atk_base, 4),
+            "injury_h_def_base": round(h_def_base, 4),
+            "injury_a_atk_base": round(a_atk_base, 4),
+            "injury_a_def_base": round(a_def_base, 4),
             "dk_ml_home": dk.get("ml_home"),
             "dk_ml_draw": dk.get("ml_draw"),
             "dk_ml_away": dk.get("ml_away"),

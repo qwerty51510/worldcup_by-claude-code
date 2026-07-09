@@ -11,7 +11,7 @@
   "Cape Verde":             {"formation": "4-4-2",   "style": "counter"},
   "Canada":                 {"formation": "4-4-2",   "style": "balanced"},
   "Czechia":                {"formation": "4-2-3-1", "style": "balanced"},
-  "Colombia":               {"formation": "4-3-3",   "style": "attacking"},
+  "Colombia":               {"formation": "4-3-3",   "style": "possession"},
   "Croatia":                {"formation": "4-3-3",   "style": "possession"},
   "Curaçao":                {"formation": "4-4-2",   "style": "defensive"},
   "DR Congo":               {"formation": "4-3-3",   "style": "counter"},

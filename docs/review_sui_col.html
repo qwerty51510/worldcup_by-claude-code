@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>復盤 — 瑞士 vs 哥倫比亞 QF · WC 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #080c14; --surface: #0e1523; --card: #131d2e; --border: #1e2d45;
+  --accent: #3b82f6; --gold: #f59e0b; --green: #10b981; --red: #ef4444;
+  --yellow: #eab308; --purple: #8b5cf6; --text: #e2e8f0; --muted: #64748b;
+  --radius: 12px;
+}
+body { font-family: "Inter","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.55; }
+header {
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  padding: 0 32px; display: flex; align-items: center; justify-content: space-between;
+  height: 64px; position: sticky; top: 0; z-index: 100;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { font-size: 1.5rem; }
+.logo-text { font-size: 1.1rem; font-weight: 700; }
+.logo-sub { font-size: 0.72rem; color: var(--muted); }
+nav { display: flex; gap: 4px; }
+nav a { padding: 7px 14px; color: var(--muted); text-decoration: none; font-size: 0.82rem;
+  font-weight: 500; border-radius: 8px; transition: all 0.15s; }
+nav a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
+nav a.active { color: var(--accent); background: rgba(59,130,246,0.1); }
+main { max-width: 1100px; margin: 0 auto; padding: 36px 20px; }
+
+/* ── Hero Result Card ── */
+.hero {
+  background: linear-gradient(135deg, #0e1523 0%, #131d2e 50%, #0a1628 100%);
+  border: 1px solid var(--border); border-radius: 20px;
+  padding: 40px 32px; margin-bottom: 32px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 250px; height: 250px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+}
+.match-meta { font-size: 0.78rem; color: var(--muted); margin-bottom: 16px; letter-spacing: 0.5px; text-transform: uppercase; }
+.scoreboard { display: flex; align-items: center; justify-content: center; gap: 32px; margin-bottom: 20px; }
+.team-block { text-align: center; flex: 1; max-width: 200px; }
+.team-flag { font-size: 3rem; margin-bottom: 8px; }
+.team-name { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.team-role { font-size: 0.75rem; color: var(--muted); }
+.score-center { text-align: center; }
+.score-main { font-size: 4rem; font-weight: 900; letter-spacing: -2px; line-height: 1; }
+.score-label { font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+.score-pens { font-size: 1rem; font-weight: 700; color: var(--gold); margin-top: 6px; }
+.winner-tag {
+  display: inline-block; background: rgba(16,185,129,0.15);
+  color: var(--green); border: 1px solid rgba(16,185,129,0.3);
+  font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-top: 6px;
+}
+.hero-badges { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+  border: 1px solid;
+}
+.badge-blue { background: rgba(59,130,246,0.1); color: #60a5fa; border-color: rgba(59,130,246,0.25); }
+.badge-green { background: rgba(16,185,129,0.1); color: #34d399; border-color: rgba(16,185,129,0.25); }
+.badge-gold { background: rgba(245,158,11,0.1); color: #fbbf24; border-color: rgba(245,158,11,0.25); }
+.badge-red { background: rgba(239,68,68,0.1); color: #f87171; border-color: rgba(239,68,68,0.25); }
+
+/* ── Section ── */
+.section-title {
+  font-size: 1.05rem; font-weight: 700; color: var(--text);
+  margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.section-title .icon { font-size: 1.1rem; }
+
+/* ── Cards ── */
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 20px; }
+.card-header { padding: 16px 20px 14px; border-bottom: 1px solid var(--border); }
+.card-title { font-size: 0.9rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.card-body { padding: 16px 20px; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; }
+
+/* ── Stat numbers ── */
+.stat-block { text-align: center; padding: 16px 12px; }
+.stat-num { font-size: 2rem; font-weight: 800; line-height: 1; }
+.stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 6px; }
+.stat-sub { font-size: 0.78rem; color: var(--muted); margin-top: 3px; }
+.text-green { color: var(--green); }
+.text-red { color: var(--red); }
+.text-gold { color: var(--gold); }
+.text-blue { color: var(--accent); }
+.text-purple { color: var(--purple); }
+
+/* ── Injury table ── */
+.inj-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+.inj-table th { padding: 8px 12px; color: var(--muted); font-weight: 600; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.4px; border-bottom: 1px solid var(--border); text-align: left; }
+.inj-table td { padding: 10px 12px; border-bottom: 1px solid rgba(30,45,69,0.5); vertical-align: middle; }
+.inj-table tr:last-child td { border-bottom: none; }
+.status-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; }
+.dot-red { background: var(--red); }
+.dot-yellow { background: var(--yellow); }
+.dot-green { background: var(--green); }
+.mult-bar-wrap { display: flex; align-items: center; gap: 8px; }
+.mult-bar-bg { flex: 1; height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; max-width: 80px; }
+.mult-bar-fill { height: 100%; border-radius: 3px; transition: width 0.6s ease; }
+
+/* ── Scenario table ── */
+.scenario-table { width: 100%; border-collapse: collapse; font-size: 0.83rem; }
+.scenario-table th { padding: 8px 14px; color: var(--muted); font-weight: 600; font-size: 0.72rem;
+  text-transform: uppercase; letter-spacing: 0.4px; border-bottom: 1px solid var(--border); text-align: center; }
+.scenario-table td { padding: 12px 14px; border-bottom: 1px solid rgba(30,45,69,0.5); text-align: center; }
+.scenario-table tr:last-child td { border-bottom: none; }
+.scenario-table td:first-child { text-align: left; }
+.best-row { background: rgba(16,185,129,0.06); }
+.best-row td:first-child { border-left: 3px solid var(--green); padding-left: 11px; }
+
+/* ── Prob bars ── */
+.prob-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.prob-label { font-size: 0.8rem; color: var(--muted); min-width: 60px; }
+.prob-bar-wrap { flex: 1; height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; }
+.prob-bar-fill { height: 100%; border-radius: 4px; transition: width 0.8s cubic-bezier(0.34,1.56,0.64,1); }
+.prob-val { font-size: 0.82rem; font-weight: 700; min-width: 36px; text-align: right; }
+
+/* ── Timeline ── */
+.timeline { position: relative; padding: 8px 0; }
+.timeline::before { content: ''; position: absolute; left: 16px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.tl-item { display: flex; align-items: flex-start; gap: 16px; padding: 0 0 24px 0; position: relative; }
+.tl-dot {
+  width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700; z-index: 1;
+  position: relative; border: 2px solid;
+}
+.dot-phase { background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.4); color: #60a5fa; }
+.dot-injury { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.4); color: #f87171; }
+.dot-pred { background: rgba(245,158,11,0.15); border-color: rgba(245,158,11,0.4); color: #fbbf24; }
+.dot-result { background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.4); color: #34d399; }
+.dot-verify { background: rgba(139,92,246,0.15); border-color: rgba(139,92,246,0.4); color: #a78bfa; }
+.tl-content { flex: 1; padding-top: 4px; }
+.tl-time { font-size: 0.72rem; color: var(--muted); margin-bottom: 4px; }
+.tl-title { font-size: 0.9rem; font-weight: 700; margin-bottom: 6px; }
+.tl-body { font-size: 0.82rem; color: var(--muted); line-height: 1.55; }
+.tl-body b { color: var(--text); }
+
+/* ── Verdict box ── */
+.verdict {
+  border-radius: var(--radius); padding: 20px 24px; margin-top: 20px;
+  border: 1px solid;
+}
+.verdict-green { background: rgba(16,185,129,0.08); border-color: rgba(16,185,129,0.25); }
+.verdict-title { font-size: 1rem; font-weight: 800; margin-bottom: 10px; }
+.verdict-body { font-size: 0.85rem; line-height: 1.65; }
+.verdict-body li { margin-bottom: 7px; padding-left: 4px; }
+.verdict-body li::marker { color: var(--green); }
+
+/* ── Lambda comparison ── */
+.lambda-compare { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 0; }
+.lambda-team { text-align: center; padding: 16px; }
+.lambda-team-name { font-size: 0.8rem; color: var(--muted); margin-bottom: 8px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.lambda-val { font-size: 2.2rem; font-weight: 900; line-height: 1; }
+.lambda-val-small { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+.lambda-arrow { text-align: center; color: var(--muted); font-size: 1.2rem; }
+.lambda-change { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 6px; }
+.change-down { background: rgba(239,68,68,0.15); color: #f87171; }
+.change-up { background: rgba(16,185,129,0.15); color: #34d399; }
+
+/* ── Chart container ── */
+.chart-wrap { position: relative; height: 220px; }
+
+/* ── Key insight pills ── */
+.insight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+.insight-pill {
+  border-radius: 10px; padding: 14px 16px; border: 1px solid;
+}
+.insight-pill .ip-icon { font-size: 1.3rem; margin-bottom: 8px; }
+.insight-pill .ip-title { font-size: 0.82rem; font-weight: 700; margin-bottom: 5px; }
+.insight-pill .ip-body { font-size: 0.77rem; color: var(--muted); line-height: 1.5; }
+.ip-blue { background: rgba(59,130,246,0.06); border-color: rgba(59,130,246,0.2); }
+.ip-green { background: rgba(16,185,129,0.06); border-color: rgba(16,185,129,0.2); }
+.ip-gold { background: rgba(245,158,11,0.06); border-color: rgba(245,158,11,0.2); }
+.ip-red { background: rgba(239,68,68,0.06); border-color: rgba(239,68,68,0.2); }
+
+/* ── Model score ── */
+.model-score-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(30,45,69,0.4); }
+.model-score-row:last-child { border-bottom: none; }
+.ms-label { font-size: 0.83rem; }
+.ms-val { font-size: 0.9rem; font-weight: 700; }
+
+/* ── Animations ── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.fade-up { animation: fadeUp 0.5s ease forwards; }
+.delay-1 { animation-delay: 0.1s; opacity:0; }
+.delay-2 { animation-delay: 0.2s; opacity:0; }
+.delay-3 { animation-delay: 0.3s; opacity:0; }
+.delay-4 { animation-delay: 0.4s; opacity:0; }
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+  .insight-grid { grid-template-columns: 1fr; }
+  .lambda-compare { grid-template-columns: 1fr; }
+  .score-main { font-size: 3rem; }
+  header { padding: 0 14px; }
+  nav a { padding: 6px 10px; font-size: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-icon">⚽</span>
+    <div>
+      <div class="logo-text">WC 2026 Model</div>
+      <div class="logo-sub">復盤分析系統</div>
+    </div>
+  </div>
+  <nav>
+    <a href="index.html">預測</a>
+    <a href="results.html">結果</a>
+    <a href="postmortem.html">績效</a>
+    <a href="trading.html">交易</a>
+    <a href="review_sui_col.html" class="active">復盤</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ── Hero ── -->
+<div class="hero fade-up">
+  <div class="match-meta">⚽ WC 2026 · 八強 (QF) · 2026-07-07 20:00 UTC · 溫哥華</div>
+  <div class="scoreboard">
+    <div class="team-block">
+      <div class="team-flag">🇨🇭</div>
+      <div class="team-name">瑞士</div>
+      <div class="team-role">主隊</div>
+      <div class="winner-tag">✓ 晉級四強</div>
+    </div>
+    <div class="score-center">
+      <div class="score-main">0 — 0</div>
+      <div class="score-label">90 + 120 分鐘</div>
+      <div class="score-pens">🎯 點球 4 — 3</div>
+    </div>
+    <div class="team-block">
+      <div class="team-flag">🇨🇴</div>
+      <div class="team-name">哥倫比亞</div>
+      <div class="team-role">客隊</div>
+    </div>
+  </div>
+  <div class="hero-badges">
+    <span class="badge badge-blue">🔒 兩隊合計 0 進球</span>
+    <span class="badge badge-gold">📊 OU 2.0 → 大/小：小 ✓</span>
+    <span class="badge badge-red">⚠ 模型低估防守強度</span>
+    <span class="badge badge-green">✅ 傷兵調校 Scenario C 最準</span>
+  </div>
+</div>
+
+<!-- ── 賽前傷兵分析 ── -->
+<div class="section-title fade-up delay-1"><span class="icon">🏥</span> 賽前傷兵名單與乘數</div>
+
+<div class="grid-2 fade-up delay-1">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">🇨🇭 瑞士傷兵（5 人）</div>
+    </div>
+    <div class="card-body">
+      <table class="inj-table">
+        <tr><th>球員</th><th>狀態</th><th>進攻影響</th><th>防守影響</th></tr>
+        <tr>
+          <td><b>Johan Manzambi</b></td>
+          <td><span class="status-dot dot-red"></span>確定缺陣</td>
+          <td><span class="text-red">×0.87</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Michel Aebischer</td>
+          <td><span class="status-dot dot-yellow"></span>疑問</td>
+          <td><span class="text-yellow">×0.97</span></td>
+          <td><span class="text-yellow">×0.97</span></td>
+        </tr>
+        <tr>
+          <td>Djibril Sow</td>
+          <td><span class="status-dot dot-yellow"></span>疑問</td>
+          <td>—</td>
+          <td><span class="text-yellow">×0.96</span></td>
+        </tr>
+        <tr>
+          <td>Ruben Vargas</td>
+          <td><span class="status-dot dot-yellow"></span>疑問</td>
+          <td><span class="text-yellow">×0.96</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Luca Jaquez</td>
+          <td><span class="status-dot dot-yellow"></span>疑問</td>
+          <td>—</td>
+          <td><span class="text-yellow">×0.97</span></td>
+        </tr>
+        <tr style="border-top:1px solid var(--border); font-weight:700;">
+          <td>合計乘數</td><td></td>
+          <td class="text-red">×0.810</td>
+          <td class="text-red">×0.903</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">🇨🇴 哥倫比亞傷兵</div>
+    </div>
+    <div class="card-body">
+      <table class="inj-table">
+        <tr><th>球員</th><th>狀態</th><th>進攻影響</th><th>防守影響</th></tr>
+        <tr>
+          <td><b>James Rodriguez</b></td>
+          <td><span class="status-dot dot-yellow"></span>疑問</td>
+          <td><span class="text-yellow">×0.93</span></td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>Jhon Córdoba</td>
+          <td><span class="status-dot dot-red"></span>整屆缺陣</td>
+          <td><i style="color:var(--muted)">（已反映在近期表現）</i></td>
+          <td>—</td>
+        </tr>
+        <tr style="border-top:1px solid var(--border); font-weight:700;">
+          <td>套用乘數</td><td></td>
+          <td class="text-yellow">×0.930</td>
+          <td>×1.000</td>
+        </tr>
+      </table>
+      <div style="margin-top:16px; padding:12px 14px; background:rgba(100,116,139,0.08); border-radius:8px; font-size:0.78rem; color:var(--muted);">
+        ℹ Córdoba 整屆缺陣 → <code>already_absent: true</code> → 不重複套用乘數（形態數據已反映其缺席）
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── λ 調整對比 ── -->
+<div class="section-title fade-up delay-2"><span class="icon">📐</span> 傷兵前後 λ 對比（Poisson 進球率）</div>
+
+<div class="card fade-up delay-2">
+  <div class="card-body">
+    <div class="grid-2">
+      <div>
+        <div style="text-align:center; margin-bottom:8px; font-size:0.78rem; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">🇨🇭 瑞士 λ</div>
+        <div class="lambda-compare" style="grid-template-columns:1fr auto 1fr;">
+          <div class="lambda-team">
+            <div class="lambda-team-name">傷兵前 (base)</div>
+            <div class="lambda-val text-blue">0.968</div>
+            <div class="lambda-val-small">每 90 分鐘期望進球</div>
+          </div>
+          <div class="lambda-arrow">→</div>
+          <div class="lambda-team">
+            <div class="lambda-team-name">傷兵後 (現行模型)</div>
+            <div class="lambda-val text-red">0.784</div>
+            <div class="lambda-change change-down">▼ −19.0%</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="text-align:center; margin-bottom:8px; font-size:0.78rem; color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">🇨🇴 哥倫比亞 λ</div>
+        <div class="lambda-compare" style="grid-template-columns:1fr auto 1fr;">
+          <div class="lambda-team">
+            <div class="lambda-team-name">傷兵前 (base)</div>
+            <div class="lambda-val text-blue">1.151</div>
+            <div class="lambda-val-small">每 90 分鐘期望進球</div>
+          </div>
+          <div class="lambda-arrow">→</div>
+          <div class="lambda-team">
+            <div class="lambda-team-name">傷兵後 (現行模型)</div>
+            <div class="lambda-val text-yellow">0.967</div>
+            <div class="lambda-change change-down">▼ −16.0%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:16px; padding:12px 16px; background:rgba(16,185,129,0.07); border:1px solid rgba(16,185,129,0.2); border-radius:8px; font-size:0.82rem;">
+      ✅ <b>驗證：</b>實際比賽 90+120 分鐘共 <b>0 進球</b>，兩隊 λ 均大幅低於聯賽均值（1.6），
+      傷兵調整後的低 λ 方向完全正確。瑞士 Manzambi 缺陣（本屆 3G 2A）使進攻端損失約 19%，模型捕捉到了這一點。
+    </div>
+  </div>
+</div>
+
+<!-- ── 四情境分析 ── -->
+<div class="section-title fade-up delay-2"><span class="icon">🔬</span> 四情境預測 vs 實際結果</div>
+
+<div class="card fade-up delay-2">
+  <div class="card-body">
+    <table class="scenario-table">
+      <thead>
+        <tr>
+          <th style="text-align:left">情境</th>
+          <th>λ 瑞 / 哥</th>
+          <th>瑞 90min</th>
+          <th>平局 90min</th>
+          <th>哥 90min</th>
+          <th>哥晉級率</th>
+          <th>Brier ↓</th>
+          <th>方向</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span style="font-weight:700;">A</span>
+            <div style="font-size:0.72rem;color:var(--muted);margin-top:2px;">僅Manzambi缺，James全場</div>
+          </td>
+          <td>0.842 / 1.151</td>
+          <td>26.7%</td>
+          <td>30.4%</td>
+          <td>42.9%</td>
+          <td>59.1%</td>
+          <td class="text-red">0.4844</td>
+          <td>❌</td>
+        </tr>
+        <tr>
+          <td>
+            <span style="font-weight:700;">B</span>
+            <div style="font-size:0.72rem;color:var(--muted);margin-top:2px;">Manzambi+Aebischer+Sow缺，James疑問</div>
+          </td>
+          <td>0.817 / 0.997</td>
+          <td>28.8%</td>
+          <td>32.5%</td>
+          <td>38.6%</td>
+          <td>55.6%</td>
+          <td class="text-yellow">0.4551</td>
+          <td>❌</td>
+        </tr>
+        <tr class="best-row">
+          <td>
+            <span style="font-weight:700; color:var(--green);">C ★ 現行模型</span>
+            <div style="font-size:0.72rem;color:var(--muted);margin-top:2px;">全5缺+James疑問 ×0.93</div>
+          </td>
+          <td>0.784 / 0.967</td>
+          <td>28.3%</td>
+          <td style="color:var(--green);font-weight:700;">33.2%</td>
+          <td>38.4%</td>
+          <td>55.7%</td>
+          <td class="text-green" style="font-weight:700;">0.4457 ✓</td>
+          <td>❌</td>
+        </tr>
+        <tr>
+          <td>
+            <span style="font-weight:700;">D</span>
+            <div style="font-size:0.72rem;color:var(--muted);margin-top:2px;">全5缺，James健康</div>
+          </td>
+          <td>0.784 / 1.040</td>
+          <td>27.0%</td>
+          <td>32.2%</td>
+          <td>40.8%</td>
+          <td>57.9%</td>
+          <td class="text-yellow">0.4592</td>
+          <td>❌</td>
+        </tr>
+        <tr style="border-top:2px solid var(--border);">
+          <td colspan="2" style="font-weight:700; color:var(--gold);">🎯 實際結果</td>
+          <td colspan="2" style="font-weight:700; color:var(--gold); text-align:center;">0—0 平局（90min）</td>
+          <td colspan="2" style="font-weight:700; color:var(--green); text-align:center;">瑞士晉級（點球4:3）</td>
+          <td colspan="2">—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top:12px; font-size:0.77rem; color:var(--muted);">
+      * Brier = 對「實際發生情境（平局）」的預測誤差，越低越準。方向「❌」= 模型最高概率結果（哥倫比亞贏得正規時間）未命中。
+    </div>
+  </div>
+</div>
+
+<!-- ── 機率分佈圖 ── -->
+<div class="card fade-up delay-3">
+  <div class="card-header">
+    <div class="card-title">📊 各情境 90 分鐘勝平負機率對比</div>
+  </div>
+  <div class="card-body">
+    <div class="chart-wrap">
+      <canvas id="scenarioChart"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ── 比賽時間軸 ── -->
+<div class="section-title fade-up delay-3"><span class="icon">⏱</span> 比賽時間軸 &amp; 模型決策</div>
+
+<div class="card fade-up delay-3">
+  <div class="card-body">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot dot-injury">🏥</div>
+        <div class="tl-content">
+          <div class="tl-time">2026-07-07 早上（賽前 ~20 小時）</div>
+          <div class="tl-title">傷兵情報蒐集</div>
+          <div class="tl-body">
+            確認瑞士 <b>Johan Manzambi 確定缺陣</b>（本屆 3G 2A，主力進攻箭頭）；
+            另 4 人「疑問」：Aebischer、Sow、Vargas、Jaquez。
+            哥倫比亞 <b>James Rodriguez</b> 上場 Ghana 時半場換人，體況存疑。
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot dot-pred">📊</div>
+        <div class="tl-content">
+          <div class="tl-time">2026-07-07 (T−65min)</div>
+          <div class="tl-title">模型預測推送 Telegram</div>
+          <div class="tl-body">
+            四情境分析送出。現行模型 (C)：λ 瑞 0.784 / 哥 0.967，
+            平局機率 <b>33.2%</b>，哥倫比亞晉級 <b>55.7%</b>，
+            AH 平盤，OU 2.0。
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot dot-phase">0′</div>
+        <div class="tl-content">
+          <div class="tl-time">20:00 UTC</div>
+          <div class="tl-title">比賽開始</div>
+          <div class="tl-body">
+            瑞士以保守防守陣型為主，哥倫比亞掌握控球但難以撕開防線。
+            傷缺的 Manzambi 使瑞士反擊威力大打折扣；James Rodriguez 體況受限。
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot dot-phase">90′</div>
+        <div class="tl-content">
+          <div class="tl-time">正規時間結束</div>
+          <div class="tl-title">0 — 0 進入加時</div>
+          <div class="tl-body">
+            兩隊合計 0 進球，完全印證低 λ 預測。
+            <b>OU 2.0 → 小 ✓</b>（押小者獲利）。
+            瑞士板凳深度薄弱問題在加時賽暴露，但防線依然穩固。
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot dot-phase">120′</div>
+        <div class="tl-content">
+          <div class="tl-time">加時結束</div>
+          <div class="tl-title">0 — 0 進入點球大戰</div>
+          <div class="tl-body">
+            加時 30 分鐘雙方均無破門。瑞士 Yann Sommer 表現穩定，
+            哥倫比亞加時後期體能下降（James 過早消耗換人牌）。
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot dot-result">🎯</div>
+        <div class="tl-content">
+          <div class="tl-time">點球大戰</div>
+          <div class="tl-title">瑞士 4 — 3 哥倫比亞 · 瑞士晉四強</div>
+          <div class="tl-body">
+            <b>逆轉預期</b>：模型預測哥倫比亞晉級 55.7%，但瑞士贏了點球。
+            歷史點球紀錄差（2016、2020 連輸）的瑞士這次一雪前恥。
+            Sommer 撲出關鍵一球是決定性因素。
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot dot-verify">🔬</div>
+        <div class="tl-content">
+          <div class="tl-time">賽後自動觸發</div>
+          <div class="tl-title">傷兵乘數驗證 (injury_validator.py)</div>
+          <div class="tl-body">
+            Scenario C（全5缺+James疑問）Brier = <b>0.4457</b>，為四情境中最低。
+            裁定：<b style="color:var(--green);">more_injuries_better</b> — 套用更多傷兵乘數預測更準確。
+            injury_scale 維持 1.0 合理。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 模型得分 ── -->
+<div class="section-title fade-up delay-3"><span class="icon">🎯</span> 模型評分卡</div>
+
+<div class="grid-2 fade-up delay-3">
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">各維度預測準確度</div>
+    </div>
+    <div class="card-body">
+      <div class="model-score-row">
+        <span class="ms-label">OU 方向（押小）</span>
+        <span class="ms-val text-green">✅ 正確</span>
+      </div>
+      <div class="model-score-row">
+        <span class="ms-label">AH 盤（平盤）</span>
+        <span class="ms-val text-yellow">➖ 平局視為 Push</span>
+      </div>
+      <div class="model-score-row">
+        <span class="ms-label">90 分鐘勝負方向</span>
+        <span class="ms-val text-red">❌ 未中（預測哥贏，實際平）</span>
+      </div>
+      <div class="model-score-row">
+        <span class="ms-label">傷兵 λ 方向</span>
+        <span class="ms-val text-green">✅ 低 λ 完全命中（0進球）</span>
+      </div>
+      <div class="model-score-row">
+        <span class="ms-label">點球預測（哥 55.7%）</span>
+        <span class="ms-val text-red">❌ 瑞士實際勝出</span>
+      </div>
+      <div class="model-score-row">
+        <span class="ms-label">Brier（情境C，90min）</span>
+        <span class="ms-val text-yellow">0.4457（平局概率 33.2%）</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">傷兵乘數驗證結果</div>
+    </div>
+    <div class="card-body">
+      <div style="margin-bottom:16px;">
+        <div style="font-size:0.78rem;color:var(--muted);margin-bottom:8px;">四情境 Brier 對比（越低越好）</div>
+        <div class="prob-row">
+          <div class="prob-label">情境 A</div>
+          <div class="prob-bar-wrap"><div class="prob-bar-fill" style="width:97%;background:var(--red);"></div></div>
+          <div class="prob-val text-red">0.4844</div>
+        </div>
+        <div class="prob-row">
+          <div class="prob-label">情境 B</div>
+          <div class="prob-bar-wrap"><div class="prob-bar-fill" style="width:91%;background:var(--yellow);"></div></div>
+          <div class="prob-val text-yellow">0.4551</div>
+        </div>
+        <div class="prob-row">
+          <div class="prob-label">情境 C ★</div>
+          <div class="prob-bar-wrap"><div class="prob-bar-fill" style="width:89%;background:var(--green);"></div></div>
+          <div class="prob-val text-green">0.4457</div>
+        </div>
+        <div class="prob-row">
+          <div class="prob-label">情境 D</div>
+          <div class="prob-bar-wrap"><div class="prob-bar-fill" style="width:92%;background:var(--yellow);"></div></div>
+          <div class="prob-val text-yellow">0.4592</div>
+        </div>
+      </div>
+      <div class="verdict verdict-green">
+        <div class="verdict-title text-green">✅ 裁定：more_injuries_better</div>
+        <div class="verdict-body">套用所有傷兵乘數（情境 C）預測誤差最小。
+        injury_scale = 1.0 屬合理設定，無需降低。後續需累積 ≥3 場帶傷兵樣本才進行統計調校。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── 關鍵洞察 ── -->
+<div class="section-title fade-up delay-4"><span class="icon">💡</span> 復盤關鍵洞察</div>
+
+<div class="insight-grid fade-up delay-4">
+  <div class="insight-pill ip-green">
+    <div class="ip-icon">🎯</div>
+    <div class="ip-title">低 λ 預測方向完全正確</div>
+    <div class="ip-body">傷兵調整後 λ 瑞 0.784、哥 0.967，兩隊均遠低於均值。
+    實際結果 0-0，是傷兵模型最直接的驗證。
+    若忽略傷兵（情境A），Brier 差了 8.7%。</div>
+  </div>
+  <div class="insight-pill ip-red">
+    <div class="ip-icon">❌</div>
+    <div class="ip-title">點球大戰超出模型範圍</div>
+    <div class="ip-body">模型預測哥倫比亞晉級 55.7%，但點球是近乎隨機事件（Sommer 撲救能力、
+    個人心理）。點球結果不應納入正規預測準確度評估。</div>
+  </div>
+  <div class="insight-pill ip-gold">
+    <div class="ip-icon">📋</div>
+    <div class="ip-title">already_absent 邏輯正確</div>
+    <div class="ip-body">哥倫比亞 Córdoba 整屆缺陣標記為 already_absent，未套用乘數。
+    如果重複套用（0.95），哥倫比亞 λ 會被過度懲罰，
+    但哥倫比亞進攻在本場表現實際接近歷史水準（佔優控球但機會有限）。</div>
+  </div>
+  <div class="insight-pill ip-blue">
+    <div class="ip-icon">🔧</div>
+    <div class="ip-title">下一步優化方向</div>
+    <div class="ip-body">1. 累積更多帶傷兵比賽樣本（目前1場）<br>
+    2. 傷兵對「守門員」位置的建模（如 Sommer 特殊能力）<br>
+    3. 板凳深度不足 → 加時賽 ET lambda 需額外懲罰疲勞隊伍</div>
+  </div>
+</div>
+
+<!-- ── 賽後投注績效 ── -->
+<div class="section-title fade-up delay-4" style="margin-top:28px;"><span class="icon">💰</span> 投注方向回顧</div>
+<div class="card fade-up delay-4">
+  <div class="card-body">
+    <div class="grid-3">
+      <div class="stat-block">
+        <div class="stat-num text-green">✓</div>
+        <div class="stat-label">OU 押小</div>
+        <div class="stat-sub">模型 OU 2.0，實際 0 球</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num text-red">✗</div>
+        <div class="stat-label">哥倫比亞晉級</div>
+        <div class="stat-sub">模型 55.7%，實際瑞士勝</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num text-yellow">—</div>
+        <div class="stat-label">AH 平盤</div>
+        <div class="stat-sub">0-0 平局 → Push 退款</div>
+      </div>
+    </div>
+    <div style="margin-top:12px;padding:12px 16px;background:rgba(100,116,139,0.06);border-radius:8px;font-size:0.8rem;color:var(--muted);line-height:1.6;">
+      本場無持倉。主要持倉為 <b>法國WC不奪冠 NO token</b>（哥倫比亞晉級對法國冠軍概率無直接影響），
+      以及 <b>比利時/哥倫比亞八強→四強</b>（哥倫比亞此路出局）。
+      哥倫比亞 QF Token 應在賽前若有持倉需注意止損。
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:40px;padding:24px;text-align:center;border-top:1px solid var(--border);font-size:0.75rem;color:var(--muted);">
+  WC 2026 Model · 復盤報告 · Switzerland vs Colombia QF · 2026-07-07<br>
+  自動生成 by <code>src/injury_validator.py</code> + <code>docs/review_sui_col.html</code>
+</div>
+
+</main>
+
+<script>
+// ── Scenario Probability Chart ──
+const ctx = document.getElementById('scenarioChart').getContext('2d');
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['情境A\n僅Manzambi缺', '情境B\nManzambi+2缺', '情境C★\n全5缺(現行)', '情境D\n全5缺+James健康', '實際結果'],
+    datasets: [
+      {
+        label: '瑞士贏 (90min)',
+        data: [26.7, 28.8, 28.3, 27.0, 0],
+        backgroundColor: 'rgba(239,68,68,0.7)',
+        borderRadius: 4,
+      },
+      {
+        label: '平局 (90min)',
+        data: [30.4, 32.5, 33.2, 32.2, 100],
+        backgroundColor: 'rgba(234,179,8,0.7)',
+        borderRadius: 4,
+      },
+      {
+        label: '哥倫比亞贏 (90min)',
+        data: [42.9, 38.6, 38.4, 40.8, 0],
+        backgroundColor: 'rgba(59,130,246,0.7)',
+        borderRadius: 4,
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    scales: {
+      x: { stacked: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: '#64748b', font: { size: 11 } } },
+      y: { stacked: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' },
+           ticks: { color: '#64748b', callback: v => v + '%' } }
+    },
+    plugins: {
+      legend: { labels: { color: '#94a3b8', font: { size: 11 } } },
+      tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.raw}%` } }
+    }
+  }
+});
+
+// ── Animate bars on load ──
+document.querySelectorAll('.prob-bar-fill').forEach(el => {
+  const w = el.style.width;
+  el.style.width = '0';
+  setTimeout(() => el.style.width = w, 300);
+});
+</script>
+</body>
+</html>

@@ -59,18 +59,78 @@ def _poisson_ou_prob(lambda_home: float, lambda_away: float, line: float,
     return prob_over
 
 
+def ko_outcome_probs(lh: float, la: float) -> dict:
+    """
+    Full knockout probability tree: 90min → ET → penalties.
+    Returns dict with probabilities for each path.
+    ET lambda = 90min lambda * (30/90) * 0.85 (fatigue reduces scoring rate).
+    Penalty shootout: 50/50 base (historical edge negligible).
+    """
+    max_g = 10
+
+    def pmf(k, lam):
+        return _poisson_pmf(k, lam)
+
+    # 90-minute outcomes
+    p_h90 = p_d90 = p_a90 = 0.0
+    for h in range(max_g + 1):
+        for a in range(max_g + 1):
+            p = pmf(h, lh) * pmf(a, la)
+            if h > a:
+                p_h90 += p
+            elif h == a:
+                p_d90 += p
+            else:
+                p_a90 += p
+
+    # ET lambdas: 30/90 of 90min rate, further reduced by fatigue factor
+    lh_et = lh * (30 / 90) * 0.85
+    la_et = la * (30 / 90) * 0.85
+
+    # ET outcomes (conditional on draw at 90')
+    p_h_et = p_d_et = p_a_et = 0.0
+    for h in range(max_g + 1):
+        for a in range(max_g + 1):
+            p = pmf(h, lh_et) * pmf(a, la_et)
+            if h > a:
+                p_h_et += p
+            elif h == a:
+                p_d_et += p
+            else:
+                p_a_et += p
+
+    # Penalty shootout: roughly 50/50
+    p_pens = p_d90 * p_d_et
+
+    # Overall win probabilities
+    p_home_wins = p_h90 + p_d90 * (p_h_et + p_d_et * 0.50)
+    p_away_wins = p_a90 + p_d90 * (p_a_et + p_d_et * 0.50)
+
+    return {
+        "p_home_90": round(p_h90, 4),
+        "p_draw_90": round(p_d90, 4),
+        "p_away_90": round(p_a90, 4),
+        "p_et": round(p_d90, 4),
+        "p_penalties": round(p_pens, 4),
+        "p_home_wins": round(p_home_wins, 4),
+        "p_away_wins": round(p_away_wins, 4),
+    }
+
+
 def _prob_to_confidence(prob: float) -> int:
     return min(100, max(0, int(abs(prob - 0.5) * 200)))
 
 
-def _predict_score(lambda_home: float, lambda_away: float) -> dict:
+def _predict_score(lambda_home: float, lambda_away: float,
+                   ou_line: float = None, ou_over: bool = None) -> dict:
     """
-    Compute most likely exact score and 1X2 probabilities from Poisson model.
-    Returns predicted_score, p_home_win, p_draw, p_away_win.
+    Compute 1X2 probabilities and the joint-mode exact score (highest single probability).
+    The mode score is the most likely single outcome — it may differ from the OU call
+    direction because many low-probability Over scores can still sum to >50%.
     """
     max_goals = 8
     best_prob = 0.0
-    best_h, best_a = 0, 0
+    best_h = best_a = 0
     p_home, p_draw, p_away = 0.0, 0.0, 0.0
 
     for h in range(max_goals + 1):
@@ -88,6 +148,7 @@ def _predict_score(lambda_home: float, lambda_away: float) -> dict:
 
     return {
         "predicted_score": f"{best_h}-{best_a}",
+        "predicted_score_prob": round(best_prob * 100, 1),
         "p_home_win": round(p_home, 3),
         "p_draw": round(p_draw, 3),
         "p_away_win": round(p_away, 3),
@@ -108,9 +169,20 @@ def _format_kickoff(utc_str: str) -> str:
 
 def _load_injuries() -> dict:
     path = DATA_DIR / "injuries.json"
-    if path.exists():
-        return json.loads(path.read_text())
-    return {}
+    if not path.exists():
+        return {}
+    raw = json.loads(path.read_text())
+    result = {}
+    for team, val in raw.items():
+        if team.startswith("_"):
+            continue
+        if isinstance(val, list):
+            result[team] = val
+        elif isinstance(val, dict):
+            injuries = val.get("injuries", [])
+            if injuries:
+                result[team] = [f"{inj['player']}（{inj['note']}）" for inj in injuries]
+    return result
 
 
 def _generate_reasoning(home: str, away: str, lh: float, la: float,
@@ -281,8 +353,15 @@ def predict_match(feature: dict, calibration: dict) -> dict:
     ah_prob_home = _poisson_ah_prob(lh, la, ah_line)
     ah_prob_home = min(0.95, max(0.05, ah_prob_home))
 
-    ah_prediction = "home" if ah_prob_home > 0.5 else "away"
-    ah_confidence = _prob_to_confidence(ah_prob_home)
+    # Whole-ball lines (0, 1, 2, …) allow draws which are a push; compare each side directly
+    if abs(ah_line - round(ah_line)) < 0.01:
+        ah_prob_away = _poisson_ah_prob(la, lh, -ah_line)
+        ah_prob_away = min(0.95, max(0.05, ah_prob_away))
+        ah_prediction = "home" if ah_prob_home >= ah_prob_away else "away"
+        ah_confidence = _prob_to_confidence(ah_prob_home / (ah_prob_home + ah_prob_away))
+    else:
+        ah_prediction = "home" if ah_prob_home > 0.5 else "away"
+        ah_confidence = _prob_to_confidence(ah_prob_home)
 
     # Use OU-scaled lambdas when available (WC form paths have inflated league_avg)
     ou_lh = feature.get("ou_lambda_home", lh)
@@ -317,7 +396,7 @@ def predict_match(feature: dict, calibration: dict) -> dict:
     if not key_factors:
         key_factors.append("Poisson 標準預測")
 
-    score_info = _predict_score(lh, la)
+    score_info = _predict_score(lh, la, ou_line=ou_line, ou_over=(ou_prediction == "over"))
     home = feature["home_team"]
     away = feature["away_team"]
 
@@ -347,16 +426,23 @@ def predict_match(feature: dict, calibration: dict) -> dict:
         "ou_prediction": ou_prediction,
         "ou_confidence": ou_confidence,
         "predicted_score": score_info["predicted_score"],
+        "predicted_score_prob": score_info.get("predicted_score_prob"),
         "p_home_win": score_info["p_home_win"],
         "p_draw": score_info["p_draw"],
         "p_away_win": score_info["p_away_win"],
         "key_factors": key_factors,
         "lambda_home": round(lh, 3),
         "lambda_away": round(la, 3),
+        "ou_lambda_home": round(ou_lh, 3),
+        "ou_lambda_away": round(ou_la, 3),
         "ah_line": ah_line,
         "ou_line": ou_line,
         "reasoning": reasoning,
         "injury_notes": injury_notes,
+        "stage": feature.get("stage", "GROUP_STAGE"),
+        "dk_ml_home": feature.get("dk_ml_home"),
+        "dk_ml_draw": feature.get("dk_ml_draw"),
+        "dk_ml_away": feature.get("dk_ml_away"),
     }
 
 

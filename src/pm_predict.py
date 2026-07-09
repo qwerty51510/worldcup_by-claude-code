@@ -52,9 +52,13 @@ def _poisson_match_probs(lh: float, la: float, max_goals: int = 10) -> tuple:
 
 
 def match_win_probs(home: str, away: str) -> tuple:
-    lh, la = player_lambdas(home, away)
-    if lh is None:
-        lh, la = _elo_lambdas(home, away)
+    lh_p, la_p = player_lambdas(home, away)
+    lh_e, la_e = _elo_lambdas(home, away)
+    if lh_p is None:
+        return _poisson_match_probs(lh_e, la_e)
+    # 60% player data + 40% ELO/ranking — blends individual quality with team-level context
+    lh = 0.6 * lh_p + 0.4 * lh_e
+    la = 0.6 * la_p + 0.4 * la_e
     return _poisson_match_probs(lh, la)
 
 

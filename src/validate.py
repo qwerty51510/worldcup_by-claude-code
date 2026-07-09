@@ -13,6 +13,29 @@ from src.config import FIFA_RANKINGS, RANK_DECAY, AH_LINE_MULTIPLIER, DEFAULT_CA
 DATA_DIR = Path(__file__).parent.parent / "data"
 RESULTS_FILE = DATA_DIR / "wc2026_results.json"
 PREDS_DIR = DATA_DIR / "predictions"
+_MARKET_AH_FILE = DATA_DIR / "backtest" / "nowscore_market_ah.json"
+
+# Team name aliases: our names → nowscore English names
+_TEAM_ALIAS = {
+    "South Korea": "Korea Republic", "Czechia": "Czech Republic",
+    "United States": "USA", "Curaçao": "Curacao", "Cabo Verde": "Cape Verde",
+    "DR Congo": "Democratic Rep Congo",
+}
+
+
+def _load_market_ah() -> dict:
+    """Load nowscore market AH lines. Returns dict keyed by 'home_en|away_en'."""
+    if not _MARKET_AH_FILE.exists():
+        return {}
+    data = json.loads(_MARKET_AH_FILE.read_text())
+    return {f"{m['home_en']}|{m['away_en']}": m.get("market_ah") for m in data}
+
+
+def _get_market_ah(market: dict, home: str, away: str):
+    """Look up market AH line for a match (negative = home gives goals)."""
+    h = _TEAM_ALIAS.get(home, home)
+    a = _TEAM_ALIAS.get(away, away)
+    return market.get(f"{h}|{a}")
 
 
 def _load_stored_preds() -> dict:
@@ -85,7 +108,7 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     from src.features import (
         _load_elo, _elo_to_strength, _WC_LEAGUE_AVG, _round_ah,
         _load_formations, _FORMATION_FACTORS, _stamina_factor, _derive_ou_line,
-        _load_team_history, _load_tuned_params,
+        _load_team_history, _load_tuned_params, get_injury_mults,
     )
 
     elo = _load_elo()
@@ -160,6 +183,15 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
         h_def *= (2.0 - h_stam)
         a_def *= (2.0 - a_stam)
 
+    # Date-aware injury multipliers (only injuries known before this match)
+    if match_date:
+        h_i_atk, h_i_def = get_injury_mults(home, match_date)
+        a_i_atk, a_i_def = get_injury_mults(away, match_date)
+        h_atk *= h_i_atk
+        h_def *= h_i_def
+        a_atk *= a_i_atk
+        a_def *= a_i_def
+
     _HOST_NATIONS = {"United States", "Canada", "Mexico"}
     home_bonus = 0.10 if home in _HOST_NATIONS else 0.0
     lh_elo = round(max(0.3, league_avg * h_atk * a_def + home_bonus), 3)
@@ -168,7 +200,7 @@ def _lambda_for_match(home: str, away: str, completed_before: list,
     # Optional player-strength blend
     if player_alpha > 0:
         from src.player_strength import player_lambdas
-        lh_pl, la_pl = player_lambdas(home, away, league_avg, home_bonus)
+        lh_pl, la_pl = player_lambdas(home, away, league_avg=league_avg, home_bonus=home_bonus)
         if lh_pl is not None and la_pl is not None:
             lh = round((1 - player_alpha) * lh_elo + player_alpha * lh_pl, 3)
             la = round((1 - player_alpha) * la_elo + player_alpha * la_pl, 3)
@@ -248,7 +280,7 @@ def _actual_ou_result(match: dict, ou_line: float) -> str:
     return "over" if total > ou_line else "under"
 
 
-def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: float = 0.0) -> dict:
+def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: float = 0.4) -> dict:
     """Run walk-forward validation on all 40 completed WC 2026 matches."""
     if calibration is None:
         calibration = dict(DEFAULT_CALIBRATION)
@@ -261,6 +293,8 @@ def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: flo
     matches_by_date = sorted(matches, key=lambda m: m["date"])
 
     stored_by_date = _load_stored_preds()
+
+    market_ah = _load_market_ah()
 
     results = []
     completed = []  # matches completed before current prediction
@@ -292,6 +326,19 @@ def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: flo
         ou_correct = pred["ou_pred"] == actual_ou
         ou_brier = round(((1 - pred["ou_prob"]) - (1.0 if ou_correct else 0.0)) ** 2, 3)
 
+        mkt_ah = _get_market_ah(market_ah, match["home"], match["away"])
+        # True if model prediction direction agrees with market line direction
+        # market_ah < 0 → market says home is stronger (home gives goals)
+        # market_ah > 0 → market says away is stronger (home receives goals)
+        with_market = None
+        if mkt_ah is not None and not ah_is_push:
+            if mkt_ah < -0.01:
+                with_market = pred["ah_pred"] == "home"
+            elif mkt_ah > 0.01:
+                with_market = pred["ah_pred"] == "away"
+            else:  # level ball — both directions are "with market"
+                with_market = True
+
         results.append({
             "date": match["date"], "group": match["group"], "round": match["round"],
             "home": match["home"], "away": match["away"],
@@ -305,6 +352,8 @@ def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: flo
             "ou_pred": pred["ou_pred"], "ou_prob": pred["ou_prob"],
             "actual_ou": actual_ou, "ou_correct": ou_correct, "ou_brier": round(ou_brier, 3),
             "method": method,
+            "market_ah": mkt_ah,         # nowscore market AH line (negative=home gives)
+            "with_market": with_market,  # True/False/None if model agrees with market direction
         })
         completed.append(match)
 
@@ -316,6 +365,27 @@ def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: flo
     ah_briers = [r["ah_brier"] for r in decisive if r["ah_brier"] is not None]
     avg_ah_brier = sum(ah_briers) / len(ah_briers) if ah_briers else 0
     avg_ou_brier = sum(r["ou_brier"] for r in results) / len(results)
+
+    # ROI at standard -110 odds (1 unit per bet, win=+0.909, loss=-1.000)
+    # Flat: bet every decisive match
+    # Selective: only bet when model confidence > 55% (edge threshold)
+    _ODDS_WIN = 100 / 110  # +0.9091 per unit staked
+    def _roi(subset, min_prob=0.0):
+        bets = [r for r in subset if abs(r["ah_prob"] - 0.5) >= (min_prob - 0.5)]
+        if not bets:
+            return 0.0, 0
+        pnl = sum(_ODDS_WIN if r["ah_correct"] else -1.0 for r in bets)
+        return round(pnl / len(bets), 4), len(bets)
+
+    ah_roi_flat, _n_flat = _roi(decisive)
+    ah_roi_55, _n_55 = _roi(decisive, min_prob=0.55)
+    ah_roi_58, _n_58 = _roi(decisive, min_prob=0.58)
+
+    # Market direction filter: only bet when model agrees with market
+    with_mkt = [r for r in decisive if r.get("with_market") is True]
+    against_mkt = [r for r in decisive if r.get("with_market") is False]
+    ah_roi_with_market, _n_with = _roi(with_mkt)
+    ah_roi_against_market, _n_against = _roi(against_mkt)
 
     def _round_stats(subset):
         dec = [r for r in subset if not r["ah_is_push"]]
@@ -338,6 +408,15 @@ def run_validation(calibration: dict = None, rho: float = 0.0, player_alpha: flo
         "ou_accuracy": round(ou_acc, 3),
         "ah_brier": round(avg_ah_brier, 3),
         "ou_brier": round(avg_ou_brier, 3),
+        "ah_roi_flat": ah_roi_flat,               # ROI at -110, betting every match
+        "ah_roi_55": ah_roi_55,                   # ROI at -110, only when model P>55%
+        "ah_roi_58": ah_roi_58,                   # ROI at -110, only when model P>58%
+        "ah_roi_bets_55": _n_55,
+        "ah_roi_bets_58": _n_58,
+        "ah_roi_with_market": ah_roi_with_market,     # ROI when model agrees with market direction
+        "ah_roi_against_market": ah_roi_against_market,
+        "ah_roi_bets_with_market": _n_with,
+        "ah_roi_bets_against_market": _n_against,
         "round1": _round_stats(r1),
         "round2": _round_stats(r2),
         "failures": [r for r in decisive if not r["ah_correct"]],
@@ -354,6 +433,17 @@ def print_report(report: dict) -> None:
     print(f"{'='*60}")
     print(f"  讓球盤準確率：{report['ah_accuracy']*100:.1f}%（排除 push）  Brier={report['ah_brier']:.3f}")
     print(f"  大小球準確率：{report['ou_accuracy']*100:.1f}%  Brier={report['ou_brier']:.3f}")
+    roi_f = report.get('ah_roi_flat', 0)
+    roi_55 = report.get('ah_roi_55', 0)
+    roi_58 = report.get('ah_roi_58', 0)
+    n55 = report.get('ah_roi_bets_55', 0)
+    n58 = report.get('ah_roi_bets_58', 0)
+    print(f"  ROI @-110（全押）：{roi_f*100:+.1f}%  |  P>55%（{n55}場）：{roi_55*100:+.1f}%  |  P>58%（{n58}場）：{roi_58*100:+.1f}%")
+    roi_wm = report.get('ah_roi_with_market', 0)
+    roi_am = report.get('ah_roi_against_market', 0)
+    n_wm = report.get('ah_roi_bets_with_market', 0)
+    n_am = report.get('ah_roi_bets_against_market', 0)
+    print(f"  順市場方向（{n_wm}場）：{roi_wm*100:+.1f}%  |  逆市場方向（{n_am}場）：{roi_am*100:+.1f}%")
     r1, r2 = report["round1"], report["round2"]
     print(f"\n  第 1 輪（純 FIFA 排名）：AH={r1['ah_accuracy']*100:.1f}%（決勝 {r1['decisive_matches']}場/push {r1['push_matches']}場）  OU={r1['ou_accuracy']*100:.1f}%")
     print(f"  第 2 輪（+WC 實績加權）：AH={r2['ah_accuracy']*100:.1f}%（決勝 {r2['decisive_matches']}場/push {r2['push_matches']}場）  OU={r2['ou_accuracy']*100:.1f}%")

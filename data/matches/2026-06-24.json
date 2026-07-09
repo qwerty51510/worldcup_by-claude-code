@@ -45,5 +45,627 @@
     "Iraq": 0.0005,
     "Bosnia-Herzegovina": 0.0005,
     "Czechia": 0.0005
+  },
+  "goal_events": {
+    "Portugal|Uzbekistan": [
+      {
+        "minute": "6'",
+        "team": "Portugal",
+        "player": "C. Ronaldo",
+        "type": "Goal - Volley",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "14'",
+        "team": "Uzbekistan",
+        "player": "O. Xamrobekov",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "17'",
+        "team": "Portugal",
+        "player": "N. Mendes",
+        "type": "Goal - Free-kick",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "39'",
+        "team": "Portugal",
+        "player": "C. Ronaldo",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "60'",
+        "team": "Portugal",
+        "player": "A. Nematov",
+        "type": "Own Goal",
+        "is_goal": true,
+        "is_own_goal": true,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "68'",
+        "team": "Portugal",
+        "player": "R. Veiga",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "87'",
+        "team": "Portugal",
+        "player": "R. Leão",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      }
+    ],
+    "England|Ghana": [
+      {
+        "minute": "41'",
+        "team": "England",
+        "player": "D. Rice",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "60'",
+        "team": "Ghana",
+        "player": "I. Williams",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ],
+    "Panama|Croatia": [
+      {
+        "minute": "54'",
+        "team": "Croatia",
+        "player": "A. Budimir",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "61'",
+        "team": "Panama",
+        "player": "É. Bárcenas",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "90'+2'",
+        "team": "Croatia",
+        "player": "P. Sucic",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ],
+    "Colombia|Congo DR": [
+      {
+        "minute": "56'",
+        "team": "Colombia",
+        "player": "J. Lucumí",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "76'",
+        "team": "Colombia",
+        "player": "D. Muñoz",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "90'+3'",
+        "team": "Congo DR",
+        "player": "C. Pickel",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "90'+4'",
+        "team": "Colombia",
+        "player": "J. Lerma",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ],
+    "Bosnia-Herz|Qatar": [
+      {
+        "minute": "29'",
+        "team": "Bosnia-Herz",
+        "player": "K. Alajbegovic",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "34'",
+        "team": "Bosnia-Herz",
+        "player": "M. Abunada",
+        "type": "Own Goal",
+        "is_goal": true,
+        "is_own_goal": true,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "42'",
+        "team": "Qatar",
+        "player": "H. Al-Haydos",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "78'",
+        "team": "Qatar",
+        "player": "A. Fathy",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "80'",
+        "team": "Bosnia-Herz",
+        "player": "E. Mahmic",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "82'",
+        "team": "Bosnia-Herz",
+        "player": "E. Mahmic",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ],
+    "Switzerland|Canada": [
+      {
+        "minute": "32'",
+        "team": "Canada",
+        "player": "C. Larin",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "32'",
+        "team": "Switzerland",
+        "player": "G. Xhaka",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "46'",
+        "team": "Switzerland",
+        "player": "R. Vargas",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "57'",
+        "team": "Switzerland",
+        "player": "J. Manzambi",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "76'",
+        "team": "Canada",
+        "player": "P. David",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "87'",
+        "team": "Canada",
+        "player": "L. Millar",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ],
+    "Morocco|Haiti": [
+      {
+        "minute": "10'",
+        "team": "Haiti",
+        "player": "Y. Bounou",
+        "type": "Own Goal",
+        "is_goal": true,
+        "is_own_goal": true,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "39'",
+        "team": "Morocco",
+        "player": "A. Hakimi",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "43'",
+        "team": "Haiti",
+        "player": "W. Isidor",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "45'+1'",
+        "team": "Morocco",
+        "player": "I. Saibari",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "78'",
+        "team": "Morocco",
+        "player": "S. Rahimi",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "79'",
+        "team": "Haiti",
+        "player": "J. Placide",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "80'",
+        "team": "Haiti",
+        "player": "D. Nazon",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "89'",
+        "team": "Morocco",
+        "player": "G. Yassine",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "90'+3'",
+        "team": "Haiti",
+        "player": "J. Casimir",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ],
+    "Scotland|Brazil": [
+      {
+        "minute": "7'",
+        "team": "Brazil",
+        "player": "Vinícius Júnior",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "45'+3'",
+        "team": "Brazil",
+        "player": "Vinícius Júnior",
+        "type": "Goal - Header",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "60'",
+        "team": "Brazil",
+        "player": "M. Cunha",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "62'",
+        "team": "Brazil",
+        "player": "Danilo",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "82'",
+        "team": "Brazil",
+        "player": "Fabinho",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "89'",
+        "team": "Scotland",
+        "player": "R. Christie",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ],
+    "Czechia|Mexico": [
+      {
+        "minute": "55'",
+        "team": "Mexico",
+        "player": "M. Chávez",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "61'",
+        "team": "Mexico",
+        "player": "J. Quiñones",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "64'",
+        "team": "Mexico",
+        "player": "E. Álvarez",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "90'+4'",
+        "team": "Mexico",
+        "player": "Á. Fidalgo",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      }
+    ],
+    "South Africa|South Korea": [
+      {
+        "minute": "63'",
+        "team": "South Africa",
+        "player": "T. Maseko",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "73'",
+        "team": "South Africa",
+        "player": "A. Modiba",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "79'",
+        "team": "South Korea",
+        "player": "C. Gue-Sung",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ]
   }
 }

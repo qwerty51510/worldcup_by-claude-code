@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>系統架構 — WC 2026 交易系統</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0d1117; color: #c9d1d9; font-family: 'Segoe UI', system-ui, sans-serif; padding: 24px; }
+  h1 { color: #58a6ff; font-size: 1.4rem; margin-bottom: 6px; }
+  .sub { color: #8b949e; font-size: 0.85rem; margin-bottom: 32px; }
+
+  /* ── Layout ─────────────────────────────────────────────────── */
+  .flow { display: flex; flex-direction: column; gap: 0; align-items: center; }
+  .row  { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; }
+
+  .arrow-down { color: #30363d; font-size: 1.6rem; text-align: center; margin: 4px 0; line-height: 1; }
+  .arrow-right { color: #30363d; font-size: 1.4rem; flex-shrink: 0; }
+
+  /* ── Box styles ─────────────────────────────────────────────── */
+  .box {
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    min-width: 130px;
+    text-align: center;
+    border: 1px solid;
+  }
+  .box .name { font-weight: 600; font-size: 0.88rem; margin-bottom: 3px; }
+  .box .desc { color: #8b949e; font-size: 0.75rem; }
+  .box .badge {
+    display: inline-block; font-size: 0.65rem; padding: 1px 6px;
+    border-radius: 10px; margin-top: 4px;
+  }
+
+  /* Colour themes */
+  .data   { background: #161b22; border-color: #30363d; }
+  .model  { background: #0d2137; border-color: #1f6feb; }
+  .scan   { background: #0d2b1a; border-color: #238636; }
+  .audit  { background: #2d1b1b; border-color: #da3633; }
+  .trade  { background: #1a1a2d; border-color: #6e40c9; }
+  .port   { background: #1c1c1c; border-color: #484f58; }
+  .dash   { background: #1b1d1f; border-color: #58a6ff; }
+
+  .badge-5m  { background: #1f3d2a; color: #56d364; }
+  .badge-1m  { background: #3d2a1f; color: #f0883e; }
+  .badge-60s { background: #1f2a3d; color: #58a6ff; }
+  .badge-rt  { background: #2d1f3d; color: #a5a0e8; }
+
+  /* ── Audit highlight ────────────────────────────────────────── */
+  .audit-new {
+    border: 2px dashed #da3633;
+    background: #1a0a0a;
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 8px 0;
+    text-align: center;
+    max-width: 600px;
+  }
+  .audit-new .title { color: #da3633; font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; }
+  .audit-new ul { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .audit-new ul li {
+    background: #2d1010; border: 1px solid #3d1515; border-radius: 6px;
+    padding: 4px 10px; font-size: 0.76rem; color: #e0a0a0;
+  }
+  .new-tag { background: #da3633; color: #fff; font-size: 0.6rem; padding: 1px 5px; border-radius: 4px; vertical-align: middle; margin-left: 4px; }
+
+  /* ── Sidebar legend ─────────────────────────────────────────── */
+  .wrap { display: flex; gap: 32px; align-items: flex-start; }
+  .legend { min-width: 200px; background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 14px; font-size: 0.76rem; }
+  .legend h3 { color: #8b949e; margin-bottom: 10px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .leg-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .ld-data  { background: #484f58; }
+  .ld-model { background: #1f6feb; }
+  .ld-scan  { background: #238636; }
+  .ld-audit { background: #da3633; }
+  .ld-trade { background: #6e40c9; }
+  .ld-port  { background: #58a6ff; }
+
+  nav { margin-bottom: 24px; }
+  nav a { color: #58a6ff; text-decoration: none; margin-right: 16px; font-size: 0.84rem; }
+  nav a:hover { text-decoration: underline; }
+
+  @media (max-width: 700px) { .wrap { flex-direction: column; } .legend { min-width: auto; width: 100%; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">首頁</a>
+  <a href="trading.html">📈 交易</a>
+  <a href="results.html">結果</a>
+  <a href="postmortem.html">事後分析</a>
+  <a href="architecture.html">🏗 架構</a>
+</nav>
+
+<h1>🏗 WC 2026 交易系統架構</h1>
+<p class="sub">自動化 Polymarket 足球投注系統  ·  更新: 2026-06-29</p>
+
+<div class="wrap">
+  <!-- Main flow -->
+  <div class="flow">
+
+    <!-- Row 1: Data sources -->
+    <div class="row">
+      <div class="box data">
+        <div class="name">⚽ football-data.org</div>
+        <div class="desc">賽程 / 比分 API</div>
+        <span class="badge badge-5m">每 5 分鐘</span>
+      </div>
+      <div class="arrow-right">→</div>
+      <div class="box data">
+        <div class="name">🏆 Gamma API</div>
+        <div class="desc">Polymarket 市場價格 / token IDs</div>
+        <span class="badge badge-5m">每掃描循環</span>
+      </div>
+      <div class="arrow-right">→</div>
+      <div class="box data">
+        <div class="name">🔗 Polygon RPC</div>
+        <div class="desc">USDC 鏈上餘額<br>1rpc.io/matic</div>
+        <span class="badge badge-60s">每 60 秒</span>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <!-- Row 2: Model -->
+    <div class="row">
+      <div class="box model">
+        <div class="name">🧠 pm_predict.py</div>
+        <div class="desc">60% 球員 + 40% ELO<br>Poisson 勝負概率</div>
+        <span class="badge badge-5m">每 5 分鐘 daemon</span>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <!-- Row 3: EV Scanners -->
+    <div class="row">
+      <div class="box scan">
+        <div class="name">📊 pm_ev_scanner.py</div>
+        <div class="desc">晉級市場 EV 掃描<br>R32→R16→QF</div>
+        <span class="badge badge-5m">每 5 分鐘</span>
+      </div>
+      <div class="arrow-right">+</div>
+      <div class="box scan">
+        <div class="name">🎯 pm_match_ev.py</div>
+        <div class="desc">單場勝負 EV 掃描<br>開賽前 90min 截止</div>
+        <span class="badge badge-5m">每 5 分鐘</span>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <!-- Row 4: AUDIT AGENT (NEW/PROPOSED) -->
+    <div class="audit-new">
+      <div class="title">🔍 pm_auditor.py <span class="new-tag">提案中</span></div>
+      <ul>
+        <li>✅ 模型校準漂移偵測</li>
+        <li>✅ 最低流動性 $50K 驗證</li>
+        <li>✅ 持倉集中度限制</li>
+        <li>✅ 跨市場套利一致性</li>
+        <li>✅ 每日虧損上限監控</li>
+        <li>✅ EV 信號可信度分級</li>
+      </ul>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <!-- Row 5: Trader -->
+    <div class="row">
+      <div class="box trade">
+        <div class="name">🤖 pm_trader.py</div>
+        <div class="desc">Kelly 倉位 · GTC 限價單<br>FOK 市價平倉</div>
+        <span class="badge badge-5m">每 5 分鐘 daemon</span>
+      </div>
+      <div class="arrow-right">→</div>
+      <div class="box trade">
+        <div class="name">👁 pm_monitor.py</div>
+        <div class="desc">平倉信號監控<br>止損 / 到期</div>
+        <span class="badge badge-1m">每 60 秒 daemon</span>
+      </div>
+    </div>
+
+    <div class="arrow-down">↓</div>
+
+    <!-- Row 6: Portfolio & Dashboard -->
+    <div class="row">
+      <div class="box port">
+        <div class="name">📁 pm_portfolio.py</div>
+        <div class="desc">portfolio.json<br>本金 / 持倉 / 日誌</div>
+        <span class="badge badge-rt">即時讀寫</span>
+      </div>
+      <div class="arrow-right">→</div>
+      <div class="box dash">
+        <div class="name">📈 trading.html</div>
+        <div class="desc">即時儀表板<br>localhost:8765</div>
+        <span class="badge badge-60s">每 60 秒重繪</span>
+      </div>
+    </div>
+
+  </div><!-- /flow -->
+
+  <!-- Sidebar legend + stats -->
+  <div>
+    <div class="legend">
+      <h3>模組說明</h3>
+      <div class="leg-row"><div class="leg-dot ld-data"></div>資料來源層</div>
+      <div class="leg-row"><div class="leg-dot ld-model"></div>機率模型層</div>
+      <div class="leg-row"><div class="leg-dot ld-scan"></div>EV 掃描層</div>
+      <div class="leg-row"><div class="leg-dot ld-audit"></div>稽核 / 風控層（提案）</div>
+      <div class="leg-row"><div class="leg-dot ld-trade"></div>執行層</div>
+      <div class="leg-row"><div class="leg-dot ld-port"></div>狀態 / 顯示層</div>
+    </div>
+
+    <div class="legend" style="margin-top:16px;">
+      <h3>關鍵參數</h3>
+      <div style="color:#c9d1d9; line-height:1.9; font-size:0.78rem;">
+        本金：<b style="color:#58a6ff">$500 USDC</b><br>
+        最大單筆：<b>$25</b><br>
+        Half-Kelly 策略<br>
+        最低 EV 門檻：<b>5¢</b><br>
+        最低 ROI：<b>20%</b><br>
+        日損上限：<b>$75</b><br>
+        最大持倉：<b>4 個</b><br>
+        開賽截止：<b>開賽前 90min</b><br>
+        最低流動性：<b>$50K</b>
+      </div>
+    </div>
+
+    <div class="legend" style="margin-top:16px;">
+      <h3>Telegram 通知</h3>
+      <div style="color:#c9d1d9; line-height:1.9; font-size:0.78rem;">
+        🟢 開倉通知<br>
+        🔴 平倉通知<br>
+        🚨 日損暫停警告<br>
+        🤖 系統啟動確認
+      </div>
+    </div>
+  </div>
+</div><!-- /wrap -->
+
+</body>
+</html>

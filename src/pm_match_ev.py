@@ -12,7 +12,7 @@ pm_match_ev.py — 單場勝負市場 EV 掃描器
 import os
 import argparse
 import requests
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 try:
     from dotenv import load_dotenv
@@ -24,6 +24,9 @@ from src.pm_predict import match_win_probs
 
 GAMMA_BASE = "https://gamma-api.polymarket.com"
 FOOTBALL_DATA_BASE = "https://api.football-data.org/v4"
+
+MIN_VOLUME_USD = 50_000      # 跳過流動性不足的市場
+MIN_MINUTES_TO_KICKOFF = 90  # 開賽前 90 分鐘內不再進場
 
 # football-data.org team name → Polymarket FIFA slug code
 TEAM_CODES = {
@@ -63,6 +66,7 @@ TEAM_CODES = {
 
 
 def _fetch_fixtures() -> list:
+    """回傳距今 ≥ MIN_MINUTES_TO_KICKOFF 的尚未開賽場次。"""
     key = os.environ.get("FOOTBALL_DATA_API_KEY", "")
     if not key:
         return []
@@ -74,10 +78,28 @@ def _fetch_fixtures() -> list:
             timeout=15,
         )
         r.raise_for_status()
-        return r.json().get("matches", [])
+        matches = r.json().get("matches", [])
     except Exception as e:
         print(f"[pm_match_ev] fixture fetch failed: {e}")
         return []
+
+    now = datetime.now(timezone.utc)
+    cutoff = now + timedelta(minutes=MIN_MINUTES_TO_KICKOFF)
+    filtered = []
+    for m in matches:
+        utc_str = m.get("utcDate", "")
+        try:
+            ko = datetime.fromisoformat(utc_str.replace("Z", "+00:00"))
+        except ValueError:
+            continue
+        if ko > cutoff:
+            filtered.append(m)
+        else:
+            home = m.get("homeTeam", {}).get("name", "?")
+            away = m.get("awayTeam", {}).get("name", "?")
+            mins_left = int((ko - now).total_seconds() / 60)
+            print(f"[pm_match_ev] skip {home} vs {away} — kickoff in {mins_left}min")
+    return filtered
 
 
 def _fetch_match_market(home: str, away: str, date_str: str):
@@ -99,7 +121,12 @@ def _fetch_match_market(home: str, away: str, date_str: str):
         data = r.json()
         if not isinstance(data, list) or not data:
             return None
-        markets = data[0].get("markets", [])
+        event = data[0]
+        volume = float(event.get("volume", 0) or 0)
+        if volume < MIN_VOLUME_USD:
+            print(f"[pm_match_ev] skip {home} vs {away} — volume ${volume:,.0f} < ${MIN_VOLUME_USD:,}")
+            return None
+        markets = event.get("markets", [])
     except Exception:
         return None
 

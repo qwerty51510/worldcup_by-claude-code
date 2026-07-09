@@ -282,10 +282,36 @@ def _league_quality(club: str) -> float:
     return _LEAGUE_QUALITY["default"]
 
 
+def _load_excluded_players() -> dict:
+    """Load team → set of excluded player name fragments from injuries.json (new per-player format)."""
+    import json
+    from datetime import date as _date
+    path = DATA_DIR.parent / "injuries.json"
+    if not path.exists():
+        return {}
+    try:
+        raw = json.loads(path.read_text())
+    except Exception:
+        return {}
+    today = _date.today().strftime("%Y-%m-%d")
+    excluded = {}
+    for team, val in raw.items():
+        if team.startswith("_") or not isinstance(val, dict):
+            continue
+        names = [
+            inj["player"] for inj in val.get("injuries", [])
+            if inj.get("exclude") and inj.get("known_from", "9999-99-99") <= today
+        ]
+        if names:
+            excluded[team] = {n.lower() for n in names}
+    return excluded
+
+
 def build_team_strengths(force: bool = False) -> dict:
     """
     Returns {canonical_team_name: {"attack": float, "defense": float}}
     where 1.0 = WC average.  Cached after first call.
+    Players listed in injuries.json exclude_players are skipped.
     """
     global _TEAM_STRENGTHS
     if _TEAM_STRENGTHS and not force:
@@ -295,6 +321,8 @@ def build_team_strengths(force: bool = False) -> dict:
     per90_path = DATA_DIR / "per90_stats.csv"
     if not squads_path.exists() or not per90_path.exists():
         return {}
+
+    excluded = _load_excluded_players()
 
     # Load per90 stats keyed by player_id
     per90: dict = {}
@@ -316,12 +344,16 @@ def build_team_strengths(force: bool = False) -> dict:
             except (ValueError, KeyError):
                 pass
 
-    # Group players by team
+    # Group players by team, skipping excluded injured players
     team_players: dict = defaultdict(list)
     with open(squads_path) as f:
         for row in csv.DictReader(f):
             pid = row["player_id"]
             team = _SQUAD_COUNTRY_FIX.get(row["country"], row["country"])
+            player_name = row.get("player_name", "").lower()
+            excl_set = excluded.get(team, set())
+            if any(excl in player_name or player_name in excl for excl in excl_set):
+                continue
             pos = row["position"]
             club = row["club"]
             stats = per90.get(pid, {})
@@ -347,22 +379,32 @@ def build_team_strengths(force: bool = False) -> dict:
         for p in players:
             mins = p.get("minutes", 0)
             w = math.sqrt(max(mins, 0))  # weight by sqrt(minutes)
-            lq = p["lq"]
-            rating = p.get("rating")
-            if rating is None:
+            if w == 0:
                 continue
+            lq = p["lq"]
+            g90   = p.get("goals_per90", 0) or 0
+            a90   = p.get("assists_per90", 0) or 0
+            sh90  = p.get("shots_per90", 0) or 0
+            tkl90 = p.get("tackles_per90", 0) or 0
+            icp90 = p.get("inter_per90", 0) or 0
+            clr90 = p.get("clear_per90", 0) or 0
+            sv90  = p.get("saves_per90", 0) or 0
 
-            effective = rating * lq
-
-            if p["pos"] in ("FW",):
-                atk_vw.append((effective, w))
-            elif p["pos"] == "MF":
-                atk_vw.append((effective * 0.7, w))   # midfielders contribute less to attack
-                def_vw.append((effective * 0.3, w))
-            elif p["pos"] == "DF":
-                def_vw.append((effective, w))
-            elif p["pos"] == "GK":
-                def_vw.append((effective, w))
+            pos = p["pos"]
+            if pos in ("FW",):
+                atk_score = (g90 * 3.0 + a90 * 1.0 + sh90 * 0.3) * lq
+                atk_vw.append((atk_score, w))
+            elif pos == "MF":
+                atk_score = (g90 * 2.0 + a90 * 1.5 + sh90 * 0.2) * lq
+                def_score = (tkl90 * 1.0 + icp90 * 1.0) * lq
+                atk_vw.append((atk_score, w * 0.7))
+                def_vw.append((def_score, w * 0.3))
+            elif pos == "DF":
+                def_score = (tkl90 * 1.2 + icp90 * 1.2 + clr90 * 0.4) * lq
+                def_vw.append((def_score, w))
+            elif pos == "GK":
+                def_score = (sv90 * 2.0 + clr90 * 0.2) * lq
+                def_vw.append((def_score, w))
 
         atk = weighted_mean(atk_vw)
         dfn = weighted_mean(def_vw)
@@ -391,13 +433,14 @@ def build_team_strengths(force: bool = False) -> dict:
 
 
 def player_lambdas(home: str, away: str,
+                   strengths: dict = None,
                    league_avg: float = 1.51,
                    home_bonus: float = 0.0) -> tuple:
     """
     Compute (lh, la) from player strength scores alone.
     Returns (None, None) if player data missing for either team.
     """
-    strengths = build_team_strengths()
+    strengths = strengths if strengths is not None else build_team_strengths()
     if not strengths:
         return None, None
 
@@ -408,11 +451,12 @@ def player_lambdas(home: str, away: str,
     if h_str is None or a_str is None:
         return None, None
 
-    # lh = league_avg * home_attack * away_defense_weakness
-    # defense score 1.0 = average; >1.0 = better defense (concedes less)
-    # away_defense_weakness = 1 / a_str["defense"]  (weaker def → higher lh)
-    lh = max(0.3, league_avg * h_str["attack"] * (1.0 / a_str["defense"]) + home_bonus)
-    la = max(0.3, league_avg * a_str["attack"] * (1.0 / h_str["defense"]))
+    h_atk = h_str["attack"] if isinstance(h_str, dict) else h_str
+    a_atk = a_str["attack"] if isinstance(a_str, dict) else a_str
+    h_def = h_str.get("defense", 1.0) if isinstance(h_str, dict) else 1.0
+    a_def = a_str.get("defense", 1.0) if isinstance(a_str, dict) else 1.0
+    lh = max(0.3, league_avg * h_atk * (1.0 / max(0.3, a_def)) + home_bonus)
+    la = max(0.3, league_avg * a_atk * (1.0 / max(0.3, h_def)))
     return round(lh, 3), round(la, 3)
 
 
@@ -456,6 +500,6 @@ def _by_canonical(name: str, strengths: dict):
         return strengths[cc]
     # Try direct match on full name in strengths
     for key in strengths:
-        if key.lower() == name.lower():
+        if key and key.lower() == name.lower():
             return strengths[key]
     return None

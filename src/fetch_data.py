@@ -713,14 +713,49 @@ def fetch_team_history() -> dict:
     return history
 
 
+def _espn_event_id_map(date_str: str) -> dict:
+    """Query ESPN scoreboard for date_str (YYYY-MM-DD) and return
+    {(canonical_home, canonical_away): espn_event_id} mapping."""
+    import urllib.request
+    result: dict = {}
+    for ds in [date_str, (datetime.strptime(date_str, "%Y-%m-%d") - timedelta(days=1)).strftime("%Y-%m-%d")]:
+        espn_date = ds.replace("-", "")
+        try:
+            req = urllib.request.Request(
+                f"{ESPN_SCOREBOARD}?dates={espn_date}", headers=_ESPN_HEADERS)
+            with urllib.request.urlopen(req, timeout=8) as r:
+                sched = json.loads(r.read())
+        except Exception:
+            continue
+        for ev in sched.get("events", []):
+            espn_id = ev.get("id", "")
+            if not espn_id:
+                continue
+            comp = ev.get("competitions", [{}])[0]
+            competitors = comp.get("competitors", [])
+            home_c = next((c for c in competitors if c.get("homeAway") == "home"), {})
+            away_c = next((c for c in competitors if c.get("homeAway") == "away"), {})
+            ht = _normalize_team(home_c.get("team", {}).get("displayName", ""))
+            at = _normalize_team(away_c.get("team", {}).get("displayName", ""))
+            if ht and at:
+                result[(ht, at)] = espn_id
+    return result
+
+
 def fetch_pre_kickoff_lineups(matches: list) -> dict:
     """
     For matches kicking off within the next 90 minutes, fetch confirmed
     ESPN lineups/rosters. Returns {match_id: {"home": [...], "away": [...]}}
     where each list is confirmed starters by shortName.
+
+    Uses ESPN's own event IDs (looked up by date) rather than football-data.org IDs.
     """
     from datetime import timezone
     now_utc = datetime.now(timezone.utc)
+
+    # Build ESPN event ID map for each relevant date
+    date_maps: dict = {}
+
     result = {}
     for m in matches:
         kickoff_str = m.get("utcDate", "")
@@ -731,12 +766,25 @@ def fetch_pre_kickoff_lineups(matches: list) -> dict:
         except ValueError:
             continue
         mins = (kickoff - now_utc).total_seconds() / 60
-        if not (-30 <= mins <= 90):   # only within 90 min before / 30 min after kickoff
+        if not (-30 <= mins <= 120):  # up to 2 hours before / 30 min after kickoff
             continue
-        event_id = str(m.get("id", ""))
-        if not event_id:
+
+        date_str = kickoff.strftime("%Y-%m-%d")
+        if date_str not in date_maps:
+            date_maps[date_str] = _espn_event_id_map(date_str)
+        id_map = date_maps[date_str]
+
+        # Look up ESPN event ID by canonical team names
+        home_name = _normalize_team(m.get("homeTeam", {}).get("name", ""))
+        away_name = _normalize_team(m.get("awayTeam", {}).get("name", ""))
+        espn_id = id_map.get((home_name, away_name)) or id_map.get((away_name, home_name))
+        if not espn_id:
+            # Fallback: try football-data.org id directly
+            espn_id = str(m.get("id", ""))
+        if not espn_id:
             continue
-        summary = _fetch_espn_summary(event_id)
+
+        summary = _fetch_espn_summary(espn_id)
         rosters = summary.get("rosters", [])
         if not rosters:
             continue
@@ -749,8 +797,9 @@ def fetch_pre_kickoff_lineups(matches: list) -> dict:
             if starters:
                 lineups[side] = starters
         if lineups:
-            result[event_id] = lineups
-            print(f"[pre_kickoff] Got lineup for event {event_id}: "
+            fd_id = str(m.get("id", ""))
+            result[fd_id] = lineups
+            print(f"[pre_kickoff] Got lineup for {home_name} vs {away_name} (espn={espn_id}): "
                   f"home={len(lineups.get('home',[]))} away={len(lineups.get('away',[]))} starters")
     return result
 
@@ -807,8 +856,8 @@ def detect_and_notify_lineup_changes(matches: list, lineups: dict) -> list:
                 elif not is_active and not is_starter:
                     # Check if this player was in our injuries watch list
                     team_inj = injuries.get(team_name, {})
-                    watch = [n for n in team_inj.get("notes", [])
-                             if display_name.split()[-1].lower() in n.lower()]
+                    watch = [inj["player"] for inj in team_inj.get("injuries", [])
+                             if display_name.split()[-1].lower() in inj["player"].lower()]
                     if watch:
                         changes_this_match.append({
                             "team": team_name,
@@ -832,12 +881,19 @@ def detect_and_notify_lineup_changes(matches: list, lineups: dict) -> list:
             # Append new notes to injuries.json
             for c in changes_this_match:
                 team = c["team"]
-                note = f"{c['player']}（{c['status']}，ESPN自動偵測）"
                 if team not in injuries:
-                    injuries[team] = {"notes": [], "attack_mult": 1.0, "defense_mult": 1.0}
-                existing = injuries[team].get("notes", [])
-                if not any(c["player"].split()[-1] in n for n in existing):
-                    injuries[team]["notes"] = existing + [note]
+                    injuries[team] = {"injuries": []}
+                existing = injuries[team].get("injuries", [])
+                already = any(c["player"].split()[-1] in inj["player"] for inj in existing)
+                if not already:
+                    from datetime import date as _date
+                    injuries[team]["injuries"] = existing + [{
+                        "player": c["player"],
+                        "note": f"{c['status']}，ESPN自動偵測",
+                        "known_from": _date.today().strftime("%Y-%m-%d"),
+                        "attack_mult": 1.0,
+                        "defense_mult": 1.0,
+                    }]
             alert_injury_update(match_label, changes_this_match)
 
     if all_changes:

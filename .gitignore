@@ -1,0 +1,15 @@
+.env
+client_secret.json
+yt_token.pickle
+yt_channel_token.pickle
+.DS_Store
+output/
+logs/
+data/portfolio.json
+data/wallet_monitor_state.json
+data/audit_log.json
+data/backtest/pm_ev_alerts.log
+data/backtest/pm_ev_state.json
+__pycache__/
+*.pyc
+*.aiff

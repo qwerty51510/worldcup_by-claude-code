@@ -1,0 +1,156 @@
+{
+  "matches": [
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 3,
+        "winner": null
+      },
+      "id": 537383,
+      "utcDate": "2026-07-09T20:00:00Z",
+      "status": "TIMED",
+      "matchday": null,
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "lastUpdated": "2026-07-08T05:21:15Z",
+      "homeTeam": {
+        "id": 773,
+        "name": "France",
+        "shortName": "France",
+        "tla": "FRA",
+        "crest": "https://crests.football-data.org/773.svg"
+      },
+      "awayTeam": {
+        "id": 815,
+        "name": "Morocco",
+        "shortName": "Morocco",
+        "tla": "MAR",
+        "crest": "https://crests.football-data.org/morocco.svg"
+      },
+      "score": {
+        "winner": null,
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "halfTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": []
+    },
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 3,
+        "winner": null
+      },
+      "id": 537384,
+      "utcDate": "2026-07-10T19:00:00Z",
+      "status": "TIMED",
+      "matchday": null,
+      "stage": "QUARTER_FINALS",
+      "group": null,
+      "lastUpdated": "2026-07-08T05:21:15Z",
+      "homeTeam": {
+        "id": 760,
+        "name": "Spain",
+        "shortName": "Spain",
+        "tla": "ESP",
+        "crest": "https://crests.football-data.org/760.svg"
+      },
+      "awayTeam": {
+        "id": 805,
+        "name": "Belgium",
+        "shortName": "Belgium",
+        "tla": "BEL",
+        "crest": "https://crests.football-data.org/805.svg"
+      },
+      "score": {
+        "winner": null,
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "halfTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": []
+    }
+  ],
+  "odds": {},
+  "espn_odds": {
+    "France|Morocco": {
+      "ml_home": "-170",
+      "ml_draw": "+285",
+      "ml_away": "+500",
+      "ah_line": -0.5,
+      "ah_odds": "-180",
+      "ou_line": 2.5,
+      "over_odds": "+100",
+      "under_odds": "-125"
+    },
+    "Spain|Belgium": {
+      "ml_home": "-155",
+      "ml_draw": "+290",
+      "ml_away": "+425",
+      "ah_line": -0.5,
+      "ah_odds": "-160",
+      "ou_line": 2.5,
+      "over_odds": "-125",
+      "under_odds": "+100"
+    }
+  },
+  "polymarket": {
+    "Spain": 0.1875,
+    "England": 0.1585,
+    "France": 0.3215,
+    "Argentina": 0.2005,
+    "Belgium": 0.0245,
+    "Norway": 0.0595,
+    "Morocco": 0.0285,
+    "Switzerland": 0.0215
+  },
+  "goal_events": {}
+}

@@ -58501,5 +58501,601 @@
     "Iraq": 0.0005,
     "Bosnia-Herzegovina": 0.0005,
     "Czechia": 0.0005
+  },
+  "goal_events": {
+    "Tunisia|Japan": [
+      {
+        "minute": "4'",
+        "team": "Japan",
+        "player": "D. Kamada",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "31'",
+        "team": "Japan",
+        "player": "A. Ueda",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "69'",
+        "team": "Japan",
+        "player": "J. Ito",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "83'",
+        "team": "Japan",
+        "player": "A. Ueda",
+        "type": "Goal - Header",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      }
+    ],
+    "Spain|Saudi Arabia": [
+      {
+        "minute": "10'",
+        "team": "Spain",
+        "player": "L. Yamal",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "21'",
+        "team": "Spain",
+        "player": "M. Oyarzabal",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "24'",
+        "team": "Spain",
+        "player": "M. Oyarzabal",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "30'",
+        "team": "Saudi Arabia",
+        "player": "S. Al-Dawsari",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "49'",
+        "team": "Spain",
+        "player": "H. Al-Tambakti",
+        "type": "Own Goal",
+        "is_goal": true,
+        "is_own_goal": true,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "60'",
+        "team": "Saudi Arabia",
+        "player": "M. Kanno",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ],
+    "Belgium|Iran": [
+      {
+        "minute": "3'",
+        "team": "Belgium",
+        "player": "R. Lukaku",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "33'",
+        "team": "Iran",
+        "player": "S. Ezatolahi",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "66'",
+        "team": "Belgium",
+        "player": "N. Ngoy",
+        "type": "Red Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": true
+      }
+    ],
+    "Uruguay|Cape Verde": [
+      {
+        "minute": "5'",
+        "team": "Cape Verde",
+        "player": "S. Lopes Cabral",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "20'",
+        "team": "Uruguay",
+        "player": "R. Bentancur",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "21'",
+        "team": "Cape Verde",
+        "player": "K. Pina",
+        "type": "Goal - Free-kick",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "44'",
+        "team": "Uruguay",
+        "player": "M. Araújo",
+        "type": "Goal - Header",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "45'+6'",
+        "team": "Uruguay",
+        "player": "A. Canobbio",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "58'",
+        "team": "Uruguay",
+        "player": "M. Olivera",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "61'",
+        "team": "Cape Verde",
+        "player": "H. Varela",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "90'+3'",
+        "team": "Cape Verde",
+        "player": "D. Borges",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      }
+    ],
+    "New Zealand|Egypt": [
+      {
+        "minute": "15'",
+        "team": "New Zealand",
+        "player": "F. Surman",
+        "type": "Goal - Header",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "17'",
+        "team": "Egypt",
+        "player": "M. Lashin",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "20'",
+        "team": "New Zealand",
+        "player": "S. Singh",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "34'",
+        "team": "New Zealand",
+        "player": "C. McCowatt",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "58'",
+        "team": "Egypt",
+        "player": "M. Zico",
+        "type": "Goal - Header",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "67'",
+        "team": "Egypt",
+        "player": "M. Salah",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "82'",
+        "team": "Egypt",
+        "player": "Trézéguet",
+        "type": "Goal - Header",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      }
+    ],
+    "Argentina|Austria": [
+      {
+        "minute": "38'",
+        "team": "Argentina",
+        "player": "L. Messi",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "40'",
+        "team": "Austria",
+        "player": "S. Posch",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "76'",
+        "team": "Argentina",
+        "player": "F. Medina",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "76'",
+        "team": "Austria",
+        "player": "K. Laimer",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "90'+2'",
+        "team": "Argentina",
+        "player": "L. Paredes",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "90'+5'",
+        "team": "Argentina",
+        "player": "L. Messi",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      }
+    ],
+    "France|Iraq": [
+      {
+        "minute": "6'",
+        "team": "Iraq",
+        "player": "A. Al-Ammari",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "14'",
+        "team": "France",
+        "player": "K. Mbappé",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "54'",
+        "team": "France",
+        "player": "K. Mbappé",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "66'",
+        "team": "France",
+        "player": "O. Dembélé",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      }
+    ],
+    "Norway|Senegal": [
+      {
+        "minute": "43'",
+        "team": "Norway",
+        "player": "M. Holmgren Pedersen",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "48'",
+        "team": "Norway",
+        "player": "E. Haaland",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "53'",
+        "team": "Senegal",
+        "player": "I. Sarr",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "58'",
+        "team": "Norway",
+        "player": "E. Haaland",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "90'+3'",
+        "team": "Senegal",
+        "player": "I. Sarr",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      }
+    ],
+    "Jordan|Algeria": [
+      {
+        "minute": "36'",
+        "team": "Jordan",
+        "player": "N. Al-Rashdan",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "44'",
+        "team": "Algeria",
+        "player": "R. Zerrouki",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "64'",
+        "team": "Jordan",
+        "player": "H. Abu Dahab",
+        "type": "Yellow Card",
+        "is_goal": false,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": true,
+        "red_card": false
+      },
+      {
+        "minute": "69'",
+        "team": "Algeria",
+        "player": "N. Benbouali",
+        "type": "Goal - Header",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      },
+      {
+        "minute": "82'",
+        "team": "Algeria",
+        "player": "A. Gouiri",
+        "type": "Goal",
+        "is_goal": true,
+        "is_own_goal": false,
+        "is_penalty": false,
+        "is_shootout": false,
+        "yellow_card": false,
+        "red_card": false
+      }
+    ]
   }
 }

@@ -97,6 +97,15 @@ def remove_position(market_id):
     return None
 
 
+def close_position(token_id: str) -> None:
+    """將 token_id 對應的持倉狀態改為 closed"""
+    data = load()
+    for p in data["positions"]:
+        if p.get("token_id") == token_id and p.get("status") != "closed":
+            p["status"] = "closed"
+    save(data)
+
+
 def update_pnl(delta):
     data = load()
     today = _today()

@@ -14,7 +14,7 @@ pm_trader.py — Kelly Sizing + CLOB Execution Engine
 import os
 import time
 from datetime import datetime, timezone
-from typing import Optional
+from pathlib import Path
 
 try:
     from dotenv import load_dotenv
@@ -24,6 +24,7 @@ except ImportError:
 
 import requests
 import src.pm_portfolio as portfolio
+import src.pm_auditor as auditor
 
 
 def _tg_notify(text: str) -> None:
@@ -70,68 +71,99 @@ def kelly_size(our_prob: float, market_price: float, bankroll: float) -> float:
     return round(min(half_kelly * bankroll, bankroll * 0.05, MAX_BET), 2)
 
 
+def _append_creds_to_dotenv(api_key: str, secret: str, passphrase: str) -> None:
+    try:
+        env_path = Path(__file__).parent.parent / ".env"
+        text = env_path.read_text() if env_path.exists() else ""
+        additions = []
+        if "CLOB_API_KEY" not in text:
+            additions.append(f"CLOB_API_KEY={api_key}")
+        if "CLOB_API_SECRET" not in text:
+            additions.append(f"CLOB_API_SECRET={secret}")
+        if "CLOB_API_PASSPHRASE" not in text:
+            additions.append(f"CLOB_API_PASSPHRASE={passphrase}")
+        if additions:
+            env_path.write_text(text.rstrip() + "\n" + "\n".join(additions) + "\n")
+            print("[pm_trader] Saved CLOB credentials to .env")
+    except Exception as e:
+        print(f"[pm_trader] Could not save credentials to .env: {e}")
+
+
 def _build_client():
     """
-    建立 Polymarket CLOB client。
-    - 若缺少 WALLET_PRIVATE_KEY，拋出 ValueError
-    - 若 py-clob-client 未安裝，拋出 ImportError
+    建立 Polymarket CLOB v2 client。
+    若 .env 已有 CLOB_API_KEY，直接使用；
+    否則自動向 CLOB 申請 API credentials（僅需 wallet 簽名，一次性）。
     """
-    key = os.environ.get("WALLET_PRIVATE_KEY", "")
+    key = os.environ.get("POLY_PRIVATE_KEY", os.environ.get("WALLET_PRIVATE_KEY", ""))
     if not key:
-        raise ValueError(
-            "WALLET_PRIVATE_KEY not set in environment. "
-            "Export it before running: export WALLET_PRIVATE_KEY=0x..."
-        )
+        raise ValueError("POLY_PRIVATE_KEY not set in environment.")
+
     try:
-        from py_clob_client.client import ClobClient
-        return ClobClient(host=CLOB_HOST, key=key, chain_id=POLYGON_CHAIN_ID)
+        from py_clob_client_v2 import ClobClient, ApiCreds
     except ImportError:
         raise ImportError(
             "py-clob-client-v2 not installed. "
-            "Run: pip install git+https://github.com/Polymarket/py-clob-client-v2"
+            "See: https://github.com/Polymarket/py-clob-client-v2"
         )
+
+    api_key    = os.environ.get("POLY_API_KEY",    os.environ.get("CLOB_API_KEY", ""))
+    api_secret = os.environ.get("POLY_SECRET",     os.environ.get("CLOB_API_SECRET", ""))
+    api_pass   = os.environ.get("POLY_PASSPHRASE", os.environ.get("CLOB_API_PASSPHRASE", ""))
+
+    if api_key and api_secret and api_pass:
+        creds = ApiCreds(api_key=api_key, api_secret=api_secret, api_passphrase=api_pass)
+        return ClobClient(host=CLOB_HOST, chain_id=POLYGON_CHAIN_ID, key=key, creds=creds)
+
+    # 首次執行：自動 derive CLOB API credentials
+    print("[pm_trader] No CLOB credentials found — deriving from wallet...")
+    tmp = ClobClient(host=CLOB_HOST, chain_id=POLYGON_CHAIN_ID, key=key)
+    creds_obj = tmp.create_api_key()
+    # create_api_key() returns an ApiCreds dataclass object
+    if hasattr(creds_obj, "api_key"):
+        api_key    = creds_obj.api_key
+        api_secret = creds_obj.api_secret
+        api_pass   = creds_obj.api_passphrase
+    elif isinstance(creds_obj, dict):
+        api_key    = creds_obj.get("apiKey", creds_obj.get("api_key", ""))
+        api_secret = creds_obj.get("secret", creds_obj.get("api_secret", ""))
+        api_pass   = creds_obj.get("passPhrase", creds_obj.get("api_passphrase", ""))
+    else:
+        raise ValueError(f"Unexpected credential format: {creds_obj}")
+
+    if not api_key:
+        raise ValueError(f"Failed to derive CLOB credentials: {creds_obj}")
+
+    os.environ["CLOB_API_KEY"]        = api_key
+    os.environ["CLOB_API_SECRET"]     = api_secret
+    os.environ["CLOB_API_PASSPHRASE"] = api_pass
+    _append_creds_to_dotenv(api_key, api_secret, api_pass)
+    print(f"[pm_trader] CLOB credentials obtained: key={api_key[:8]}...")
+
+    creds = ApiCreds(api_key=api_key, api_secret=api_secret, api_passphrase=api_pass)
+    return ClobClient(host=CLOB_HOST, chain_id=POLYGON_CHAIN_ID, key=key, creds=creds)
 
 
 def place_limit_order(client, token_id: str, size_usd: float, limit_price: float) -> dict:
-    """
-    送出 GTC 限價買單。
-    回傳 Polymarket API response dict（含 orderID）。
-    """
-    try:
-        from py_clob_client.clob_types import OrderArgs, OrderType, Side
-    except ImportError:
-        raise ImportError(
-            "py-clob-client-v2 not installed. "
-            "Run: pip install git+https://github.com/Polymarket/py-clob-client-v2"
-        )
-    order = client.create_order(OrderArgs(
-        token_id=token_id,
-        price=limit_price,
-        size=size_usd,
-        side=Side.BUY,
-    ))
-    return client.post_order(order, OrderType.GTC)
+    """送出 GTC 限價買單，回傳包含 orderID 的 response dict。"""
+    from py_clob_client_v2 import OrderArgs, OrderType, Side, PartialCreateOrderOptions
+    resp = client.create_and_post_order(
+        order_args=OrderArgs(token_id=token_id, price=limit_price, size=size_usd, side=Side.BUY),
+        options=PartialCreateOrderOptions(tick_size="0.01"),
+        order_type=OrderType.GTC,
+    )
+    return resp if isinstance(resp, dict) else {"orderID": str(resp)}
 
 
 def market_sell(client, token_id: str, size_usd: float) -> dict:
-    """
-    送出 FOK 市價賣單（Fill-or-Kill，清倉用）。
-    以極低限價模擬市價賣出。
-    """
-    try:
-        from py_clob_client.clob_types import OrderArgs, OrderType, Side
-    except ImportError:
-        raise ImportError(
-            "py-clob-client-v2 not installed. "
-            "Run: pip install git+https://github.com/Polymarket/py-clob-client-v2"
-        )
-    order = client.create_order(OrderArgs(
-        token_id=token_id,
-        price=0.01,   # 極低限價 = 實際上的市價賣出
-        size=size_usd,
-        side=Side.SELL,
-    ))
-    return client.post_order(order, OrderType.FOK)
+    """送出 FOK 市價賣單（Fill-or-Kill，清倉用）。"""
+    from py_clob_client_v2 import OrderArgs, OrderType, Side, PartialCreateOrderOptions
+    resp = client.create_and_post_order(
+        order_args=OrderArgs(token_id=token_id, price=0.01, size=size_usd, side=Side.SELL),
+        options=PartialCreateOrderOptions(tick_size="0.01"),
+        order_type=OrderType.FOK,
+    )
+    return resp if isinstance(resp, dict) else {}
 
 
 def handle_exits(client) -> None:
@@ -240,6 +272,10 @@ def scan_and_trade(client) -> None:
         size = kelly_size(opp.fair_value, opp.p_to, bankroll)
         if size < 1.0:
             continue
+        approved, reason = auditor.approve_advancement(opp)
+        if not approved:
+            print(f"[{ts}] AUDIT REJECT advancement {opp.team}: {reason}")
+            continue
         limit_price = round((opp.p_to + opp.fair_value) / 2, 4)
         print(f"[{ts}] BUY advancement {opp.team} [{opp.label}] size=${size} limit={limit_price}")
         if _try_place(client, opp.token_id, size, limit_price, key, opp.fair_value, opp.p_to, opp.ev, data, existing_keys, ts):
@@ -273,6 +309,10 @@ def scan_and_trade(client) -> None:
                 continue
             size = kelly_size(our_prob, market_price, bankroll)
             limit_price = round((market_price + our_prob) / 2, 4)
+            approved, reason = auditor.approve_match(opp, side)
+            if not approved:
+                print(f"[{ts}] AUDIT REJECT match {key}: {reason}")
+                continue
             label = f"{side_label} ({opp['home']} vs {opp['away']})"
             print(f"[{ts}] BUY match {label} size=${size} limit={limit_price} EV={ev*100:.1f}¢")
             if _try_place(client, token_id, size, limit_price, key, our_prob, market_price, ev, data, existing_keys, ts):

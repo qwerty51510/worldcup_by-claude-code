@@ -1,0 +1,482 @@
+{
+  "Albania": {
+    "corners_pg": 3.3,
+    "yellow_pg": 2.0,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Algeria": {
+    "corners_pg": 8.0,
+    "yellow_pg": 0.7,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Andorra": {
+    "corners_pg": 0.7,
+    "yellow_pg": 2.7,
+    "red_pg": 0.3,
+    "games": 3
+  },
+  "Argentina": {
+    "corners_pg": 8.0,
+    "yellow_pg": 3.0,
+    "red_pg": 1.0,
+    "games": 1
+  },
+  "Armenia": {
+    "corners_pg": 2.3,
+    "yellow_pg": 1.2,
+    "red_pg": 0.2,
+    "games": 6
+  },
+  "Austria": {
+    "corners_pg": 3.5,
+    "yellow_pg": 1.3,
+    "red_pg": 0.2,
+    "games": 6
+  },
+  "Azerbaijan": {
+    "corners_pg": 2.5,
+    "yellow_pg": 2.2,
+    "red_pg": 0.0,
+    "games": 4
+  },
+  "Belarus": {
+    "corners_pg": 3.8,
+    "yellow_pg": 2.5,
+    "red_pg": 0.0,
+    "games": 4
+  },
+  "Belgium": {
+    "corners_pg": 9.8,
+    "yellow_pg": 1.3,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Bolivia": {
+    "corners_pg": 5.0,
+    "yellow_pg": 0.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Bosnia-Herzegovina": {
+    "corners_pg": 3.7,
+    "yellow_pg": 3.7,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Brazil": {
+    "corners_pg": 2.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 2
+  },
+  "Bulgaria": {
+    "corners_pg": 3.0,
+    "yellow_pg": 1.8,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Chile": {
+    "corners_pg": 8.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Colombia": {
+    "corners_pg": 2.0,
+    "yellow_pg": 0.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Congo": {
+    "corners_pg": 0.0,
+    "yellow_pg": 3.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Croatia": {
+    "corners_pg": 6.8,
+    "yellow_pg": 1.5,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Cyprus": {
+    "corners_pg": 4.7,
+    "yellow_pg": 2.3,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Czechia": {
+    "corners_pg": 8.0,
+    "yellow_pg": 0.3,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Denmark": {
+    "corners_pg": 8.5,
+    "yellow_pg": 1.2,
+    "red_pg": 0.2,
+    "games": 6
+  },
+  "Ecuador": {
+    "corners_pg": 2.0,
+    "yellow_pg": 2.0,
+    "red_pg": 1.0,
+    "games": 1
+  },
+  "Egypt": {
+    "corners_pg": 0.0,
+    "yellow_pg": 0.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "England": {
+    "corners_pg": 6.7,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Estonia": {
+    "corners_pg": 1.0,
+    "yellow_pg": 2.0,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Faroe Islands": {
+    "corners_pg": 3.3,
+    "yellow_pg": 1.7,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Finland": {
+    "corners_pg": 5.0,
+    "yellow_pg": 1.3,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "France": {
+    "corners_pg": 8.9,
+    "yellow_pg": 1.6,
+    "red_pg": 0.0,
+    "games": 8
+  },
+  "Georgia": {
+    "corners_pg": 3.7,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Germany": {
+    "corners_pg": 6.2,
+    "yellow_pg": 1.9,
+    "red_pg": 0.0,
+    "games": 8
+  },
+  "Gibraltar": {
+    "corners_pg": 0.7,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Greece": {
+    "corners_pg": 5.0,
+    "yellow_pg": 1.8,
+    "red_pg": 0.2,
+    "games": 6
+  },
+  "Hungary": {
+    "corners_pg": 5.7,
+    "yellow_pg": 2.0,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Iceland": {
+    "corners_pg": 4.3,
+    "yellow_pg": 1.5,
+    "red_pg": 0.2,
+    "games": 6
+  },
+  "Israel": {
+    "corners_pg": 4.3,
+    "yellow_pg": 1.3,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Italy": {
+    "corners_pg": 6.8,
+    "yellow_pg": 2.3,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Japan": {
+    "corners_pg": 0.0,
+    "yellow_pg": 0.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Jordan": {
+    "corners_pg": 3.0,
+    "yellow_pg": 0.0,
+    "red_pg": 1.0,
+    "games": 1
+  },
+  "Kazakhstan": {
+    "corners_pg": 5.3,
+    "yellow_pg": 3.7,
+    "red_pg": 0.3,
+    "games": 3
+  },
+  "Kosovo": {
+    "corners_pg": 3.8,
+    "yellow_pg": 2.0,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Latvia": {
+    "corners_pg": 3.3,
+    "yellow_pg": 2.3,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Liechtenstein": {
+    "corners_pg": 1.0,
+    "yellow_pg": 1.7,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Lithuania": {
+    "corners_pg": 2.7,
+    "yellow_pg": 1.7,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Luxembourg": {
+    "corners_pg": 2.5,
+    "yellow_pg": 3.5,
+    "red_pg": 0.2,
+    "games": 4
+  },
+  "Malta": {
+    "corners_pg": 2.0,
+    "yellow_pg": 2.3,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Mauritania": {
+    "corners_pg": 1.5,
+    "yellow_pg": 0.5,
+    "red_pg": 0.0,
+    "games": 2
+  },
+  "Moldova": {
+    "corners_pg": 2.7,
+    "yellow_pg": 2.7,
+    "red_pg": 0.3,
+    "games": 3
+  },
+  "Montenegro": {
+    "corners_pg": 5.3,
+    "yellow_pg": 2.0,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Morocco": {
+    "corners_pg": 10.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Namibia": {
+    "corners_pg": 6.0,
+    "yellow_pg": 4.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Netherlands": {
+    "corners_pg": 5.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.2,
+    "games": 6
+  },
+  "North Macedonia": {
+    "corners_pg": 4.0,
+    "yellow_pg": 2.0,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Northern Ireland": {
+    "corners_pg": 4.2,
+    "yellow_pg": 3.0,
+    "red_pg": 0.2,
+    "games": 4
+  },
+  "Norway": {
+    "corners_pg": 5.0,
+    "yellow_pg": 0.7,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Paraguay": {
+    "corners_pg": 7.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Peru": {
+    "corners_pg": 7.0,
+    "yellow_pg": 0.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Poland": {
+    "corners_pg": 6.3,
+    "yellow_pg": 2.0,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Portugal": {
+    "corners_pg": 6.9,
+    "yellow_pg": 1.9,
+    "red_pg": 0.1,
+    "games": 8
+  },
+  "Republic of Ireland": {
+    "corners_pg": 3.5,
+    "yellow_pg": 3.8,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Romania": {
+    "corners_pg": 3.0,
+    "yellow_pg": 1.3,
+    "red_pg": 0.3,
+    "games": 3
+  },
+  "San Marino": {
+    "corners_pg": 1.3,
+    "yellow_pg": 3.0,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Sao Tome and Principe": {
+    "corners_pg": 3.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Scotland": {
+    "corners_pg": 4.5,
+    "yellow_pg": 1.5,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Senegal": {
+    "corners_pg": 3.5,
+    "yellow_pg": 0.5,
+    "red_pg": 0.0,
+    "games": 2
+  },
+  "Serbia": {
+    "corners_pg": 6.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Slovakia": {
+    "corners_pg": 4.7,
+    "yellow_pg": 0.8,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Slovenia": {
+    "corners_pg": 4.0,
+    "yellow_pg": 1.8,
+    "red_pg": 0.2,
+    "games": 6
+  },
+  "Somalia": {
+    "corners_pg": 2.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "South Sudan": {
+    "corners_pg": 0.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Spain": {
+    "corners_pg": 6.1,
+    "yellow_pg": 1.6,
+    "red_pg": 0.0,
+    "games": 8
+  },
+  "Sweden": {
+    "corners_pg": 6.2,
+    "yellow_pg": 1.8,
+    "red_pg": 0.0,
+    "games": 4
+  },
+  "Switzerland": {
+    "corners_pg": 4.5,
+    "yellow_pg": 0.5,
+    "red_pg": 0.0,
+    "games": 4
+  },
+  "Tunisia": {
+    "corners_pg": 4.2,
+    "yellow_pg": 0.8,
+    "red_pg": 0.0,
+    "games": 4
+  },
+  "Türkiye": {
+    "corners_pg": 5.7,
+    "yellow_pg": 2.3,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Uganda": {
+    "corners_pg": 0.0,
+    "yellow_pg": 2.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Ukraine": {
+    "corners_pg": 2.7,
+    "yellow_pg": 2.5,
+    "red_pg": 0.0,
+    "games": 6
+  },
+  "Uruguay": {
+    "corners_pg": 3.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Uzbekistan": {
+    "corners_pg": 0.0,
+    "yellow_pg": 0.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Venezuela": {
+    "corners_pg": 3.0,
+    "yellow_pg": 1.0,
+    "red_pg": 0.0,
+    "games": 1
+  },
+  "Wales": {
+    "corners_pg": 7.7,
+    "yellow_pg": 1.7,
+    "red_pg": 0.0,
+    "games": 3
+  },
+  "Zimbabwe": {
+    "corners_pg": 2.0,
+    "yellow_pg": 0.0,
+    "red_pg": 0.0,
+    "games": 1
+  }
+}

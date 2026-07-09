@@ -1,0 +1,2150 @@
+{
+  "matches": [],
+  "odds": {},
+  "espn_odds": {},
+  "polymarket": {},
+  "goal_events": {
+    "Australia|Türkiye": {
+      "events": [
+        {
+          "minute": "27'",
+          "team": "Australia",
+          "player": "N. Irankunda",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "75'",
+          "team": "Australia",
+          "player": "C. Metcalfe",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "86'",
+          "team": "Türkiye",
+          "player": "Y. Akgün",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "5-4-1",
+        "away": "4-2-3-1"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "P. Beach",
+            "H. Souttar",
+            "C. Burgess",
+            "A. Circati",
+            "J. Bos",
+            "J. Italiano",
+            "P. Okon-Engstler",
+            "A. O'Neill",
+            "N. Irankunda",
+            "C. Metcalfe",
+            "M. Toure"
+          ],
+          "subs_used": [
+            "J. Geria",
+            "A. Behich",
+            "T. Yengi",
+            "J. Irvine",
+            "N. Velupillay"
+          ]
+        },
+        "away": {
+          "starters": [
+            "U. Çakir",
+            "A. Bardakçi",
+            "M. Demiral",
+            "F. Kadioglu",
+            "Z. Çelik",
+            "O. Kökçü",
+            "H. Çalhanoglu",
+            "I. Yüksek",
+            "K. Aktürkoglu",
+            "B. Yilmaz",
+            "A. Güler"
+          ],
+          "subs_used": [
+            "Y. Akgün",
+            "D. Gül",
+            "K. Yildiz",
+            "S. Özcan",
+            "M. Müldür"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "45'",
+          "team": "",
+          "text": "Substitution, Türkiye. Kenan Yildiz replaces Baris Alper Yilmaz."
+        },
+        {
+          "minute": "61'",
+          "team": "",
+          "text": "Substitution, Australia. Nishan Velupillay replaces Nestory Irankunda."
+        },
+        {
+          "minute": "62'",
+          "team": "",
+          "text": "Substitution, Türkiye. Yunus Akgün replaces Orkun Kökçü."
+        },
+        {
+          "minute": "74'",
+          "team": "",
+          "text": "Substitution, Australia. Tete Yengi replaces Mohamed Touré."
+        },
+        {
+          "minute": "74'",
+          "team": "",
+          "text": "Substitution, Australia. Jason Geria replaces Jacob Italiano."
+        },
+        {
+          "minute": "81'",
+          "team": "",
+          "text": "Substitution, Türkiye. Salih Özcan replaces Ismail Yüksek."
+        },
+        {
+          "minute": "81'",
+          "team": "",
+          "text": "Substitution, Türkiye. Mert Müldür replaces Zeki Çelik."
+        },
+        {
+          "minute": "84'",
+          "team": "",
+          "text": "Substitution, Australia. Aziz Behich replaces Jordan Bos."
+        },
+        {
+          "minute": "84'",
+          "team": "",
+          "text": "Substitution, Australia. Jackson Irvine replaces Paul Okon-Engstler."
+        },
+        {
+          "minute": "85'",
+          "team": "",
+          "text": "Substitution, Türkiye. Deniz Gül replaces Kerem Aktürkoglu."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "12",
+          "Yellow Cards": "0",
+          "Red Cards": "0",
+          "Offsides": "1",
+          "Corner Kicks": "5",
+          "Saves": "8",
+          "Possession": "28.4",
+          "SHOTS": "9",
+          "ON GOAL": "4",
+          "On Target %": "0.4",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "201",
+          "Passes": "271",
+          "Pass Completion %": "0.7",
+          "Accurate Crosses": "4",
+          "Crosses": "14",
+          "Cross %": "0.3",
+          "Long Balls": "58",
+          "Accurate Long Balls": "16",
+          "Long Balls %": "0.3",
+          "Blocked Shots": "1",
+          "Effective Tackles": "5",
+          "Tackles": "15",
+          "Tackle %": "0.3",
+          "Interceptions": "7",
+          "Effective Clearances": "55",
+          "Clearances": "55"
+        },
+        "away": {
+          "Fouls": "4",
+          "Yellow Cards": "1",
+          "Red Cards": "0",
+          "Offsides": "3",
+          "Corner Kicks": "8",
+          "Saves": "2",
+          "Possession": "71.6",
+          "SHOTS": "30",
+          "ON GOAL": "8",
+          "On Target %": "0.3",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "635",
+          "Passes": "704",
+          "Pass Completion %": "0.9",
+          "Accurate Crosses": "2",
+          "Crosses": "26",
+          "Cross %": "0.1",
+          "Long Balls": "28",
+          "Accurate Long Balls": "19",
+          "Long Balls %": "0.7",
+          "Blocked Shots": "12",
+          "Effective Tackles": "8",
+          "Tackles": "12",
+          "Tackle %": "0.7",
+          "Interceptions": "4",
+          "Effective Clearances": "29",
+          "Clearances": "29"
+        }
+      },
+      "linescores": {
+        "home": [
+          1,
+          1
+        ],
+        "away": [
+          0,
+          0
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    },
+    "Germany|Curaçao": {
+      "events": [
+        {
+          "minute": "6'",
+          "team": "Germany",
+          "player": "F. Nmecha",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "21'",
+          "team": "Curaçao",
+          "player": "L. Comenencia",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "38'",
+          "team": "Germany",
+          "player": "N. Schlotterbeck",
+          "type": "Goal - Header",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "45'+5'",
+          "team": "Germany",
+          "player": "K. Havertz",
+          "type": "Penalty - Scored",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": true,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "47'",
+          "team": "Germany",
+          "player": "J. Musiala",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "68'",
+          "team": "Germany",
+          "player": "N. Brown",
+          "type": "Goal - Volley",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "78'",
+          "team": "Germany",
+          "player": "D. Undav",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "88'",
+          "team": "Germany",
+          "player": "K. Havertz",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "4-2-3-1",
+        "away": "4-3-1-2"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "M. Neuer",
+            "N. Schlotterbeck",
+            "J. Tah",
+            "N. Brown",
+            "J. Kimmich",
+            "J. Musiala",
+            "A. Pavlovic",
+            "F. Nmecha",
+            "K. Havertz",
+            "F. Wirtz",
+            "L. Sané"
+          ],
+          "subs_used": [
+            "D. Raum",
+            "D. Undav",
+            "W. Anton",
+            "L. Goretzka",
+            "A. Rüdiger"
+          ]
+        },
+        "away": {
+          "starters": [
+            "E. Room",
+            "A. Obispo",
+            "R. Bazoer",
+            "D. Fonville",
+            "S. Floranus",
+            "S. Hansen",
+            "L. Bacuna",
+            "T. Chong",
+            "J. Bacuna",
+            "L. Comenencia",
+            "J. Locadia"
+          ],
+          "subs_used": [
+            "G. Kastaneer",
+            "J. Margaritha",
+            "J. Antonisse"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "45'",
+          "team": "",
+          "text": "Substitution, Curaçao. Jeremy Antonisse replaces Sontje Hansen."
+        },
+        {
+          "minute": "64'",
+          "team": "",
+          "text": "Substitution, Germany. Deniz Undav replaces Jamal Musiala."
+        },
+        {
+          "minute": "65'",
+          "team": "",
+          "text": "Substitution, Curaçao. Jearl Margaritha replaces Jürgen Locadia."
+        },
+        {
+          "minute": "73'",
+          "team": "",
+          "text": "Substitution, Germany. Antonio Rüdiger replaces Jonathan Tah."
+        },
+        {
+          "minute": "73'",
+          "team": "",
+          "text": "Substitution, Germany. Leon Goretzka replaces Felix Nmecha."
+        },
+        {
+          "minute": "73'",
+          "team": "",
+          "text": "Substitution, Germany. David Raum replaces Nathaniel Brown."
+        },
+        {
+          "minute": "83'",
+          "team": "",
+          "text": "Substitution, Curaçao. Gervane Kastaneer replaces Tahith Chong."
+        },
+        {
+          "minute": "83'",
+          "team": "",
+          "text": "Substitution, Germany. Waldemar Anton replaces Joshua Kimmich."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "18",
+          "Yellow Cards": "0",
+          "Red Cards": "0",
+          "Offsides": "0",
+          "Corner Kicks": "8",
+          "Saves": "1",
+          "Possession": "64.6",
+          "SHOTS": "26",
+          "ON GOAL": "12",
+          "On Target %": "0.5",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "1",
+          "Accurate Passes": "554",
+          "Passes": "637",
+          "Pass Completion %": "0.9",
+          "Accurate Crosses": "5",
+          "Crosses": "12",
+          "Cross %": "0.4",
+          "Long Balls": "25",
+          "Accurate Long Balls": "12",
+          "Long Balls %": "0.5",
+          "Blocked Shots": "8",
+          "Effective Tackles": "13",
+          "Tackles": "19",
+          "Tackle %": "0.7",
+          "Interceptions": "12",
+          "Effective Clearances": "8",
+          "Clearances": "8"
+        },
+        "away": {
+          "Fouls": "11",
+          "Yellow Cards": "0",
+          "Red Cards": "0",
+          "Offsides": "1",
+          "Corner Kicks": "1",
+          "Saves": "4",
+          "Possession": "35.4",
+          "SHOTS": "8",
+          "ON GOAL": "2",
+          "On Target %": "0.3",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "282",
+          "Passes": "343",
+          "Pass Completion %": "0.8",
+          "Accurate Crosses": "2",
+          "Crosses": "7",
+          "Cross %": "0.3",
+          "Long Balls": "44",
+          "Accurate Long Balls": "17",
+          "Long Balls %": "0.4",
+          "Blocked Shots": "0",
+          "Effective Tackles": "8",
+          "Tackles": "16",
+          "Tackle %": "0.5",
+          "Interceptions": "16",
+          "Effective Clearances": "25",
+          "Clearances": "25"
+        }
+      },
+      "linescores": {
+        "home": [
+          3,
+          4
+        ],
+        "away": [
+          1,
+          0
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    },
+    "Netherlands|Japan": {
+      "events": [
+        {
+          "minute": "51'",
+          "team": "Netherlands",
+          "player": "V. van Dijk",
+          "type": "Goal - Header",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "57'",
+          "team": "Japan",
+          "player": "K. Nakamura",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "61'",
+          "team": "Netherlands",
+          "player": "C. Summerville",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "64'",
+          "team": "Netherlands",
+          "player": "C. Summerville",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "83'",
+          "team": "Netherlands",
+          "player": "M. Depay",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "89'",
+          "team": "Japan",
+          "player": "D. Kamada",
+          "type": "Goal - Header",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "90'+1'",
+          "team": "Netherlands",
+          "player": "M. van de Ven",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "4-3-3",
+        "away": "3-4-2-1"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "B. Verbruggen",
+            "V. van Dijk",
+            "J. van Hecke",
+            "M. van de Ven",
+            "D. Dumfries",
+            "F. de Jong",
+            "T. Reijnders",
+            "R. Gravenberch",
+            "D. Malen",
+            "C. Gakpo",
+            "C. Summerville"
+          ],
+          "subs_used": [
+            "T. Koopmeiners",
+            "Q. Timber",
+            "N. Aké",
+            "M. Depay",
+            "B. Brobbey"
+          ]
+        },
+        "away": {
+          "starters": [
+            "Z. Suzuki",
+            "S. Taniguchi",
+            "H. Ito",
+            "T. Watanabe",
+            "D. Kamada",
+            "K. Sano",
+            "K. Nakamura",
+            "R. Doan",
+            "A. Ueda",
+            "D. Maeda",
+            "T. Kubo"
+          ],
+          "subs_used": [
+            "J. Ito",
+            "K. Ogawa",
+            "K. Shiogai",
+            "Y. Sugawara",
+            "T. Tomiyasu"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "66'",
+          "team": "",
+          "text": "Substitution, Japan. Junya Ito replaces Daizen Maeda."
+        },
+        {
+          "minute": "70'",
+          "team": "",
+          "text": "Substitution, Netherlands. Memphis Depay replaces Donyell Malen."
+        },
+        {
+          "minute": "70'",
+          "team": "",
+          "text": "Substitution, Netherlands. Teun Koopmeiners replaces Crysencio Summerville."
+        },
+        {
+          "minute": "70'",
+          "team": "",
+          "text": "Substitution, Netherlands. Quinten Timber replaces Tijjani Reijnders."
+        },
+        {
+          "minute": "75'",
+          "team": "",
+          "text": "Substitution, Japan. Yukinari Sugawara replaces Ritsu Doan."
+        },
+        {
+          "minute": "75'",
+          "team": "",
+          "text": "Substitution, Japan. Takehiro Tomiyasu replaces Tsuyoshi Watanabe."
+        },
+        {
+          "minute": "75'",
+          "team": "",
+          "text": "Substitution, Japan. Koki Ogawa replaces Takefusa Kubo because of an injury."
+        },
+        {
+          "minute": "81'",
+          "team": "",
+          "text": "Substitution, Netherlands. Nathan Aké replaces Ryan Gravenberch."
+        },
+        {
+          "minute": "84'",
+          "team": "",
+          "text": "Substitution, Japan. Kento Shiogai replaces Ayase Ueda."
+        },
+        {
+          "minute": "85'",
+          "team": "",
+          "text": "Substitution, Netherlands. Brian Brobbey replaces Cody Gakpo."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "7",
+          "Yellow Cards": "3",
+          "Red Cards": "0",
+          "Offsides": "1",
+          "Corner Kicks": "5",
+          "Saves": "1",
+          "Possession": "59.8",
+          "SHOTS": "10",
+          "ON GOAL": "6",
+          "On Target %": "0.6",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "463",
+          "Passes": "524",
+          "Pass Completion %": "0.9",
+          "Accurate Crosses": "8",
+          "Crosses": "21",
+          "Cross %": "0.4",
+          "Long Balls": "35",
+          "Accurate Long Balls": "16",
+          "Long Balls %": "0.5",
+          "Blocked Shots": "1",
+          "Effective Tackles": "5",
+          "Tackles": "11",
+          "Tackle %": "0.5",
+          "Interceptions": "7",
+          "Effective Clearances": "23",
+          "Clearances": "23"
+        },
+        "away": {
+          "Fouls": "7",
+          "Yellow Cards": "0",
+          "Red Cards": "0",
+          "Offsides": "0",
+          "Corner Kicks": "4",
+          "Saves": "4",
+          "Possession": "40.2",
+          "SHOTS": "10",
+          "ON GOAL": "3",
+          "On Target %": "0.3",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "286",
+          "Passes": "341",
+          "Pass Completion %": "0.8",
+          "Accurate Crosses": "6",
+          "Crosses": "23",
+          "Cross %": "0.3",
+          "Long Balls": "36",
+          "Accurate Long Balls": "13",
+          "Long Balls %": "0.4",
+          "Blocked Shots": "1",
+          "Effective Tackles": "10",
+          "Tackles": "11",
+          "Tackle %": "0.9",
+          "Interceptions": "4",
+          "Effective Clearances": "32",
+          "Clearances": "32"
+        }
+      },
+      "linescores": {
+        "home": [
+          0,
+          2
+        ],
+        "away": [
+          0,
+          2
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    },
+    "Ivory Coast|Ecuador": {
+      "events": [
+        {
+          "minute": "28'",
+          "team": "Ivory Coast",
+          "player": "S. Fofana",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "38'",
+          "team": "Ivory Coast",
+          "player": "F. Kessié",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "40'",
+          "team": "Ivory Coast",
+          "player": "G. Doué",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "73'",
+          "team": "Ecuador",
+          "player": "J. Porozo",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "90'",
+          "team": "Ivory Coast",
+          "player": "A. Diallo",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "4-4-2",
+        "away": "4-4-2"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "Y. Fofana",
+            "E. Agbadou",
+            "W. Singo",
+            "G. Konan",
+            "G. Doué",
+            "S. Fofana",
+            "F. Kessié",
+            "B. Touré",
+            "Y. Diomande",
+            "E. Wahi",
+            "N. Pépé"
+          ],
+          "subs_used": [
+            "C. Inao Oulaï",
+            "A. Bonny",
+            "I. Sangaré",
+            "A. Diallo",
+            "O. Kossounou"
+          ]
+        },
+        "away": {
+          "starters": [
+            "H. Galíndez",
+            "W. Pacho",
+            "J. Ordóñez",
+            "P. Hincapié",
+            "A. Franco",
+            "P. Vite",
+            "M. Caicedo",
+            "A. Minda",
+            "J. Yeboah",
+            "E. Valencia",
+            "G. Plata"
+          ],
+          "subs_used": [
+            "K. Rodríguez",
+            "N. Angulo",
+            "Á. Preciado",
+            "J. Porozo"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "56'",
+          "team": "",
+          "text": "Substitution, Ecuador. Nilson Angulo replaces Alan Minda."
+        },
+        {
+          "minute": "56'",
+          "team": "",
+          "text": "Substitution, Côte d'Ivoire. Ange-Yoan Bonny replaces Elye Wahi."
+        },
+        {
+          "minute": "56'",
+          "team": "",
+          "text": "Substitution, Côte d'Ivoire. Amad Diallo replaces Bazoumana Touré."
+        },
+        {
+          "minute": "62'",
+          "team": "",
+          "text": "Substitution, Ecuador. Jackson Porozo replaces Alan Franco."
+        },
+        {
+          "minute": "62'",
+          "team": "",
+          "text": "Substitution, Ecuador. Ángelo Preciado replaces John Yeboah."
+        },
+        {
+          "minute": "77'",
+          "team": "",
+          "text": "Substitution, Côte d'Ivoire. Ibrahim Sangaré replaces Seko Fofana."
+        },
+        {
+          "minute": "77'",
+          "team": "",
+          "text": "Substitution, Côte d'Ivoire. Christ Inao Oulaï replaces Nicolas Pépé."
+        },
+        {
+          "minute": "77'",
+          "team": "",
+          "text": "Substitution, Ecuador. Kevin Rodríguez replaces Enner Valencia."
+        },
+        {
+          "minute": "89'",
+          "team": "",
+          "text": "Substitution, Côte d'Ivoire. Odilon Kossounou replaces Guéla Doué."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "10",
+          "Yellow Cards": "3",
+          "Red Cards": "0",
+          "Offsides": "0",
+          "Corner Kicks": "3",
+          "Saves": "1",
+          "Possession": "48.4",
+          "SHOTS": "15",
+          "ON GOAL": "4",
+          "On Target %": "0.3",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "397",
+          "Passes": "470",
+          "Pass Completion %": "0.8",
+          "Accurate Crosses": "2",
+          "Crosses": "8",
+          "Cross %": "0.3",
+          "Long Balls": "40",
+          "Accurate Long Balls": "18",
+          "Long Balls %": "0.5",
+          "Blocked Shots": "3",
+          "Effective Tackles": "9",
+          "Tackles": "14",
+          "Tackle %": "0.6",
+          "Interceptions": "11",
+          "Effective Clearances": "29",
+          "Clearances": "29"
+        },
+        "away": {
+          "Fouls": "13",
+          "Yellow Cards": "1",
+          "Red Cards": "0",
+          "Offsides": "0",
+          "Corner Kicks": "6",
+          "Saves": "3",
+          "Possession": "51.6",
+          "SHOTS": "12",
+          "ON GOAL": "1",
+          "On Target %": "0.1",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "419",
+          "Passes": "492",
+          "Pass Completion %": "0.9",
+          "Accurate Crosses": "4",
+          "Crosses": "14",
+          "Cross %": "0.3",
+          "Long Balls": "36",
+          "Accurate Long Balls": "11",
+          "Long Balls %": "0.3",
+          "Blocked Shots": "3",
+          "Effective Tackles": "15",
+          "Tackles": "21",
+          "Tackle %": "0.7",
+          "Interceptions": "13",
+          "Effective Clearances": "18",
+          "Clearances": "18"
+        }
+      },
+      "linescores": {
+        "home": [
+          0,
+          1
+        ],
+        "away": [
+          0,
+          0
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    },
+    "Sweden|Tunisia": {
+      "events": [
+        {
+          "minute": "7'",
+          "team": "Sweden",
+          "player": "Y. Ayari",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "30'",
+          "team": "Sweden",
+          "player": "A. Isak",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "43'",
+          "team": "Tunisia",
+          "player": "O. Rekik",
+          "type": "Goal - Header",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "54'",
+          "team": "Tunisia",
+          "player": "R. Khedira",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "59'",
+          "team": "Sweden",
+          "player": "V. Gyökeres",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "84'",
+          "team": "Sweden",
+          "player": "M. Svanberg",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "90'+6'",
+          "team": "Sweden",
+          "player": "Y. Ayari",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "3-1-4-2",
+        "away": "5-3-2"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "K. Nordfeldt",
+            "I. Hien",
+            "V. Lindelöf",
+            "G. Lagerbielke",
+            "J. Karlström",
+            "Y. Ayari",
+            "B. Nygren",
+            "G. Gudmundsson",
+            "A. Bernhardsson",
+            "A. Isak",
+            "V. Gyökeres"
+          ],
+          "subs_used": [
+            "M. Svanberg",
+            "D. Svensson",
+            "E. Stroud",
+            "A. Elanga",
+            "L. Bergvall"
+          ]
+        },
+        "away": {
+          "starters": [
+            "M. Chamakh",
+            "M. Talbi",
+            "M. Ben Hamida",
+            "O. Rekik",
+            "A. Abdi",
+            "Y. Valery",
+            "E. Skhiri",
+            "H. Mejbri",
+            "R. Khedira",
+            "A. Slimane",
+            "E. Saad"
+          ],
+          "subs_used": [
+            "S. Tounekti",
+            "I. Gharbi",
+            "E. Achouri",
+            "M. Hadj Mahmoud",
+            "F. Chaouat"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "65'",
+          "team": "",
+          "text": "Substitution, Sweden. Elliot Stroud replaces Gabriel Gudmundsson because of an injury."
+        },
+        {
+          "minute": "65'",
+          "team": "",
+          "text": "Substitution, Sweden. Lucas Bergvall replaces Benjamin Nygren."
+        },
+        {
+          "minute": "72'",
+          "team": "",
+          "text": "Substitution, Tunisia. Elias Achouri replaces Ellyes Skhiri."
+        },
+        {
+          "minute": "72'",
+          "team": "",
+          "text": "Substitution, Tunisia. Sebastian Tounekti replaces Elias Saad."
+        },
+        {
+          "minute": "72'",
+          "team": "",
+          "text": "Substitution, Tunisia. Hadj Mahmoud replaces Yan Valery."
+        },
+        {
+          "minute": "83'",
+          "team": "",
+          "text": "Substitution, Tunisia. Ismaël Gharbi replaces Rani Khedira."
+        },
+        {
+          "minute": "84'",
+          "team": "",
+          "text": "Substitution, Tunisia. Firas Chaouat replaces Anis Ben Slimane."
+        },
+        {
+          "minute": "84'",
+          "team": "",
+          "text": "Substitution, Sweden. Mattias Svanberg replaces Jesper Karlström."
+        },
+        {
+          "minute": "90'",
+          "team": "",
+          "text": "Substitution, Sweden. Anthony Elanga replaces Alexander Isak."
+        },
+        {
+          "minute": "90'+1'",
+          "team": "",
+          "text": "Substitution, Sweden. Daniel Svensson replaces Alexander Bernhardsson."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "10",
+          "Yellow Cards": "0",
+          "Red Cards": "0",
+          "Offsides": "3",
+          "Corner Kicks": "4",
+          "Saves": "1",
+          "Possession": "48.7",
+          "SHOTS": "13",
+          "ON GOAL": "7",
+          "On Target %": "0.5",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "278",
+          "Passes": "356",
+          "Pass Completion %": "0.8",
+          "Accurate Crosses": "3",
+          "Crosses": "12",
+          "Cross %": "0.3",
+          "Long Balls": "58",
+          "Accurate Long Balls": "22",
+          "Long Balls %": "0.4",
+          "Blocked Shots": "3",
+          "Effective Tackles": "9",
+          "Tackles": "14",
+          "Tackle %": "0.6",
+          "Interceptions": "6",
+          "Effective Clearances": "23",
+          "Clearances": "23"
+        },
+        "away": {
+          "Fouls": "8",
+          "Yellow Cards": "1",
+          "Red Cards": "0",
+          "Offsides": "6",
+          "Corner Kicks": "2",
+          "Saves": "1",
+          "Possession": "51.3",
+          "SHOTS": "6",
+          "ON GOAL": "2",
+          "On Target %": "0.3",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "292",
+          "Passes": "371",
+          "Pass Completion %": "0.8",
+          "Accurate Crosses": "3",
+          "Crosses": "13",
+          "Cross %": "0.2",
+          "Long Balls": "53",
+          "Accurate Long Balls": "24",
+          "Long Balls %": "0.5",
+          "Blocked Shots": "1",
+          "Effective Tackles": "12",
+          "Tackles": "21",
+          "Tackle %": "0.6",
+          "Interceptions": "6",
+          "Effective Clearances": "13",
+          "Clearances": "13"
+        }
+      },
+      "linescores": {
+        "home": [
+          2,
+          3
+        ],
+        "away": [
+          1,
+          0
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    },
+    "Spain|Cape Verde": {
+      "events": [
+        {
+          "minute": "16'",
+          "team": "Cape Verde",
+          "player": "S. Lopes Cabral",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "90'+3'",
+          "team": "Spain",
+          "player": "Pedri",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "4-3-3",
+        "away": "4-1-4-1"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "U. Simón",
+            "A. Laporte",
+            "P. Cubarsí",
+            "M. Cucurella",
+            "M. Llorente",
+            "Rodri",
+            "Pedri",
+            "F. Ruiz",
+            "M. Oyarzabal",
+            "Gavi",
+            "F. Torres"
+          ],
+          "subs_used": [
+            "L. Yamal",
+            "D. Olmo",
+            "N. Williams",
+            "M. Merino"
+          ]
+        },
+        "away": {
+          "starters": [
+            "Vozinha",
+            "D. Borges",
+            "P. Lopes",
+            "K. Pina",
+            "S. Lopes Cabral",
+            "S. Moreira",
+            "J. Monteiro",
+            "L. Duarte",
+            "J. Cabral",
+            "R. Mendes",
+            "D. Livramento"
+          ],
+          "subs_used": [
+            "T. Arcanjo",
+            "W. Semedo",
+            "N. da Costa",
+            "J. Paulo",
+            "D. Duarte"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "61'",
+          "team": "",
+          "text": "Substitution, Cabo Verde. Willy Semedo replaces Jovane Cabral because of an injury."
+        },
+        {
+          "minute": "61'",
+          "team": "",
+          "text": "Substitution, Cabo Verde. Deroy Duarte replaces Laros Duarte."
+        },
+        {
+          "minute": "61'",
+          "team": "",
+          "text": "Substitution, Cabo Verde. Nuno da Costa replaces Dailon Livramento."
+        },
+        {
+          "minute": "71'",
+          "team": "",
+          "text": "Substitution, Spain. Mikel Merino replaces Fabián Ruiz."
+        },
+        {
+          "minute": "71'",
+          "team": "",
+          "text": "Substitution, Spain. Lamine Yamal replaces Gavi."
+        },
+        {
+          "minute": "76'",
+          "team": "",
+          "text": "Substitution, Cabo Verde. João Paulo replaces Sidny Cabral."
+        },
+        {
+          "minute": "79'",
+          "team": "",
+          "text": "Substitution, Cabo Verde. Telmo Arcanjo replaces Jamiro Monteiro."
+        },
+        {
+          "minute": "81'",
+          "team": "",
+          "text": "Substitution, Spain. Dani Olmo replaces Ferran Torres."
+        },
+        {
+          "minute": "87'",
+          "team": "",
+          "text": "Substitution, Spain. Nico Williams replaces Rodri."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "10",
+          "Yellow Cards": "1",
+          "Red Cards": "0",
+          "Offsides": "2",
+          "Corner Kicks": "11",
+          "Saves": "1",
+          "Possession": "74.3",
+          "SHOTS": "27",
+          "ON GOAL": "7",
+          "On Target %": "0.3",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "734",
+          "Passes": "800",
+          "Pass Completion %": "0.9",
+          "Accurate Crosses": "6",
+          "Crosses": "36",
+          "Cross %": "0.2",
+          "Long Balls": "30",
+          "Accurate Long Balls": "24",
+          "Long Balls %": "0.8",
+          "Blocked Shots": "8",
+          "Effective Tackles": "12",
+          "Tackles": "13",
+          "Tackle %": "0.9",
+          "Interceptions": "6",
+          "Effective Clearances": "7",
+          "Clearances": "7"
+        },
+        "away": {
+          "Fouls": "1",
+          "Yellow Cards": "1",
+          "Red Cards": "0",
+          "Offsides": "3",
+          "Corner Kicks": "1",
+          "Saves": "7",
+          "Possession": "25.7",
+          "SHOTS": "6",
+          "ON GOAL": "1",
+          "On Target %": "0.2",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "205",
+          "Passes": "278",
+          "Pass Completion %": "0.7",
+          "Accurate Crosses": "1",
+          "Crosses": "4",
+          "Cross %": "0.3",
+          "Long Balls": "56",
+          "Accurate Long Balls": "19",
+          "Long Balls %": "0.3",
+          "Blocked Shots": "2",
+          "Effective Tackles": "11",
+          "Tackles": "18",
+          "Tackle %": "0.6",
+          "Interceptions": "15",
+          "Effective Clearances": "46",
+          "Clearances": "46"
+        }
+      },
+      "linescores": {
+        "home": [
+          0,
+          0
+        ],
+        "away": [
+          0,
+          0
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    },
+    "Belgium|Egypt": {
+      "events": [
+        {
+          "minute": "13'",
+          "team": "Egypt",
+          "player": "M. Attia",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "14'",
+          "team": "Belgium",
+          "player": "T. Castagne",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "20'",
+          "team": "Egypt",
+          "player": "E. Ashour",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "34'",
+          "team": "Egypt",
+          "player": "A. Fatouh",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "66'",
+          "team": "Belgium",
+          "player": "M. Hany",
+          "type": "Own Goal",
+          "is_goal": true,
+          "is_own_goal": true,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "75'",
+          "team": "Belgium",
+          "player": "M. De Cuyper",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "4-2-3-1",
+        "away": "4-2-3-1"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "T. Courtois",
+            "B. Mechele",
+            "N. Ngoy",
+            "T. Castagne",
+            "T. Meunier",
+            "K. De Bruyne",
+            "Y. Tielemans",
+            "A. Onana",
+            "C. De Ketelaere",
+            "J. Doku",
+            "L. Trossard"
+          ],
+          "subs_used": [
+            "N. Raskin",
+            "R. Lukaku",
+            "M. Fernandez-Pardo",
+            "H. Vanaken",
+            "M. De Cuyper"
+          ]
+        },
+        "away": {
+          "starters": [
+            "M. Shoubir",
+            "H. Fathy",
+            "Y. Ibrahim",
+            "A. Fatouh",
+            "M. Hany",
+            "M. Salah",
+            "M. Lashin",
+            "M. Attia",
+            "O. Marmoush",
+            "E. Ashour",
+            "M. Zico"
+          ],
+          "subs_used": [
+            "R. Rabia",
+            "H. Abdelkarim",
+            "Zizo",
+            "I. Adel",
+            "K. Hafez"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "56'",
+          "team": "",
+          "text": "Substitution, Belgium. Nicolas Raskin replaces Timothy Castagne."
+        },
+        {
+          "minute": "56'",
+          "team": "",
+          "text": "Substitution, Belgium. Maxim De Cuyper replaces Amadou Onana."
+        },
+        {
+          "minute": "66'",
+          "team": "",
+          "text": "Substitution, Belgium. Romelu Lukaku replaces Charles De Ketelaere."
+        },
+        {
+          "minute": "71'",
+          "team": "",
+          "text": "Substitution, Egypt. Ramy Rabia replaces Emam Ashour."
+        },
+        {
+          "minute": "76'",
+          "team": "",
+          "text": "Substitution, Egypt. Zizo replaces Mostafa Zico."
+        },
+        {
+          "minute": "76'",
+          "team": "",
+          "text": "Substitution, Egypt. Hamza Abdelkarim replaces Mohamed Salah."
+        },
+        {
+          "minute": "86'",
+          "team": "",
+          "text": "Substitution, Belgium. Matias Fernandez-Pardo replaces Jérémy Doku."
+        },
+        {
+          "minute": "86'",
+          "team": "",
+          "text": "Substitution, Belgium. Hans Vanaken replaces Kevin De Bruyne."
+        },
+        {
+          "minute": "88'",
+          "team": "",
+          "text": "Substitution, Egypt. Karim Hafez replaces Ahmed Fatouh."
+        },
+        {
+          "minute": "88'",
+          "team": "",
+          "text": "Substitution, Egypt. Ibrahim Adel replaces Hamdi Fathy."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "15",
+          "Yellow Cards": "2",
+          "Red Cards": "0",
+          "Offsides": "0",
+          "Corner Kicks": "2",
+          "Saves": "2",
+          "Possession": "53.6",
+          "SHOTS": "15",
+          "ON GOAL": "3",
+          "On Target %": "0.2",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "391",
+          "Passes": "455",
+          "Pass Completion %": "0.9",
+          "Accurate Crosses": "6",
+          "Crosses": "16",
+          "Cross %": "0.4",
+          "Long Balls": "30",
+          "Accurate Long Balls": "18",
+          "Long Balls %": "0.6",
+          "Blocked Shots": "5",
+          "Effective Tackles": "11",
+          "Tackles": "17",
+          "Tackle %": "0.6",
+          "Interceptions": "10",
+          "Effective Clearances": "25",
+          "Clearances": "25"
+        },
+        "away": {
+          "Fouls": "15",
+          "Yellow Cards": "2",
+          "Red Cards": "0",
+          "Offsides": "1",
+          "Corner Kicks": "7",
+          "Saves": "3",
+          "Possession": "46.4",
+          "SHOTS": "14",
+          "ON GOAL": "3",
+          "On Target %": "0.2",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "323",
+          "Passes": "398",
+          "Pass Completion %": "0.8",
+          "Accurate Crosses": "2",
+          "Crosses": "13",
+          "Cross %": "0.2",
+          "Long Balls": "53",
+          "Accurate Long Balls": "20",
+          "Long Balls %": "0.4",
+          "Blocked Shots": "7",
+          "Effective Tackles": "17",
+          "Tackles": "28",
+          "Tackle %": "0.6",
+          "Interceptions": "16",
+          "Effective Clearances": "17",
+          "Clearances": "17"
+        }
+      },
+      "linescores": {
+        "home": [
+          0,
+          1
+        ],
+        "away": [
+          1,
+          0
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    },
+    "Saudi Arabia|Uruguay": {
+      "events": [
+        {
+          "minute": "41'",
+          "team": "Saudi Arabia",
+          "player": "A. Al-Amri",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "44'",
+          "team": "Saudi Arabia",
+          "player": "A. Al-Amri",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "80'",
+          "team": "Uruguay",
+          "player": "M. Araújo",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "4-4-2",
+        "away": "4-2-3-1"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "M. Al-Owais",
+            "H. Al-Tambakti",
+            "A. Al-Amri",
+            "M. Al-Harbi",
+            "S. Abdulhamid",
+            "A. Al-Khaibari",
+            "M. Kanno",
+            "S. Al-Dawsari",
+            "M. Abu Al-Shamat",
+            "M. Al-Juwayr",
+            "F. Al-Brikan"
+          ],
+          "subs_used": [
+            "A. Lajami",
+            "A. Al-Hamdan",
+            "N. Al-Dawsari",
+            "A. Al-Hajji",
+            "N. Boushal"
+          ]
+        },
+        "away": {
+          "starters": [
+            "F. Muslera",
+            "M. Olivera",
+            "S. Cáceres",
+            "M. Viña",
+            "G. Varela",
+            "F. Viñas",
+            "R. Bentancur",
+            "M. Ugarte",
+            "D. Núñez",
+            "M. Araújo",
+            "F. Valverde"
+          ],
+          "subs_used": [
+            "N. de la Cruz",
+            "R. Aguirre",
+            "J. Sanabria",
+            "A. Canobbio",
+            "B. Rodríguez"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "45'",
+          "team": "",
+          "text": "Substitution, Uruguay. Juan Manuel Sanabria replaces Matías Viña."
+        },
+        {
+          "minute": "45'",
+          "team": "",
+          "text": "Substitution, Uruguay. Agustín Canobbio replaces Darwin Núñez."
+        },
+        {
+          "minute": "63'",
+          "team": "",
+          "text": "Substitution, Saudi Arabia. Nasser Al Dawsari replaces Musab Al Juwayr."
+        },
+        {
+          "minute": "72'",
+          "team": "",
+          "text": "Substitution, Uruguay. Nicolás de la Cruz replaces Manuel Ugarte."
+        },
+        {
+          "minute": "81'",
+          "team": "",
+          "text": "Substitution, Uruguay. Brian Rodríguez replaces Maxi Araújo."
+        },
+        {
+          "minute": "81'",
+          "team": "",
+          "text": "Substitution, Saudi Arabia. Nawaf Bu Washl replaces Mohammed Abu Al Shamat."
+        },
+        {
+          "minute": "90'",
+          "team": "",
+          "text": "Substitution, Uruguay. Rodrigo Aguirre replaces Federico Viñas."
+        },
+        {
+          "minute": "90'+3'",
+          "team": "",
+          "text": "Substitution, Saudi Arabia. Abdullah Al Hamddan replaces Moteb Al Harbi."
+        },
+        {
+          "minute": "90'+3'",
+          "team": "",
+          "text": "Substitution, Saudi Arabia. Alaa Al Hejji replaces Feras Al Brikan."
+        },
+        {
+          "minute": "90'+3'",
+          "team": "",
+          "text": "Substitution, Saudi Arabia. Ali Lajami replaces Saud Abdulhamid."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "11",
+          "Yellow Cards": "1",
+          "Red Cards": "0",
+          "Offsides": "0",
+          "Corner Kicks": "4",
+          "Saves": "9",
+          "Possession": "33.2",
+          "SHOTS": "7",
+          "ON GOAL": "3",
+          "On Target %": "0.4",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "236",
+          "Passes": "322",
+          "Pass Completion %": "0.7",
+          "Accurate Crosses": "3",
+          "Crosses": "6",
+          "Cross %": "0.5",
+          "Long Balls": "41",
+          "Accurate Long Balls": "10",
+          "Long Balls %": "0.2",
+          "Blocked Shots": "1",
+          "Effective Tackles": "8",
+          "Tackles": "11",
+          "Tackle %": "0.7",
+          "Interceptions": "9",
+          "Effective Clearances": "43",
+          "Clearances": "43"
+        },
+        "away": {
+          "Fouls": "6",
+          "Yellow Cards": "0",
+          "Red Cards": "0",
+          "Offsides": "6",
+          "Corner Kicks": "14",
+          "Saves": "2",
+          "Possession": "66.8",
+          "SHOTS": "27",
+          "ON GOAL": "10",
+          "On Target %": "0.4",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "540",
+          "Passes": "612",
+          "Pass Completion %": "0.9",
+          "Accurate Crosses": "16",
+          "Crosses": "47",
+          "Cross %": "0.3",
+          "Long Balls": "41",
+          "Accurate Long Balls": "24",
+          "Long Balls %": "0.6",
+          "Blocked Shots": "7",
+          "Effective Tackles": "2",
+          "Tackles": "3",
+          "Tackle %": "0.7",
+          "Interceptions": "10",
+          "Effective Clearances": "17",
+          "Clearances": "17"
+        }
+      },
+      "linescores": {
+        "home": [
+          1,
+          0
+        ],
+        "away": [
+          0,
+          1
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    },
+    "Iran|New Zealand": {
+      "events": [
+        {
+          "minute": "7'",
+          "team": "New Zealand",
+          "player": "E. Just",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "32'",
+          "team": "Iran",
+          "player": "R. Rezaeian",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "54'",
+          "team": "New Zealand",
+          "player": "E. Just",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "64'",
+          "team": "Iran",
+          "player": "M. Mohebbi",
+          "type": "Goal - Header",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "89'",
+          "team": "Iran",
+          "player": "E. Hajsafi",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "4-4-2",
+        "away": "4-2-3-1"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "A. Beiranvand",
+            "A. Nemati",
+            "S. Khalilzadeh",
+            "M. Mohammadi",
+            "R. Rezaeian",
+            "S. Ezatolahi",
+            "S. Ghoddos",
+            "A. Yousefi",
+            "M. Mohebbi",
+            "M. Taremi",
+            "S. Moghanloo"
+          ],
+          "subs_used": [
+            "M. Ghayedi",
+            "A. Alipour",
+            "E. Hajsafi",
+            "A. Hosseinzadeh"
+          ]
+        },
+        "away": {
+          "starters": [
+            "M. Crocombe",
+            "M. Boxall",
+            "F. Surman",
+            "L. Cacace",
+            "T. Payne",
+            "S. Singh",
+            "M. Stamenic",
+            "J. Bell",
+            "C. Wood",
+            "E. Just",
+            "C. McCowatt"
+          ],
+          "subs_used": [
+            "B. Old",
+            "J. Randall",
+            "C. Elliot",
+            "T. Bindon",
+            "R. Thomas"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "45'",
+          "team": "",
+          "text": "Substitution, IR Iran. Mehdi Ghayedi replaces Arya Yousefi."
+        },
+        {
+          "minute": "53'",
+          "team": "",
+          "text": "Substitution, IR Iran. Ali Alipour replaces Shahriyar Moghanloo."
+        },
+        {
+          "minute": "65'",
+          "team": "",
+          "text": "Substitution, IR Iran. Ehsan Hajisafi replaces Saman Ghoddos."
+        },
+        {
+          "minute": "68'",
+          "team": "",
+          "text": "Substitution, New Zealand. Ryan Thomas replaces Callum McCowatt."
+        },
+        {
+          "minute": "68'",
+          "team": "",
+          "text": "Substitution, New Zealand. Ben Old replaces Liberato Cacace."
+        },
+        {
+          "minute": "78'",
+          "team": "",
+          "text": "Substitution, New Zealand. Callan Elliot replaces Tim Payne."
+        },
+        {
+          "minute": "80'",
+          "team": "",
+          "text": "Substitution, IR Iran. Amirhossein Hosseinzadeh replaces Mehdi Taremi."
+        },
+        {
+          "minute": "90'+2'",
+          "team": "",
+          "text": "Substitution, New Zealand. Jesse Randall replaces Sarpreet Singh."
+        },
+        {
+          "minute": "90'+2'",
+          "team": "",
+          "text": "Substitution, New Zealand. Tyler Bindon replaces Marko Stamenic."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "10",
+          "Yellow Cards": "1",
+          "Red Cards": "0",
+          "Offsides": "2",
+          "Corner Kicks": "4",
+          "Saves": "6",
+          "Possession": "48.5",
+          "SHOTS": "17",
+          "ON GOAL": "4",
+          "On Target %": "0.2",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "314",
+          "Passes": "409",
+          "Pass Completion %": "0.8",
+          "Accurate Crosses": "6",
+          "Crosses": "19",
+          "Cross %": "0.3",
+          "Long Balls": "61",
+          "Accurate Long Balls": "27",
+          "Long Balls %": "0.4",
+          "Blocked Shots": "5",
+          "Effective Tackles": "10",
+          "Tackles": "17",
+          "Tackle %": "0.6",
+          "Interceptions": "11",
+          "Effective Clearances": "27",
+          "Clearances": "27"
+        },
+        "away": {
+          "Fouls": "8",
+          "Yellow Cards": "0",
+          "Red Cards": "0",
+          "Offsides": "0",
+          "Corner Kicks": "1",
+          "Saves": "2",
+          "Possession": "51.5",
+          "SHOTS": "14",
+          "ON GOAL": "8",
+          "On Target %": "0.6",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "376",
+          "Passes": "446",
+          "Pass Completion %": "0.8",
+          "Accurate Crosses": "1",
+          "Crosses": "12",
+          "Cross %": "0.1",
+          "Long Balls": "40",
+          "Accurate Long Balls": "21",
+          "Long Balls %": "0.5",
+          "Blocked Shots": "2",
+          "Effective Tackles": "10",
+          "Tackles": "13",
+          "Tackle %": "0.8",
+          "Interceptions": "15",
+          "Effective Clearances": "26",
+          "Clearances": "26"
+        }
+      },
+      "linescores": {
+        "home": [
+          1,
+          1
+        ],
+        "away": [
+          1,
+          1
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    }
+  }
+}

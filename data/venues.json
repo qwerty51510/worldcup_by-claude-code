@@ -1,0 +1,110 @@
+{
+  "_comment": "WC 2026 venues: altitude_m, july_temp_c (avg high), humidity (0-1), is_dome",
+  "venues": {
+    "Estadio Azteca": {
+      "city": "Mexico City", "country": "Mexico",
+      "altitude_m": 2240, "july_temp_c": 20, "humidity": 0.55, "is_dome": false
+    },
+    "Estadio Akron": {
+      "city": "Guadalajara", "country": "Mexico",
+      "altitude_m": 1567, "july_temp_c": 28, "humidity": 0.65, "is_dome": false
+    },
+    "Estadio BBVA": {
+      "city": "Monterrey", "country": "Mexico",
+      "altitude_m": 538, "july_temp_c": 36, "humidity": 0.50, "is_dome": false
+    },
+    "AT&T Stadium": {
+      "city": "Arlington TX", "country": "USA",
+      "altitude_m": 180, "july_temp_c": 38, "humidity": 0.45, "is_dome": true
+    },
+    "NRG Stadium": {
+      "city": "Houston TX", "country": "USA",
+      "altitude_m": 15, "july_temp_c": 35, "humidity": 0.72, "is_dome": true
+    },
+    "Hard Rock Stadium": {
+      "city": "Miami FL", "country": "USA",
+      "altitude_m": 2, "july_temp_c": 33, "humidity": 0.78, "is_dome": false
+    },
+    "MetLife Stadium": {
+      "city": "East Rutherford NJ", "country": "USA",
+      "altitude_m": 8, "july_temp_c": 29, "humidity": 0.62, "is_dome": false
+    },
+    "Arrowhead Stadium": {
+      "city": "Kansas City MO", "country": "USA",
+      "altitude_m": 280, "july_temp_c": 33, "humidity": 0.60, "is_dome": false
+    },
+    "Rose Bowl": {
+      "city": "Pasadena CA", "country": "USA",
+      "altitude_m": 237, "july_temp_c": 32, "humidity": 0.32, "is_dome": false
+    },
+    "Levi's Stadium": {
+      "city": "Santa Clara CA", "country": "USA",
+      "altitude_m": 18, "july_temp_c": 26, "humidity": 0.38, "is_dome": false
+    },
+    "SoFi Stadium": {
+      "city": "Inglewood CA", "country": "USA",
+      "altitude_m": 90, "july_temp_c": 27, "humidity": 0.72, "is_dome": true
+    },
+    "Lumen Field": {
+      "city": "Seattle WA", "country": "USA",
+      "altitude_m": 6, "july_temp_c": 24, "humidity": 0.55, "is_dome": false
+    },
+    "Gillette Stadium": {
+      "city": "Foxborough MA", "country": "USA",
+      "altitude_m": 12, "july_temp_c": 28, "humidity": 0.63, "is_dome": false
+    },
+    "Lincoln Financial Field": {
+      "city": "Philadelphia PA", "country": "USA",
+      "altitude_m": 8, "july_temp_c": 31, "humidity": 0.62, "is_dome": false
+    },
+    "BC Place": {
+      "city": "Vancouver BC", "country": "Canada",
+      "altitude_m": 4, "july_temp_c": 22, "humidity": 0.55, "is_dome": true
+    },
+    "BMO Field": {
+      "city": "Toronto ON", "country": "Canada",
+      "altitude_m": 76, "july_temp_c": 27, "humidity": 0.62, "is_dome": false
+    }
+  },
+  "match_venue": {
+    "R32": {
+      "South Africa vs Canada": "BMO Field",
+      "Brazil vs Japan": "Levi's Stadium",
+      "Germany vs Paraguay": "AT&T Stadium",
+      "Netherlands vs Morocco": "Hard Rock Stadium",
+      "Ivory Coast vs Norway": "Lumen Field",
+      "France vs Sweden": "MetLife Stadium",
+      "Mexico vs Ecuador": "Estadio Azteca",
+      "England vs DR Congo": "Arrowhead Stadium",
+      "Belgium vs Senegal": "Rose Bowl",
+      "United States vs Bosnia and Herzegovina": "Gillette Stadium",
+      "Spain vs Austria": "Lincoln Financial Field",
+      "Portugal vs Croatia": "NRG Stadium",
+      "Switzerland vs Algeria": "AT&T Stadium",
+      "Australia vs Egypt": "Levi's Stadium",
+      "Argentina vs Cabo Verde": "Estadio Akron",
+      "Colombia vs Ghana": "MetLife Stadium"
+    },
+    "R16": {
+      "Brazil vs Norway": "NRG Stadium",
+      "Mexico vs England": "Estadio Azteca",
+      "Portugal vs Spain": "AT&T Stadium",
+      "United States vs Belgium": "MetLife Stadium",
+      "Argentina vs Egypt": "Estadio Akron",
+      "Canada vs Morocco": "BMO Field",
+      "Paraguay vs France": "Arrowhead Stadium",
+      "Colombia vs Portugal": "Hard Rock Stadium"
+    }
+  },
+  "altitude_acclimatized_teams": {
+    "Mexico": 2240,
+    "Colombia": 2600,
+    "Ecuador": 2850,
+    "Bolivia": 3600,
+    "Peru": 1550,
+    "Chile": 567,
+    "Argentina": 25,
+    "United States": 0,
+    "Canada": 0
+  }
+}

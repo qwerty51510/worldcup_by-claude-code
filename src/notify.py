@@ -76,14 +76,71 @@ def alert_injury_update(match_label: str, changes: list[dict]) -> None:
 def alert_pre_kickoff_summary(match_label: str, home: str, away: str,
                                lh: float, la: float,
                                home_win: float, draw: float, away_win: float,
-                               ah_line: float, ou_line: float) -> None:
-    """Send a pre-kickoff prediction summary to Telegram."""
+                               ah_line: float, ou_line: float,
+                               injuries_json_path: str = "data/injuries.json") -> None:
+    """Send pre-kickoff prediction + known injuries + impact scores to Telegram."""
+    from pathlib import Path
+
     ah_str = f"{ah_line:+.1f}" if ah_line else "0"
-    msg = (
-        f"⚽ <b>開賽預告</b> [{match_label}]\n\n"
-        f"<b>{home}</b> vs <b>{away}</b>\n"
-        f"λ {lh:.2f} / {la:.2f}\n"
-        f"勝率 {home_win:.0%} / {draw:.0%} / {away_win:.0%}\n"
-        f"AH {ah_str}  OU {ou_line}\n"
-    )
-    send_telegram(msg)
+    lines = [
+        f"⚽ <b>開賽預告</b>  {match_label}",
+        f"",
+        f"<b>{home}</b> vs <b>{away}</b>",
+        f"λ {lh:.2f} / {la:.2f}",
+        f"勝率 {home_win:.0%} / {draw:.0%} / {away_win:.0%}",
+        f"AH {ah_str}  OU {ou_line}",
+    ]
+
+    # 讀 injuries.json，分「新缺陣（影響模型）」與「既有缺陣（已反映在近期表現）」
+    inj_path = Path(injuries_json_path)
+    if inj_path.exists():
+        try:
+            injuries = json.loads(inj_path.read_text())
+        except Exception:
+            injuries = {}
+
+        new_lines = []      # already_absent=False — 新傷，影響預測
+        old_lines = []      # already_absent=True  — 既有缺陣，僅供參考
+
+        for team in (home, away):
+            all_inj = injuries.get(team, {}).get("injuries", [])
+            for inj in all_inj:
+                player  = inj.get("player", "")
+                note    = inj.get("note", "")
+                atk     = inj.get("attack_mult", 1.0)
+                dfd     = inj.get("defense_mult", 1.0)
+                excl    = inj.get("exclude", False)
+                absent  = inj.get("already_absent", False)
+
+                icon = "🔴" if excl else ("🟡" if atk < 1.0 or dfd < 1.0 else "⚪")
+                if excl:
+                    impact_str = " | 缺陣"
+                elif atk != 1.0 or dfd != 1.0:
+                    parts = []
+                    if atk != 1.0:
+                        parts.append(f"攻擊×{atk:.2f}")
+                    if dfd != 1.0:
+                        parts.append(f"防守×{dfd:.2f}")
+                    impact_str = f" | {', '.join(parts)}"
+                else:
+                    impact_str = ""
+
+                line = f"  {icon} <b>{team}</b> {player}{impact_str} — {note}"
+                if absent:
+                    old_lines.append(line)
+                else:
+                    new_lines.append(line)
+
+        if new_lines:
+            lines.append("")
+            lines.append("🆕 <b>新缺陣（已納入預測）</b>")
+            lines.extend(new_lines)
+        if old_lines:
+            lines.append("")
+            lines.append("📋 <b>既有缺陣（已反映在近期表現，不重複計算）</b>")
+            lines.extend(old_lines)
+        if not new_lines and not old_lines:
+            lines.append("")
+            lines.append("🏥 傷兵：無已知傷情")
+
+    send_telegram("\n".join(lines))

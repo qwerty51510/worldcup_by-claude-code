@@ -1,133 +1,389 @@
 {
-  "_comment": "notes=顯示文字；attack_mult<1表示進攻削弱；defense_mult>1表示防守削弱（對手進球增加）。1.0=無影響，不加入即為預設1.0",
-
+  "_comment": "Per-player injury entries. already_absent:true = player was out before/from start of tournament, absence already reflected in WC form data — no multiplier applied. already_absent:false (default) = new injury, not yet in form data.",
   "Brazil": {
-    "notes": [
-      "Estêvão（傷出局整季）",
-      "Rodrygo（撕裂ACL，傷出局整季）",
-      "Raphinha（大腿後肌，確定缺陣）",
-      "Paquetá（禁賽整季）",
-      "Éder Militão（大腿後肌，傷出局整季）",
-      "Casemiro（肌肉傷，疑問）",
-      "Neymar（小腿，疑問）"
-    ],
-    "exclude_players": ["Raphinha", "Lucas Paquetá", "Casemiro", "Neymar"],
-    "attack_mult": 0.65,
-    "defense_mult": 1.10
+    "injuries": [
+      {
+        "player": "Estêvão",
+        "note": "傷出局整季（估）",
+        "known_from": "2026-05-01",
+        "attack_mult": 0.96,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Rodrygo",
+        "note": "撕裂ACL，傷出局整季（估）",
+        "known_from": "2026-05-01",
+        "attack_mult": 0.95,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Raphinha",
+        "note": "大腿後肌，確定缺陣（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 0.95,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Lucas Paquetá",
+        "note": "禁賽整季",
+        "known_from": "2026-05-01",
+        "attack_mult": 0.97,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Éder Militão",
+        "note": "大腿後肌，傷出局整季（估）",
+        "known_from": "2026-05-01",
+        "attack_mult": 1.0,
+        "defense_mult": 1.05,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Casemiro",
+        "note": "肌肉傷，疑問（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 1.0,
+        "defense_mult": 1.03,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Neymar",
+        "note": "小腿，疑問（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 0.98,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": true
+      }
+    ]
   },
-
   "Norway": {
-    "notes": [
-      "Julian Ryerson（大腿，疑問）"
-    ],
-    "attack_mult": 1.0,
-    "defense_mult": 1.03
+    "injuries": [
+      {
+        "player": "Julian Ryerson",
+        "note": "大腿，疑問（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 1.0,
+        "defense_mult": 1.03,
+        "already_absent": true
+      }
+    ]
   },
-
   "United States": {
-    "notes": [
-      "Johnny Cardoso（踝關節高級扭傷，確定缺陣）",
-      "Patrick Agyemang（跟腱撕裂，確定缺陣）"
-    ],
-    "exclude_players": ["Johnny Cardoso", "Patrick Agyemang"],
-    "attack_mult": 0.95,
-    "defense_mult": 1.05
+    "injuries": [
+      {
+        "player": "Patrick Agyemang",
+        "note": "跟腱撕裂，確定缺陣（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 0.98,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Johnny Cardoso",
+        "note": "踝關節高級扭傷，確定缺陣（估）",
+        "known_from": "2026-06-25",
+        "attack_mult": 1.0,
+        "defense_mult": 1.05,
+        "exclude": true,
+        "already_absent": true
+      }
+    ]
   },
-
   "Belgium": {
-    "notes": [
-      "Zeno Debast（腿傷，整屆缺陣，疑問）",
-      "Romelu Lukaku（火腿肌歷史傷，體能管理中）"
-    ],
-    "attack_mult": 1.0,
-    "defense_mult": 1.05
+    "injuries": [
+      {
+        "player": "Zeno Debast",
+        "note": "腿傷，整屆缺陣（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 1.0,
+        "defense_mult": 1.03,
+        "already_absent": true
+      },
+      {
+        "player": "Romelu Lukaku",
+        "note": "火腿肌歷史傷，體能管理中（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 1.0,
+        "defense_mult": 1.02,
+        "already_absent": true
+      }
+    ]
   },
-
   "Spain": {
-    "notes": [
-      "Fermín López（蹠骨骨折，傷出局整季）",
-      "Nico Williams（內收肌傷，R16疑問/可能缺陣）",
-      "Yeremy Pino（肩傷，R16疑問/可能缺陣）",
-      "Mikel Merino（足部應力性骨折復出，狀態存疑）"
-    ],
-    "exclude_players": ["Fermín López"],
-    "attack_mult": 0.87,
-    "defense_mult": 1.0
+    "injuries": [
+      {
+        "player": "Fermín López",
+        "note": "蹠骨骨折，傷出局整季（估）",
+        "known_from": "2026-05-15",
+        "attack_mult": 0.95,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Mikel Merino",
+        "note": "足部應力性骨折復出，狀態存疑（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 0.98,
+        "defense_mult": 1.0,
+        "already_absent": true
+      },
+      {
+        "player": "Nico Williams",
+        "note": "內收肌傷，R16確認缺陣",
+        "known_from": "2026-07-04",
+        "attack_mult": 0.95,
+        "defense_mult": 1.0,
+        "already_absent": false
+      },
+      {
+        "player": "Yeremy Pino",
+        "note": "肩傷，R16確認缺陣",
+        "known_from": "2026-07-04",
+        "attack_mult": 0.97,
+        "defense_mult": 1.0,
+        "already_absent": false
+      }
+    ]
   },
-
   "Portugal": {
-    "notes": [
-      "Rúben Dias（受傷缺席首場，預計復出但狀態管理中）"
-    ],
-    "attack_mult": 1.0,
-    "defense_mult": 1.03
+    "injuries": [
+      {
+        "player": "Rúben Dias",
+        "note": "受傷缺席首場，WC前已知（估）",
+        "known_from": "2026-06-14",
+        "attack_mult": 1.0,
+        "defense_mult": 1.05,
+        "already_absent": true
+      }
+    ]
   },
-
   "Argentina": {
-    "notes": [
-      "Cristian Romero（MCL部分撕裂，疑問）",
-      "Nahuel Molina（大腿傷，疑問/可能復出）"
-    ],
-    "exclude_players": ["Cristian Romero"],
-    "attack_mult": 0.97,
-    "defense_mult": 1.05
+    "injuries": [
+      {
+        "player": "Cristian Romero",
+        "note": "MCL部分撕裂，疑問（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 1.0,
+        "defense_mult": 1.05,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Nahuel Molina",
+        "note": "大腿傷，疑問/可能復出（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 1.0,
+        "defense_mult": 1.02,
+        "already_absent": true
+      }
+    ]
   },
-
   "Egypt": {
-    "notes": [
-      "Mohamed Salah（大腿後肌拉傷，帶傷出賽，非全狀態）",
-      "Mohamed Abdelmonem（踝傷，確定缺陣）",
-      "Ahmed Fatouh（傷，確定缺陣）"
-    ],
-    "attack_mult": 0.88,
-    "defense_mult": 1.10
+    "injuries": [
+      {
+        "player": "Mohamed Salah",
+        "note": "大腿後肌拉傷，帶傷出賽，非全狀態（估）",
+        "known_from": "2026-06-10",
+        "attack_mult": 0.88,
+        "defense_mult": 1.0,
+        "already_absent": true
+      },
+      {
+        "player": "Mohamed Abdelmonem",
+        "note": "踝傷，確定缺陣（估）",
+        "known_from": "2026-06-10",
+        "attack_mult": 1.0,
+        "defense_mult": 1.05,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Ahmed Fatouh",
+        "note": "傷，確定缺陣（估）",
+        "known_from": "2026-06-10",
+        "attack_mult": 1.0,
+        "defense_mult": 1.05,
+        "exclude": true,
+        "already_absent": true
+      }
+    ]
   },
-
   "England": {
-    "notes": [
-      "Tino Livramento（大腿傷，確定缺陣）",
-      "Reece James（大腿後肌，預計復出）",
-      "Declan Rice（大腿後肌，帶傷參賽）",
-      "Jarell Quansah（踝傷，疑問）",
-      "Jordan Henderson（慶祝跳欄手腕重傷，送醫，本屆報銷）"
-    ],
-    "attack_mult": 1.0,
-    "defense_mult": 1.12
+    "injuries": [
+      {
+        "player": "Tino Livramento",
+        "note": "大腿傷，確定缺陣（估）",
+        "known_from": "2026-06-01",
+        "attack_mult": 1.0,
+        "defense_mult": 1.03,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Declan Rice",
+        "note": "大腿後肌，帶傷參賽（估）",
+        "known_from": "2026-06-10",
+        "attack_mult": 1.0,
+        "defense_mult": 1.03,
+        "already_absent": true
+      },
+      {
+        "player": "Reece James",
+        "note": "大腿後肌，WC期間（估）",
+        "known_from": "2026-06-20",
+        "attack_mult": 1.0,
+        "defense_mult": 1.03,
+        "already_absent": true
+      },
+      {
+        "player": "Jarell Quansah",
+        "note": "踝傷，疑問，WC期間（估）",
+        "known_from": "2026-06-20",
+        "attack_mult": 1.0,
+        "defense_mult": 1.03,
+        "already_absent": true
+      },
+      {
+        "player": "Jordan Henderson",
+        "note": "慶祝跳欄手腕重傷，本屆報銷",
+        "known_from": "2026-07-03",
+        "attack_mult": 1.0,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": false
+      }
+    ]
   },
-
   "France": {
-    "notes": [
-      "Hugo Ekitiké（跟腱斷裂，傷出局整季）"
-    ],
-    "attack_mult": 0.97,
-    "defense_mult": 1.0
+    "injuries": [
+      {
+        "player": "Hugo Ekitiké",
+        "note": "跟腱斷裂，傷出局整季（估）",
+        "known_from": "2026-05-01",
+        "attack_mult": 0.97,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "Michael Olise（黃牌風險）",
+        "note": "對巴拉圭領黃牌，FIFA駁回申訴。本場可上陣但若再領黃將禁賽半決賽。本屆5助攻領跑全場。非受傷，不套用攻防乘數，僅作戰術風險記錄。",
+        "known_from": "2026-07-07",
+        "attack_mult": 1.0,
+        "defense_mult": 1.0,
+        "exclude": false,
+        "already_absent": false,
+        "_note_type": "disciplinary_risk_only"
+      }
+    ]
   },
-
   "Morocco": {
-    "notes": [],
-    "attack_mult": 1.0,
-    "defense_mult": 1.0
+    "injuries": [
+      {
+        "player": "Ismael Saibari",
+        "note": "腿後肌輕傷，對加拿大22分鐘下場，疑問；本屆小組賽場場進球，主力前鋒",
+        "known_from": "2026-07-06",
+        "attack_mult": 0.90,
+        "defense_mult": 1.0,
+        "exclude": false,
+        "already_absent": false
+      },
+      {
+        "player": "Riad",
+        "note": "膝傷，對加拿大缺陣，疑問；主力中後衛",
+        "known_from": "2026-07-06",
+        "attack_mult": 1.0,
+        "defense_mult": 0.96,
+        "exclude": false,
+        "already_absent": false
+      }
+    ]
   },
-
   "Switzerland": {
-    "notes": [],
-    "attack_mult": 1.0,
-    "defense_mult": 1.0
+    "injuries": [
+      {
+        "player": "Johan Manzambi",
+        "note": "膝傷，確定缺陣；本屆 3 球 2 助，瑞士最關鍵進攻球員",
+        "known_from": "2026-07-07",
+        "attack_mult": 0.87,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": false
+      },
+      {
+        "player": "Michel Aebischer",
+        "note": "肌肉傷，疑問；中場覆蓋能力下降",
+        "known_from": "2026-07-07",
+        "attack_mult": 0.97,
+        "defense_mult": 0.97,
+        "exclude": false,
+        "already_absent": false
+      },
+      {
+        "player": "Djibril Sow",
+        "note": "不適，疑問；防守型中場",
+        "known_from": "2026-07-07",
+        "attack_mult": 1.0,
+        "defense_mult": 0.96,
+        "exclude": false,
+        "already_absent": false
+      },
+      {
+        "player": "Ruben Vargas",
+        "note": "不適，疑問；左路主力邊鋒",
+        "known_from": "2026-07-07",
+        "attack_mult": 0.96,
+        "defense_mult": 1.0,
+        "exclude": false,
+        "already_absent": false
+      },
+      {
+        "player": "Luca Jaquez",
+        "note": "肌肉傷，疑問；右後衛",
+        "known_from": "2026-07-07",
+        "attack_mult": 1.0,
+        "defense_mult": 0.97,
+        "exclude": false,
+        "already_absent": false
+      }
+    ]
   },
-
   "Colombia": {
-    "notes": [
-      "Jhon Córdoba（火腿肌撕裂，確定缺陣整屆）"
-    ],
-    "attack_mult": 0.87,
-    "defense_mult": 1.0
+    "injuries": [
+      {
+        "player": "Jhon Córdoba",
+        "note": "火腿肌撕裂，確定缺陣整屆，整屆已適應無Córdoba陣容",
+        "known_from": "2026-05-20",
+        "attack_mult": 0.95,
+        "defense_mult": 1.0,
+        "exclude": true,
+        "already_absent": true
+      },
+      {
+        "player": "James Rodriguez",
+        "note": "對加納半場疑似戰術換人，體況疑問；是哥倫比亞創造力核心",
+        "known_from": "2026-07-07",
+        "attack_mult": 0.93,
+        "defense_mult": 1.0,
+        "exclude": false,
+        "already_absent": false
+      }
+    ]
   },
-
   "Paraguay": {
-    "notes": [
-      "Almirón（R32停賽已服完，R16可上）"
-    ],
-    "attack_mult": 1.0,
-    "defense_mult": 1.0
+    "injuries": []
   }
 }

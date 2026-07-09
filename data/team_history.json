@@ -1,337 +1,242 @@
 {
-  "Algeria": {
-    "conceded": 28,
-    "played": 37,
-    "scored": 86
-  },
-  "Argentina": {
-    "conceded": 12,
-    "played": 27,
-    "scored": 59
-  },
-  "Australia": {
-    "conceded": 19,
-    "played": 29,
-    "scored": 53
-  },
-  "Austria": {
-    "conceded": 22,
-    "played": 27,
-    "scored": 62
-  },
-  "Belgium": {
-    "conceded": 26,
-    "played": 26,
-    "scored": 54
-  },
-  "Bolivia": {
-    "conceded": 54,
-    "played": 29,
-    "scored": 26
-  },
-  "Bosnia Herzegovina": {
+  "Uruguay": {
+    "scored": 0,
     "conceded": 0,
-    "played": 0,
-    "scored": 0
-  },
-  "Bosnia and Herzegovina": {
-    "conceded": 35,
-    "played": 22,
-    "scored": 29
-  },
-  "Brazil": {
-    "conceded": 27,
-    "played": 27,
-    "scored": 49
-  },
-  "Cabo Verde": {
-    "conceded": 28,
-    "played": 30,
-    "scored": 39
-  },
-  "Canada": {
-    "conceded": 23,
-    "played": 31,
-    "scored": 40
-  },
-  "Cape Verde": {
-    "conceded": 0,
-    "played": 0,
-    "scored": 0
-  },
-  "Colombia": {
-    "conceded": 28,
-    "played": 29,
-    "scored": 60
-  },
-  "Congo DR": {
-    "conceded": 0,
-    "played": 0,
-    "scored": 0
-  },
-  "Costa Rica": {
-    "conceded": 39,
-    "played": 33,
-    "scored": 66
-  },
-  "Croatia": {
-    "conceded": 27,
-    "played": 25,
-    "scored": 51
-  },
-  "Curaçao": {
-    "conceded": 24,
-    "played": 23,
-    "scored": 47
-  },
-  "Czech Republic": {
-    "conceded": 0,
-    "played": 0,
-    "scored": 0
-  },
-  "Czechia": {
-    "conceded": 31,
-    "played": 26,
-    "scored": 51
-  },
-  "Côte d'Ivoire": {
-    "conceded": 0,
-    "played": 0,
-    "scored": 0
-  },
-  "DR Congo": {
-    "conceded": 19,
-    "played": 33,
-    "scored": 41
-  },
-  "Ecuador": {
-    "conceded": 16,
-    "played": 28,
-    "scored": 29
-  },
-  "Egypt": {
-    "conceded": 28,
-    "played": 36,
-    "scored": 53
-  },
-  "El Salvador": {
-    "conceded": 34,
-    "played": 28,
-    "scored": 28
-  },
-  "England": {
-    "conceded": 18,
-    "played": 29,
-    "scored": 56
-  },
-  "France": {
-    "conceded": 26,
-    "played": 28,
-    "scored": 51
+    "played": 0
   },
   "Germany": {
-    "conceded": 25,
-    "played": 28,
-    "scored": 67
-  },
-  "Ghana": {
-    "conceded": 34,
-    "played": 26,
-    "scored": 38
-  },
-  "Haiti": {
-    "conceded": 24,
-    "played": 22,
-    "scored": 55
-  },
-  "Honduras": {
-    "conceded": 36,
-    "played": 29,
-    "scored": 45
-  },
-  "Iran": {
-    "conceded": 23,
-    "played": 29,
-    "scored": 60
-  },
-  "Iraq": {
-    "conceded": 31,
-    "played": 34,
-    "scored": 46
-  },
-  "Ivory Coast": {
-    "conceded": 23,
-    "played": 35,
-    "scored": 60
-  },
-  "Jamaica": {
-    "conceded": 37,
-    "played": 37,
-    "scored": 47
-  },
-  "Japan": {
-    "conceded": 18,
-    "played": 29,
-    "scored": 77
-  },
-  "Jordan": {
-    "conceded": 52,
-    "played": 43,
-    "scored": 76
-  },
-  "Korea Republic": {
+    "scored": 0,
     "conceded": 0,
-    "played": 0,
-    "scored": 0
-  },
-  "Mexico": {
-    "conceded": 30,
-    "played": 36,
-    "scored": 47
-  },
-  "Morocco": {
-    "conceded": 14,
-    "played": 41,
-    "scored": 95
-  },
-  "Netherlands": {
-    "conceded": 27,
-    "played": 28,
-    "scored": 71
-  },
-  "New Zealand": {
-    "conceded": 21,
-    "played": 24,
-    "scored": 58
-  },
-  "Norway": {
-    "conceded": 22,
-    "played": 23,
-    "scored": 64
-  },
-  "Panama": {
-    "conceded": 48,
-    "played": 34,
-    "scored": 51
-  },
-  "Paraguay": {
-    "conceded": 27,
-    "played": 24,
-    "scored": 24
-  },
-  "Peru": {
-    "conceded": 26,
-    "played": 24,
-    "scored": 17
-  },
-  "Portugal": {
-    "conceded": 29,
-    "played": 28,
-    "scored": 62
-  },
-  "Qatar": {
-    "conceded": 54,
-    "played": 35,
-    "scored": 51
-  },
-  "Saudi Arabia": {
-    "conceded": 44,
-    "played": 44,
-    "scored": 50
-  },
-  "Scotland": {
-    "conceded": 38,
-    "played": 26,
-    "scored": 36
-  },
-  "Senegal": {
-    "conceded": 19,
-    "played": 35,
-    "scored": 73
-  },
-  "South Africa": {
-    "conceded": 28,
-    "played": 34,
-    "scored": 53
-  },
-  "South Korea": {
-    "conceded": 30,
-    "played": 30,
-    "scored": 58
+    "played": 0
   },
   "Spain": {
-    "conceded": 26,
-    "played": 29,
-    "scored": 77
-  },
-  "Sweden": {
-    "conceded": 38,
-    "played": 24,
-    "scored": 47
-  },
-  "Switzerland": {
-    "conceded": 30,
-    "played": 28,
-    "scored": 53
-  },
-  "Tanzania": {
-    "conceded": 33,
-    "played": 30,
-    "scored": 23
-  },
-  "Tunisia": {
-    "conceded": 24,
-    "played": 36,
-    "scored": 47
-  },
-  "Turkey": {
-    "conceded": 38,
-    "played": 28,
-    "scored": 50
-  },
-  "Türkiye": {
+    "scored": 0,
     "conceded": 0,
-    "played": 0,
-    "scored": 0
+    "played": 0
   },
-  "USA": {
+  "Paraguay": {
+    "scored": 0,
     "conceded": 0,
-    "played": 0,
-    "scored": 0
+    "played": 0
   },
-  "Uganda": {
-    "conceded": 32,
-    "played": 23,
-    "scored": 28
+  "Argentina": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Ghana": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Brazil": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Portugal": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Japan": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Mexico": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "England": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
   },
   "United States": {
-    "conceded": 49,
-    "played": 35,
-    "scored": 57
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
   },
-  "Uruguay": {
-    "conceded": 22,
-    "played": 29,
-    "scored": 32
+  "South Korea": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "France": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "South Africa": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Algeria": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Australia": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "New Zealand": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Switzerland": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Ecuador": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Sweden": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Czechia": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Croatia": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Saudi Arabia": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Tunisia": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Turkey": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Senegal": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Belgium": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Morocco": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Austria": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Colombia": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Egypt": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Canada": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Haiti": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Iran": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Bosnia and Herzegovina": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Panama": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Cabo Verde": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "DR Congo": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Ivory Coast": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Qatar": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Jordan": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Iraq": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
   },
   "Uzbekistan": {
-    "conceded": 18,
-    "played": 29,
-    "scored": 40
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
   },
-  "Venezuela": {
-    "conceded": 36,
-    "played": 24,
-    "scored": 26
+  "Netherlands": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
   },
-  "Zambia": {
-    "conceded": 34,
-    "played": 22,
-    "scored": 16
+  "Norway": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
   },
-  "Zimbabwe": {
-    "conceded": 30,
-    "played": 24,
-    "scored": 22
+  "Scotland": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
+  },
+  "Curaçao": {
+    "scored": 0,
+    "conceded": 0,
+    "played": 0
   }
 }

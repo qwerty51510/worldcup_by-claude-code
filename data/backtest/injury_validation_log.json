@@ -1,0 +1,114 @@
+[
+  {
+    "match": "Switzerland vs Colombia",
+    "match_date": "2026-07-07",
+    "logged_at": "2026-07-07T19:55:56.515189+00:00",
+    "lambda_home_base": 0.968,
+    "lambda_away_base": 1.151,
+    "scenarios": {
+      "A": {
+        "label": "only_manzambi_out",
+        "lh": 0.842,
+        "la": 1.151,
+        "p_home_wins": 0.4089,
+        "p_away_wins": 0.5911
+      },
+      "B": {
+        "label": "manzambi_aebischer_sow_out_james_doubt",
+        "lh": 0.817,
+        "la": 0.997,
+        "p_home_wins": 0.4444,
+        "p_away_wins": 0.5556
+      },
+      "C": {
+        "label": "all5_swiss_out_james_doubt_CURRENT_MODEL",
+        "lh": 0.784,
+        "la": 0.967,
+        "p_home_wins": 0.4426,
+        "p_away_wins": 0.5574
+      },
+      "D": {
+        "label": "all5_swiss_out_james_healthy",
+        "lh": 0.784,
+        "la": 1.04,
+        "p_home_wins": 0.4213,
+        "p_away_wins": 0.5787
+      }
+    },
+    "injury_scale_used": 1.0,
+    "swiss_injuries_applied": {
+      "Manzambi": {
+        "atk": 0.87,
+        "def": 1.0,
+        "status": "confirmed_out"
+      },
+      "Aebischer": {
+        "atk": 0.97,
+        "def": 0.97,
+        "status": "doubtful"
+      },
+      "Sow": {
+        "atk": 1.0,
+        "def": 0.96,
+        "status": "doubtful"
+      },
+      "Vargas": {
+        "atk": 0.96,
+        "def": 1.0,
+        "status": "doubtful"
+      },
+      "Jaquez": {
+        "atk": 1.0,
+        "def": 0.97,
+        "status": "doubtful"
+      }
+    },
+    "colombia_injuries_applied": {
+      "James_Rodriguez": {
+        "atk": 0.93,
+        "def": 1.0,
+        "status": "doubtful"
+      }
+    },
+    "result": {
+      "home_goals": 0,
+      "away_goals": 0
+    },
+    "injury_scale_verdict": "more_injuries_better (C Brier 0.4457 < A Brier 0.4844)",
+    "scenario_evals": {
+      "A": {
+        "p_home_90": 0.267,
+        "p_draw_90": 0.304,
+        "p_away_90": 0.429,
+        "p_correct_outcome": 0.304,
+        "brier": 0.4844,
+        "direction_correct": false
+      },
+      "B": {
+        "p_home_90": 0.288,
+        "p_draw_90": 0.325,
+        "p_away_90": 0.386,
+        "p_correct_outcome": 0.325,
+        "brier": 0.4551,
+        "direction_correct": false
+      },
+      "C": {
+        "p_home_90": 0.283,
+        "p_draw_90": 0.332,
+        "p_away_90": 0.384,
+        "p_correct_outcome": 0.332,
+        "brier": 0.4457,
+        "direction_correct": false
+      },
+      "D": {
+        "p_home_90": 0.269,
+        "p_draw_90": 0.322,
+        "p_away_90": 0.408,
+        "p_correct_outcome": 0.322,
+        "brier": 0.4592,
+        "direction_correct": false
+      }
+    },
+    "actual_result": "Switzerland 0-0 Colombia"
+  }
+]

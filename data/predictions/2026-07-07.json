@@ -1,71 +1,37 @@
 [
   {
-    "match_id": "537380",
-    "home_team": "United States",
-    "away_team": "Belgium",
-    "kickoff": "07/07 08:00",
-    "kickoff_utc": "2026-07-07T00:00:00Z",
-    "ah_prediction": "away",
-    "ah_confidence": 17,
-    "ou_prediction": "under",
-    "ou_confidence": 0,
-    "predicted_score": "1-1",
-    "predicted_score_prob": 9.7,
-    "p_home_win": 0.415,
-    "p_draw": 0.226,
-    "p_away_win": 0.359,
-    "key_factors": [
-      "強度來源：DraftKings盤口"
-    ],
-    "lambda_home": 1.763,
-    "lambda_away": 1.629,
-    "ou_lambda_home": 1.375,
-    "ou_lambda_away": 1.281,
-    "ah_line": -0.5,
-    "ou_line": 2.5,
-    "reasoning": "【強度】美國（ELO 1748）vs 比利時（ELO 1845），實力略佔優勢（ELO -97）\n【近況】美國 4場 進9 失3；比利時 4場 進8 失4\n【陣型戰術】美國 4-3-3（均衡）vs 比利時 4-3-3（進攻型）\n【體力】美國 休息5天（體力充足）；比利時 休息6天（體力充足）\n【進球預期】主 1.8 + 客 1.6 = 3.4，傾向小球（信心 0%）\n【勝負】雙方勢均力敵，平局機率 22% 不低",
-    "injury_notes": [
-      "美國：Johnny Cardoso（踝關節高級扭傷，確定缺陣）、Patrick Agyemang（跟腱撕裂，確定缺陣）",
-      "比利時：Zeno Debast（腿傷，整屆缺陣，疑問）、Romelu Lukaku（火腿肌歷史傷，體能管理中）"
-    ],
-    "stage": "LAST_16",
-    "dk_ml_home": "+155",
-    "dk_ml_draw": "+240",
-    "dk_ml_away": "+175"
-  },
-  {
     "match_id": "537381",
     "home_team": "Argentina",
     "away_team": "Egypt",
     "kickoff": "07/08 00:00",
     "kickoff_utc": "2026-07-07T16:00:00Z",
     "ah_prediction": "away",
-    "ah_confidence": 15,
+    "ah_confidence": 11,
     "ou_prediction": "over",
-    "ou_confidence": 0,
-    "predicted_score": "1-0",
-    "predicted_score_prob": 13.4,
-    "p_home_win": 0.675,
-    "p_draw": 0.201,
-    "p_away_win": 0.123,
+    "ou_confidence": 8,
+    "predicted_score": "2-0",
+    "predicted_score_prob": 14.0,
+    "p_home_win": 0.695,
+    "p_draw": 0.195,
+    "p_away_win": 0.11,
     "key_factors": [
       "強度來源：DraftKings盤口"
     ],
-    "lambda_home": 1.988,
-    "lambda_away": 0.706,
-    "ou_lambda_home": 1.963,
-    "ou_lambda_away": 0.723,
+    "lambda_home": 2.025,
+    "lambda_away": 0.659,
+    "ou_lambda_home": 2.105,
+    "ou_lambda_away": 0.741,
     "ah_line": -1.5,
     "ou_line": 2.5,
-    "reasoning": "【強度】阿根廷（ELO 2031）vs 埃及（ELO 1509），實力差距懸殊（ELO +522）\n【近況】阿根廷 4場 進8 失2；埃及 4場 進5 失4\n【陣型戰術】阿根廷 4-3-3（進攻型）vs 埃及 4-2-3-1（防守反擊），主隊進攻留縫隙，客隊反擊空間大\n【體力】阿根廷 休息4天（略有疲態）；埃及 休息4天（略有疲態）\n【進球預期】主 2.0 + 客 0.7 = 2.7，傾向大球（信心 0%）\n【勝負】阿根廷 明顯佔優（勝率 67%），平局機率 20%",
+    "reasoning": "【強度】阿根廷（ELO 2031）vs 埃及（ELO 1509），實力差距懸殊（ELO +522）\n【近況】阿根廷 4場 進9 失2；埃及 4場 進6 失4\n【陣型戰術】阿根廷 4-3-3（進攻型）vs 埃及 4-2-3-1（防守反擊），主隊進攻留縫隙，客隊反擊空間大\n【體力】阿根廷 休息4天（略有疲態）；埃及 休息4天（略有疲態）\n【進球預期】主 2.0 + 客 0.7 = 2.7，傾向大球（信心 8%）\n【勝負】阿根廷 明顯佔優（勝率 69%），平局機率 19%",
     "injury_notes": [
       "阿根廷：Cristian Romero（MCL部分撕裂，疑問）、Nahuel Molina（大腿傷，疑問/可能復出）",
       "埃及：Mohamed Salah（大腿後肌拉傷，帶傷出賽，非全狀態）、Mohamed Abdelmonem（踝傷，確定缺陣）、Ahmed Fatouh（傷，確定缺陣）"
     ],
     "stage": "LAST_16",
-    "dk_ml_home": "-260",
-    "dk_ml_draw": "+370",
-    "dk_ml_away": "+800"
+    "dk_ml_home": "-300",
+    "dk_ml_draw": "+390",
+    "dk_ml_away": "+900"
   },
   {
     "match_id": "537382",
@@ -74,30 +40,30 @@
     "kickoff": "07/08 04:00",
     "kickoff_utc": "2026-07-07T20:00:00Z",
     "ah_prediction": "home",
-    "ah_confidence": 35,
+    "ah_confidence": 24,
     "ou_prediction": "under",
-    "ou_confidence": 41,
-    "predicted_score": "1-0",
-    "predicted_score_prob": 14.4,
-    "p_home_win": 0.366,
-    "p_draw": 0.312,
-    "p_away_win": 0.322,
+    "ou_confidence": 28,
+    "predicted_score": "0-1",
+    "predicted_score_prob": 13.8,
+    "p_home_win": 0.318,
+    "p_draw": 0.302,
+    "p_away_win": 0.38,
     "key_factors": [
       "強度來源：DraftKings盤口"
     ],
-    "lambda_home": 1.021,
-    "lambda_away": 0.937,
-    "ou_lambda_home": 0.818,
-    "ou_lambda_away": 1.068,
+    "lambda_home": 0.973,
+    "lambda_away": 1.092,
+    "ou_lambda_home": 0.854,
+    "ou_lambda_away": 1.267,
     "ah_line": 0.5,
     "ou_line": 2.5,
-    "reasoning": "【強度】瑞士（ELO 1695）vs 哥倫比亞（ELO 1806），實力略佔優勢（ELO -111）\n【近況】瑞士 4場 進9 失2；哥倫比亞 4場 進4 失0\n【陣型戰術】瑞士 3-4-3（均衡）vs 哥倫比亞 4-3-3（控球進攻）\n【體力】瑞士 休息4天（略有疲態）；哥倫比亞 休息3天（疲態明顯）\n【進球預期】主 1.0 + 客 0.9 = 2.0，傾向小球（信心 41%）\n【勝負】雙方勢均力敵，平局機率 31% 不低",
+    "reasoning": "【強度】瑞士（ELO 1695）vs 哥倫比亞（ELO 1806），實力略佔優勢（ELO -111）\n【近況】瑞士 4場 進9 失3；哥倫比亞 4場 進5 失1\n【陣型戰術】瑞士 3-4-3（均衡）vs 哥倫比亞 4-3-3（控球進攻）\n【體力】瑞士 休息4天（略有疲態）；哥倫比亞 休息3天（疲態明顯）\n【進球預期】主 1.0 + 客 1.1 = 2.1，傾向小球（信心 28%）\n【勝負】雙方勢均力敵，平局機率 30% 不低",
     "injury_notes": [
-      "哥倫比亞：Jhon Córdoba（火腿肌撕裂，確定缺陣整屆）"
+      "哥倫比亞：Jhon Córdoba（火腿肌撕裂，確定缺陣整屆）、整屆4場進5失1，已充分適應無Córdoba陣容，傷兵影響已折算"
     ],
     "stage": "LAST_16",
-    "dk_ml_home": "+230",
+    "dk_ml_home": "+245",
     "dk_ml_draw": "+210",
-    "dk_ml_away": "+135"
+    "dk_ml_away": "+125"
   }
 ]

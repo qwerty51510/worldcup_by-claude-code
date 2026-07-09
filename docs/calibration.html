@@ -139,6 +139,11 @@ main { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
   border-radius: 8px;
   padding: 14px 16px;
 }
+.et-box {
+  flex: 1 1 100%;
+  background: rgba(139,92,246,0.06);
+  border-color: rgba(139,92,246,0.25);
+}
 .market-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
 .market-prediction {
   display: flex; align-items: center; justify-content: space-between;
@@ -170,6 +175,29 @@ main { max-width: 1100px; margin: 0 auto; padding: 32px 20px; }
 .onex2-item { flex: 1; text-align: center; }
 .onex2-pct { font-size: 1rem; font-weight: 700; }
 .onex2-lbl { font-size: 0.65rem; color: var(--muted); margin-top: 1px; }
+.onex2-odds { font-size: 0.67rem; color: #475569; margin-top: 3px; letter-spacing: 0.3px; }
+.onex2-bar {
+  display: flex; height: 6px; border-radius: 4px; overflow: hidden;
+  margin-top: 10px; background: var(--border); gap: 1px;
+}
+.onex2-bar > div { transition: width 0.3s; }
+/* ── odds edge ── */
+.oe-wrap { margin-top: 9px; display: flex; flex-direction: column; gap: 4px; }
+.oe-item { display: flex; align-items: center; gap: 5px; font-size: 0.69rem; }
+.oe-lbl  { width: 28px; font-weight: 700; }
+.oe-mkt  { width: 30px; color: var(--muted); text-align: right; }
+.oe-arr  { color: var(--border); }
+.oe-model{ width: 30px; color: var(--text); font-weight: 600; }
+.oe-badge{ font-size: 0.65rem; font-weight: 700; margin-left: 2px; }
+/* ── goal distribution chips ── */
+.gd-grid { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.gd-chip {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 5px; padding: 3px 7px; display: flex; gap: 4px;
+  align-items: center;
+}
+.gd-lbl { font-size: 0.64rem; color: var(--muted); font-weight: 600; }
+.gd-val { font-size: 0.68rem; font-weight: 700; }
 /* ── empty state ── */
 .empty { text-align: center; padding: 72px 20px; color: var(--muted); }
 .empty-icon { font-size: 2.5rem; margin-bottom: 12px; }
@@ -228,6 +256,16 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
   margin-bottom: 10px; letter-spacing: 0.3px;
 }
 /* ── reasoning ── */
+.time-basis-note {
+  font-size: 0.75rem;
+  color: #64748b;
+  background: rgba(100,116,139,0.08);
+  border: 1px solid rgba(100,116,139,0.2);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+}
+.time-basis-note strong { color: #94a3b8; }
 .reasoning-box {
   margin-top: 14px;
   background: rgba(30,45,69,0.6);
@@ -314,7 +352,7 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
       <div class="logo-sub">亞洲讓球盤 · 大小球 · 比分預測</div>
     </div>
   </div>
-  <nav><a href="index.html" class="">📊 今日預測</a><a href="results.html" class="">📜 歷史結果</a><a href="calibration.html" class="active">⚙️ 模型校正</a><a href="postmortem.html" class="">🔍 復盤分析</a></nav>
+  <nav><a href="index.html" class="">📊 今日預測</a><a href="results.html" class="">📜 歷史結果</a><a href="calibration.html" class="active">⚙️ 模型校正</a><a href="postmortem.html" class="">🔍 復盤分析</a><a href="trading.html" class="">📈 交易</a></nav>
 </header>
 <main>
 

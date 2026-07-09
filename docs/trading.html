@@ -197,10 +197,11 @@ tr:hover td { background: rgba(255,255,255,0.02); }
     </div>
   </div>
   <nav>
-    <a href="index.html">&#128197; 今日預測</a>
-    <a href="results.html">&#128202; 歷史結果</a>
-    <a href="postmortem.html">&#128269; 復盤</a>
-    <a href="trading.html" class="active">&#128200; 交易</a>
+    <a href="index.html">📊 今日預測</a>
+    <a href="results.html">📜 歷史結果</a>
+    <a href="calibration.html">⚙️ 模型校正</a>
+    <a href="postmortem.html">🔍 復盤分析</a>
+    <a href="trading.html" class="active">📈 交易</a>
   </nav>
 </header>
 
@@ -214,39 +215,96 @@ tr:hover td { background: rgba(255,255,255,0.02); }
         <span class="status-dot"></span>
         ACTIVE
       </span>
-      <span class="updated-chip">頁面每 60 秒自動刷新 &bull; 生成於 2026-06-28 14:46:09 UTC</span>
+      <span class="updated-chip">頁面每 60 秒自動刷新 &bull; 生成於 2026-07-08 04:18:15 UTC</span>
+    </div>
+  </div>
+
+  <!-- ── 即時損益表 ── -->
+  <div class="section" style="margin-bottom:20px;">
+    <div class="section-header" style="margin-bottom:12px;">
+      <span class="section-title">即時損益表
+        <span style="color:var(--green);font-size:0.72rem;margin-left:8px;">● LIVE · 60s 自動刷新</span>
+      </span>
+    </div>
+
+    <!-- 總覽橫條 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:16px;">
+      <div class="stat-card" style="border-color:rgba(16,185,129,0.5)">
+        <div class="stat-label">未實現總損益</div>
+        <div class="stat-value profit" style="font-size:2rem;">+$28.94</div>
+        <div style="font-size:0.78rem;color:var(--green);margin-top:2px;">+16.63%</div>
+      </div>
+      <div class="stat-card" style="border-color:rgba(16,185,129,0.5)">
+        <div class="stat-label">總收益</div>
+        <div class="stat-value profit">+$44.84</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">已結算 +15.89 + 未實現 +28.94</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">已投入成本</div>
+        <div class="stat-value">$174.09</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">2 筆部位</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">持倉市值</div>
+        <div class="stat-value">$203.03</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">data-api 即時</div>
+      </div>
+    </div>
+
+    <!-- 逐倉損益明細 -->
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>市場</th>
+          <th style="text-align:right;">成本</th>
+          <th style="text-align:right;">市值</th>
+          <th style="text-align:right;">損益 ($)</th>
+          <th style="text-align:right;">損益 (%)</th>
+          <th style="text-align:right;">均價</th>
+          <th style="text-align:right;">現價</th>
+          <th style="text-align:right;">份額</th>
+        </tr></thead>
+        <tbody>
+          
+        <tr>
+          <td class="team-cell">Europe (UEFA) win the 2026 FIFA World Cup?</td>
+          <td style="text-align:right;">$100.00</td>
+          <td style="text-align:right;">$126.61</td>
+          <td style="text-align:right;" class="profit">+$26.61</td>
+          <td style="text-align:right;" class="profit">+26.6%</td>
+          <td style="text-align:right;" class="muted">62.0¢</td>
+          <td style="text-align:right;">78.5¢</td>
+          <td style="text-align:right;" class="muted">161.3</td>
+        </tr>
+        <tr>
+          <td class="team-cell">France win the 2026 FIFA World Cup?</td>
+          <td style="text-align:right;">$74.09</td>
+          <td style="text-align:right;">$76.42</td>
+          <td style="text-align:right;" class="profit">+$2.33</td>
+          <td style="text-align:right;" class="profit">+3.1%</td>
+          <td style="text-align:right;" class="muted">65.2¢</td>
+          <td style="text-align:right;">67.2¢</td>
+          <td style="text-align:right;" class="muted">113.6</td>
+        </tr>
+        </tbody>
+        <tfoot><tr style="border-top:2px solid var(--border);font-weight:700;"><td>合計</td><td style="text-align:right;">$174.09</td><td style="text-align:right;">$203.03</td><td style="text-align:right;" class="profit">+$28.94</td><td style="text-align:right;" class="profit">+16.63%</td><td colspan="3"></td></tr></tfoot>
+      </table>
     </div>
   </div>
 
   <!-- ── 關鍵指標 ── -->
-  <div class="stats-grid">
+  <div class="stats-grid" style="margin-bottom:20px;">
     <div class="stat-card">
-      <div class="stat-label">本金餘額</div>
-      <div class="stat-value">$500.00</div>
+      <div class="stat-label">持倉數</div>
+      <div class="stat-value">2</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">今日損益</div>
-      <div class="stat-value neutral">$0.00</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">累計損益</div>
-      <div class="stat-value neutral">$0.00</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">持倉數 / 上限</div>
-      <div class="stat-value">0 / 4</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">已曝險金額</div>
-      <div class="stat-value">$0.00</div>
+      <div class="stat-label">已曝險成本</div>
+      <div class="stat-value">$174.09</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">已結算勝率</div>
-      <div class="stat-value">—</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">已結算筆數</div>
-      <div class="stat-value">0</div>
+      <div class="stat-value">67%</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">模型校準係數</div>
@@ -254,21 +312,44 @@ tr:hover td { background: rgba(255,255,255,0.02); }
     </div>
   </div>
 
-  <!-- ── 持倉 ── -->
+  <!-- ── 持倉明細（data-api） ── -->
   <div class="section">
-    <div class="section-title">目前持倉</div>
+    <div class="section-title">持倉明細</div>
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th>球隊</th><th>賽段</th><th>投注金額</th>
-          <th>進場價</th><th>模型機率</th><th>當前 EV</th><th>進場時間</th>
+          <th>球隊</th><th>方向</th><th>市場</th><th>投注金額</th>
+          <th>均價 → 現價</th><th>持有份額</th><th>損益</th><th>當前市值</th>
         </tr></thead>
         <tbody>
-          <tr><td colspan="7" class="empty-row">目前無持倉</td></tr>
+          
+        <tr>
+          <td class="team-cell">Europe (UEFA)</td>
+          <td><span class="buy-badge">做多 YES</span></td>
+          <td><span class="stage-badge">WC冠軍</span></td>
+          <td style="text-align:right">$100.00</td>
+          <td style="text-align:right">62.0¢ → 78.5¢</td>
+          <td style="text-align:right">161.3股</td>
+          <td class="profit" style="text-align:right">+26.61 (+26.6%)</td>
+          <td style="text-align:right" class="neutral">$126.61</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">France</td>
+          <td><span class="sell-badge">做空 NO</span></td>
+          <td><span class="stage-badge">WC冠軍</span></td>
+          <td style="text-align:right">$74.09</td>
+          <td style="text-align:right">65.2¢ → 67.2¢</td>
+          <td style="text-align:right">113.6股</td>
+          <td class="profit" style="text-align:right">+2.33 (+3.1%)</td>
+          <td style="text-align:right" class="neutral">$76.42</td>
+        </tr>
         </tbody>
       </table>
     </div>
   </div>
+
+  <div class="section" style="margin-top:12px;"><div class="section-title" style="color:var(--red);">已結算部位（確認虧損）</div><div class="table-wrap"><table><thead><tr><th>球隊</th><th style="text-align:right;">成本</th><th style="text-align:right;">市值</th><th style="text-align:right;">損益 ($)</th><th style="text-align:right;">損益 (%)</th><th style="text-align:right;">均價</th><th style="text-align:right;">現價</th><th style="text-align:right;">份額</th></tr></thead><tbody><tr><td class="team-cell">Colombia</td><td style="text-align:right;">$19.44</td><td style="text-align:right;">$0.00</td><td style="text-align:right;" class="loss">-$19.44</td><td style="text-align:right;" class="loss">-100.0%</td><td style="text-align:right;" class="muted">20.0¢</td><td style="text-align:right;" class="muted">0.0¢</td><td style="text-align:right;" class="muted">—</td></tr></tbody></table></div></div>
 
   <!-- ── 交易紀錄 ── -->
   <div class="section">
@@ -280,7 +361,216 @@ tr:hover td { background: rgba(255,255,255,0.02); }
           <th>金額</th><th>價格</th><th>損益</th><th>時間</th>
         </tr></thead>
         <tbody>
-          <tr><td colspan="7" class="empty-row">尚無交易紀錄</td></tr>
+          
+        <tr>
+          <td class="team-cell">Morocco</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="sell-badge">SELL</span></td>
+          <td>$52.33</td>
+          <td>0.226</td>
+          <td class="profit">+$20.04</td>
+          <td class="muted">2026-07-07 11:34</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">France</td>
+          <td><span class="stage-badge">SF-NO</span></td>
+          <td><span class="sell-badge">BUY_NO</span></td>
+          <td>$25.00</td>
+          <td>0.250</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-07-03 10:00</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Spain</td>
+          <td><span class="stage-badge">SF-YES</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$20.00</td>
+          <td>0.490</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-07-03 10:00</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Colombia</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="sell-badge">SELL_PENDING</span></td>
+          <td>—</td>
+          <td>0.300</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-07-03 04:50</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Switzerland</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="sell-badge">SELL</span></td>
+          <td>$20.78</td>
+          <td>0.131</td>
+          <td class="profit">+$7.77</td>
+          <td class="muted">2026-07-03 05:10</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">USA</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="sell-badge">SELL</span></td>
+          <td>$18.03</td>
+          <td>0.185</td>
+          <td class="neutral">$0.00</td>
+          <td class="muted">2026-07-02 20:05</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Morocco</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$19.26</td>
+          <td>0.222</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-30 09:00</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">USA</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$20.00</td>
+          <td>0.165</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-30 09:00</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Argentina</td>
+          <td><span class="stage-badge">SF-NO</span></td>
+          <td><span class="sell-badge">SELL_NO</span></td>
+          <td>$19.26</td>
+          <td>0.370</td>
+          <td class="profit">+$0.52</td>
+          <td class="muted">2026-06-30 09:00</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">France</td>
+          <td><span class="stage-badge">SF-NO</span></td>
+          <td><span class="sell-badge">SELL_NO</span></td>
+          <td>$20.00</td>
+          <td>0.340</td>
+          <td class="neutral">$0.00</td>
+          <td class="muted">2026-06-30 09:00</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Argentina</td>
+          <td><span class="stage-badge">SF-NO</span></td>
+          <td><span class="sell-badge">BUY_NO</span></td>
+          <td>$19.26</td>
+          <td>0.370</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-30 08:30</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">France</td>
+          <td><span class="stage-badge">SF-NO</span></td>
+          <td><span class="sell-badge">BUY_NO</span></td>
+          <td>$20.00</td>
+          <td>0.340</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-30 08:30</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Canada</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="sell-badge">SELL</span></td>
+          <td>$25.19</td>
+          <td>0.061</td>
+          <td class="profit">+$7.00</td>
+          <td class="muted">2026-06-30 08:13</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Belgium</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$12.26</td>
+          <td>0.110</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-29 17:13</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Morocco</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$14.48</td>
+          <td>0.090</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-29 17:13</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Canada</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$14.97</td>
+          <td>0.043</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-29 17:13</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Canada</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$8.81</td>
+          <td>0.043</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-29 10:12</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Colombia</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$21.00</td>
+          <td>0.200</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-29 10:47</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">USA</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$20.00</td>
+          <td>0.180</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-29 10:47</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Switzerland</td>
+          <td><span class="stage-badge">八強→四強</span></td>
+          <td><span class="buy-badge">BUY</span></td>
+          <td>$18.00</td>
+          <td>0.082</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-06-29 10:47</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">France</td>
+          <td><span class="stage-badge">WC-Champion-NO</span></td>
+          <td><span class="sell-badge">BUY_NO</span></td>
+          <td>$74.09</td>
+          <td>0.652</td>
+          <td class="neutral">—</td>
+          <td class="muted">2026-07-02 15:58</td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -290,7 +580,7 @@ tr:hover td { background: rgba(255,255,255,0.02); }
   <div class="section">
     <div class="section-title">
       模型機率：晉級
-      <span style="font-size:0.72rem;color:var(--muted);margin-left:8px;">更新於 2026-06-28 14:39:03 UTC</span>
+      <span style="font-size:0.72rem;color:var(--muted);margin-left:8px;">更新於 2026-07-07 08:28:30 UTC</span>
     </div>
     <div class="table-wrap">
       <table>
@@ -298,7 +588,7 @@ tr:hover td { background: rgba(255,255,255,0.02); }
           <th>球隊</th><th>八強</th><th>四強</th><th>決賽</th><th>奪冠</th>
         </tr></thead>
         <tbody>
-          <tr><td colspan="5" class="empty-row">尚無模型機率（等待 pm_predict 首次運行）</td></tr>
+          <tr><td colspan="5" class="empty-row">—</td></tr>
         </tbody>
       </table>
     </div>
@@ -313,7 +603,46 @@ tr:hover td { background: rgba(255,255,255,0.02); }
           <th>主隊</th><th></th><th>客隊</th><th>主勝 / 平 / 客勝</th><th>賽事 ID</th>
         </tr></thead>
         <tbody>
-          <tr><td colspan="5" class="empty-row">—</td></tr>
+          
+        <tr>
+          <td class="team-cell">Argentina</td>
+          <td class="muted">vs</td>
+          <td class="team-cell">Egypt</td>
+          <td>86.2% / 8.8% / 5.0%</td>
+          <td class="muted">537381</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Switzerland</td>
+          <td class="muted">vs</td>
+          <td class="team-cell">Colombia</td>
+          <td>32.0% / 25.3% / 42.7%</td>
+          <td class="muted">537382</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">France</td>
+          <td class="muted">vs</td>
+          <td class="team-cell">Morocco</td>
+          <td>58.7% / 21.1% / 20.2%</td>
+          <td class="muted">537383</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Spain</td>
+          <td class="muted">vs</td>
+          <td class="team-cell">Belgium</td>
+          <td>50.0% / 24.1% / 25.9%</td>
+          <td class="muted">537384</td>
+        </tr>
+
+        <tr>
+          <td class="team-cell">Norway</td>
+          <td class="muted">vs</td>
+          <td class="team-cell">England</td>
+          <td>15.6% / 18.7% / 65.7%</td>
+          <td class="muted">537385</td>
+        </tr>
         </tbody>
       </table>
     </div>
@@ -353,6 +682,41 @@ tr:hover td { background: rgba(255,255,255,0.02); }
       </table>
     </div>
   </div>
+
+  <!-- ── 稽核日誌 ──────────────────────────────────── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">🔍 稽核日誌（最近 20 筆）</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>時間</th><th>類型</th><th>信號</th><th>EV</th><th>結果</th><th>原因</th>
+        </tr></thead>
+        <tbody>
+          
+        <tr>
+          <td class="muted">2026-06-28 22:01:46</td>
+          <td><span class="stage-badge">晉級</span></td>
+          <td class="team-cell">Canada</td>
+          <td>+15.0¢</td>
+          <td class="profit">✅ 通過</td>
+          <td class="muted" style="font-size:0.75rem">ok</td>
+        </tr>
+
+        <tr>
+          <td class="muted">2026-06-28 22:01:46</td>
+          <td><span class="stage-badge">晉級</span></td>
+          <td class="team-cell">France</td>
+          <td>+5.0¢</td>
+          <td class="loss">❌ 拒絕</td>
+          <td class="muted" style="font-size:0.75rem">ev 0.0500 < floor 0.07</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </main>
 </body>
 </html>

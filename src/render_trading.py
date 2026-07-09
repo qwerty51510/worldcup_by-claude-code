@@ -19,38 +19,44 @@ OUTPUT_PATH = Path(__file__).parent.parent / "docs" / "trading.html"
 
 STAGE_LABELS = {"qf": "八強", "sf": "四強", "final": "決賽", "winner": "奪冠"}
 
-POLYGON_RPC = "https://polygon-rpc.com"
-USDC_NATIVE  = "0x3c499c542cef5e3811e1192ce70d8cc03d5c3359"
-USDC_BRIDGED = "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+DATA_API = "https://data-api.polymarket.com"
 
 
-def _fetch_chain_balance() -> tuple:
-    """回傳 (usdc_total, matic) 鏈上真實餘額。失敗時回傳 (None, None)。"""
-    wallet = os.environ.get("WALLET_ADDRESS", "")
-    if not wallet:
-        return None, None
+def _fetch_live_data() -> dict:
+    """從 Polymarket data-api 拉 live 資料，回傳 dict（失敗欄位為 None）。"""
+    _load_env_once()
+    maker = os.environ.get("POLY_MAKER", "")
+    result = {"positions_value": None, "invested": None, "positions": [], "bankroll": None}
+    if not maker:
+        return result
     try:
-        def _call(token, addr):
-            padded = addr[2:].lower().zfill(64)
-            payload = {
-                "jsonrpc": "2.0", "method": "eth_call",
-                "params": [{"to": token, "data": "0x70a08231" + padded}, "latest"],
-                "id": 1,
-            }
-            r = requests.post(POLYGON_RPC, json=payload, timeout=8)
-            return int(r.json().get("result", "0x0"), 16) / 1e6
-
-        def _matic(addr):
-            payload = {"jsonrpc": "2.0", "method": "eth_getBalance",
-                       "params": [addr, "latest"], "id": 1}
-            r = requests.post(POLYGON_RPC, json=payload, timeout=8)
-            return int(r.json().get("result", "0x0"), 16) / 1e18
-
-        usdc = _call(USDC_NATIVE, wallet) + _call(USDC_BRIDGED, wallet)
-        matic = _matic(wallet)
-        return round(usdc, 2), round(matic, 4)
+        rv = requests.get(f"{DATA_API}/value?user={maker}", timeout=8)
+        rp = requests.get(f"{DATA_API}/positions?user={maker}", timeout=8)
+        if rv.ok and rv.json():
+            result["positions_value"] = round(rv.json()[0]["value"], 2)
+        if rp.ok:
+            raw = rp.json()
+            result["positions"] = raw
+            result["invested"]  = round(sum(p.get("initialValue", 0) for p in raw), 2)
+        # available USDC = off-chain，用 portfolio.json bankroll - invested 估算
+        if result["invested"] is not None:
+            from src.pm_portfolio import load as _pl
+            bankroll = _pl().get("bankroll", 0.0)
+            result["bankroll"] = round(bankroll, 2)
     except Exception:
-        return None, None
+        pass
+    return result
+
+
+def _load_env_once() -> None:
+    from pathlib import Path
+    env = Path(__file__).parent.parent / ".env"
+    if not env.exists():
+        return
+    for line in env.read_text().splitlines():
+        if "=" in line and not line.startswith("#"):
+            k, v = line.split("=", 1)
+            os.environ.setdefault(k.strip(), v.strip())
 
 
 def _load() -> dict:
@@ -77,7 +83,83 @@ def _pnl_class(v: float) -> str:
     return "neutral"
 
 
-def _positions_rows(positions: list) -> str:
+def _pnl_row(p: dict) -> str:
+    """data-api position → 損益表一行"""
+    title  = p.get("title", "")
+    team   = title.replace("Will ", "").split(" reach")[0] if "Will " in title else title[:30]
+    cost   = p.get("initialValue", 0)
+    val    = p.get("currentValue",  0)
+    pnl    = p.get("cashPnl",       0)
+    pct    = p.get("percentPnl",    0)
+    avg    = p.get("avgPrice",       0)
+    cur    = p.get("curPrice",       avg)
+    shares = p.get("size",           0)
+    cls    = "profit" if pnl >= 0 else "loss"
+    sign   = "+" if pnl >= 0 else "-"
+    return f"""
+        <tr>
+          <td class="team-cell">{team}</td>
+          <td style="text-align:right;">${cost:.2f}</td>
+          <td style="text-align:right;">${val:.2f}</td>
+          <td style="text-align:right;" class="{cls}">{sign}${abs(pnl):.2f}</td>
+          <td style="text-align:right;" class="{cls}">{sign}{abs(pct):.1f}%</td>
+          <td style="text-align:right;" class="muted">{avg*100:.1f}¢</td>
+          <td style="text-align:right;">{cur*100:.1f}¢</td>
+          <td style="text-align:right;" class="muted">{shares:.1f}</td>
+        </tr>"""
+
+
+def _positions_rows(positions: list, live_positions: list = None) -> str:
+    """live_positions: data-api format（優先）；positions: portfolio.json format（fallback）"""
+    # 優先使用 data-api live 數據
+    if live_positions:
+        rows = []
+        for p in live_positions:
+            if p.get("initialValue", 0) < 1.0:  # skip neg-risk dust positions
+                continue
+            title = p.get("title", "—")
+            outcome = p.get("outcome", "Yes")
+            # 萃取球隊名
+            if "Will " in title and " reach" in title:
+                team = title.replace("Will ", "").split(" reach")[0]
+            elif "Will " in title and " win" in title:
+                team = title.replace("Will ", "").split(" win")[0]
+            else:
+                team = title[:25]
+            # 方向標籤
+            if outcome == "No":
+                dir_badge = '<span class="sell-badge">做空 NO</span>'
+            else:
+                dir_badge = '<span class="buy-badge">做多 YES</span>'
+            # 市場類型
+            if "Semifinals" in title:
+                mkt = "SF"
+            elif "win the 2026" in title:
+                mkt = "WC冠軍"
+            else:
+                mkt = "—"
+            avg   = p.get("avgPrice", 0)
+            cur   = p.get("curPrice", avg)
+            size  = p.get("initialValue", 0)
+            cur_v = p.get("currentValue", 0)
+            pnl   = p.get("cashPnl", 0)
+            pct   = p.get("percentPnl", 0)
+            shares= p.get("size", 0)
+            pnl_cls = "profit" if pnl >= 0 else "loss"
+            rows.append(f"""
+        <tr>
+          <td class="team-cell">{team}</td>
+          <td>{dir_badge}</td>
+          <td><span class="stage-badge">{mkt}</span></td>
+          <td style="text-align:right">${size:.2f}</td>
+          <td style="text-align:right">{avg*100:.1f}¢ → {cur*100:.1f}¢</td>
+          <td style="text-align:right">{shares:.1f}股</td>
+          <td class="{pnl_cls}" style="text-align:right">{'+' if pnl>=0 else ''}{pnl:.2f} ({pct:+.1f}%)</td>
+          <td style="text-align:right" class="neutral">${cur_v:.2f}</td>
+        </tr>""")
+        return "\n".join(rows)
+
+    # fallback: portfolio.json
     if not positions:
         return '<tr><td colspan="7" class="empty-row">目前無持倉</td></tr>'
     rows = []
@@ -118,12 +200,13 @@ def _trade_log_rows(trade_log: list) -> str:
         pnl_str = _fmt_usd(pnl) if pnl is not None else "—"
         pnl_cls = _pnl_class(pnl) if pnl is not None else "neutral"
         action_cls = "buy-badge" if action == "BUY" else "sell-badge"
+        size_str = f"${size:.2f}" if size is not None else "—"
         rows.append(f"""
         <tr>
           <td class="team-cell">{team}</td>
           <td><span class="stage-badge">{stage}</span></td>
           <td><span class="{action_cls}">{action}</span></td>
-          <td>${size:.2f}</td>
+          <td>{size_str}</td>
           <td>{price:.3f}</td>
           <td class="{pnl_cls}">{pnl_str}</td>
           <td class="muted">{ts}</td>
@@ -193,7 +276,33 @@ def _calibration_rows(history: list) -> str:
     return "\n".join(rows)
 
 
-def render(data: dict, chain_usdc: float = None, chain_matic: float = None) -> str:
+def _audit_log_rows(entries: list) -> str:
+    if not entries:
+        return '<tr><td colspan="6" class="empty-row">尚無稽核記錄</td></tr>'
+    rows = []
+    for e in reversed(entries):
+        ts = e.get("ts", "")[:19].replace("T", " ")
+        kind = "晉級" if e.get("type") == "advancement" else "單場"
+        label = e.get("team") or e.get("match", "—")
+        ev = e.get("ev", 0)
+        approved = e.get("approved", False)
+        reason = e.get("reason", "—")
+        ap_cls = "profit" if approved else "loss"
+        ap_text = "✅ 通過" if approved else "❌ 拒絕"
+        rows.append(f"""
+        <tr>
+          <td class="muted">{ts}</td>
+          <td><span class="stage-badge">{kind}</span></td>
+          <td class="team-cell">{label}</td>
+          <td>{ev*100:+.1f}¢</td>
+          <td class="{ap_cls}">{ap_text}</td>
+          <td class="muted" style="font-size:0.75rem">{reason}</td>
+        </tr>""")
+    return "\n".join(rows)
+
+
+def render(data: dict, chain_usdc: float = None, chain_matic: float = None,
+           audit_entries: list = None, live_positions: list = None) -> str:
     daily_pnl = data.get("daily_pnl", 0.0)
     halted = data.get("trading_halted", False)
     positions = data.get("positions", [])
@@ -208,24 +317,111 @@ def render(data: dict, chain_usdc: float = None, chain_matic: float = None) -> s
     if updated_at:
         updated_at = updated_at[:19].replace("T", " ") + " UTC"
 
-    # 優先顯示鏈上真實餘額
-    bankroll = chain_usdc if chain_usdc is not None else data.get("bankroll", 500.0)
-    matic_str = f"{chain_matic:.4f} MATIC" if chain_matic is not None else "—"
-    chain_ok = chain_usdc is not None
+    # chain_usdc 現在是 data-api 組合市值，chain_matic 是已投入成本
+    portfolio_value = chain_usdc   # float | None
+    invested_cost   = chain_matic  # float | None
+    bankroll = portfolio_value if portfolio_value is not None else data.get("bankroll", 0.0)
+    invested_str = f"${invested_cost:.2f}" if invested_cost is not None else "—"
+    live_ok = portfolio_value is not None
 
+    audit_entries  = audit_entries or []
+    live_positions = live_positions or []
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S UTC")
     status_cls = "halted" if halted else "active"
     status_text = "HALTED" if halted else "ACTIVE"
 
-    total_exposed = sum(p.get("size_usd", 0) for p in positions)
-    n_positions = len(positions)
+    # Split live_positions into active (open) and settled (redeemable=True, value=$0)
+    _resolved_positions = [
+        p for p in live_positions
+        if p.get("redeemable") and p.get("currentValue", 1) < 0.01
+        and p.get("initialValue", 0) >= 1.0
+    ]
+    _resolved_ids = {id(p) for p in _resolved_positions}
+    live_positions = [p for p in live_positions if id(p) not in _resolved_ids]
+
+    # 優先用 live_positions（data-api）計算曝險，fallback 用 portfolio.json
+    if live_positions:
+        total_exposed = sum(p.get("initialValue", 0) for p in live_positions)
+        n_positions   = len(live_positions)
+    else:
+        total_exposed = sum(p.get("size_usd", 0) for p in positions)
+        n_positions   = len(positions)
 
     pnl_cls = _pnl_class(daily_pnl)
 
-    settled_wins = sum(1 for t in trade_log if t.get("pnl", 0) > 0)
+    settled_wins = sum(1 for t in trade_log if (t.get("pnl") or 0) > 0)
     settled_total = sum(1 for t in trade_log if t.get("pnl") is not None)
     win_rate = f"{settled_wins/settled_total*100:.0f}%" if settled_total > 0 else "—"
     total_pnl = sum(t.get("pnl", 0) for t in trade_log if t.get("pnl") is not None)
+    # Include resolved data-api positions as confirmed realized losses
+    total_pnl += sum(p.get("cashPnl", 0) for p in _resolved_positions)
+
+    # ── live P&L from data-api ──────────────────────────────────────
+    live_total_invested = sum(p.get("initialValue", 0) for p in live_positions)
+    live_total_value    = sum(p.get("currentValue",  0) for p in live_positions)
+    live_total_pnl      = sum(p.get("cashPnl",       0) for p in live_positions)
+    live_pnl_pct        = (live_total_pnl / live_total_invested * 100) if live_total_invested > 0 else 0
+    live_pnl_cls        = "profit" if live_total_pnl >= 0 else "loss"
+    live_sign           = "+" if live_total_pnl >= 0 else "-"
+
+    # 預先計算 tfoot HTML（避免巢狀 f-string 在 Python 3.9 報錯）
+    if live_positions:
+        _tfoot = (
+            f'<tfoot><tr style="border-top:2px solid var(--border);font-weight:700;">'
+            f'<td>合計</td>'
+            f'<td style="text-align:right;">${live_total_invested:.2f}</td>'
+            f'<td style="text-align:right;">${live_total_value:.2f}</td>'
+            f'<td style="text-align:right;" class="{live_pnl_cls}">{live_sign}${abs(live_total_pnl):.2f}</td>'
+            f'<td style="text-align:right;" class="{live_pnl_cls}">{live_sign}{abs(live_pnl_pct):.2f}%</td>'
+            f'<td colspan="3"></td>'
+            f'</tr></tfoot>'
+        )
+        _pnl_rows = "".join(_pnl_row(p) for p in live_positions)
+    else:
+        _tfoot = ""
+        _pnl_rows = '<tr><td colspan="8" class="empty-row">無持倉資料</td></tr>'
+
+    # 已結算部位 HTML block（redeemable=True, $0 value）
+    if _resolved_positions:
+        _resolved_rows = ""
+        for p in _resolved_positions:
+            title = p.get("title", "")
+            team = title.replace("Will ", "").split(" reach")[0] if "Will " in title else title[:30]
+            cost = p.get("initialValue", 0)
+            pnl_r = p.get("cashPnl", 0)
+            pct_r = p.get("percentPnl", 0)
+            avg_r = p.get("avgPrice", 0)
+            _resolved_rows += (
+                f'<tr>'
+                f'<td class="team-cell">{team}</td>'
+                f'<td style="text-align:right;">${cost:.2f}</td>'
+                f'<td style="text-align:right;">$0.00</td>'
+                f'<td style="text-align:right;" class="loss">-${abs(pnl_r):.2f}</td>'
+                f'<td style="text-align:right;" class="loss">{pct_r:+.1f}%</td>'
+                f'<td style="text-align:right;" class="muted">{avg_r*100:.1f}¢</td>'
+                f'<td style="text-align:right;" class="muted">0.0¢</td>'
+                f'<td style="text-align:right;" class="muted">—</td>'
+                f'</tr>'
+            )
+        _resolved_section = (
+            '<div class="section" style="margin-top:12px;">'
+            '<div class="section-title" style="color:var(--red);">已結算部位（確認虧損）</div>'
+            '<div class="table-wrap"><table>'
+            '<thead><tr>'
+            '<th>球隊</th>'
+            '<th style="text-align:right;">成本</th>'
+            '<th style="text-align:right;">市值</th>'
+            '<th style="text-align:right;">損益 ($)</th>'
+            '<th style="text-align:right;">損益 (%)</th>'
+            '<th style="text-align:right;">均價</th>'
+            '<th style="text-align:right;">現價</th>'
+            '<th style="text-align:right;">份額</th>'
+            '</tr></thead>'
+            f'<tbody>{_resolved_rows}</tbody>'
+            '</table></div></div>'
+        )
+    else:
+        _resolved_section = ""
 
     return f"""<!DOCTYPE html>
 <html lang="zh-TW">
@@ -426,10 +622,11 @@ tr:hover td {{ background: rgba(255,255,255,0.02); }}
     </div>
   </div>
   <nav>
-    <a href="index.html">&#128197; 今日預測</a>
-    <a href="results.html">&#128202; 歷史結果</a>
-    <a href="postmortem.html">&#128269; 復盤</a>
-    <a href="trading.html" class="active">&#128200; 交易</a>
+    <a href="index.html">📊 今日預測</a>
+    <a href="results.html">📜 歷史結果</a>
+    <a href="calibration.html">⚙️ 模型校正</a>
+    <a href="postmortem.html">🔍 復盤分析</a>
+    <a href="trading.html" class="active">📈 交易</a>
   </nav>
 </header>
 
@@ -447,33 +644,67 @@ tr:hover td {{ background: rgba(255,255,255,0.02); }}
     </div>
   </div>
 
-  <!-- ── 關鍵指標 ── -->
-  <div class="stats-grid">
-    <div class="stat-card" style="border-color:{'rgba(16,185,129,0.4)' if chain_ok else 'var(--border)'}">
-      <div class="stat-label">
-        USDC 餘額（鏈上）
-        {'<span style="color:var(--green);font-size:0.65rem;margin-left:4px;">● LIVE</span>' if chain_ok else '<span style="color:var(--muted);font-size:0.65rem;margin-left:4px;">離線</span>'}
+  <!-- ── 即時損益表 ── -->
+  <div class="section" style="margin-bottom:20px;">
+    <div class="section-header" style="margin-bottom:12px;">
+      <span class="section-title">即時損益表
+        {'<span style="color:var(--green);font-size:0.72rem;margin-left:8px;">● LIVE · 60s 自動刷新</span>' if live_ok else ''}
+      </span>
+    </div>
+
+    <!-- 總覽橫條 -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:16px;">
+      <div class="stat-card" style="border-color:{'rgba(16,185,129,0.5)' if live_total_pnl>=0 else 'rgba(239,68,68,0.5)'}">
+        <div class="stat-label">未實現總損益</div>
+        <div class="stat-value {live_pnl_cls}" style="font-size:2rem;">{live_sign}${abs(live_total_pnl):.2f}</div>
+        <div style="font-size:0.78rem;color:var(--{'green' if live_total_pnl>=0 else 'red'});margin-top:2px;">{live_sign}{abs(live_pnl_pct):.2f}%</div>
       </div>
-      <div class="stat-value {'profit' if bankroll > 0 else 'neutral'}">${bankroll:.2f}</div>
+      <div class="stat-card" style="border-color:{'rgba(16,185,129,0.5)' if (total_pnl+live_total_pnl)>=0 else 'rgba(239,68,68,0.5)'}">
+        <div class="stat-label">總收益</div>
+        <div class="stat-value {'profit' if (total_pnl+live_total_pnl)>=0 else 'loss'}">{'+' if (total_pnl+live_total_pnl)>=0 else '-'}${abs(total_pnl+live_total_pnl):.2f}</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">已結算 {'+' if total_pnl>=0 else ''}{total_pnl:.2f} + 未實現 {'+' if live_total_pnl>=0 else ''}{live_total_pnl:.2f}</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">已投入成本</div>
+        <div class="stat-value">${live_total_invested:.2f}</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">{n_positions} 筆部位</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">持倉市值</div>
+        <div class="stat-value">${live_total_value:.2f}</div>
+        <div style="font-size:0.75rem;color:var(--muted);margin-top:2px;">data-api 即時</div>
+      </div>
+    </div>
+
+    <!-- 逐倉損益明細 -->
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>市場</th>
+          <th style="text-align:right;">成本</th>
+          <th style="text-align:right;">市值</th>
+          <th style="text-align:right;">損益 ($)</th>
+          <th style="text-align:right;">損益 (%)</th>
+          <th style="text-align:right;">均價</th>
+          <th style="text-align:right;">現價</th>
+          <th style="text-align:right;">份額</th>
+        </tr></thead>
+        <tbody>
+          {_pnl_rows}
+        </tbody>
+        {_tfoot}
+      </table>
+    </div>
+  </div>
+
+  <!-- ── 關鍵指標 ── -->
+  <div class="stats-grid" style="margin-bottom:20px;">
+    <div class="stat-card">
+      <div class="stat-label">持倉數</div>
+      <div class="stat-value">{n_positions}</div>
     </div>
     <div class="stat-card">
-      <div class="stat-label">Gas 費（MATIC）</div>
-      <div class="stat-value" style="font-size:1.3rem;">{matic_str}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">今日損益</div>
-      <div class="stat-value {pnl_cls}">{_fmt_usd(daily_pnl)}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">累計損益</div>
-      <div class="stat-value {_pnl_class(total_pnl)}">{_fmt_usd(total_pnl)}</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">持倉數 / 上限</div>
-      <div class="stat-value">{n_positions} / 4</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-label">已曝險金額</div>
+      <div class="stat-label">已曝險成本</div>
       <div class="stat-value">${total_exposed:.2f}</div>
     </div>
     <div class="stat-card">
@@ -486,21 +717,23 @@ tr:hover td {{ background: rgba(255,255,255,0.02); }}
     </div>
   </div>
 
-  <!-- ── 持倉 ── -->
+  <!-- ── 持倉明細（data-api） ── -->
   <div class="section">
-    <div class="section-title">目前持倉</div>
+    <div class="section-title">持倉明細</div>
     <div class="table-wrap">
       <table>
         <thead><tr>
-          <th>球隊</th><th>賽段</th><th>投注金額</th>
-          <th>進場價</th><th>模型機率</th><th>當前 EV</th><th>進場時間</th>
+          <th>球隊</th><th>方向</th><th>市場</th><th>投注金額</th>
+          <th>均價 → 現價</th><th>持有份額</th><th>損益</th><th>當前市值</th>
         </tr></thead>
         <tbody>
-          {_positions_rows(positions)}
+          {_positions_rows(positions, live_positions)}
         </tbody>
       </table>
     </div>
   </div>
+
+  {_resolved_section}
 
   <!-- ── 交易紀錄 ── -->
   <div class="section">
@@ -585,18 +818,44 @@ tr:hover td {{ background: rgba(255,255,255,0.02); }}
       </table>
     </div>
   </div>
+
+  <!-- ── 稽核日誌 ──────────────────────────────────── -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-title">🔍 稽核日誌（最近 20 筆）</span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>時間</th><th>類型</th><th>信號</th><th>EV</th><th>結果</th><th>原因</th>
+        </tr></thead>
+        <tbody>
+          {_audit_log_rows(audit_entries)}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </main>
 </body>
 </html>"""
 
 
 def generate() -> None:
-    data = _load()
-    chain_usdc, chain_matic = _fetch_chain_balance()
-    html = render(data, chain_usdc=chain_usdc, chain_matic=chain_matic)
+    from src.pm_auditor import recent_decisions
+    data       = _load()
+    live       = _fetch_live_data()
+    audit_entries = recent_decisions(20)
+    html = render(
+        data,
+        chain_usdc    = live["positions_value"],
+        chain_matic   = live["invested"],
+        audit_entries = audit_entries,
+        live_positions= live["positions"],
+    )
     OUTPUT_PATH.write_text(html, encoding="utf-8")
-    bal_str = f"${chain_usdc:.2f} USDC" if chain_usdc is not None else "chain unavailable"
-    print(f"[render_trading] wrote {OUTPUT_PATH}  wallet={bal_str}")
+    pv = live["positions_value"]
+    print(f"[render_trading] wrote {OUTPUT_PATH}  positions_value={f'${pv:.2f}' if pv else 'N/A'}")
 
 
 def watch(interval: int = 30) -> None:

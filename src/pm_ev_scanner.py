@@ -178,8 +178,13 @@ def _fetch_stage(stage: str) -> tuple:
         team = q.replace("Will ", "").replace(suffix, "").strip()
         result[team] = yes_p
         clob_ids = m.get("clobTokenIds", [])
+        if isinstance(clob_ids, str):
+            try:
+                clob_ids = json.loads(clob_ids)
+            except Exception:
+                clob_ids = []
         if clob_ids:
-            token_ids[team] = clob_ids[0]
+            token_ids[team] = clob_ids[0]  # index 0 = YES token
     return result, token_ids
 
 
