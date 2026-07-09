@@ -156,6 +156,64 @@ def _midfield_count(formation: str) -> int:
     return 3
 
 
+def _injury_section_html(home_en: str, away_en: str, home_zh: str, away_zh: str) -> str:
+    """顯示傷兵報告，區分「賽前已傷缺」與「本屆新傷」。"""
+    try:
+        raw = json.loads((_DATA_DIR / "injuries.json").read_text())
+    except Exception:
+        return '<div class="injury-box injury-none">傷兵狀況：暫無已知缺陣</div>'
+
+    from src.config import team_zh as _tz
+
+    def _get(team_en: str):
+        data = raw.get(team_en) or raw.get(_tz(team_en))
+        if not data:
+            return []
+        if isinstance(data, list):
+            return [{"player": x, "note": "", "already_absent": False} for x in data]
+        return data.get("injuries", [])
+
+    rows = []
+    for team_en, team_zh_name in [(home_en, home_zh), (away_en, away_zh)]:
+        for inj in _get(team_en):
+            if not isinstance(inj, dict):
+                continue
+            rows.append({
+                "team": team_zh_name,
+                "player": inj.get("player", ""),
+                "note": inj.get("note", ""),
+                "already_absent": inj.get("already_absent", False),
+            })
+
+    if not rows:
+        return '<div class="injury-box injury-none">傷兵狀況：暫無已知缺陣</div>'
+
+    new_rows = [r for r in rows if not r["already_absent"]]
+    pre_rows = [r for r in rows if r["already_absent"]]
+
+    items_html = ""
+    if new_rows:
+        for r in new_rows:
+            items_html += (
+                f'<div class="injury-item">'
+                f'<span class="injury-tag-new">本屆新傷</span>'
+                f'<strong>{r["team"]} {r["player"]}</strong>'
+                f'{"：" + r["note"] if r["note"] else ""}'
+                f'</div>'
+            )
+    if pre_rows:
+        for r in pre_rows:
+            items_html += (
+                f'<div class="injury-item pre-existing">'
+                f'<span class="injury-tag-pre">賽前已傷</span>'
+                f'{r["team"]} {r["player"]}'
+                f'{"：" + r["note"] if r["note"] else ""}'
+                f'</div>'
+            )
+
+    return f'<div class="injury-box"><div class="injury-title">傷兵報告</div>{items_html}</div>'
+
+
 def _discipline_stats_html(home_en: str, away_en: str, home_zh: str, away_zh: str) -> str:
     """Show per-team discipline stats: WC 2026 avg (all teams) + historical avg (where available)."""
     try:
@@ -964,6 +1022,9 @@ p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 12
   text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px;
 }
 .injury-item { color: #fca5a5; margin-top: 3px; }
+.injury-item.pre-existing { color: #94a3b8; }
+.injury-tag-new  { display:inline-block; background:#ef4444; color:#fff; font-size:0.6rem; font-weight:700; padding:1px 5px; border-radius:4px; margin-right:5px; vertical-align:middle; }
+.injury-tag-pre  { display:inline-block; background:#475569; color:#cbd5e1; font-size:0.6rem; font-weight:700; padding:1px 5px; border-radius:4px; margin-right:5px; vertical-align:middle; }
 /* ── mobile responsive ── */
 @media (max-width: 640px) {
   header {
@@ -1157,12 +1218,7 @@ def render_index(predictions: list, date: str, out_path: str = None) -> None:
                 f'<div class="reasoning-line">{line}</div>'
                 for line in reasoning_lines if line.strip()
             )
-            injury_html = ""
-            if injury_notes:
-                items = "".join(f'<div class="injury-item">🤕 {n}</div>' for n in injury_notes)
-                injury_html = f'<div class="injury-box"><div class="injury-title">傷兵報告</div>{items}</div>'
-            else:
-                injury_html = '<div class="injury-box injury-none">傷兵狀況：暫無已知缺陣</div>'
+            injury_html = _injury_section_html(p['home_team'], p['away_team'], home_zh, away_zh)
 
             cards += f"""
 <div class="card">
