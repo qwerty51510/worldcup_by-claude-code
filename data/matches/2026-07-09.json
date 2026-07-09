@@ -131,11 +131,11 @@
         {
           "key": "unibet",
           "title": "Unibet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -143,7 +143,7 @@
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.5
+                  "price": 6.75
                 },
                 {
                   "name": "Draw",
@@ -153,16 +153,16 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 1.97,
+                  "price": 1.98,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.8,
+                  "price": 1.79,
                   "point": 2.5
                 }
               ]
@@ -172,11 +172,11 @@
         {
           "key": "unibet_uk",
           "title": "Unibet (UK)",
-          "last_update": "2026-07-09T09:19:19Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:19Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -197,11 +197,11 @@
         {
           "key": "betmgm",
           "title": "BetMGM",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -219,7 +219,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -238,11 +238,11 @@
         {
           "key": "ladbrokes_uk",
           "title": "Ladbrokes",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -263,11 +263,11 @@
         {
           "key": "winamax_fr",
           "title": "Winamax (FR)",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -288,15 +288,15 @@
         {
           "key": "unibet_nl",
           "title": "Unibet (NL)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
-                  "price": 1.6
+                  "price": 1.57
                 },
                 {
                   "name": "Morocco",
@@ -310,16 +310,16 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 1.96,
+                  "price": 1.97,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.8,
+                  "price": 1.79,
                   "point": 2.5
                 }
               ]
@@ -329,11 +329,11 @@
         {
           "key": "casumo",
           "title": "Casumo",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -341,7 +341,7 @@
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.5
+                  "price": 6.75
                 },
                 {
                   "name": "Draw",
@@ -351,16 +351,16 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 1.96,
+                  "price": 1.97,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.8,
+                  "price": 1.79,
                   "point": 2.5
                 }
               ]
@@ -370,11 +370,11 @@
         {
           "key": "coral",
           "title": "Coral",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -395,19 +395,19 @@
         {
           "key": "livescorebet",
           "title": "LiveScore Bet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
-                  "price": 1.55
+                  "price": 1.54
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.4
+                  "price": 6.5
                 },
                 {
                   "name": "Draw",
@@ -420,11 +420,11 @@
         {
           "key": "betrivers",
           "title": "BetRivers",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -432,7 +432,7 @@
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.5
+                  "price": 6.75
                 },
                 {
                   "name": "Draw",
@@ -442,16 +442,16 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 1.96,
+                  "price": 1.97,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.8,
+                  "price": 1.79,
                   "point": 2.5
                 }
               ]
@@ -461,15 +461,15 @@
         {
           "key": "unibet_se",
           "title": "Unibet (SE)",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "France",
-                  "price": 1.6
+                  "price": 1.57
                 },
                 {
                   "name": "Morocco",
@@ -483,16 +483,16 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 2.0,
+                  "price": 2.02,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.83,
+                  "price": 1.82,
                   "point": 2.5
                 }
               ]
@@ -502,11 +502,11 @@
         {
           "key": "gtbets",
           "title": "GTbets",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -524,7 +524,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -543,19 +543,19 @@
         {
           "key": "virginbet",
           "title": "Virgin Bet",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
-                  "price": 1.55
+                  "price": 1.54
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.4
+                  "price": 6.5
                 },
                 {
                   "name": "Draw",
@@ -568,15 +568,15 @@
         {
           "key": "leovegas",
           "title": "LeoVegas",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "France",
-                  "price": 1.6
+                  "price": 1.57
                 },
                 {
                   "name": "Morocco",
@@ -584,22 +584,22 @@
                 },
                 {
                   "name": "Draw",
-                  "price": 3.8
+                  "price": 3.9
                 }
               ]
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 1.98,
+                  "price": 1.95,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.83,
+                  "price": 1.85,
                   "point": 2.5
                 }
               ]
@@ -609,11 +609,11 @@
         {
           "key": "leovegas_se",
           "title": "LeoVegas (SE)",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -621,7 +621,7 @@
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.5
+                  "price": 6.75
                 },
                 {
                   "name": "Draw",
@@ -634,15 +634,15 @@
         {
           "key": "pmu_fr",
           "title": "PMU (FR)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "France",
-                  "price": 1.6
+                  "price": 1.56
                 },
                 {
                   "name": "Morocco",
@@ -650,13 +650,13 @@
                 },
                 {
                   "name": "Draw",
-                  "price": 3.95
+                  "price": 4.0
                 }
               ]
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -665,7 +665,7 @@
                 },
                 {
                   "name": "Under",
-                  "price": 1.76,
+                  "price": 1.75,
                   "point": 2.5
                 }
               ]
@@ -675,11 +675,11 @@
         {
           "key": "grosvenor",
           "title": "Grosvenor",
-          "last_update": "2026-07-09T09:19:52Z",
+          "last_update": "2026-07-09T09:54:40Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:54:40Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -697,16 +697,16 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:54:40Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 1.96,
+                  "price": 1.97,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.8,
+                  "price": 1.79,
                   "point": 2.5
                 }
               ]
@@ -716,11 +716,11 @@
         {
           "key": "tipico_de",
           "title": "Tipico",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -741,11 +741,11 @@
         {
           "key": "smarkets",
           "title": "Smarkets",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -763,11 +763,11 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
-                  "price": 1.62
+                  "price": 1.63
                 },
                 {
                   "name": "Morocco",
@@ -784,11 +784,11 @@
         {
           "key": "unibet_fr",
           "title": "Unibet (FR)",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -809,19 +809,19 @@
         {
           "key": "tabtouch",
           "title": "TABtouch",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:18Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:18Z",
               "outcomes": [
                 {
                   "name": "France",
-                  "price": 1.55
+                  "price": 1.54
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.4
+                  "price": 6.5
                 },
                 {
                   "name": "Draw",
@@ -831,16 +831,16 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:18Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 1.96,
+                  "price": 1.97,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.8,
+                  "price": 1.79,
                   "point": 2.5
                 }
               ]
@@ -850,11 +850,11 @@
         {
           "key": "winamax_de",
           "title": "Winamax (DE)",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:54:21Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:54:21Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -875,11 +875,11 @@
         {
           "key": "nordicbet",
           "title": "Nordic Bet",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -897,7 +897,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -916,11 +916,11 @@
         {
           "key": "marathonbet",
           "title": "Marathon Bet",
-          "last_update": "2026-07-09T09:19:38Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:38Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -928,11 +928,11 @@
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.7
+                  "price": 6.6
                 },
                 {
                   "name": "Draw",
-                  "price": 3.82
+                  "price": 3.85
                 }
               ]
             }
@@ -941,11 +941,11 @@
         {
           "key": "betsson",
           "title": "Betsson",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -963,7 +963,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -982,11 +982,11 @@
         {
           "key": "mybookieag",
           "title": "MyBookie.ag",
-          "last_update": "2026-07-09T09:19:52Z",
+          "last_update": "2026-07-09T09:53:29Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:53:29Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1004,16 +1004,16 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:53:29Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 1.98,
+                  "price": 1.93,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.83,
+                  "price": 1.88,
                   "point": 2.5
                 }
               ]
@@ -1023,11 +1023,11 @@
         {
           "key": "playup",
           "title": "PlayUp",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1045,7 +1045,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -1064,11 +1064,11 @@
         {
           "key": "onexbet",
           "title": "1xBet",
-          "last_update": "2026-07-09T09:19:33Z",
+          "last_update": "2026-07-09T09:55:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:33Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1076,26 +1076,26 @@
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.91
+                  "price": 6.81
                 },
                 {
                   "name": "Draw",
-                  "price": 3.94
+                  "price": 3.98
                 }
               ]
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:33Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 2.01,
+                  "price": 1.97,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.86,
+                  "price": 1.89,
                   "point": 2.5
                 }
               ]
@@ -1105,11 +1105,11 @@
         {
           "key": "betr_au",
           "title": "Betr",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1130,11 +1130,11 @@
         {
           "key": "betright",
           "title": "Bet Right",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1155,11 +1155,11 @@
         {
           "key": "betfred_uk",
           "title": "Betfred (UK)",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:54:07Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:54:07Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1180,11 +1180,11 @@
         {
           "key": "betway",
           "title": "Betway",
-          "last_update": "2026-07-09T09:20:09Z",
+          "last_update": "2026-07-09T09:54:57Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:09Z",
+              "last_update": "2026-07-09T09:54:57Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1205,11 +1205,11 @@
         {
           "key": "sportsbet",
           "title": "SportsBet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1230,11 +1230,11 @@
         {
           "key": "fanduel",
           "title": "FanDuel",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1255,11 +1255,11 @@
         {
           "key": "skybet",
           "title": "Sky Bet",
-          "last_update": "2026-07-09T09:20:08Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:08Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1280,11 +1280,11 @@
         {
           "key": "paddypower",
           "title": "Paddy Power",
-          "last_update": "2026-07-09T09:19:19Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:19Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1305,11 +1305,11 @@
         {
           "key": "betvictor",
           "title": "Bet Victor",
-          "last_update": "2026-07-09T09:19:51Z",
+          "last_update": "2026-07-09T09:53:24Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:51Z",
+              "last_update": "2026-07-09T09:53:24Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1330,11 +1330,11 @@
         {
           "key": "matchbook",
           "title": "Matchbook",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1352,7 +1352,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1370,11 +1370,11 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 2.1,
+                  "price": 2.08,
                   "point": 2.5
                 },
                 {
@@ -1389,11 +1389,11 @@
         {
           "key": "tab",
           "title": "TAB",
-          "last_update": "2026-07-09T09:20:12Z",
+          "last_update": "2026-07-09T09:55:00Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:12Z",
+              "last_update": "2026-07-09T09:55:00Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1414,11 +1414,11 @@
         {
           "key": "pinnacle",
           "title": "Pinnacle",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1426,17 +1426,17 @@
                 },
                 {
                   "name": "Morocco",
-                  "price": 6.9
+                  "price": 6.95
                 },
                 {
                   "name": "Draw",
-                  "price": 3.95
+                  "price": 3.9
                 }
               ]
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -1455,11 +1455,11 @@
         {
           "key": "betfair_ex_eu",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1477,7 +1477,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1498,11 +1498,11 @@
         {
           "key": "betfair_ex_uk",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1520,7 +1520,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1541,11 +1541,11 @@
         {
           "key": "betfair_ex_au",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:19:53Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:53Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1563,7 +1563,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:19:53Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1584,11 +1584,11 @@
         {
           "key": "bovada",
           "title": "Bovada",
-          "last_update": "2026-07-09T09:17:34Z",
+          "last_update": "2026-07-09T09:53:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:17:33Z",
+              "last_update": "2026-07-09T09:53:31Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1606,7 +1606,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:17:33Z",
+              "last_update": "2026-07-09T09:53:31Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -1625,11 +1625,11 @@
         {
           "key": "betonlineag",
           "title": "BetOnline.ag",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1647,7 +1647,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -1666,11 +1666,11 @@
         {
           "key": "pointsbetau",
           "title": "PointsBet (AU)",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1691,11 +1691,11 @@
         {
           "key": "betanysports",
           "title": "BetAnything",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1713,7 +1713,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -1732,11 +1732,11 @@
         {
           "key": "sport888",
           "title": "888sport",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1757,11 +1757,11 @@
         {
           "key": "williamhill",
           "title": "William Hill",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -1780,11 +1780,11 @@
         {
           "key": "betus",
           "title": "BetUS",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1802,7 +1802,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -1821,11 +1821,11 @@
         {
           "key": "draftkings",
           "title": "DraftKings",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1846,11 +1846,11 @@
         {
           "key": "everygame",
           "title": "Everygame",
-          "last_update": "2026-07-09T09:18:46Z",
+          "last_update": "2026-07-09T09:54:42Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:18:46Z",
+              "last_update": "2026-07-09T09:54:42Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1871,11 +1871,11 @@
         {
           "key": "boylesports",
           "title": "BoyleSports",
-          "last_update": "2026-07-09T09:20:08Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:08Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1896,11 +1896,11 @@
         {
           "key": "codere_it",
           "title": "Codere (IT)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1918,16 +1918,16 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
-                  "price": 1.9,
+                  "price": 1.86,
                   "point": 2.5
                 },
                 {
                   "name": "Under",
-                  "price": 1.77,
+                  "price": 1.81,
                   "point": 2.5
                 }
               ]
@@ -1937,11 +1937,11 @@
         {
           "key": "betclic_fr",
           "title": "Betclic (FR)",
-          "last_update": "2026-07-09T09:18:39Z",
+          "last_update": "2026-07-09T09:54:55Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:18:39Z",
+              "last_update": "2026-07-09T09:54:55Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1962,11 +1962,11 @@
         {
           "key": "betfair_sb_uk",
           "title": "Betfair Sportsbook",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "France",
@@ -1997,11 +1997,11 @@
         {
           "key": "pinnacle",
           "title": "Pinnacle",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:31Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2019,7 +2019,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:31Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2038,11 +2038,11 @@
         {
           "key": "gtbets",
           "title": "GTbets",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2060,7 +2060,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2079,11 +2079,11 @@
         {
           "key": "onexbet",
           "title": "1xBet",
-          "last_update": "2026-07-09T09:19:33Z",
+          "last_update": "2026-07-09T09:55:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:33Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2101,7 +2101,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:33Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2120,11 +2120,11 @@
         {
           "key": "leovegas",
           "title": "LeoVegas",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2142,7 +2142,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2161,11 +2161,11 @@
         {
           "key": "tipico_de",
           "title": "Tipico",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2186,11 +2186,11 @@
         {
           "key": "unibet_uk",
           "title": "Unibet (UK)",
-          "last_update": "2026-07-09T09:19:19Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:19Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2211,11 +2211,11 @@
         {
           "key": "marathonbet",
           "title": "Marathon Bet",
-          "last_update": "2026-07-09T09:19:38Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:38Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2236,11 +2236,11 @@
         {
           "key": "unibet_fr",
           "title": "Unibet (FR)",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2261,11 +2261,11 @@
         {
           "key": "coral",
           "title": "Coral",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2286,11 +2286,11 @@
         {
           "key": "ladbrokes_uk",
           "title": "Ladbrokes",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2311,11 +2311,11 @@
         {
           "key": "mybookieag",
           "title": "MyBookie.ag",
-          "last_update": "2026-07-09T09:19:52Z",
+          "last_update": "2026-07-09T09:53:29Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:53:29Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2333,7 +2333,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:53:29Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2352,11 +2352,11 @@
         {
           "key": "betway",
           "title": "Betway",
-          "last_update": "2026-07-09T09:20:09Z",
+          "last_update": "2026-07-09T09:54:57Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:09Z",
+              "last_update": "2026-07-09T09:54:57Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2377,11 +2377,11 @@
         {
           "key": "betmgm",
           "title": "BetMGM",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2399,7 +2399,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2418,11 +2418,11 @@
         {
           "key": "playup",
           "title": "PlayUp",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2443,11 +2443,11 @@
         {
           "key": "virginbet",
           "title": "Virgin Bet",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2468,11 +2468,11 @@
         {
           "key": "livescorebet",
           "title": "LiveScore Bet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2493,11 +2493,11 @@
         {
           "key": "betrivers",
           "title": "BetRivers",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2515,7 +2515,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2534,11 +2534,11 @@
         {
           "key": "unibet_se",
           "title": "Unibet (SE)",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2556,7 +2556,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2575,11 +2575,11 @@
         {
           "key": "pmu_fr",
           "title": "PMU (FR)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2597,7 +2597,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2616,11 +2616,11 @@
         {
           "key": "unibet",
           "title": "Unibet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2638,7 +2638,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2657,11 +2657,11 @@
         {
           "key": "unibet_nl",
           "title": "Unibet (NL)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2679,7 +2679,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2698,11 +2698,11 @@
         {
           "key": "casumo",
           "title": "Casumo",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2720,7 +2720,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2739,11 +2739,11 @@
         {
           "key": "grosvenor",
           "title": "Grosvenor",
-          "last_update": "2026-07-09T09:19:52Z",
+          "last_update": "2026-07-09T09:54:40Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:54:40Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2761,7 +2761,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:54:40Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2780,11 +2780,11 @@
         {
           "key": "betonlineag",
           "title": "BetOnline.ag",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2802,7 +2802,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2821,11 +2821,11 @@
         {
           "key": "tabtouch",
           "title": "TABtouch",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:18Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:18Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2843,7 +2843,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:18Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -2862,11 +2862,11 @@
         {
           "key": "leovegas_se",
           "title": "LeoVegas (SE)",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2887,11 +2887,11 @@
         {
           "key": "betvictor",
           "title": "Bet Victor",
-          "last_update": "2026-07-09T09:19:51Z",
+          "last_update": "2026-07-09T09:53:24Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:51Z",
+              "last_update": "2026-07-09T09:53:24Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2912,11 +2912,11 @@
         {
           "key": "betright",
           "title": "Bet Right",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2937,11 +2937,11 @@
         {
           "key": "smarkets",
           "title": "Smarkets",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2959,7 +2959,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -2980,11 +2980,11 @@
         {
           "key": "betfred_uk",
           "title": "Betfred (UK)",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:54:07Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:54:07Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3005,11 +3005,11 @@
         {
           "key": "betr_au",
           "title": "Betr",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3030,11 +3030,11 @@
         {
           "key": "sportsbet",
           "title": "SportsBet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3055,11 +3055,11 @@
         {
           "key": "skybet",
           "title": "Sky Bet",
-          "last_update": "2026-07-09T09:20:08Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:08Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3080,11 +3080,11 @@
         {
           "key": "winamax_fr",
           "title": "Winamax (FR)",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3105,11 +3105,11 @@
         {
           "key": "winamax_de",
           "title": "Winamax (DE)",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:54:21Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:54:21Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3130,11 +3130,11 @@
         {
           "key": "fanduel",
           "title": "FanDuel",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3155,11 +3155,11 @@
         {
           "key": "paddypower",
           "title": "Paddy Power",
-          "last_update": "2026-07-09T09:19:19Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:19Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3180,11 +3180,11 @@
         {
           "key": "nordicbet",
           "title": "Nordic Bet",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3202,7 +3202,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -3221,11 +3221,11 @@
         {
           "key": "draftkings",
           "title": "DraftKings",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3246,11 +3246,11 @@
         {
           "key": "betsson",
           "title": "Betsson",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3268,7 +3268,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -3287,11 +3287,11 @@
         {
           "key": "matchbook",
           "title": "Matchbook",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3309,7 +3309,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3327,7 +3327,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -3346,11 +3346,11 @@
         {
           "key": "betfair_ex_eu",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3368,7 +3368,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3389,11 +3389,11 @@
         {
           "key": "betfair_ex_uk",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3411,7 +3411,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3432,11 +3432,11 @@
         {
           "key": "betfair_ex_au",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:19:53Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:53Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3454,7 +3454,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:19:53Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3475,11 +3475,11 @@
         {
           "key": "tab",
           "title": "TAB",
-          "last_update": "2026-07-09T09:20:12Z",
+          "last_update": "2026-07-09T09:55:00Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:12Z",
+              "last_update": "2026-07-09T09:55:00Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3500,11 +3500,11 @@
         {
           "key": "bovada",
           "title": "Bovada",
-          "last_update": "2026-07-09T09:17:34Z",
+          "last_update": "2026-07-09T09:53:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:17:33Z",
+              "last_update": "2026-07-09T09:53:31Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3522,7 +3522,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:17:33Z",
+              "last_update": "2026-07-09T09:53:31Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -3541,11 +3541,11 @@
         {
           "key": "sport888",
           "title": "888sport",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3566,11 +3566,11 @@
         {
           "key": "pointsbetau",
           "title": "PointsBet (AU)",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3591,11 +3591,11 @@
         {
           "key": "williamhill",
           "title": "William Hill",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -3614,11 +3614,11 @@
         {
           "key": "betanysports",
           "title": "BetAnything",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3636,7 +3636,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -3655,11 +3655,11 @@
         {
           "key": "boylesports",
           "title": "BoyleSports",
-          "last_update": "2026-07-09T09:20:08Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:08Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3680,11 +3680,11 @@
         {
           "key": "codere_it",
           "title": "Codere (IT)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3702,7 +3702,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -3721,11 +3721,11 @@
         {
           "key": "everygame",
           "title": "Everygame",
-          "last_update": "2026-07-09T09:18:46Z",
+          "last_update": "2026-07-09T09:54:42Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:18:46Z",
+              "last_update": "2026-07-09T09:54:42Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3746,11 +3746,11 @@
         {
           "key": "betclic_fr",
           "title": "Betclic (FR)",
-          "last_update": "2026-07-09T09:18:39Z",
+          "last_update": "2026-07-09T09:54:55Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:18:39Z",
+              "last_update": "2026-07-09T09:54:55Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3771,11 +3771,11 @@
         {
           "key": "betus",
           "title": "BetUS",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3793,7 +3793,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -3812,11 +3812,11 @@
         {
           "key": "betfair_sb_uk",
           "title": "Betfair Sportsbook",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "Belgium",
@@ -3847,11 +3847,11 @@
         {
           "key": "unibet",
           "title": "Unibet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -3869,7 +3869,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -3888,11 +3888,11 @@
         {
           "key": "betright",
           "title": "Bet Right",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -3913,11 +3913,11 @@
         {
           "key": "sportsbet",
           "title": "SportsBet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -3938,11 +3938,11 @@
         {
           "key": "virginbet",
           "title": "Virgin Bet",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -3963,11 +3963,11 @@
         {
           "key": "winamax_fr",
           "title": "Winamax (FR)",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -3988,11 +3988,11 @@
         {
           "key": "coral",
           "title": "Coral",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4013,11 +4013,11 @@
         {
           "key": "unibet_se",
           "title": "Unibet (SE)",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4035,7 +4035,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4054,11 +4054,11 @@
         {
           "key": "grosvenor",
           "title": "Grosvenor",
-          "last_update": "2026-07-09T09:19:52Z",
+          "last_update": "2026-07-09T09:54:40Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:54:40Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4076,7 +4076,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:54:40Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4095,11 +4095,11 @@
         {
           "key": "ladbrokes_uk",
           "title": "Ladbrokes",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4120,11 +4120,11 @@
         {
           "key": "tabtouch",
           "title": "TABtouch",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:18Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:18Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4142,7 +4142,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:18Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4161,11 +4161,11 @@
         {
           "key": "winamax_de",
           "title": "Winamax (DE)",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:54:21Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:54:21Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4186,11 +4186,11 @@
         {
           "key": "unibet_fr",
           "title": "Unibet (FR)",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4211,11 +4211,11 @@
         {
           "key": "smarkets",
           "title": "Smarkets",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4233,7 +4233,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4254,11 +4254,11 @@
         {
           "key": "casumo",
           "title": "Casumo",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4276,7 +4276,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4295,11 +4295,11 @@
         {
           "key": "mybookieag",
           "title": "MyBookie.ag",
-          "last_update": "2026-07-09T09:19:52Z",
+          "last_update": "2026-07-09T09:53:29Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:53:29Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4317,7 +4317,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:53:29Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4336,11 +4336,11 @@
         {
           "key": "betr_au",
           "title": "Betr",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4361,11 +4361,11 @@
         {
           "key": "livescorebet",
           "title": "LiveScore Bet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4386,11 +4386,11 @@
         {
           "key": "betway",
           "title": "Betway",
-          "last_update": "2026-07-09T09:20:09Z",
+          "last_update": "2026-07-09T09:54:57Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:09Z",
+              "last_update": "2026-07-09T09:54:57Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4411,11 +4411,11 @@
         {
           "key": "betmgm",
           "title": "BetMGM",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4433,7 +4433,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4452,11 +4452,11 @@
         {
           "key": "tipico_de",
           "title": "Tipico",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4477,11 +4477,11 @@
         {
           "key": "unibet_nl",
           "title": "Unibet (NL)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4499,7 +4499,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4518,11 +4518,11 @@
         {
           "key": "betrivers",
           "title": "BetRivers",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4540,7 +4540,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4559,11 +4559,11 @@
         {
           "key": "leovegas_se",
           "title": "LeoVegas (SE)",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4584,11 +4584,11 @@
         {
           "key": "betfred_uk",
           "title": "Betfred (UK)",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:54:07Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:54:07Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4609,11 +4609,11 @@
         {
           "key": "pmu_fr",
           "title": "PMU (FR)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4631,7 +4631,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4650,11 +4650,11 @@
         {
           "key": "unibet_uk",
           "title": "Unibet (UK)",
-          "last_update": "2026-07-09T09:19:19Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:19Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4675,11 +4675,11 @@
         {
           "key": "playup",
           "title": "PlayUp",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4697,7 +4697,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4716,11 +4716,11 @@
         {
           "key": "leovegas",
           "title": "LeoVegas",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4738,7 +4738,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4757,11 +4757,11 @@
         {
           "key": "gtbets",
           "title": "GTbets",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4779,7 +4779,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4798,11 +4798,11 @@
         {
           "key": "marathonbet",
           "title": "Marathon Bet",
-          "last_update": "2026-07-09T09:19:38Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:38Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4823,11 +4823,11 @@
         {
           "key": "fanduel",
           "title": "FanDuel",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4848,11 +4848,11 @@
         {
           "key": "paddypower",
           "title": "Paddy Power",
-          "last_update": "2026-07-09T09:19:19Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:19Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4873,11 +4873,11 @@
         {
           "key": "skybet",
           "title": "Sky Bet",
-          "last_update": "2026-07-09T09:20:08Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:08Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4898,11 +4898,11 @@
         {
           "key": "betvictor",
           "title": "Bet Victor",
-          "last_update": "2026-07-09T09:19:51Z",
+          "last_update": "2026-07-09T09:53:24Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:51Z",
+              "last_update": "2026-07-09T09:53:24Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4923,11 +4923,11 @@
         {
           "key": "pinnacle",
           "title": "Pinnacle",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:31Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4945,7 +4945,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:31Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -4964,11 +4964,11 @@
         {
           "key": "betfair_ex_uk",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -4986,7 +4986,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5007,11 +5007,11 @@
         {
           "key": "betonlineag",
           "title": "BetOnline.ag",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5029,7 +5029,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5048,11 +5048,11 @@
         {
           "key": "betfair_ex_eu",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5070,7 +5070,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5091,11 +5091,11 @@
         {
           "key": "betfair_ex_au",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:19:53Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:53Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5113,7 +5113,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:19:53Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5134,11 +5134,11 @@
         {
           "key": "matchbook",
           "title": "Matchbook",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5156,7 +5156,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5177,11 +5177,11 @@
         {
           "key": "onexbet",
           "title": "1xBet",
-          "last_update": "2026-07-09T09:19:33Z",
+          "last_update": "2026-07-09T09:55:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:33Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5199,7 +5199,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:33Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5218,11 +5218,11 @@
         {
           "key": "tab",
           "title": "TAB",
-          "last_update": "2026-07-09T09:20:12Z",
+          "last_update": "2026-07-09T09:55:00Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:12Z",
+              "last_update": "2026-07-09T09:55:00Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5243,19 +5243,19 @@
         {
           "key": "nordicbet",
           "title": "Nordic Bet",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
-                  "price": 1.92
+                  "price": 1.9
                 },
                 {
                   "name": "Norway",
-                  "price": 4.15
+                  "price": 4.2
                 },
                 {
                   "name": "Draw",
@@ -5265,7 +5265,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5284,19 +5284,19 @@
         {
           "key": "betsson",
           "title": "Betsson",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "England",
-                  "price": 1.92
+                  "price": 1.9
                 },
                 {
                   "name": "Norway",
-                  "price": 4.15
+                  "price": 4.2
                 },
                 {
                   "name": "Draw",
@@ -5306,7 +5306,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5325,11 +5325,11 @@
         {
           "key": "draftkings",
           "title": "DraftKings",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5350,11 +5350,11 @@
         {
           "key": "sport888",
           "title": "888sport",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5375,11 +5375,11 @@
         {
           "key": "pointsbetau",
           "title": "PointsBet (AU)",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5400,11 +5400,11 @@
         {
           "key": "williamhill",
           "title": "William Hill",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5423,11 +5423,11 @@
         {
           "key": "bovada",
           "title": "Bovada",
-          "last_update": "2026-07-09T09:17:34Z",
+          "last_update": "2026-07-09T09:53:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:17:34Z",
+              "last_update": "2026-07-09T09:53:31Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5445,7 +5445,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:17:34Z",
+              "last_update": "2026-07-09T09:53:31Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5464,11 +5464,11 @@
         {
           "key": "everygame",
           "title": "Everygame",
-          "last_update": "2026-07-09T09:18:46Z",
+          "last_update": "2026-07-09T09:54:42Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:18:46Z",
+              "last_update": "2026-07-09T09:54:42Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5489,11 +5489,11 @@
         {
           "key": "boylesports",
           "title": "BoyleSports",
-          "last_update": "2026-07-09T09:20:08Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:08Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5514,11 +5514,11 @@
         {
           "key": "codere_it",
           "title": "Codere (IT)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5536,7 +5536,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5555,11 +5555,11 @@
         {
           "key": "betanysports",
           "title": "BetAnything",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5577,7 +5577,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5596,11 +5596,11 @@
         {
           "key": "betus",
           "title": "BetUS",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5618,7 +5618,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5637,11 +5637,11 @@
         {
           "key": "betclic_fr",
           "title": "Betclic (FR)",
-          "last_update": "2026-07-09T09:18:39Z",
+          "last_update": "2026-07-09T09:54:55Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:18:39Z",
+              "last_update": "2026-07-09T09:54:55Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5662,11 +5662,11 @@
         {
           "key": "betfair_sb_uk",
           "title": "Betfair Sportsbook",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "England",
@@ -5697,11 +5697,11 @@
         {
           "key": "unibet",
           "title": "Unibet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -5719,7 +5719,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5738,11 +5738,11 @@
         {
           "key": "unibet_nl",
           "title": "Unibet (NL)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -5760,7 +5760,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5779,11 +5779,11 @@
         {
           "key": "virginbet",
           "title": "Virgin Bet",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -5804,11 +5804,11 @@
         {
           "key": "grosvenor",
           "title": "Grosvenor",
-          "last_update": "2026-07-09T09:19:52Z",
+          "last_update": "2026-07-09T09:54:40Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:54:40Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -5826,7 +5826,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:54:40Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5845,11 +5845,11 @@
         {
           "key": "livescorebet",
           "title": "LiveScore Bet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -5870,11 +5870,11 @@
         {
           "key": "pmu_fr",
           "title": "PMU (FR)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -5892,7 +5892,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5911,11 +5911,11 @@
         {
           "key": "casumo",
           "title": "Casumo",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -5933,7 +5933,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5952,11 +5952,11 @@
         {
           "key": "betrivers",
           "title": "BetRivers",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -5974,7 +5974,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -5993,11 +5993,11 @@
         {
           "key": "tabtouch",
           "title": "TABtouch",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:18Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:18Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6015,7 +6015,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:18Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6034,11 +6034,11 @@
         {
           "key": "unibet_se",
           "title": "Unibet (SE)",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6056,7 +6056,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6075,11 +6075,11 @@
         {
           "key": "leovegas_se",
           "title": "LeoVegas (SE)",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6100,11 +6100,11 @@
         {
           "key": "leovegas",
           "title": "LeoVegas",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6122,7 +6122,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6141,11 +6141,11 @@
         {
           "key": "coral",
           "title": "Coral",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6166,11 +6166,11 @@
         {
           "key": "betmgm",
           "title": "BetMGM",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6188,7 +6188,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6207,23 +6207,23 @@
         {
           "key": "marathonbet",
           "title": "Marathon Bet",
-          "last_update": "2026-07-09T09:19:38Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:38Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Argentina",
-                  "price": 1.7
+                  "price": 1.69
                 },
                 {
                   "name": "Switzerland",
-                  "price": 5.55
+                  "price": 5.75
                 },
                 {
                   "name": "Draw",
-                  "price": 3.55
+                  "price": 3.52
                 }
               ]
             }
@@ -6232,11 +6232,11 @@
         {
           "key": "unibet_fr",
           "title": "Unibet (FR)",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6257,11 +6257,11 @@
         {
           "key": "betclic_fr",
           "title": "Betclic (FR)",
-          "last_update": "2026-07-09T09:18:39Z",
+          "last_update": "2026-07-09T09:54:55Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:18:39Z",
+              "last_update": "2026-07-09T09:54:55Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6282,11 +6282,11 @@
         {
           "key": "tipico_de",
           "title": "Tipico",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6307,11 +6307,11 @@
         {
           "key": "unibet_uk",
           "title": "Unibet (UK)",
-          "last_update": "2026-07-09T09:19:19Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:19Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6332,11 +6332,11 @@
         {
           "key": "smarkets",
           "title": "Smarkets",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6354,7 +6354,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6375,11 +6375,11 @@
         {
           "key": "sport888",
           "title": "888sport",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6400,11 +6400,11 @@
         {
           "key": "gtbets",
           "title": "GTbets",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6422,7 +6422,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6441,11 +6441,11 @@
         {
           "key": "ladbrokes_uk",
           "title": "Ladbrokes",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6466,11 +6466,11 @@
         {
           "key": "williamhill",
           "title": "William Hill",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6488,7 +6488,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6507,11 +6507,11 @@
         {
           "key": "nordicbet",
           "title": "Nordic Bet",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6529,7 +6529,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6548,11 +6548,11 @@
         {
           "key": "betr_au",
           "title": "Betr",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6573,11 +6573,11 @@
         {
           "key": "betright",
           "title": "Bet Right",
-          "last_update": "2026-07-09T09:20:33Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:33Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6598,11 +6598,11 @@
         {
           "key": "betsson",
           "title": "Betsson",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6620,7 +6620,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6639,11 +6639,11 @@
         {
           "key": "tab",
           "title": "TAB",
-          "last_update": "2026-07-09T09:20:12Z",
+          "last_update": "2026-07-09T09:55:00Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:12Z",
+              "last_update": "2026-07-09T09:55:00Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6664,11 +6664,11 @@
         {
           "key": "betfred_uk",
           "title": "Betfred (UK)",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:54:07Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:54:07Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6689,11 +6689,11 @@
         {
           "key": "sportsbet",
           "title": "SportsBet",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:20Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:20Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6714,11 +6714,11 @@
         {
           "key": "paddypower",
           "title": "Paddy Power",
-          "last_update": "2026-07-09T09:19:19Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:19Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6739,11 +6739,11 @@
         {
           "key": "playup",
           "title": "PlayUp",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6761,7 +6761,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6780,11 +6780,11 @@
         {
           "key": "mybookieag",
           "title": "MyBookie.ag",
-          "last_update": "2026-07-09T09:19:52Z",
+          "last_update": "2026-07-09T09:53:29Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:53:29Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6802,7 +6802,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:52Z",
+              "last_update": "2026-07-09T09:53:29Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6821,11 +6821,11 @@
         {
           "key": "skybet",
           "title": "Sky Bet",
-          "last_update": "2026-07-09T09:20:08Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:08Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6846,11 +6846,11 @@
         {
           "key": "fanduel",
           "title": "FanDuel",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6871,15 +6871,15 @@
         {
           "key": "bovada",
           "title": "Bovada",
-          "last_update": "2026-07-09T09:17:34Z",
+          "last_update": "2026-07-09T09:53:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:17:34Z",
+              "last_update": "2026-07-09T09:53:31Z",
               "outcomes": [
                 {
                   "name": "Argentina",
-                  "price": 1.72
+                  "price": 1.7
                 },
                 {
                   "name": "Switzerland",
@@ -6893,7 +6893,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:17:34Z",
+              "last_update": "2026-07-09T09:53:31Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6912,11 +6912,11 @@
         {
           "key": "matchbook",
           "title": "Matchbook",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6934,7 +6934,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6955,11 +6955,11 @@
         {
           "key": "pinnacle",
           "title": "Pinnacle",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:31Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -6977,7 +6977,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:31Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -6996,11 +6996,11 @@
         {
           "key": "winamax_fr",
           "title": "Winamax (FR)",
-          "last_update": "2026-07-09T09:19:35Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:35Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7021,11 +7021,11 @@
         {
           "key": "betonlineag",
           "title": "BetOnline.ag",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7043,7 +7043,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -7062,11 +7062,11 @@
         {
           "key": "winamax_de",
           "title": "Winamax (DE)",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:54:21Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:54:21Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7087,11 +7087,11 @@
         {
           "key": "betfair_ex_au",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:19:53Z",
+          "last_update": "2026-07-09T09:55:17Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:53Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7109,7 +7109,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:19:53Z",
+              "last_update": "2026-07-09T09:55:17Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7130,11 +7130,11 @@
         {
           "key": "betfair_ex_eu",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7152,7 +7152,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7173,11 +7173,11 @@
         {
           "key": "betfair_ex_uk",
           "title": "Betfair",
-          "last_update": "2026-07-09T09:20:34Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7195,7 +7195,7 @@
             },
             {
               "key": "h2h_lay",
-              "last_update": "2026-07-09T09:20:34Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7216,29 +7216,29 @@
         {
           "key": "onexbet",
           "title": "1xBet",
-          "last_update": "2026-07-09T09:19:33Z",
+          "last_update": "2026-07-09T09:55:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:33Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "Argentina",
-                  "price": 1.76
+                  "price": 1.75
                 },
                 {
                   "name": "Switzerland",
-                  "price": 5.74
+                  "price": 5.94
                 },
                 {
                   "name": "Draw",
-                  "price": 3.67
+                  "price": 3.64
                 }
               ]
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:33Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -7257,11 +7257,11 @@
         {
           "key": "betvictor",
           "title": "Bet Victor",
-          "last_update": "2026-07-09T09:19:51Z",
+          "last_update": "2026-07-09T09:53:24Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:51Z",
+              "last_update": "2026-07-09T09:53:24Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7282,11 +7282,11 @@
         {
           "key": "betway",
           "title": "Betway",
-          "last_update": "2026-07-09T09:20:09Z",
+          "last_update": "2026-07-09T09:54:57Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:09Z",
+              "last_update": "2026-07-09T09:54:57Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7307,11 +7307,11 @@
         {
           "key": "draftkings",
           "title": "DraftKings",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:15Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:15Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7332,11 +7332,11 @@
         {
           "key": "betanysports",
           "title": "BetAnything",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7354,7 +7354,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -7373,11 +7373,11 @@
         {
           "key": "pointsbetau",
           "title": "PointsBet (AU)",
-          "last_update": "2026-07-09T09:19:36Z",
+          "last_update": "2026-07-09T09:54:22Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:36Z",
+              "last_update": "2026-07-09T09:54:22Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7398,11 +7398,11 @@
         {
           "key": "betus",
           "title": "BetUS",
-          "last_update": "2026-07-09T09:20:32Z",
+          "last_update": "2026-07-09T09:55:16Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7420,7 +7420,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:20:32Z",
+              "last_update": "2026-07-09T09:55:16Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -7439,11 +7439,11 @@
         {
           "key": "everygame",
           "title": "Everygame",
-          "last_update": "2026-07-09T09:18:46Z",
+          "last_update": "2026-07-09T09:54:42Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:18:46Z",
+              "last_update": "2026-07-09T09:54:42Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7464,11 +7464,11 @@
         {
           "key": "codere_it",
           "title": "Codere (IT)",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:32Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7486,7 +7486,7 @@
             },
             {
               "key": "totals",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:32Z",
               "outcomes": [
                 {
                   "name": "Over",
@@ -7505,11 +7505,11 @@
         {
           "key": "boylesports",
           "title": "BoyleSports",
-          "last_update": "2026-07-09T09:20:08Z",
+          "last_update": "2026-07-09T09:54:56Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:20:08Z",
+              "last_update": "2026-07-09T09:54:56Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7530,11 +7530,11 @@
         {
           "key": "betfair_sb_uk",
           "title": "Betfair Sportsbook",
-          "last_update": "2026-07-09T09:19:34Z",
+          "last_update": "2026-07-09T09:55:31Z",
           "markets": [
             {
               "key": "h2h",
-              "last_update": "2026-07-09T09:19:34Z",
+              "last_update": "2026-07-09T09:55:31Z",
               "outcomes": [
                 {
                   "name": "Argentina",
@@ -7584,7 +7584,7 @@
     "Argentina": 0.2005,
     "Belgium": 0.0245,
     "Norway": 0.0605,
-    "Morocco": 0.0275,
+    "Morocco": 0.0305,
     "Switzerland": 0.0215
   },
   "goal_events": {}
