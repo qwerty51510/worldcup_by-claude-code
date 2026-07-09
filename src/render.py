@@ -1015,7 +1015,6 @@ def _base_html(title: str, body: str, active_nav: str = "") -> str:
         ("results.html", "歷史結果", "📜"),
         ("calibration.html", "模型校正", "⚙️"),
         ("postmortem.html", "復盤分析", "🔍"),
-        ("trading.html", "交易", "📈"),
     ]
     nav_html = "".join(
         f'<a href="{href}" class="{"active" if active_nav == label else ""}">{icon} {label}</a>'
