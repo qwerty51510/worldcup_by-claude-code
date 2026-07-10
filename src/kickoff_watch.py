@@ -131,34 +131,43 @@ def _run_pre_kickoff(match: dict) -> bool:
         try:
             kickoff_dt: datetime = match["_kickoff"]
             date_str = kickoff_dt.strftime("%Y-%m-%d")
-            match_file = DATA_DIR / f"matches/{date_str}.json"
-            if match_file.exists():
-                data = _json.loads(match_file.read_text())
-                odds = data.get("odds", {})
-                pm = data.get("polymarket", {})
-                espn_odds_raw = data.get("espn_odds", {})
-                espn_odds = {tuple(k.split("|")): v for k, v in espn_odds_raw.items() if "|" in k}
-                upcoming = [m for m in data.get("matches", [])
-                            if m.get("id") == match.get("id")]
-                if upcoming:
-                    calibration = load_calibration()
-                    features = build_features(upcoming, odds, calibration,
-                                              pm_strengths=pm, espn_odds=espn_odds)
-                    preds = predict_all(features, calibration)
-                    if preds:
-                        p = preds[0]
-                        alert_pre_kickoff_summary(
-                            match_label=label,
-                            home=home, away=away,
-                            lh=p.get("lambda_home", 0),
-                            la=p.get("lambda_away", 0),
-                            home_win=p.get("p_home_win", 0),
-                            draw=p.get("p_draw", 0),
-                            away_win=p.get("p_away_win", 0),
-                            ah_line=p.get("ah_line", 0),
-                            ou_line=p.get("ou_line", 2.5),
-                        )
-                        print(f"[watch] 傷兵+預測摘要已推送 Telegram")
+            # 直接從已生成的 predictions 檔案讀取，不依賴 matches 重建
+            # pipeline 提前一天生成，所以同時查當天和前一天
+            from datetime import timedelta
+            check_dates = [date_str,
+                           (kickoff_dt - timedelta(days=1)).strftime("%Y-%m-%d")]
+            p = None
+            for d in check_dates:
+                pred_file = DATA_DIR / f"predictions/{d}.json"
+                if not pred_file.exists():
+                    continue
+                preds = _json.loads(pred_file.read_text())
+                if not isinstance(preds, list):
+                    preds = [preds]
+                for pred in preds:
+                    ph = pred.get("home_team", "").lower()
+                    pa = pred.get("away_team", "").lower()
+                    if ph in home.lower() or home.lower() in ph or \
+                       pa in away.lower() or away.lower() in pa:
+                        p = pred
+                        break
+                if p:
+                    break
+            if p:
+                alert_pre_kickoff_summary(
+                    match_label=label,
+                    home=home, away=away,
+                    lh=p.get("lambda_home", 0),
+                    la=p.get("lambda_away", 0),
+                    home_win=p.get("p_home_win", 0),
+                    draw=p.get("p_draw", 0),
+                    away_win=p.get("p_away_win", 0),
+                    ah_line=p.get("ah_line", 0),
+                    ou_line=p.get("ou_line", 2.5),
+                )
+                print(f"[watch] 傷兵+預測摘要已推送 Telegram")
+            else:
+                print(f"[watch] 找不到 {date_str} 的預測資料，跳過摘要推送")
         except Exception as e:
             print(f"[watch] summary alert error: {e}")
 
