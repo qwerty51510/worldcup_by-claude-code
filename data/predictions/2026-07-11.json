@@ -1,0 +1,70 @@
+[
+  {
+    "match_id": "537385",
+    "home_team": "Norway",
+    "away_team": "England",
+    "kickoff": "07/12 05:00",
+    "kickoff_utc": "2026-07-11T21:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 41,
+    "ou_prediction": "over",
+    "ou_confidence": 58,
+    "predicted_score": "1-1",
+    "predicted_score_prob": 9.9,
+    "p_home_win": 0.229,
+    "p_draw": 0.217,
+    "p_away_win": 0.553,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 1.205,
+    "lambda_away": 1.979,
+    "ou_lambda_home": 1.57,
+    "ou_lambda_away": 2.637,
+    "ah_line": 0.0,
+    "ou_line": 2.5,
+    "reasoning": "【強度】挪威（ELO 1731）vs 英格蘭（ELO 1946），實力有明顯優勢（ELO -215）\n【近況】挪威 5場 進12 失9；英格蘭 5場 進11 失5\n【陣型戰術】挪威 4-3-3（均衡）vs 英格蘭 4-3-3（進攻型）\n【體力】挪威 休息6天（體力充足）；英格蘭 休息5天（體力充足）\n【進球預期】主 1.2 + 客 2.0 = 3.2，傾向大球（信心 58%）\n【勝負】英格蘭 略佔優（勝率 55%），平局機率 21%",
+    "injury_notes": [
+      "挪威：Julian Ryerson（大腿，疑問（估））",
+      "英格蘭：Tino Livramento（大腿傷，確定缺陣（估））、Declan Rice（大腿後肌，帶傷參賽（估））、Reece James（大腿後肌，WC期間（估））、Jarell Quansah（踝傷，疑問，WC期間（估））、Jordan Henderson（慶祝跳欄手腕重傷，本屆報銷）"
+    ],
+    "stage": "QUARTER_FINALS",
+    "dk_ml_home": "+300",
+    "dk_ml_draw": "+265",
+    "dk_ml_away": "-110"
+  },
+  {
+    "match_id": "537386",
+    "home_team": "Argentina",
+    "away_team": "Switzerland",
+    "kickoff": "07/12 09:00",
+    "kickoff_utc": "2026-07-12T01:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 8,
+    "ou_prediction": "over",
+    "ou_confidence": 14,
+    "predicted_score": "1-0",
+    "predicted_score_prob": 13.4,
+    "p_home_win": 0.544,
+    "p_draw": 0.25,
+    "p_away_win": 0.206,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 1.601,
+    "lambda_away": 0.877,
+    "ou_lambda_home": 1.943,
+    "ou_lambda_away": 1.039,
+    "ah_line": -0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】阿根廷（ELO 2031）vs 瑞士（ELO 1695），實力有明顯優勢（ELO +336）\n【近況】阿根廷 6場 進17 失5；瑞士 5場 進13 失6\n【陣型戰術】阿根廷 4-3-3（進攻型）vs 瑞士 3-4-3（均衡）\n【體力】阿根廷 休息5天（體力充足）；瑞士 休息5天（體力充足）\n【進球預期】主 1.6 + 客 0.9 = 2.5，傾向大球（信心 14%）\n【勝負】阿根廷 略佔優（勝率 54%），平局機率 25%",
+    "injury_notes": [
+      "阿根廷：Cristian Romero（MCL部分撕裂，疑問（估））、Nahuel Molina（大腿傷，疑問/可能復出（估））",
+      "瑞士：Johan Manzambi（膝傷，確定缺陣；本屆 3 球 2 助，瑞士最關鍵進攻球員）、Michel Aebischer（肌肉傷，疑問；中場覆蓋能力下降）、Djibril Sow（不適，疑問；防守型中場）、Ruben Vargas（不適，疑問；左路主力邊鋒）、Luca Jaquez（肌肉傷，疑問；右後衛）"
+    ],
+    "stage": "QUARTER_FINALS",
+    "dk_ml_home": "-145",
+    "dk_ml_draw": "+255",
+    "dk_ml_away": "+450"
+  }
+]
