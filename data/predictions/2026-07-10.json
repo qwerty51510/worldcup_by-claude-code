@@ -1,0 +1,70 @@
+[
+  {
+    "match_id": "537384",
+    "home_team": "Spain",
+    "away_team": "Belgium",
+    "kickoff": "07/11 03:00",
+    "kickoff_utc": "2026-07-10T19:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 15,
+    "ou_prediction": "under",
+    "ou_confidence": 3,
+    "predicted_score": "1-0",
+    "predicted_score_prob": 17.1,
+    "p_home_win": 0.423,
+    "p_draw": 0.319,
+    "p_away_win": 0.258,
+    "key_factors": [
+      "強度來源：DraftKings盤口"
+    ],
+    "lambda_home": 1.071,
+    "lambda_away": 0.766,
+    "ou_lambda_home": 1.539,
+    "ou_lambda_away": 1.067,
+    "ah_line": -0.5,
+    "ou_line": 2.5,
+    "reasoning": "【強度】西班牙（ELO 1982）vs 比利時（ELO 1845），實力略佔優勢（ELO +137）\n【近況】西班牙 5場 進9 失0；比利時 5場 進13 失5\n【陣型戰術】西班牙 4-3-3（控球進攻）vs 比利時 4-3-3（進攻型）\n【體力】西班牙 休息4天（略有疲態）；比利時 休息3天（疲態明顯）\n【進球預期】主 1.1 + 客 0.8 = 1.8，傾向小球（信心 3%）\n【勝負】雙方勢均力敵，平局機率 31% 不低",
+    "injury_notes": [
+      "西班牙：Fermín López（蹠骨骨折，傷出局整季（估））、Mikel Merino（足部應力性骨折復出，狀態存疑（估））、Nico Williams（內收肌傷，R16確認缺陣）、Yeremy Pino（肩傷，R16確認缺陣）",
+      "比利時：Zeno Debast（腿傷，整屆缺陣（估））、Romelu Lukaku（火腿肌歷史傷，體能管理中（估））"
+    ],
+    "stage": "QUARTER_FINALS",
+    "dk_ml_home": "-160",
+    "dk_ml_draw": "+295",
+    "dk_ml_away": "+450"
+  },
+  {
+    "match_id": "537385",
+    "home_team": "Norway",
+    "away_team": "England",
+    "kickoff": "07/12 05:00",
+    "kickoff_utc": "2026-07-11T21:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 41,
+    "ou_prediction": "over",
+    "ou_confidence": 58,
+    "predicted_score": "1-1",
+    "predicted_score_prob": 9.9,
+    "p_home_win": 0.229,
+    "p_draw": 0.217,
+    "p_away_win": 0.553,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 1.205,
+    "lambda_away": 1.979,
+    "ou_lambda_home": 1.57,
+    "ou_lambda_away": 2.637,
+    "ah_line": 0.0,
+    "ou_line": 2.5,
+    "reasoning": "【強度】挪威（ELO 1731）vs 英格蘭（ELO 1946），實力有明顯優勢（ELO -215）\n【近況】挪威 5場 進12 失9；英格蘭 5場 進11 失5\n【陣型戰術】挪威 4-3-3（均衡）vs 英格蘭 4-3-3（進攻型）\n【體力】挪威 休息6天（體力充足）；英格蘭 休息5天（體力充足）\n【進球預期】主 1.2 + 客 2.0 = 3.2，傾向大球（信心 58%）\n【勝負】英格蘭 略佔優（勝率 55%），平局機率 21%",
+    "injury_notes": [
+      "挪威：Julian Ryerson（大腿，疑問（估））",
+      "英格蘭：Tino Livramento（大腿傷，確定缺陣（估））、Declan Rice（大腿後肌，帶傷參賽（估））、Reece James（大腿後肌，WC期間（估））、Jarell Quansah（踝傷，疑問，WC期間（估））、Jordan Henderson（慶祝跳欄手腕重傷，本屆報銷）"
+    ],
+    "stage": "QUARTER_FINALS",
+    "dk_ml_home": "+310",
+    "dk_ml_draw": "+270",
+    "dk_ml_away": "-115"
+  }
+]

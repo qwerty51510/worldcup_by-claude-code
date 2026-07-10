@@ -1030,5 +1030,17 @@
     "home_goals": 4,
     "away_goals": 3,
     "round": 0
+  },
+  {
+    "date": "2026-07-09",
+    "group": "",
+    "home": "France",
+    "away": "Morocco",
+    "home_goals": 2,
+    "away_goals": 0,
+    "home_goals_final": 2,
+    "away_goals_final": 0,
+    "duration": "REGULAR",
+    "round": 0
   }
 ]

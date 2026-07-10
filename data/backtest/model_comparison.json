@@ -1,59 +1,59 @@
 {
-  "updated_at": "2026-07-09T09:20:24Z",
-  "total_matches": 110,
+  "updated_at": "2026-07-10T13:20:17Z",
+  "total_matches": 111,
   "current_model": "plain_poisson",
-  "current_ah_accuracy": 0.645,
-  "current_ou_accuracy": 0.591,
+  "current_ah_accuracy": 0.639,
+  "current_ou_accuracy": 0.622,
   "best_ah_model": "plain_poisson",
-  "best_ah_accuracy": 0.645,
+  "best_ah_accuracy": 0.639,
   "best_ou_model": "plain_poisson",
-  "best_ou_accuracy": 0.591,
+  "best_ou_accuracy": 0.622,
   "adopt_dc_rho": null,
   "rows": [
     {
       "label": "plain_poisson",
       "rho": 0.0,
-      "ah_accuracy": 0.645,
-      "ou_accuracy": 0.591,
-      "ah_brier": 0.271,
-      "ou_brier": 0.276,
-      "total_matches": 110
+      "ah_accuracy": 0.639,
+      "ou_accuracy": 0.622,
+      "ah_brier": 0.269,
+      "ou_brier": 0.265,
+      "total_matches": 111
     },
     {
       "label": "dc_rho_-0.05",
       "rho": -0.05,
-      "ah_accuracy": 0.645,
-      "ou_accuracy": 0.591,
-      "ah_brier": 0.271,
-      "ou_brier": 0.276,
-      "total_matches": 110
+      "ah_accuracy": 0.63,
+      "ou_accuracy": 0.622,
+      "ah_brier": 0.269,
+      "ou_brier": 0.265,
+      "total_matches": 111
     },
     {
       "label": "dc_rho_-0.10",
       "rho": -0.1,
-      "ah_accuracy": 0.636,
-      "ou_accuracy": 0.591,
-      "ah_brier": 0.271,
-      "ou_brier": 0.276,
-      "total_matches": 110
+      "ah_accuracy": 0.63,
+      "ou_accuracy": 0.622,
+      "ah_brier": 0.269,
+      "ou_brier": 0.265,
+      "total_matches": 111
     },
     {
       "label": "dc_rho_-0.13",
       "rho": -0.13,
-      "ah_accuracy": 0.626,
-      "ou_accuracy": 0.591,
-      "ah_brier": 0.271,
-      "ou_brier": 0.276,
-      "total_matches": 110
+      "ah_accuracy": 0.639,
+      "ou_accuracy": 0.622,
+      "ah_brier": 0.269,
+      "ou_brier": 0.265,
+      "total_matches": 111
     },
     {
       "label": "dc_rho_-0.18",
       "rho": -0.18,
-      "ah_accuracy": 0.626,
-      "ou_accuracy": 0.591,
-      "ah_brier": 0.271,
-      "ou_brier": 0.276,
-      "total_matches": 110
+      "ah_accuracy": 0.63,
+      "ou_accuracy": 0.622,
+      "ah_brier": 0.269,
+      "ou_brier": 0.265,
+      "total_matches": 111
     }
   ]
 }
