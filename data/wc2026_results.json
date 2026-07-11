@@ -1042,5 +1042,17 @@
     "away_goals_final": 0,
     "duration": "REGULAR",
     "round": 0
+  },
+  {
+    "date": "2026-07-10",
+    "group": "",
+    "home": "Spain",
+    "away": "Belgium",
+    "home_goals": 2,
+    "away_goals": 1,
+    "home_goals_final": 2,
+    "away_goals_final": 1,
+    "duration": "REGULAR",
+    "round": 0
   }
 ]

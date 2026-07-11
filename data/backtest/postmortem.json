@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-07-10T13:20:17Z",
-  "total_matches": 111,
+  "generated_at": "2026-07-11T10:06:59Z",
+  "total_matches": 112,
   "summary": {
-    "ah_accuracy": 0.639,
-    "ou_accuracy": 0.622,
+    "ah_accuracy": 0.633,
+    "ou_accuracy": 0.607,
     "score_exact_match": 16,
     "avg_goal_total_error": 1.63
   },
@@ -613,8 +613,8 @@
       "actual_ah": "away",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
-      "ou_correct": true
+      "ou_pred": "over",
+      "ou_correct": false
     },
     {
       "date": "2026-06-18",
@@ -2116,6 +2116,25 @@
       "ah_is_push": false,
       "ou_pred": "over",
       "ou_correct": false
+    },
+    {
+      "date": "2026-07-10",
+      "group": "",
+      "round": 0,
+      "home": "Spain",
+      "away": "Belgium",
+      "predicted_score": "1-0",
+      "actual_score": "2-1",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 1.071,
+      "lambda_away": 0.766,
+      "ah_pred": "away",
+      "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ],
   "team_analysis": [
@@ -2248,6 +2267,14 @@
       "ah_accuracy": 0.667
     },
     {
+      "team": "Belgium",
+      "matches": 6,
+      "pred_goals_avg": 1.67,
+      "actual_goals_avg": 2.33,
+      "goal_bias": -0.67,
+      "ah_accuracy": 0.333
+    },
+    {
       "team": "Argentina",
       "matches": 6,
       "pred_goals_avg": 2.17,
@@ -2270,14 +2297,6 @@
       "actual_goals_avg": 0.6,
       "goal_bias": -0.6,
       "ah_accuracy": 1.0
-    },
-    {
-      "team": "Belgium",
-      "matches": 5,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.6,
-      "goal_bias": -0.6,
-      "ah_accuracy": 0.4
     },
     {
       "team": "Norway",
@@ -2334,6 +2353,14 @@
       "actual_goals_avg": 0.67,
       "goal_bias": 0.33,
       "ah_accuracy": 0.333
+    },
+    {
+      "team": "Spain",
+      "matches": 6,
+      "pred_goals_avg": 1.5,
+      "actual_goals_avg": 1.83,
+      "goal_bias": -0.33,
+      "ah_accuracy": 0.667
     },
     {
       "team": "Saudi Arabia",
@@ -2438,14 +2465,6 @@
       "actual_goals_avg": 2.4,
       "goal_bias": -0.2,
       "ah_accuracy": 0.5
-    },
-    {
-      "team": "Spain",
-      "matches": 5,
-      "pred_goals_avg": 1.6,
-      "actual_goals_avg": 1.8,
-      "goal_bias": -0.2,
-      "ah_accuracy": 0.8
     },
     {
       "team": "Algeria",
@@ -3245,6 +3264,25 @@
       "ah_is_push": false,
       "ou_pred": "over",
       "ou_correct": true
+    },
+    {
+      "date": "2026-07-10",
+      "group": "",
+      "round": 0,
+      "home": "Spain",
+      "away": "Belgium",
+      "predicted_score": "1-0",
+      "actual_score": "2-1",
+      "score_correct": false,
+      "goal_total_error": 2,
+      "lambda_home": 1.071,
+      "lambda_away": 0.766,
+      "ah_pred": "away",
+      "actual_ah": "home",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
     }
   ]
 }
