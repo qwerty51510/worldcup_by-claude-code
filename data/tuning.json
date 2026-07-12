@@ -3,7 +3,7 @@
   "ah_line_multiplier": 0.38,
   "knockout_lambda_scale": 0.75,
   "ah_brier": 0.2261,
-  "ou_line_multiplier": 1.041,
-  "ou_brier": 0.2457,
+  "ou_line_multiplier": 1.034,
+  "ou_brier": 0.2503,
   "injury_scale": 1.0
 }

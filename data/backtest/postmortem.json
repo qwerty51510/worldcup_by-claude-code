@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-11T10:06:59Z",
-  "total_matches": 112,
+  "generated_at": "2026-07-12T10:57:57Z",
+  "total_matches": 114,
   "summary": {
-    "ah_accuracy": 0.633,
-    "ou_accuracy": 0.607,
-    "score_exact_match": 16,
-    "avg_goal_total_error": 1.63
+    "ah_accuracy": 0.627,
+    "ou_accuracy": 0.596,
+    "score_exact_match": 17,
+    "avg_goal_total_error": 1.61
   },
   "matches": [
     {
@@ -2135,6 +2135,44 @@
       "ah_is_push": false,
       "ou_pred": "under",
       "ou_correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "group": "",
+      "round": 0,
+      "home": "Norway",
+      "away": "England",
+      "predicted_score": "1-1",
+      "actual_score": "1-1",
+      "score_correct": true,
+      "goal_total_error": 0,
+      "lambda_home": 1.205,
+      "lambda_away": 1.979,
+      "ah_pred": "away",
+      "actual_ah": null,
+      "ah_correct": false,
+      "ah_is_push": true,
+      "ou_pred": "over",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-07-12",
+      "group": "",
+      "round": 0,
+      "home": "Argentina",
+      "away": "Switzerland",
+      "predicted_score": "1-0",
+      "actual_score": "1-1",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.601,
+      "lambda_away": 0.877,
+      "ah_pred": "home",
+      "actual_ah": "away",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "over",
+      "ou_correct": false
     }
   ],
   "team_analysis": [
@@ -2156,11 +2194,11 @@
     },
     {
       "team": "Switzerland",
-      "matches": 5,
-      "pred_goals_avg": 1.0,
-      "actual_goals_avg": 2.6,
-      "goal_bias": -1.6,
-      "ah_accuracy": 0.2
+      "matches": 6,
+      "pred_goals_avg": 0.83,
+      "actual_goals_avg": 2.33,
+      "goal_bias": -1.5,
+      "ah_accuracy": 0.167
     },
     {
       "team": "Netherlands",
@@ -2209,14 +2247,6 @@
       "actual_goals_avg": 2.4,
       "goal_bias": -0.8,
       "ah_accuracy": 0.6
-    },
-    {
-      "team": "England",
-      "matches": 5,
-      "pred_goals_avg": 1.4,
-      "actual_goals_avg": 2.2,
-      "goal_bias": -0.8,
-      "ah_accuracy": 1.0
     },
     {
       "team": "Cabo Verde",
@@ -2275,10 +2305,10 @@
       "ah_accuracy": 0.333
     },
     {
-      "team": "Argentina",
+      "team": "England",
       "matches": 6,
-      "pred_goals_avg": 2.17,
-      "actual_goals_avg": 2.83,
+      "pred_goals_avg": 1.33,
+      "actual_goals_avg": 2.0,
       "goal_bias": -0.67,
       "ah_accuracy": 1.0
     },
@@ -2299,12 +2329,12 @@
       "ah_accuracy": 1.0
     },
     {
-      "team": "Norway",
-      "matches": 5,
-      "pred_goals_avg": 1.8,
-      "actual_goals_avg": 2.4,
-      "goal_bias": -0.6,
-      "ah_accuracy": 0.6
+      "team": "Argentina",
+      "matches": 7,
+      "pred_goals_avg": 2.0,
+      "actual_goals_avg": 2.57,
+      "goal_bias": -0.57,
+      "ah_accuracy": 0.857
     },
     {
       "team": "Iran",
@@ -2313,6 +2343,14 @@
       "actual_goals_avg": 1.5,
       "goal_bias": -0.5,
       "ah_accuracy": 0.5
+    },
+    {
+      "team": "Norway",
+      "matches": 6,
+      "pred_goals_avg": 1.67,
+      "actual_goals_avg": 2.17,
+      "goal_bias": -0.5,
+      "ah_accuracy": 0.6
     },
     {
       "team": "DR Congo",
@@ -3282,6 +3320,25 @@
       "ah_correct": false,
       "ah_is_push": false,
       "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-07-12",
+      "group": "",
+      "round": 0,
+      "home": "Argentina",
+      "away": "Switzerland",
+      "predicted_score": "1-0",
+      "actual_score": "1-1",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.601,
+      "lambda_away": 0.877,
+      "ah_pred": "home",
+      "actual_ah": "away",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "over",
       "ou_correct": false
     }
   ]
