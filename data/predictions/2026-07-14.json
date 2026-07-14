@@ -1,0 +1,70 @@
+[
+  {
+    "match_id": "537387",
+    "home_team": "France",
+    "away_team": "Spain",
+    "kickoff": "07/15 03:00",
+    "kickoff_utc": "2026-07-14T19:00:00Z",
+    "ah_prediction": "home",
+    "ah_confidence": 26,
+    "ou_prediction": "over",
+    "ou_confidence": 10,
+    "predicted_score": "0-0",
+    "predicted_score_prob": 19.0,
+    "p_home_win": 0.419,
+    "p_draw": 0.339,
+    "p_away_win": 0.242,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 0.987,
+    "lambda_away": 0.673,
+    "ou_lambda_home": 1.659,
+    "ou_lambda_away": 1.225,
+    "ah_line": 0.0,
+    "ou_line": 2.5,
+    "reasoning": "【強度】法國（ELO 2005）vs 西班牙（ELO 1982），實力相當（ELO +23）\n【近況】法國 6場 進16 失2；西班牙 6場 進11 失1\n【陣型戰術】法國 4-3-3（控球進攻）vs 西班牙 4-3-3（控球進攻）\n【體力】法國 休息5天（體力充足）；西班牙 休息4天（略有疲態）\n【進球預期】主 1.0 + 客 0.7 = 1.7，傾向大球（信心 10%）\n【勝負】雙方勢均力敵，平局機率 33% 不低",
+    "injury_notes": [
+      "法國：Hugo Ekitiké（跟腱斷裂，傷出局整季（估））、Michael Olise（黃牌風險）（對巴拉圭領黃牌，FIFA駁回申訴。本場可上陣但若再領黃將禁賽半決賽。本屆5助攻領跑全場。非受傷，不套用攻防乘數，僅作戰術風險記錄。）",
+      "西班牙：Fermín López（蹠骨骨折，傷出局整季（估））、Mikel Merino（足部應力性骨折復出，狀態存疑（估））、Nico Williams（內收肌傷，R16確認缺陣）、Yeremy Pino（肩傷，R16確認缺陣）"
+    ],
+    "stage": "SEMI_FINALS",
+    "dk_ml_home": "+140",
+    "dk_ml_draw": "+215",
+    "dk_ml_away": "+215"
+  },
+  {
+    "match_id": "537388",
+    "home_team": "England",
+    "away_team": "Argentina",
+    "kickoff": "07/16 03:00",
+    "kickoff_utc": "2026-07-15T19:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 11,
+    "ou_prediction": "over",
+    "ou_confidence": 31,
+    "predicted_score": "1-1",
+    "predicted_score_prob": 13.0,
+    "p_home_win": 0.319,
+    "p_draw": 0.275,
+    "p_away_win": 0.406,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 1.109,
+    "lambda_away": 1.288,
+    "ou_lambda_home": 1.741,
+    "ou_lambda_away": 1.636,
+    "ah_line": 0.0,
+    "ou_line": 2.5,
+    "reasoning": "【強度】英格蘭（ELO 1946）vs 阿根廷（ELO 2031），實力略佔優勢（ELO -85）\n【近況】英格蘭 6場 進12 失6；阿根廷 7場 進18 失6\n【陣型戰術】英格蘭 4-3-3（進攻型）vs 阿根廷 4-3-3（進攻型），雙方均主動進攻，預計開放式打法\n【體力】英格蘭 休息4天（略有疲態）；阿根廷 休息3天（疲態明顯）\n【進球預期】主 1.1 + 客 1.3 = 2.4，傾向大球（信心 31%）\n【勝負】雙方勢均力敵，平局機率 27% 不低",
+    "injury_notes": [
+      "英格蘭：Tino Livramento（大腿傷，確定缺陣（估））、Declan Rice（大腿後肌，帶傷參賽（估））、Reece James（大腿後肌，WC期間（估））、Jarell Quansah（踝傷，疑問，WC期間（估））、Jordan Henderson（慶祝跳欄手腕重傷，本屆報銷）",
+      "阿根廷：Cristian Romero（MCL部分撕裂，疑問（估））、Nahuel Molina（大腿傷，疑問/可能復出（估））"
+    ],
+    "stage": "SEMI_FINALS",
+    "dk_ml_home": "+165",
+    "dk_ml_draw": "+190",
+    "dk_ml_away": "+200"
+  }
+]
