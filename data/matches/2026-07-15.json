@@ -1,0 +1,2315 @@
+{
+  "matches": [
+    {
+      "area": {
+        "id": 2267,
+        "name": "World",
+        "code": "INT",
+        "flag": null
+      },
+      "competition": {
+        "id": 2000,
+        "name": "FIFA World Cup",
+        "code": "WC",
+        "type": "CUP",
+        "emblem": "https://crests.football-data.org/wm26.png"
+      },
+      "season": {
+        "id": 2398,
+        "startDate": "2026-06-11",
+        "endDate": "2026-07-19",
+        "currentMatchday": 3,
+        "winner": null
+      },
+      "id": 537388,
+      "utcDate": "2026-07-15T19:00:00Z",
+      "status": "TIMED",
+      "matchday": null,
+      "stage": "SEMI_FINALS",
+      "group": null,
+      "lastUpdated": "2026-07-15T05:20:10Z",
+      "homeTeam": {
+        "id": 770,
+        "name": "England",
+        "shortName": "England",
+        "tla": "ENG",
+        "crest": "https://crests.football-data.org/770.svg"
+      },
+      "awayTeam": {
+        "id": 762,
+        "name": "Argentina",
+        "shortName": "Argentina",
+        "tla": "ARG",
+        "crest": "https://crests.football-data.org/762.png"
+      },
+      "score": {
+        "winner": null,
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": null,
+          "away": null
+        },
+        "halfTime": {
+          "home": null,
+          "away": null
+        }
+      },
+      "odds": {
+        "msg": "Activate Odds-Package in User-Panel to retrieve odds."
+      },
+      "referees": []
+    }
+  ],
+  "odds": {
+    "ced22494ae0bbb8cc4f7108bf6f493df": {
+      "id": "ced22494ae0bbb8cc4f7108bf6f493df",
+      "sport_key": "soccer_fifa_world_cup",
+      "sport_title": "FIFA World Cup",
+      "commence_time": "2026-07-15T19:00:00Z",
+      "home_team": "England",
+      "away_team": "Argentina",
+      "bookmakers": [
+        {
+          "key": "pinnacle",
+          "title": "Pinnacle",
+          "last_update": "2026-07-15T11:14:47Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:47Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.08
+                },
+                {
+                  "name": "England",
+                  "price": 2.79
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.9
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:47Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.83,
+                  "point": 2.0
+                },
+                {
+                  "name": "Under",
+                  "price": 2.09,
+                  "point": 2.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "livescorebet",
+          "title": "LiveScore Bet",
+          "last_update": "2026-07-15T11:14:29Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:29Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.95
+                },
+                {
+                  "name": "England",
+                  "price": 2.65
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "pmu_fr",
+          "title": "PMU (FR)",
+          "last_update": "2026-07-15T11:14:49Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:49Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.05
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.95
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:49Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.3,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.53,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "leovegas_se",
+          "title": "LeoVegas (SE)",
+          "last_update": "2026-07-15T11:14:30Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "casumo",
+          "title": "Casumo",
+          "last_update": "2026-07-15T11:14:14Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.35,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.56,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betrivers",
+          "title": "BetRivers",
+          "last_update": "2026-07-15T11:13:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:56Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:13:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.35,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.56,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "unibet_se",
+          "title": "Unibet (SE)",
+          "last_update": "2026-07-15T11:14:29Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:29Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.1
+                },
+                {
+                  "name": "England",
+                  "price": 2.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.95
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:29Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.4,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.57,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "unibet",
+          "title": "Unibet",
+          "last_update": "2026-07-15T11:14:30Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.35,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.56,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "grosvenor",
+          "title": "Grosvenor",
+          "last_update": "2026-07-15T11:13:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:56Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.63
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:13:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.35,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.56,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "virginbet",
+          "title": "Virgin Bet",
+          "last_update": "2026-07-15T11:14:14Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.95
+                },
+                {
+                  "name": "England",
+                  "price": 2.65
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "tabtouch",
+          "title": "TABtouch",
+          "last_update": "2026-07-15T11:14:30Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.95
+                },
+                {
+                  "name": "England",
+                  "price": 2.65
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.8
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.35,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.56,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "unibet_nl",
+          "title": "Unibet (NL)",
+          "last_update": "2026-07-15T11:14:14Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.1
+                },
+                {
+                  "name": "England",
+                  "price": 2.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.95
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.35,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.56,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "marathonbet",
+          "title": "Marathon Bet",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.95
+                },
+                {
+                  "name": "England",
+                  "price": 2.66
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "draftkings",
+          "title": "DraftKings",
+          "last_update": "2026-07-15T11:14:29Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:29Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "unibet_fr",
+          "title": "Unibet (FR)",
+          "last_update": "2026-07-15T11:14:29Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:29Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "leovegas",
+          "title": "LeoVegas",
+          "last_update": "2026-07-15T11:14:14Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.95
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.4,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.57,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "sport888",
+          "title": "888sport",
+          "last_update": "2026-07-15T11:13:57Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:57Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.9
+                },
+                {
+                  "name": "England",
+                  "price": 2.62
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.9
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betclic_fr",
+          "title": "Betclic (FR)",
+          "last_update": "2026-07-15T11:13:33Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:33Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "smarkets",
+          "title": "Smarkets",
+          "last_update": "2026-07-15T11:14:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:48Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.15
+                },
+                {
+                  "name": "England",
+                  "price": 2.84
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.0
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-07-15T11:14:48Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.2
+                },
+                {
+                  "name": "England",
+                  "price": 2.86
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.05
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "tipico_de",
+          "title": "Tipico",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.9
+                },
+                {
+                  "name": "England",
+                  "price": 2.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "coral",
+          "title": "Coral",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.6
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.9
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "ladbrokes_uk",
+          "title": "Ladbrokes",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.6
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.87
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betmgm",
+          "title": "BetMGM",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.6
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.88
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.38,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.57,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "unibet_uk",
+          "title": "Unibet (UK)",
+          "last_update": "2026-07-15T11:13:20Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:20Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.8
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.9
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "winamax_fr",
+          "title": "Winamax (FR)",
+          "last_update": "2026-07-15T11:14:49Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:49Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.9
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "winamax_de",
+          "title": "Winamax (DE)",
+          "last_update": "2026-07-15T11:14:30Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.95
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "bovada",
+          "title": "Bovada",
+          "last_update": "2026-07-15T11:12:28Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:12:28Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.95
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:12:28Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.8,
+                  "point": 2.0
+                },
+                {
+                  "name": "Under",
+                  "price": 2.05,
+                  "point": 2.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "mybookieag",
+          "title": "MyBookie.ag",
+          "last_update": "2026-07-15T11:13:02Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:02Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.02
+                },
+                {
+                  "name": "England",
+                  "price": 2.61
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.89
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:13:02Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.77,
+                  "point": 2.0
+                },
+                {
+                  "name": "Under",
+                  "price": 2.07,
+                  "point": 2.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "williamhill",
+          "title": "William Hill",
+          "last_update": "2026-07-15T11:13:58Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:58Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.9
+                },
+                {
+                  "name": "England",
+                  "price": 2.62
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.9
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:13:58Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.3,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.57,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "gtbets",
+          "title": "GTbets",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.01
+                },
+                {
+                  "name": "England",
+                  "price": 2.77
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.04
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.39,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.62,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betfred_uk",
+          "title": "Betfred (UK)",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.88
+                },
+                {
+                  "name": "England",
+                  "price": 2.62
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betr_au",
+          "title": "Betr",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.9
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betright",
+          "title": "Bet Right",
+          "last_update": "2026-07-15T11:14:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:31Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.85
+                },
+                {
+                  "name": "England",
+                  "price": 2.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.9
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "playup",
+          "title": "PlayUp",
+          "last_update": "2026-07-15T11:14:14Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.9
+                },
+                {
+                  "name": "England",
+                  "price": 2.65
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.9
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.4,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.55,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "tab",
+          "title": "TAB",
+          "last_update": "2026-07-15T11:14:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:31Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betway",
+          "title": "Betway",
+          "last_update": "2026-07-15T11:14:30Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.9
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "sportsbet",
+          "title": "SportsBet",
+          "last_update": "2026-07-15T11:14:14Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "paddypower",
+          "title": "Paddy Power",
+          "last_update": "2026-07-15T11:13:37Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:37Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "skybet",
+          "title": "Sky Bet",
+          "last_update": "2026-07-15T11:14:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:16Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.9
+                },
+                {
+                  "name": "England",
+                  "price": 2.63
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "fanduel",
+          "title": "FanDuel",
+          "last_update": "2026-07-15T11:14:15Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:15Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betonlineag",
+          "title": "BetOnline.ag",
+          "last_update": "2026-07-15T11:13:03Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:03Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.07
+                },
+                {
+                  "name": "England",
+                  "price": 2.76
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.92
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:13:03Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.79,
+                  "point": 2.0
+                },
+                {
+                  "name": "Under",
+                  "price": 2.11,
+                  "point": 2.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "lowvig",
+          "title": "LowVig.ag",
+          "last_update": "2026-07-15T11:14:15Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:15Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.07
+                },
+                {
+                  "name": "England",
+                  "price": 2.76
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.92
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:15Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.79,
+                  "point": 2.0
+                },
+                {
+                  "name": "Under",
+                  "price": 2.11,
+                  "point": 2.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betfair_ex_eu",
+          "title": "Betfair",
+          "last_update": "2026-07-15T11:14:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:48Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.15
+                },
+                {
+                  "name": "England",
+                  "price": 2.84
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.98
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-07-15T11:14:48Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.2
+                },
+                {
+                  "name": "England",
+                  "price": 2.86
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betfair_ex_au",
+          "title": "Betfair",
+          "last_update": "2026-07-15T11:14:30Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.15
+                },
+                {
+                  "name": "England",
+                  "price": 2.84
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.98
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.2
+                },
+                {
+                  "name": "England",
+                  "price": 2.86
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "matchbook",
+          "title": "Matchbook",
+          "last_update": "2026-07-15T11:14:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:48Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.15
+                },
+                {
+                  "name": "England",
+                  "price": 2.86
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.0
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-07-15T11:14:48Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.2
+                },
+                {
+                  "name": "England",
+                  "price": 2.88
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.05
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:48Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.56,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.63,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betfair_ex_uk",
+          "title": "Betfair",
+          "last_update": "2026-07-15T11:14:48Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:48Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.15
+                },
+                {
+                  "name": "England",
+                  "price": 2.84
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.98
+                }
+              ]
+            },
+            {
+              "key": "h2h_lay",
+              "last_update": "2026-07-15T11:14:48Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.2
+                },
+                {
+                  "name": "England",
+                  "price": 2.86
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betfair_sb_uk",
+          "title": "Betfair Sportsbook",
+          "last_update": "2026-07-15T11:14:16Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:16Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "onexbet",
+          "title": "1xBet",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.04
+                },
+                {
+                  "name": "England",
+                  "price": 2.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 3.1
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.43,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.6,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betvictor",
+          "title": "Bet Victor",
+          "last_update": "2026-07-15T11:13:19Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:19Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "nordicbet",
+          "title": "Nordic Bet",
+          "last_update": "2026-07-15T11:14:31Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:31Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.05
+                },
+                {
+                  "name": "England",
+                  "price": 2.82
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.92
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:31Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.42,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.58,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betsson",
+          "title": "Betsson",
+          "last_update": "2026-07-15T11:14:13Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.05
+                },
+                {
+                  "name": "England",
+                  "price": 2.82
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.92
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:13Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.42,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.58,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "boylesports",
+          "title": "BoyleSports",
+          "last_update": "2026-07-15T11:14:15Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:15Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.9
+                },
+                {
+                  "name": "England",
+                  "price": 2.62
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.88
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "pointsbetau",
+          "title": "PointsBet (AU)",
+          "last_update": "2026-07-15T11:14:30Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:30Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 2.9
+                },
+                {
+                  "name": "England",
+                  "price": 2.65
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "everygame",
+          "title": "Everygame",
+          "last_update": "2026-07-15T11:13:18Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:18Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.05
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "coolbet",
+          "title": "Coolbet",
+          "last_update": "2026-07-15T11:14:15Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:15Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.1
+                },
+                {
+                  "name": "England",
+                  "price": 2.77
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.94
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:15Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.81,
+                  "point": 2.0
+                },
+                {
+                  "name": "Under",
+                  "price": 2.07,
+                  "point": 2.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "codere_it",
+          "title": "Codere (IT)",
+          "last_update": "2026-07-15T11:14:14Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.85
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:14Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 2.29,
+                  "point": 2.5
+                },
+                {
+                  "name": "Under",
+                  "price": 1.53,
+                  "point": 2.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betano_uk",
+          "title": "Betano (UK)",
+          "last_update": "2026-07-15T11:12:58Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:12:58Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betanysports",
+          "title": "BetAnything",
+          "last_update": "2026-07-15T11:14:15Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:14:15Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.0
+                },
+                {
+                  "name": "England",
+                  "price": 2.7
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.95
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:14:15Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.43,
+                  "point": 1.5
+                },
+                {
+                  "name": "Under",
+                  "price": 2.85,
+                  "point": 1.5
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "betus",
+          "title": "BetUS",
+          "last_update": "2026-07-15T11:13:56Z",
+          "markets": [
+            {
+              "key": "h2h",
+              "last_update": "2026-07-15T11:13:56Z",
+              "outcomes": [
+                {
+                  "name": "Argentina",
+                  "price": 3.05
+                },
+                {
+                  "name": "England",
+                  "price": 2.75
+                },
+                {
+                  "name": "Draw",
+                  "price": 2.9
+                }
+              ]
+            },
+            {
+              "key": "totals",
+              "last_update": "2026-07-15T11:13:56Z",
+              "outcomes": [
+                {
+                  "name": "Over",
+                  "price": 1.74,
+                  "point": 2.0
+                },
+                {
+                  "name": "Under",
+                  "price": 2.15,
+                  "point": 2.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "espn_odds": {
+    "England|Argentina": {
+      "ml_home": "+175",
+      "ml_draw": "+185",
+      "ml_away": "+200",
+      "ah_line": -0.5,
+      "ah_odds": "+165",
+      "ou_line": 2.5,
+      "over_odds": "+140",
+      "under_odds": "-175"
+    }
+  },
+  "polymarket": {
+    "Spain": 0.5815,
+    "England": 0.2265,
+    "Argentina": 0.1965
+  },
+  "goal_events": {
+    "France|Spain": {
+      "events": [
+        {
+          "minute": "9'",
+          "team": "France",
+          "player": "A. Rabiot",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "22'",
+          "team": "Spain",
+          "player": "M. Oyarzabal",
+          "type": "Penalty - Scored",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": true,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "31'",
+          "team": "Spain",
+          "player": "M. Cucurella",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        },
+        {
+          "minute": "58'",
+          "team": "Spain",
+          "player": "P. Porro",
+          "type": "Goal",
+          "is_goal": true,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": false,
+          "red_card": false
+        },
+        {
+          "minute": "86'",
+          "team": "France",
+          "player": "K. Mbappé",
+          "type": "Yellow Card",
+          "is_goal": false,
+          "is_own_goal": false,
+          "is_penalty": false,
+          "is_shootout": false,
+          "yellow_card": true,
+          "red_card": false
+        }
+      ],
+      "formations": {
+        "home": "4-2-3-1",
+        "away": "4-2-3-1"
+      },
+      "lineups": {
+        "home": {
+          "starters": [
+            "M. Maignan",
+            "W. Saliba",
+            "D. Upamecano",
+            "L. Digne",
+            "J. Koundé",
+            "M. Olise",
+            "A. Rabiot",
+            "A. Tchouaméni",
+            "K. Mbappé",
+            "B. Barcola",
+            "O. Dembélé"
+          ],
+          "subs_used": [
+            "M. Koné",
+            "T. Hernández",
+            "D. Doué",
+            "R. Cherki",
+            "M. Lacroix"
+          ]
+        },
+        "away": {
+          "starters": [
+            "U. Simón",
+            "A. Laporte",
+            "P. Cubarsí",
+            "M. Cucurella",
+            "P. Porro",
+            "D. Olmo",
+            "F. Ruiz",
+            "Rodri",
+            "M. Oyarzabal",
+            "Á. Baena",
+            "L. Yamal"
+          ],
+          "subs_used": [
+            "F. Torres",
+            "M. Llorente",
+            "N. Williams",
+            "Pedri",
+            "M. Merino"
+          ]
+        }
+      },
+      "substitutions": [
+        {
+          "minute": "30'",
+          "team": "",
+          "text": "Substitution, France. Maxence Lacroix replaces William Saliba because of an injury."
+        },
+        {
+          "minute": "45'",
+          "team": "",
+          "text": "Substitution, France. Manu Koné replaces Adrien Rabiot."
+        },
+        {
+          "minute": "57'",
+          "team": "",
+          "text": "Substitution, France. Désiré Doué replaces Bradley Barcola."
+        },
+        {
+          "minute": "72'",
+          "team": "",
+          "text": "Substitution, France. Théo Hernández replaces Lucas Digne."
+        },
+        {
+          "minute": "72'",
+          "team": "",
+          "text": "Substitution, France. Rayan Cherki replaces Michael Olise."
+        },
+        {
+          "minute": "74'",
+          "team": "",
+          "text": "Substitution, Spain. Ferran Torres replaces Mikel Oyarzabal."
+        },
+        {
+          "minute": "78'",
+          "team": "",
+          "text": "Substitution, Spain. Mikel Merino replaces Dani Olmo."
+        },
+        {
+          "minute": "78'",
+          "team": "",
+          "text": "Substitution, Spain. Pedri replaces Fabián Ruiz."
+        },
+        {
+          "minute": "84'",
+          "team": "",
+          "text": "Substitution, Spain. Marcos Llorente replaces Pedro Porro."
+        },
+        {
+          "minute": "84'",
+          "team": "",
+          "text": "Substitution, Spain. Nico Williams replaces Álex Baena."
+        }
+      ],
+      "stats": {
+        "home": {
+          "Fouls": "11",
+          "Yellow Cards": "2",
+          "Red Cards": "0",
+          "Offsides": "4",
+          "Corner Kicks": "7",
+          "Saves": "0",
+          "Possession": "49.1",
+          "SHOTS": "10",
+          "ON GOAL": "3",
+          "On Target %": "0.3",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "0",
+          "Accurate Passes": "395",
+          "Passes": "472",
+          "Pass Completion %": "0.8",
+          "Accurate Crosses": "4",
+          "Crosses": "20",
+          "Cross %": "0.2",
+          "Long Balls": "36",
+          "Accurate Long Balls": "19",
+          "Long Balls %": "0.5",
+          "Blocked Shots": "2",
+          "Effective Tackles": "8",
+          "Tackles": "13",
+          "Tackle %": "0.6",
+          "Interceptions": "8",
+          "Effective Clearances": "11",
+          "Clearances": "11"
+        },
+        "away": {
+          "Fouls": "12",
+          "Yellow Cards": "1",
+          "Red Cards": "0",
+          "Offsides": "5",
+          "Corner Kicks": "1",
+          "Saves": "3",
+          "Possession": "50.9",
+          "SHOTS": "10",
+          "ON GOAL": "2",
+          "On Target %": "0.2",
+          "Penalty Goals": "0",
+          "Penalty Kicks Taken": "1",
+          "Accurate Passes": "427",
+          "Passes": "502",
+          "Pass Completion %": "0.9",
+          "Accurate Crosses": "1",
+          "Crosses": "7",
+          "Cross %": "0.1",
+          "Long Balls": "51",
+          "Accurate Long Balls": "14",
+          "Long Balls %": "0.3",
+          "Blocked Shots": "3",
+          "Effective Tackles": "14",
+          "Tackles": "22",
+          "Tackle %": "0.6",
+          "Interceptions": "7",
+          "Effective Clearances": "22",
+          "Clearances": "22"
+        }
+      },
+      "linescores": {
+        "home": [
+          0,
+          0
+        ],
+        "away": [
+          1,
+          1
+        ]
+      },
+      "penalties": {},
+      "decided": "90min"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "match_id": "537388",
+    "home_team": "England",
+    "away_team": "Argentina",
+    "kickoff": "07/16 03:00",
+    "kickoff_utc": "2026-07-15T19:00:00Z",
+    "ah_prediction": "away",
+    "ah_confidence": 11,
+    "ou_prediction": "over",
+    "ou_confidence": 30,
+    "predicted_score": "1-1",
+    "predicted_score_prob": 13.0,
+    "p_home_win": 0.319,
+    "p_draw": 0.275,
+    "p_away_win": 0.406,
+    "key_factors": [
+      "強度來源：DraftKings盤口＋PM校驗"
+    ],
+    "lambda_home": 1.109,
+    "lambda_away": 1.288,
+    "ou_lambda_home": 1.736,
+    "ou_lambda_away": 1.631,
+    "ah_line": 0.0,
+    "ou_line": 2.5,
+    "reasoning": "【強度】英格蘭（ELO 1946）vs 阿根廷（ELO 2031），實力略佔優勢（ELO -85）\n【近況】英格蘭 6場 進12 失6；阿根廷 7場 進18 失6\n【陣型戰術】英格蘭 4-3-3（進攻型）vs 阿根廷 4-3-3（進攻型），雙方均主動進攻，預計開放式打法\n【體力】英格蘭 休息4天（略有疲態）；阿根廷 休息3天（疲態明顯）\n【進球預期】主 1.1 + 客 1.3 = 2.4，傾向大球（信心 30%）\n【勝負】雙方勢均力敵，平局機率 27% 不低",
+    "injury_notes": [
+      "英格蘭：Tino Livramento（大腿傷，確定缺陣（估））、Declan Rice（大腿後肌，帶傷參賽（估））、Reece James（大腿後肌，WC期間（估））、Jarell Quansah（踝傷，疑問，WC期間（估））、Jordan Henderson（慶祝跳欄手腕重傷，本屆報銷）",
+      "阿根廷：Cristian Romero（MCL部分撕裂，疑問（估））、Nahuel Molina（大腿傷，疑問/可能復出（估））"
+    ],
+    "stage": "SEMI_FINALS",
+    "dk_ml_home": "+175",
+    "dk_ml_draw": "+185",
+    "dk_ml_away": "+200"
+  }
+]
