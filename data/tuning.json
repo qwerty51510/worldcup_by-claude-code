@@ -2,8 +2,8 @@
   "wc_league_avg": 1.51,
   "ah_line_multiplier": 0.38,
   "knockout_lambda_scale": 0.75,
-  "ah_brier": 0.2286,
-  "ou_line_multiplier": 1.031,
-  "ou_brier": 0.2503,
+  "ah_brier": 0.2292,
+  "ou_line_multiplier": 1.03,
+  "ou_brier": 0.2502,
   "injury_scale": 1.0
 }

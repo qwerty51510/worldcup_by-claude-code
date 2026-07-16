@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-15T11:14:45Z",
-  "total_matches": 115,
+  "generated_at": "2026-07-16T11:22:34Z",
+  "total_matches": 116,
   "summary": {
-    "ah_accuracy": 0.622,
-    "ou_accuracy": 0.583,
+    "ah_accuracy": 0.625,
+    "ou_accuracy": 0.586,
     "score_exact_match": 17,
-    "avg_goal_total_error": 1.62
+    "avg_goal_total_error": 1.61
   },
   "matches": [
     {
@@ -2192,6 +2192,25 @@
       "ah_is_push": false,
       "ou_pred": "over",
       "ou_correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "group": "",
+      "round": 0,
+      "home": "England",
+      "away": "Argentina",
+      "predicted_score": "1-1",
+      "actual_score": "1-2",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.109,
+      "lambda_away": 1.288,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "over",
+      "ou_correct": true
     }
   ],
   "team_analysis": [
@@ -2324,20 +2343,20 @@
       "ah_accuracy": 0.333
     },
     {
-      "team": "England",
-      "matches": 6,
-      "pred_goals_avg": 1.33,
-      "actual_goals_avg": 2.0,
-      "goal_bias": -0.67,
-      "ah_accuracy": 1.0
-    },
-    {
       "team": "Panama",
       "matches": 3,
       "pred_goals_avg": 0.67,
       "actual_goals_avg": 0.0,
       "goal_bias": 0.67,
       "ah_accuracy": 1.0
+    },
+    {
+      "team": "Argentina",
+      "matches": 8,
+      "pred_goals_avg": 1.88,
+      "actual_goals_avg": 2.5,
+      "goal_bias": -0.62,
+      "ah_accuracy": 0.875
     },
     {
       "team": "Tunisia",
@@ -2356,12 +2375,12 @@
       "ah_accuracy": 0.571
     },
     {
-      "team": "Argentina",
+      "team": "England",
       "matches": 7,
-      "pred_goals_avg": 2.0,
-      "actual_goals_avg": 2.57,
+      "pred_goals_avg": 1.29,
+      "actual_goals_avg": 1.86,
       "goal_bias": -0.57,
-      "ah_accuracy": 0.857
+      "ah_accuracy": 1.0
     },
     {
       "team": "Iran",
