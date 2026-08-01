@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-07-16T11:22:34Z",
-  "total_matches": 116,
+  "generated_at": "2026-08-01T07:41:11Z",
+  "total_matches": 118,
   "summary": {
-    "ah_accuracy": 0.625,
-    "ou_accuracy": 0.586,
+    "ah_accuracy": 0.623,
+    "ou_accuracy": 0.576,
     "score_exact_match": 17,
-    "avg_goal_total_error": 1.61
+    "avg_goal_total_error": 1.65
   },
   "matches": [
     {
@@ -860,7 +860,7 @@
       "actual_ah": "home",
       "ah_correct": true,
       "ah_is_push": false,
-      "ou_pred": "under",
+      "ou_pred": "over",
       "ou_correct": true
     },
     {
@@ -2211,6 +2211,44 @@
       "ah_is_push": false,
       "ou_pred": "over",
       "ou_correct": true
+    },
+    {
+      "date": "2026-07-18",
+      "group": "",
+      "round": 0,
+      "home": "France",
+      "away": "England",
+      "predicted_score": "2-1",
+      "actual_score": "4-6",
+      "score_correct": false,
+      "goal_total_error": 7,
+      "lambda_home": 2.013,
+      "lambda_away": 1.329,
+      "ah_pred": "home",
+      "actual_ah": "away",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-07-19",
+      "group": "",
+      "round": 0,
+      "home": "Spain",
+      "away": "Argentina",
+      "predicted_score": "1-0",
+      "actual_score": "0-0",
+      "score_correct": false,
+      "goal_total_error": 1,
+      "lambda_home": 1.429,
+      "lambda_away": 0.878,
+      "ah_pred": "away",
+      "actual_ah": "away",
+      "ah_correct": true,
+      "ah_is_push": false,
+      "ou_pred": "over",
+      "ou_correct": false
     }
   ],
   "team_analysis": [
@@ -2261,6 +2299,14 @@
       "actual_goals_avg": 2.5,
       "goal_bias": -1.25,
       "ah_accuracy": 0.75
+    },
+    {
+      "team": "England",
+      "matches": 8,
+      "pred_goals_avg": 1.25,
+      "actual_goals_avg": 2.38,
+      "goal_bias": -1.12,
+      "ah_accuracy": 0.833
     },
     {
       "team": "Austria",
@@ -2351,14 +2397,6 @@
       "ah_accuracy": 1.0
     },
     {
-      "team": "Argentina",
-      "matches": 8,
-      "pred_goals_avg": 1.88,
-      "actual_goals_avg": 2.5,
-      "goal_bias": -0.62,
-      "ah_accuracy": 0.875
-    },
-    {
       "team": "Tunisia",
       "matches": 5,
       "pred_goals_avg": 0.0,
@@ -2367,20 +2405,12 @@
       "ah_accuracy": 1.0
     },
     {
-      "team": "Spain",
-      "matches": 7,
-      "pred_goals_avg": 1.29,
-      "actual_goals_avg": 1.86,
-      "goal_bias": -0.57,
-      "ah_accuracy": 0.571
-    },
-    {
-      "team": "England",
-      "matches": 7,
-      "pred_goals_avg": 1.29,
-      "actual_goals_avg": 1.86,
-      "goal_bias": -0.57,
-      "ah_accuracy": 1.0
+      "team": "Argentina",
+      "matches": 9,
+      "pred_goals_avg": 1.67,
+      "actual_goals_avg": 2.22,
+      "goal_bias": -0.56,
+      "ah_accuracy": 0.889
     },
     {
       "team": "Iran",
@@ -2429,6 +2459,22 @@
       "actual_goals_avg": 0.4,
       "goal_bias": 0.4,
       "ah_accuracy": 0.2
+    },
+    {
+      "team": "Spain",
+      "matches": 8,
+      "pred_goals_avg": 1.25,
+      "actual_goals_avg": 1.62,
+      "goal_bias": -0.38,
+      "ah_accuracy": 0.625
+    },
+    {
+      "team": "France",
+      "matches": 8,
+      "pred_goals_avg": 2.12,
+      "actual_goals_avg": 2.5,
+      "goal_bias": -0.38,
+      "ah_accuracy": 0.625
     },
     {
       "team": "Qatar",
@@ -2565,14 +2611,6 @@
       "actual_goals_avg": 1.83,
       "goal_bias": -0.17,
       "ah_accuracy": 1.0
-    },
-    {
-      "team": "France",
-      "matches": 7,
-      "pred_goals_avg": 2.14,
-      "actual_goals_avg": 2.29,
-      "goal_bias": -0.14,
-      "ah_accuracy": 0.714
     },
     {
       "team": "Czechia",
@@ -3396,6 +3434,25 @@
       "ah_correct": false,
       "ah_is_push": false,
       "ou_pred": "over",
+      "ou_correct": false
+    },
+    {
+      "date": "2026-07-18",
+      "group": "",
+      "round": 0,
+      "home": "France",
+      "away": "England",
+      "predicted_score": "2-1",
+      "actual_score": "4-6",
+      "score_correct": false,
+      "goal_total_error": 7,
+      "lambda_home": 2.013,
+      "lambda_away": 1.329,
+      "ah_pred": "home",
+      "actual_ah": "away",
+      "ah_correct": false,
+      "ah_is_push": false,
+      "ou_pred": "under",
       "ou_correct": false
     }
   ]

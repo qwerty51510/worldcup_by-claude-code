@@ -1102,5 +1102,29 @@
     "away_goals_final": 2,
     "duration": "REGULAR",
     "round": 0
+  },
+  {
+    "date": "2026-07-18",
+    "group": "",
+    "home": "France",
+    "away": "England",
+    "home_goals": 4,
+    "away_goals": 6,
+    "home_goals_final": 4,
+    "away_goals_final": 6,
+    "duration": "REGULAR",
+    "round": 0
+  },
+  {
+    "date": "2026-07-19",
+    "group": "",
+    "home": "Spain",
+    "away": "Argentina",
+    "home_goals": 0,
+    "away_goals": 0,
+    "home_goals_final": 1,
+    "away_goals_final": 0,
+    "duration": "EXTRA_TIME",
+    "round": 0
   }
 ]
